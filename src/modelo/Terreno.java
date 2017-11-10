@@ -14,6 +14,7 @@ public class Terreno extends Casillero {
 			int alquiler1Casa, int alquiler2Casas, int alquilerHotel,
 			int construirCasa, int ConstruirHotel) {
 		this.nombre = nombre;
+		this.precio = precio;
 		this.provincia = provincia;
 		provincia.agregarTerreno(this);
 		this.alquiler = alquiler;
@@ -23,9 +24,13 @@ public class Terreno extends Casillero {
 	}
 	
 	public void comprar(Jugador jugador) {
-		// TODO ver que se hace si tiene dueño
+		// TODO ver que se hace si ya tiene dueño
 		this.propietario = jugador;
 		jugador.decrementarDinero(precio);
+	}
+
+	public Jugador getPropietario() {
+		return propietario;
 	}
 
 }
