@@ -23,7 +23,7 @@ public class Terreno extends Casillero {
 	}
 	
 	public void comprar(Jugador jugador) {
-		// ver que se hace si tiene dueño
+		// TODO ver que se hace si tiene dueño
 		this.propietario = jugador;
 		jugador.decrementarDinero(precio);
 	}
