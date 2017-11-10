@@ -26,16 +26,6 @@ public class Jugador {
 	public void incrementarDinero(int monto) {
 		this.dinero += monto;
 	}
-
-
-	public boolean ganoQuini6(int numeroDeVictoria) {
-		return (this.quini6 == numeroDeVictoria);
-	}
-
-
-	public void incrementarQuini6() {
-		this.quini6 += 1;
-	}
 	
 	public void moverA(Casillero unCasillero) {
 		posicion=unCasillero;
