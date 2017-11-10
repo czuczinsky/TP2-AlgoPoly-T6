@@ -1,6 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,6 +13,5 @@ public class JugadorTest {
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		jugador1.decrementarDinero(5000);
 		Assert.assertEquals(95000 , jugador1.getDinero());
-
 		}
 }
