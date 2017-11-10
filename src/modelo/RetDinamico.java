@@ -1,5 +1,5 @@
 package modelo;
 
-public class RetDinamico extends Terreno {
+public class RetDinamico extends Casillero {
 
 }

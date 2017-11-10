@@ -1,5 +1,5 @@
 package modelo;
 
-public class Carcel extends Terreno {
+public class Carcel extends Casillero {
 
 }
