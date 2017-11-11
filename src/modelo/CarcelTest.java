@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CarcelTest {
 
 	@Test
-	public void testSiAlCrearLaCarcelNoDeberiaTenerNingunPrisionero() {
+	public void testAlCrearLaCarcelNoDeberiaTenerNingunPrisionero() {
 		
 		Carcel carcel=new Carcel();
 		
@@ -28,7 +28,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void testSiAgregoUnJugadorALaCarcelEnElPrimerTurnoNoPuedeMoverse() {
+	public void testSiUnJugadorCaeEnLaCarcelNoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
