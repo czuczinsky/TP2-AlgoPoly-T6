@@ -3,7 +3,6 @@ package modelo;
 public class Jugador {
 	private String nombre;
 	private int dinero;
-	private int quini6;
 	Casillero posicion;
 	
 	public Jugador(String nombre, int dinero) {
