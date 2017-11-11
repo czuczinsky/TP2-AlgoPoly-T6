@@ -1,11 +1,18 @@
 package modelo;
 
 public class Dados {
+	private static Dados dados = null;
 	private int dado1;
 	private int dado2;
+	protected Dados() {
+	}
 
-	public Dados() {
-		tirar();
+	public static Dados getDados() {
+		if (dados == null) {
+			dados = new Dados();
+			dados.tirar();
+		}
+		return dados;
 	}
 
 	public void tirar() {
