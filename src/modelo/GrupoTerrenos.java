@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Provincia {
+public class GrupoTerrenos {
 	private ArrayList<Terreno> terrenos = new ArrayList<Terreno>();
 
 	public void agregarTerreno(Terreno terreno) {

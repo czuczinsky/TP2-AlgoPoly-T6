@@ -3,7 +3,7 @@ package modelo;
 public class Terreno extends Casillero {
 
 	private int precio;
-	private Provincia provincia;
+	private GrupoTerrenos grupo;
 	private int alquiler;
 	private int alquiler1Casa;
 	private int alquiler2Casas;
@@ -14,12 +14,12 @@ public class Terreno extends Casillero {
 	private int cantCasas;
 	private int cantHoteles;
 
-	public Terreno (String nombre, Provincia provincia, int precio, int alquiler,
+	public Terreno (String nombre, GrupoTerrenos provincia, int precio, int alquiler,
 			int alquiler1Casa, int alquiler2Casas, int alquilerHotel,
 			int costoEdificarCasa, int costoEdificarHotel) {
 		this.nombre = nombre;
 		this.precio = precio;
-		this.provincia = provincia;
+		this.grupo = provincia;
 		provincia.agregarTerreno(this);
 		this.alquiler = alquiler;
 		this.alquiler1Casa = alquiler1Casa;
@@ -42,12 +42,12 @@ public class Terreno extends Casillero {
 	}
 	
 	public void edificar() {
-		if (provincia.terrenosMismoPropietario()) {
+		if (grupo.terrenosMismoPropietario()) {
 			if (cantHoteles == 0 && (cantCasas == 0 || cantCasas == 1)) {
 				propietario.decrementarDinero(costoEdificarCasa);
 				cantCasas++;
 			} else {
-				if (this.provincia.esMultiple()) {
+				if (this.grupo.esMultiple()) {
 					if (cantHoteles == 0) {
 						propietario.decrementarDinero(costoEdificarHotel);
 						cantCasas = 0;

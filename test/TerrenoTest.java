@@ -9,7 +9,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test01Comprar() {
-		Provincia provincia1 = new Provincia();
+		GrupoTerrenos provincia1 = new GrupoTerrenos();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
@@ -22,7 +22,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test02EdificarUnaCasaTerrenoSimple() {
-		Provincia provincia1 = new Provincia();
+		GrupoTerrenos provincia1 = new GrupoTerrenos();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
@@ -34,7 +34,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test03EdificarDosCasasTerrenoSimple() {
-		Provincia provincia1 = new Provincia();
+		GrupoTerrenos provincia1 = new GrupoTerrenos();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
@@ -47,7 +47,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test04EdificarDosMasDosCasas() {
-		Provincia provincia1 = new Provincia();
+		GrupoTerrenos provincia1 = new GrupoTerrenos();
 		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
 
@@ -63,7 +63,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test05EdificarUnHotel() {
-		Provincia provincia1 = new Provincia();
+		GrupoTerrenos provincia1 = new GrupoTerrenos();
 		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
 
@@ -80,7 +80,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test06IntentarEdificarHotelTerrenoSimple() {
-		Provincia provincia1 = new Provincia();
+		GrupoTerrenos provincia1 = new GrupoTerrenos();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
