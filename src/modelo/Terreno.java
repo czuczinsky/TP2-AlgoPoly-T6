@@ -9,10 +9,14 @@ public class Terreno extends Casillero {
 	private int alquiler2Casas;
 	private int alquilerHotel;
 	private Jugador propietario;
+	private int costoEdificarCasa;
+	private int costoEdificarHotel;
+	private int cantCasas;
+	private int cantHoteles;
 
 	public Terreno (String nombre, Provincia provincia, int precio, int alquiler,
 			int alquiler1Casa, int alquiler2Casas, int alquilerHotel,
-			int construirCasa, int ConstruirHotel) {
+			int costoEdificarCasa, int costoEdificarHotel) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.provincia = provincia;
@@ -21,6 +25,10 @@ public class Terreno extends Casillero {
 		this.alquiler1Casa = alquiler1Casa;
 		this.alquiler2Casas = alquiler2Casas;
 		this.alquilerHotel = alquilerHotel;
+		this.costoEdificarCasa = costoEdificarCasa;
+		this.costoEdificarHotel = costoEdificarHotel;
+		this.cantCasas = 0;
+		this.cantHoteles = 0;
 	}
 	
 	public void comprar(Jugador jugador) {
@@ -31,6 +39,23 @@ public class Terreno extends Casillero {
 
 	public Jugador getPropietario() {
 		return propietario;
+	}
+	
+	public void edificar() {
+		if (provincia.terrenosMismoPropietario()) {
+			if (cantHoteles == 0 && (cantCasas == 0 || cantCasas == 1)) {
+				propietario.decrementarDinero(costoEdificarCasa);
+				cantCasas++;
+			} else {
+				if (this.provincia.esMultiple()) {
+					if (cantHoteles == 0) {
+						propietario.decrementarDinero(costoEdificarHotel);
+						cantCasas = 0;
+						cantHoteles++;
+					}
+				}
+			}
+		}
 	}
 
 }

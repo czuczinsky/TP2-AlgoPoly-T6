@@ -20,4 +20,63 @@ public class TerrenoTest {
 		Assert.assertEquals(80000 , jugador1.getDinero());
 	}
 
+	@Test
+	public void test02EdificarUnaCasaTerrenoSimple() {
+		Provincia provincia1 = new Provincia();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.comprar(jugador1);
+		terreno1.edificar();
+		Assert.assertEquals(100000-20000-5000 , jugador1.getDinero());
+	}
+
+	@Test
+	public void test03EdificarDosCasasTerrenoSimple() {
+		Provincia provincia1 = new Provincia();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.comprar(jugador1);
+		terreno1.edificar();
+		terreno1.edificar();
+		Assert.assertEquals(100000-20000-5000-5000 , jugador1.getDinero());
+	}
+
+	@Test
+	public void test04EdificarDosMasDosCasas() {
+		Provincia provincia1 = new Provincia();
+		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
+
+		Jugador jugador1 = new Jugador("Jugador 1", 100000);
+		terrenoNorte.comprar(jugador1);
+		terrenoSur.comprar(jugador1);
+		terrenoNorte.edificar(); // primera casa
+		terrenoNorte.edificar(); // segunda casa
+		terrenoSur.edificar(); // primera casa
+		terrenoSur.edificar(); // segunda casa
+		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500 - 5500, jugador1.getDinero());
+	}
+
+	@Test
+	public void test05EdificarUnHotel() {
+		Provincia provincia1 = new Provincia();
+		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
+
+		Jugador jugador1 = new Jugador("Jugador 1", 100000);
+		terrenoNorte.comprar(jugador1);
+		terrenoSur.comprar(jugador1);
+		terrenoNorte.edificar(); // primera casa
+		terrenoNorte.edificar(); // segunda casa
+		terrenoSur.edificar(); // primera casa
+		terrenoSur.edificar(); // segunda casa
+		terrenoNorte.edificar(); // hotel
+		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500 - 5500 - 8000, jugador1.getDinero());
+	}
+
+	// TODO tests de casos en que ya no se puede edificar
 }
