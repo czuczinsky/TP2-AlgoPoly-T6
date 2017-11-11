@@ -1,7 +1,8 @@
 package modelo;
 
 public class Terreno extends Casillero {
-
+	
+	private String nombre;
 	private int precio;
 	private GrupoTerrenos grupo;
 	private int alquiler;
