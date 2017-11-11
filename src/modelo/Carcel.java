@@ -23,8 +23,7 @@ public class Carcel extends Casillero {
 		
 		int indexJugador = this.prisioneros.indexOf(jugador);
 		int turnoActual=this.turnos.get(indexJugador);
-		this.turnos.set(indexJugador, turnoActual+1);
-			
+		this.turnos.set(indexJugador, turnoActual+1);	
 	}
 	
 	private void actualizarPrisioneros() {
@@ -34,7 +33,8 @@ public class Carcel extends Casillero {
 			Integer turno = turnosIter.next();
 			if (turno>3) {
 				int indexJugador = this.turnos.indexOf(turno);
-				this.prisioneros.remove(indexJugador); 
+				this.prisioneros.remove(indexJugador);
+				turnosIter.remove();
 			}
 		}
 	}
@@ -49,11 +49,9 @@ public class Carcel extends Casillero {
 				this.actualizarTurnoJugador(jugador);
 			}
 		}
-		return puedeMoverse;
-		
+		return puedeMoverse;	
 	}
 	
-
 	private boolean verificarSiPuedePagar(Jugador jugador) {
 		boolean puedePagar=false;
 		

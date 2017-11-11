@@ -1,8 +1,9 @@
-package modelo;
+package test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import modelo.*;
 
 public class CarcelTest {
 
@@ -73,9 +74,7 @@ public class CarcelTest {
 		
 		carcel.ocupar(jugador);
 		carcel.puedeMoverse(jugador);
-		
 		carcel.puedeMoverse(jugador);
-		
 		carcel.puedeMoverse(jugador);
 		boolean puedeMoverse=carcel.puedeMoverse(jugador);
 		
@@ -173,4 +172,24 @@ public class CarcelTest {
 		assertEquals(false,carcel.puedeMoverse(jugador));
 	}
 
+	@Test
+	public void testSiCaeMasDeUnJugadorALaCarcelElPrimeroDeberiaPoderMoverseYElSegundoNo() {
+		
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		
+		carcel.ocupar(jugador1);
+		carcel.puedeMoverse(jugador1);
+		carcel.puedeMoverse(jugador1);
+		carcel.puedeMoverse(jugador1);
+		carcel.ocupar(jugador2);
+		carcel.puedeMoverse(jugador2);
+		carcel.puedeMoverse(jugador2);
+		
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		
+	}
 }
