@@ -9,7 +9,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test01Comprar() {
-		GrupoTerrenos provincia1 = new GrupoTerrenos();
+		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
@@ -22,7 +22,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test02EdificarUnaCasaTerrenoSimple() {
-		GrupoTerrenos provincia1 = new GrupoTerrenos();
+		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
@@ -34,7 +34,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test03EdificarDosCasasTerrenoSimple() {
-		GrupoTerrenos provincia1 = new GrupoTerrenos();
+		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
@@ -47,7 +47,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test04EdificarDosMasDosCasas() {
-		GrupoTerrenos provincia1 = new GrupoTerrenos();
+		Grupo provincia1 = new Grupo();
 		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
 
@@ -63,7 +63,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test05EdificarUnHotel() {
-		GrupoTerrenos provincia1 = new GrupoTerrenos();
+		Grupo provincia1 = new Grupo();
 		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
 
@@ -80,7 +80,7 @@ public class TerrenoTest {
 
 	@Test
 	public void test06IntentarEdificarHotelTerrenoSimple() {
-		GrupoTerrenos provincia1 = new GrupoTerrenos();
+		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				

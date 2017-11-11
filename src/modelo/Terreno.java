@@ -1,10 +1,10 @@
 package modelo;
 
-public class Terreno implements Casillero {
+public class Terreno implements Casillero, Agrupable {
 	
 	private String nombre;
 	private int precio;
-	private GrupoTerrenos grupo;
+	private Grupo grupo;
 	private int alquiler;
 	private int alquiler1Casa;
 	private int alquiler2Casas;
@@ -15,13 +15,13 @@ public class Terreno implements Casillero {
 	private int cantCasas;
 	private int cantHoteles;
 
-	public Terreno (String nombre, GrupoTerrenos provincia, int precio, int alquiler,
+	public Terreno (String nombre, Grupo provincia, int precio, int alquiler,
 			int alquiler1Casa, int alquiler2Casas, int alquilerHotel,
 			int costoEdificarCasa, int costoEdificarHotel) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.grupo = provincia;
-		provincia.agregarTerreno(this);
+		provincia.agregar(this);
 		this.alquiler = alquiler;
 		this.alquiler1Casa = alquiler1Casa;
 		this.alquiler2Casas = alquiler2Casas;
@@ -43,7 +43,7 @@ public class Terreno implements Casillero {
 	}
 	
 	public void edificar() {
-		if (grupo.terrenosMismoPropietario()) {
+		if (grupo.mismoPropietario()) {
 			if (cantHoteles == 0 && (cantCasas == 0 || cantCasas == 1)) {
 				propietario.decrementarDinero(costoEdificarCasa);
 				cantCasas++;
