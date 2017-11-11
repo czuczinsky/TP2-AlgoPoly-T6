@@ -78,5 +78,20 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500 - 5500 - 8000, jugador1.getDinero());
 	}
 
+	@Test
+	public void test06IntentarEdificarHotelTerrenoSimple() {
+		Provincia provincia1 = new Provincia();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.comprar(jugador1);
+		terreno1.edificar(); // primera casa
+		terreno1.edificar(); // segunda casa
+		terreno1.edificar(); // hotel?
+		Assert.assertEquals(100000-20000-5000-5000 , jugador1.getDinero());
+	}
+
+
 	// TODO tests de casos en que ya no se puede edificar
 }
