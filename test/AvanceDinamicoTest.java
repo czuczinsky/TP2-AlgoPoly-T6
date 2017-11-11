@@ -14,9 +14,9 @@ public class AvanceDinamicoTest {
 	@Test
 	public void test01JugadorCaeEnAvanceDinamicoSacando2EnLosDadosNoAvanza() {
 		Jugador jugador = new Jugador("Jugador", 0);
-		Dados dados = new Dados();
+		Dados dados = Dados.getDados();
 		Tablero tablero = new Tablero();
-		AvanceDinamico avanceDinamico = new AvanceDinamico(dados, tablero);
+		AvanceDinamico avanceDinamico = new AvanceDinamico(tablero);
 		jugador.moverA(avanceDinamico);
 		dados.setNumeros(1,1);
 		avanceDinamico.ocupar(jugador);

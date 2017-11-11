@@ -2,17 +2,16 @@ package modelo;
 
 public class AvanceDinamico implements Casillero {
 
-	private Dados dados;
 	private Tablero tablero;
 
-	public AvanceDinamico(Dados dados, Tablero tablero) {
-		this.dados = dados;
+	public AvanceDinamico(Tablero tablero) {
 		this.tablero = tablero;
 	}
 
 	@Override
 	public void ocupar(Jugador jugador) {
-		for (int i = 0;i<this.dados.getSuma()-2;i++) {
+		Dados dados = Dados.getDados();
+		for (int i = 0;i<dados.getSuma()-2;i++) {
 			this.tablero.avanzar(jugador);
 		}
 	}
