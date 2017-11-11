@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Carcel extends Casillero {
+public class Carcel implements Casillero {
 	
 	private ArrayList<Jugador> prisioneros=new ArrayList<Jugador>();
 	private ArrayList<Integer> turnos=new ArrayList<Integer>();

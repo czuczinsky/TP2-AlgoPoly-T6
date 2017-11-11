@@ -1,5 +1,11 @@
 package modelo;
 
-public class Compania extends Casillero {
+public class Compania implements Casillero {
+
+	@Override
+	public void ocupar(Jugador jugador) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

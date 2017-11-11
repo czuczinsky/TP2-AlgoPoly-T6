@@ -1,6 +1,6 @@
 package modelo;
 
-public class Terreno extends Casillero {
+public class Terreno implements Casillero {
 	
 	private String nombre;
 	private int precio;
@@ -57,6 +57,12 @@ public class Terreno extends Casillero {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void ocupar(Jugador jugador) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package modelo;
 
-public class Policia extends Casillero {
+public class Policia implements Casillero {
 	
 	Carcel carcel;
 	

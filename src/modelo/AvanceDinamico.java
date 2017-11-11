@@ -1,6 +1,6 @@
 package modelo;
 
-public class AvanceDinamico extends Casillero {
+public class AvanceDinamico implements Casillero {
 
 	private Dados dados;
 	private Tablero tablero;
