@@ -12,8 +12,8 @@ public class AvanceDinamico extends Casillero {
 
 	@Override
 	public void ocupar(Jugador jugador) {
-		for (int i = 0;i<dados.getSuma();i++) {
-			tablero.avanzar(jugador);
+		for (int i = 0;i<this.dados.getSuma()-2;i++) {
+			this.tablero.avanzar(jugador);
 		}
 	}
 	
