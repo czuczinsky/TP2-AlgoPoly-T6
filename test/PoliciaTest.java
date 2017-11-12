@@ -1,5 +1,4 @@
 package test;
-import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +11,7 @@ import modelo.Policia;
 public class PoliciaTest{
 
 	@Test
-	public void testSiJugadorCaeEnCasilleroPoliciaLaNuevaPosicionDelJugadorEsLaCarcel() {
+	public void test01SiJugadorCaeEnCasilleroPoliciaLaNuevaPosicionDelJugadorEsLaCarcel() {
 		
 		Jugador jugador=new Jugador("Pepe",100000);
 		Carcel carcel=new Carcel();
@@ -24,7 +23,7 @@ public class PoliciaTest{
 	}
 
 	@Test
-	public void test01JugadorNoEstaEnImpuestoAlLujoSiCaeEnPolicia() {
+	public void test02JugadorNoEstaEnImpuestoAlLujoSiCaeEnPolicia() {
 		
 		Jugador jugador=new Jugador("Pepe",100000);
 		Carcel carcel=new Carcel();

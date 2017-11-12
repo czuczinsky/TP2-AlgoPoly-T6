@@ -16,12 +16,13 @@ public abstract class DesplazamientoDinamico implements Casillero {
 			if((dados.getSuma()>=2)&&(dados.getSuma()<=6)) {
 			
 				if ((jugador.getPosicion()) instanceof Avance){
-						int cantidadPosiciones=posicionador.posicion1Jugador(jugador,dados);
+						int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
 						((Avance)jugador.getPosicion()).avanzarJugador(jugador,cantidadPosiciones);
 				}
 				
 				if ((jugador.getPosicion())instanceof Retroceso){
-					int cantidadPosiciones=posicionador.posicion2Jugador(jugador,dados);
+
+					int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
 					((Retroceso) jugador.getPosicion()).retrocederJugador(jugador,cantidadPosiciones);
 				}
 			}
@@ -29,12 +30,14 @@ public abstract class DesplazamientoDinamico implements Casillero {
 			if ((dados.getSuma()>=7)&&(dados.getSuma()<=10)) {
 				
 				if ((jugador.getPosicion()) instanceof Avance){
-					int cantidadPosiciones=posicionador.posicion3Jugador(jugador,dados);
- 					((Avance)jugador.getPosicion()).avanzarJugador(jugador,cantidadPosiciones);
+		
+					int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
+					((Avance)jugador.getPosicion()).avanzarJugador(jugador,cantidadPosiciones);
 				}
 				
 				if ((jugador.getPosicion()) instanceof Retroceso){
-					int cantidadPosiciones=posicionador.posicion3Jugador(jugador,dados);
+			
+					int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
 					((Retroceso) jugador.getPosicion()).retrocederJugador(jugador,cantidadPosiciones);
 				}
 				
@@ -44,12 +47,14 @@ public abstract class DesplazamientoDinamico implements Casillero {
 			if ((dados.getSuma()==11)||(dados.getSuma()==12)) {
 				
 				if ((jugador.getPosicion()) instanceof Avance){
-					int cantidadPosiciones=posicionador.posicion2Jugador(jugador,dados);
+					
+					int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
 					((Avance)jugador.getPosicion()).avanzarJugador(jugador,cantidadPosiciones);
 				}
 				
 				if ((jugador.getPosicion()) instanceof Retroceso){
-					int cantidadPosiciones=posicionador.posicion1Jugador(jugador,dados);
+			
+					int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
 					((Retroceso) jugador.getPosicion()).retrocederJugador(jugador,cantidadPosiciones);	
 				}
 		
