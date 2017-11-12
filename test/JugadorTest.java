@@ -12,6 +12,17 @@ import modelo.Terreno;
 public class JugadorTest {
 
 	@Test
+	public void test00PropietarioDeTerrenoComprado() {
+		Grupo provincia1 = new Grupo();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.comprar(jugador1);
+		Assert.assertEquals(jugador1 , terreno1.getPropietario());
+	}
+	
+	@Test
 	public void test01DecrementarDinero() {
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		jugador1.decrementarDinero(5000);
@@ -36,4 +47,6 @@ public class JugadorTest {
 		terreno.edificar();
 		Assert.assertEquals(3 , jugador.cantPropiedades());
 	}
+	
+
 }
