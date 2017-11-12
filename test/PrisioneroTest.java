@@ -10,11 +10,11 @@ import modelo.Prisionero;
 public class PrisioneroTest {
 
 	@Test
-	public void testSiAgregoUnJugadorComoPrisioneroDeberiaTenerComoTurnoUnCero() {
+	public void testSiAgregoUnJugadorComoPrisioneroDeberiaTenerComoTurnoUnUno() {
 		Jugador jugador=new Jugador("carlos",1000);
 		Prisionero prisionero=new Prisionero(jugador);
 		
-		assertEquals(0,prisionero.getTurno());
+		assertEquals(1,prisionero.getTurno());
 	}
 	
 	@Test

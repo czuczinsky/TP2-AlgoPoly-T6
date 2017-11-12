@@ -6,7 +6,7 @@ public class Prisionero {
 	
 	public Prisionero(Jugador jugador) {
 		this.jugador=jugador;
-		this.turno=0;	
+		this.turno=1;	
 	}
 	
 	public Prisionero() {

@@ -21,7 +21,7 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 		Prisionero prisionero=this.obtenerPrisionero(jugador);
 		boolean puedeMoverse=prisionero.fianzaPagada();
 		
-		if (prisionero.getTurno()>=3) {
+		if (prisionero.getTurno()>=4) {
 			this.prisioneros.remove(prisionero);
 			puedeMoverse=true;
 		}

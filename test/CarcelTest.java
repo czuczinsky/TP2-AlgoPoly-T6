@@ -84,7 +84,6 @@ public class CarcelTest {
 		
 		carcel.ocupar(jugador);
 		int dineroInicial=jugador.getDinero();
-		carcel.puedeMoverse(jugador);
 		carcel.cobrarFianza(jugador);
 		int dineroFinal=jugador.getDinero();
 		
@@ -99,7 +98,6 @@ public class CarcelTest {
 		
 		carcel.ocupar(jugador);
 		int dineroInicial=jugador.getDinero();
-		carcel.puedeMoverse(jugador);
 		carcel.puedeMoverse(jugador);
 		carcel.cobrarFianza(jugador);
 		int dineroFinal=jugador.getDinero();
@@ -117,7 +115,6 @@ public class CarcelTest {
 		int dineroInicial=jugador.getDinero();
 		carcel.puedeMoverse(jugador);
 		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
 		carcel.cobrarFianza(jugador);
 		int dineroFinal=jugador.getDinero();
 		
@@ -131,7 +128,6 @@ public class CarcelTest {
 		Jugador jugador=new Jugador("carlos",100000);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
 		carcel.puedeMoverse(jugador);
 		carcel.cobrarFianza(jugador);
 		
@@ -147,14 +143,26 @@ public class CarcelTest {
 		carcel.ocupar(jugador);
 		carcel.puedeMoverse(jugador);
 		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
 		carcel.cobrarFianza(jugador);
 		
 		assertEquals(true,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
-	public void testSiElJugadorQuierePagarLaFianzaPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
+	public void testSiElJugadorQuierePagarLaFianzaEnElSegundoTurnoPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
+		
+		Carcel carcel=new Carcel();
+		Jugador jugador=new Jugador("carlos",100);
+		
+		carcel.ocupar(jugador);
+		carcel.puedeMoverse(jugador);
+		carcel.cobrarFianza(jugador);
+		
+		assertEquals(false,carcel.puedeMoverse(jugador));
+	}
+	
+	@Test
+	public void testSiElJugadorQuierePagarLaFianzaEnElTercerTurnoPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",100);
@@ -177,11 +185,9 @@ public class CarcelTest {
 		carcel.ocupar(jugador1);
 		carcel.puedeMoverse(jugador1);
 		carcel.puedeMoverse(jugador1);
-		carcel.puedeMoverse(jugador1);
 		carcel.ocupar(jugador2);
-		carcel.puedeMoverse(jugador2);
-		carcel.puedeMoverse(jugador2);
-		
+		carcel.puedeMoverse(jugador2);	
+		carcel.puedeMoverse(jugador1);
 		
 		assertEquals(true,carcel.puedeMoverse(jugador1));
 		assertEquals(false,carcel.puedeMoverse(jugador2));
