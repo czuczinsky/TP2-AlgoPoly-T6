@@ -3,30 +3,43 @@ package modelo;
 import java.util.ArrayList;
 
 public class Quini6 implements Casillero {
-
-	private ArrayList<Jugador> jugadores;
-	private ArrayList<Integer> quinisGanados;
+	private ArrayList<Ganador> ganadores;
 	
 	public Quini6() {
-		this.jugadores = new ArrayList<Jugador>();
-		this.quinisGanados = new ArrayList<Integer>();
+		this.ganadores = new ArrayList<Ganador>();
 	}
 	
 	@Override
 	public void ocupar(Jugador jugador) {
-		if (jugadores.contains(jugador)) {
-			int indexJugador = this.jugadores.indexOf(jugador);
-			int quinisGanadosDelJugador = this.quinisGanados.get(indexJugador); 
-			if ( quinisGanadosDelJugador == 1) {
+		Ganador ganador;
+		if (this.existeGanador(jugador)) {
+			ganador = this.obtenerGanador(jugador);
+			if (ganador.vecesQueGano(1)) {
 				jugador.incrementarDinero(30000);
 			}
-			quinisGanados.set(indexJugador, quinisGanadosDelJugador + 1);
 		} else {
+			ganador = new Ganador(jugador);
+			this.ganadores.add(ganador);
 			jugador.incrementarDinero(50000);
-			this.jugadores.add(jugador);
-			int quinisGanadosDeJugador = 1;
-			this.quinisGanados.add(quinisGanadosDeJugador);
 		}
+		ganador.incrementarVictorias();
 	}
 	
+	private Ganador obtenerGanador(Jugador jugador) {
+		for (Ganador ganadorActual:ganadores) {
+			if(ganadorActual.esIgualA(jugador)) {
+				return ganadorActual;
+			}
+		}
+		return null;
+	}
+	
+	private boolean existeGanador(Jugador jugador) {
+		for (Ganador ganadorActual:ganadores) {
+			if(ganadorActual.esIgualA(jugador)) {
+				return true;
+			}
+		}
+		return false; 
+	}
 }
