@@ -158,9 +158,8 @@ public class RetrocesoTest {
 	@Test
 	public void test06JugadorQueCaeEnRetrocesoSiSaca7EnLosDadosDeberiaRetroceder5Casilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
-		jugador.agregarTerreno(neuquen);
 		jugador.moverA(retroceso);
-		dados.setNumeros(4,2);
+		dados.setNumeros(4,3);
 		
 		retroceso.ocupar(jugador);
 		
