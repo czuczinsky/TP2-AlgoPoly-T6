@@ -13,7 +13,6 @@ public class CarcelTest {
 		Carcel carcel=new Carcel();
 		
 		assertEquals(0,carcel.cantidadDePrisioneros());
-		
 	}
 	
 	@Test
@@ -24,8 +23,7 @@ public class CarcelTest {
 		
 		carcel.ocupar(jugador);
 		
-		assertEquals(1,carcel.cantidadDePrisioneros());
-		
+		assertEquals(1,carcel.cantidadDePrisioneros());	
 	}
 	
 	@Test
@@ -36,8 +34,7 @@ public class CarcelTest {
 		
 		carcel.ocupar(jugador);
 		
-		assertEquals(false,carcel.puedeMoverse(jugador));
-		
+		assertEquals(false,carcel.puedeMoverse(jugador));	
 	}
 	
 	@Test
@@ -49,8 +46,7 @@ public class CarcelTest {
 		carcel.ocupar(jugador);
 		carcel.puedeMoverse(jugador);
 		
-		assertEquals(false,carcel.puedeMoverse(jugador));
-		
+		assertEquals(false,carcel.puedeMoverse(jugador));	
 	}
 	
 	@Test
@@ -76,9 +72,8 @@ public class CarcelTest {
 		carcel.puedeMoverse(jugador);
 		carcel.puedeMoverse(jugador);
 		carcel.puedeMoverse(jugador);
-		boolean puedeMoverse=carcel.puedeMoverse(jugador);
 		
-		assertEquals(true,puedeMoverse);
+		assertEquals(true,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
@@ -173,7 +168,7 @@ public class CarcelTest {
 	}
 
 	@Test
-	public void testSiCaeMasDeUnJugadorALaCarcelElPrimeroDeberiaPoderMoverseYElSegundoNo() {
+	public void testSiCaeMasDeUnJugadorALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador1=new Jugador("carlos",100);
