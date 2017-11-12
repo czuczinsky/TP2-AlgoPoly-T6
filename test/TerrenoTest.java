@@ -93,7 +93,7 @@ public class TerrenoTest {
 	}
 
 	@Test
-	public void test06CantidadPropieaddes() {
+	public void test07CantidadPropieades() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
