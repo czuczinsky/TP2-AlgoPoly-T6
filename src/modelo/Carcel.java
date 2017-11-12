@@ -17,17 +17,16 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 	}
 	
 	public boolean puedeMoverse(Jugador jugador) {
-
-		Prisionero prisionero=this.obtenerPrisionero(jugador);
-		boolean puedeMoverse=prisionero.fianzaPagada();
-		
-		if (prisionero.getTurno()>=4) {
-			this.prisioneros.remove(prisionero);
-			puedeMoverse=true;
+		boolean puedeMoverse;
+	
+		if (this.existePrisionero(jugador)) {
+			Prisionero prisionero=this.obtenerPrisionero(jugador);
+			puedeMoverse=this.cumplioLaCondena(prisionero);
 		}
 		else {
-			prisionero.incrementarTurno();
+			puedeMoverse=true;
 		}
+		
 		return puedeMoverse;	
 	}
 	
@@ -45,13 +44,34 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 	}
 	
 	private Prisionero obtenerPrisionero(Jugador jugador) {
-		
-		Prisionero prisioneroBuscado=new Prisionero();
 		for (Prisionero prisionero:prisioneros) {
-			if(prisionero.esIgualA(jugador)) {
-				prisioneroBuscado=prisionero;
+			if(prisionero.esIgualA(jugador)) {	
+				return prisionero;
 			}
 		}
-		return prisioneroBuscado;
+		return null;
 	}
+	
+	private boolean existePrisionero(Jugador jugador) {
+		for (Prisionero prisionero:prisioneros) {
+			if(prisionero.esIgualA(jugador)) {
+				return true;
+			}
+		}
+		return false; 
+	}
+	
+	private boolean cumplioLaCondena(Prisionero prisionero) {
+		boolean cumplioCondena=false;
+	
+		if (prisionero.getTurno()>=4) {
+			this.prisioneros.remove(prisionero);
+			cumplioCondena=true;
+		}
+		else {
+			prisionero.incrementarTurno();
+		}
+		return cumplioCondena;
+	}
+
 }

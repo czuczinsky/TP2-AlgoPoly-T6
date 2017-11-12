@@ -9,10 +9,6 @@ public class Prisionero {
 		this.turno=1;	
 	}
 	
-	public Prisionero() {
-		
-	}
-	
 	public boolean esIgualA (Jugador jugador) {
 		return (this.jugador.equals(jugador));
 	}
@@ -29,7 +25,4 @@ public class Prisionero {
 		return (jugador.getDinero()>=dinero);
 	}
 	
-	public boolean fianzaPagada() {
-		return(this.jugador==null);
-	}
 }
