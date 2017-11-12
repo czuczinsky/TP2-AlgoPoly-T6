@@ -18,7 +18,7 @@ public class CompaniaTest {
 		Compania compania = new Compania("EDESUR", 35000, grupo, 500, 1000);
 
 		Dados dados = Dados.getDados();
-		dados.setDados(3, 4);
+		dados.setNumeros(3, 4);
 
 		compania.comprar(propietario);
 		Assert.assertEquals(200000 - 35000, propietario.getDinero());
@@ -32,7 +32,7 @@ public class CompaniaTest {
 		Compania compania = new Compania("EDESUR", 35000, grupo, 500, 1000);
 
 		Dados dados = Dados.getDados();
-		dados.setDados(3, 4);
+		dados.setNumeros(3, 4);
 
 		compania.comprar(propietario);
 		compania.ocupar(jugador1);
@@ -49,7 +49,7 @@ public class CompaniaTest {
 		Compania compania2 = new Compania("AYSA", 30000, grupo, 300, 500);
 
 		Dados dados = Dados.getDados();
-		dados.setDados(3, 4);
+		dados.setNumeros(3, 4);
 
 		compania1.comprar(propietario);
 		compania2.comprar(propietario);

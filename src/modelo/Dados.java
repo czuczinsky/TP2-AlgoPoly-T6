@@ -20,11 +20,6 @@ public class Dados {
 		dado2 = 1 + (int)(Math.random() * 6);
 	}
 	
-	public void setDados(int dado1, int dado2) {
-		this.dado1 = dado1;
-		this.dado2 = dado2;
-	}
-
 	public int getSuma() {
 		return dado1 + dado2;
 	}
