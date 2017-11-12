@@ -92,6 +92,18 @@ public class TerrenoTest {
 		Assert.assertEquals(100000-20000-5000-5000 , jugador1.getDinero());
 	}
 
+	@Test
+	public void test06CantidadPropieaddes() {
+		Grupo provincia1 = new Grupo();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.comprar(jugador1);
+		terreno1.edificar(); // primera casa
+		terreno1.edificar(); // segunda casa
+		Assert.assertEquals(3 , terreno1.cantPropiedades());
+	}
 
 	// TODO tests de casos en que ya no se puede edificar
 }

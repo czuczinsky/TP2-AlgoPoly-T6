@@ -36,6 +36,7 @@ public class Terreno implements Casillero, Agrupable {
 		// TODO ver que se hace si ya tiene duenio
 		this.propietario = jugador;
 		jugador.decrementarDinero(precio);
+		jugador.agregarTerreno(this);
 	}
 
 	public Jugador getPropietario() {
@@ -63,6 +64,10 @@ public class Terreno implements Casillero, Agrupable {
 	public void ocupar(Jugador jugador) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int cantPropiedades() {
+		return (1 + cantCasas + cantHoteles);
 	}
 
 }

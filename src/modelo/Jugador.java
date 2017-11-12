@@ -1,9 +1,13 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Jugador {
 	private String nombre;
 	private int dinero;
 	Casillero posicion;
+	private ArrayList<Terreno> terrenos = new ArrayList<Terreno>();
+
 	
 	public Jugador(String nombre, int dinero) {
 		this.nombre = nombre;
@@ -34,5 +38,16 @@ public class Jugador {
 	public Casillero getPosicion() {
 		return (this.posicion);
 	}
+	
+	public void agregarTerreno(Terreno terreno) {
+		this.terrenos.add(terreno);
+	}
 
+	public int cantPropiedades() {
+		int cantidad = 0;
+	for (Terreno terreno : terrenos) {
+		cantidad += terreno.cantPropiedades(); 
+		}
+	return cantidad;
+	}
 }
