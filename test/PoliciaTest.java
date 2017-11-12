@@ -12,7 +12,7 @@ import modelo.Policia;
 public class PoliciaTest{
 
 	@Test
-	public void test01JugadorEstaEnLaCarcelSiCaeEnCasilleroPolicia() {
+	public void testSiJugadorCaeEnCasilleroPoliciaLaNuevaPosicionDelJugadorEsLaCarcel() {
 		
 		Jugador jugador=new Jugador("Pepe",100000);
 		Carcel carcel=new Carcel();
