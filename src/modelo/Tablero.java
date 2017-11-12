@@ -26,13 +26,18 @@ public class Tablero {
 	}
 
 	public void retroceder(Jugador jugador) {
+		
 		Casillero posicionJugador = jugador.getPosicion();
+	
 		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador));
+		
 		if (iterador.hasPrevious()) {
 			jugador.moverA(iterador.previous());
 		} 
 		else {
 			jugador.moverA(this.casilleros.get(this.casilleros.size()-1));
+			
+
 		}
 	}
 }

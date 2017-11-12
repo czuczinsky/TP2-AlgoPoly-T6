@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import modelo.AvanceDinamico;
 import modelo.Dados;
+
 import modelo.Jugador;
 import modelo.Tablero;
 
@@ -23,5 +24,6 @@ public class AvanceDinamicoTest {
 		
 		assertEquals(avanceDinamico, jugador.getPosicion());
 	}
-
+	
+	
 }
