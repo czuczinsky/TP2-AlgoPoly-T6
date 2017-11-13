@@ -20,7 +20,7 @@ import modelo.Tablero;
 import modelo.Terreno;
 
 public class RetrocesoTest {
-	
+
 	private Tablero tablero;
 	private Dados dados;
 	private Salida salida;
@@ -220,6 +220,7 @@ public class RetrocesoTest {
 		
 		assertEquals(subte, jugador.getPosicion());	
 	}	
+
 
 
 }

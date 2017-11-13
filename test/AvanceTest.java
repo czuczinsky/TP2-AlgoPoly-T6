@@ -20,7 +20,7 @@ import modelo.Tablero;
 import modelo.Terreno;
 
 public class AvanceTest {
-	
+
 	private Tablero tablero;
 	private Dados dados;
 	private Salida salida;
@@ -218,5 +218,5 @@ public class AvanceTest {
 		
 		assertEquals(neuquen, jugador.getPosicion());
 	}
-	
+
 }

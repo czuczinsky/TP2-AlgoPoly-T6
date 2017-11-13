@@ -1,46 +1,33 @@
 package modelo;
 
-public abstract class DesplazamientoDinamico implements Casillero {
+public abstract class DesplazamientoDinamico implements Casillero{
 	
 	public Tablero tablero;
-	public Posicionador posicionador;
 
 	public DesplazamientoDinamico(Tablero tablero) {
-		this.tablero = tablero;
-		posicionador=new Posicionador();
+		this.tablero=tablero;
 	}
 	
-	public void ocupar(Jugador jugador){
+    abstract public void moverDel2al6(Jugador jugador);
+	
+	abstract public void moverDel11al12(Jugador jugador);
+	
+	abstract public void moverDel7al10(Jugador jugador);
+
+	@Override
+	public void ocupar(Jugador jugador) {
 		
 		Dados dados=Dados.getDados();
 		
 		if((dados.getSuma()>=2)&&(dados.getSuma()<=6)) {
-			
-				if ((jugador.getPosicion()) instanceof Avance){
-					((Avance) jugador.getPosicion()).avanzar(jugador);
-				}
-				if ((jugador.getPosicion())instanceof Retroceso){
-					((Retroceso) jugador.getPosicion()).retroceder(jugador);
-				}
+			this.moverDel2al6(jugador);
+		}
+		
+		else if ((dados.getSuma()>=7)&&(dados.getSuma()<=10)) {
+			this.moverDel7al10(jugador);
 		}
 			
-		if ((dados.getSuma()>=7)&&(dados.getSuma()<=10)) {
-				
-				if ((jugador.getPosicion()) instanceof Avance){
-					((Avance) jugador.getPosicion()).avanzar(jugador);
-				}
-				if ((jugador.getPosicion()) instanceof Retroceso){
-					((Retroceso) jugador.getPosicion()).retroceder(jugador);
-				}
-		}
-			
-		if ((dados.getSuma()==11)||(dados.getSuma()==12)) {
-				if ((jugador.getPosicion()) instanceof Avance){
-					((Avance) jugador.getPosicion()).avanzar(jugador);
-				}
-				if ((jugador.getPosicion()) instanceof Retroceso){
-					((Retroceso) jugador.getPosicion()).retroceder(jugador);
-				}
-		}
+		else this.moverDel11al12(jugador);	
 	}
+
 }
