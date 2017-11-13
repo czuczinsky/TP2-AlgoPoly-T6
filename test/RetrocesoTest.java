@@ -114,7 +114,7 @@ public class RetrocesoTest {
 		
 		retroceso.ocupar(jugador);
 		
-		assertEquals(policia, jugador.getPosicion());	
+		assertEquals(carcel, jugador.getPosicion());	
 	}
 	
 	@Test
@@ -126,7 +126,7 @@ public class RetrocesoTest {
 		
 		retroceso.ocupar(jugador);
 		
-		assertEquals(policia, jugador.getPosicion());	
+		assertEquals(carcel, jugador.getPosicion());	
 	}
 	
 	@Test

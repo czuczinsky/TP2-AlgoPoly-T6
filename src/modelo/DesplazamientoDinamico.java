@@ -27,7 +27,8 @@ public abstract class DesplazamientoDinamico implements Casillero{
 			this.moverDel7al10(jugador);
 		}
 			
-		else this.moverDel11al12(jugador);	
+		else this.moverDel11al12(jugador);
+		
 	}
-
+    
 }

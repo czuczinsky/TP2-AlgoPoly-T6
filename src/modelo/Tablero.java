@@ -10,32 +10,48 @@ public class Tablero {
 	public Tablero() {
 		this.casilleros = new ArrayList<Casillero>();
 	}
-
+	
 	public void avanzar(Jugador jugador) {
-		Casillero posicionJugador = jugador.getPosicion();
-		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador)+1);
-		
-		if (iterador.hasNext()) {
-			jugador.moverA(iterador.next());
-		} else {
-			jugador.moverA(this.casilleros.get(0));
+		this.avanzar(jugador, 1, null);
+	}
+
+	public void avanzar(Jugador jugador, int cantidad, Casillero casilleroAnterior) {
+		for (int i=0 ; i < cantidad ; i++) {
+			Casillero posicionJugador = jugador.getPosicion();
+			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador)+1);
+			if (iterador.hasNext()) {
+				jugador.moverA(iterador.next());
+			} else {
+				jugador.moverA(this.casilleros.get(0));
+			}
+		}
+		if (casilleroAnterior != jugador.getPosicion()){
+			jugador.getPosicion().ocupar(jugador);
 		}
 	}
 	
 	public void agregarCasillero(Casillero casillero) {
 		this.casilleros.add(casillero);
 	}
-
+	
 	public void retroceder(Jugador jugador) {
-		
-		Casillero posicionJugador = jugador.getPosicion();
-		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador));
-		
-		if (iterador.hasPrevious()) {
-			jugador.moverA(iterador.previous());
-		} 
-		else {
-			jugador.moverA(this.casilleros.get(this.casilleros.size()-1));
+		this.retroceder(jugador, 1, null);
+	}
+
+	public void retroceder(Jugador jugador, int cantidad, Casillero casilleroAnterior) {
+		for (int i=0 ; i < cantidad ; i++) {
+			Casillero posicionJugador = jugador.getPosicion();
+			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador));
+			
+			if (iterador.hasPrevious()) {
+				jugador.moverA(iterador.previous());
+			} 
+			else {
+				jugador.moverA(this.casilleros.get(this.casilleros.size()-1));
+			}
+		}
+		if (casilleroAnterior != jugador.getPosicion()){
+			jugador.getPosicion().ocupar(jugador);
 		}
 	}
 }

@@ -32,12 +32,14 @@ public class Compania implements Casillero, Agrupable {
 	@Override
 	public void ocupar(Jugador jugador) {
 		Dados dados = Dados.getDados();
-		if (grupo.esMultiple() && grupo.mismoPropietario()) {
-			jugador.decrementarDinero(multiplicadorMultiple * dados.getSuma());
-			propietario.incrementarDinero(multiplicadorMultiple * dados.getSuma());
-		} else {
-			jugador.decrementarDinero(multiplicadorSimple * dados.getSuma());
-			propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
+		if (this.propietario != null){
+			if (grupo.esMultiple() && grupo.mismoPropietario()) {
+				jugador.decrementarDinero(multiplicadorMultiple * dados.getSuma());
+				propietario.incrementarDinero(multiplicadorMultiple * dados.getSuma());
+			} else {
+				jugador.decrementarDinero(multiplicadorSimple * dados.getSuma());
+				propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
+			}
 		}
 	}
 
