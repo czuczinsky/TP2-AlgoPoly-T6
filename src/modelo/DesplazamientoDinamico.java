@@ -3,9 +3,11 @@ package modelo;
 public abstract class DesplazamientoDinamico implements Casillero {
 	
 	public Tablero tablero;
+	public Posicionador posicionador;
 
 	public DesplazamientoDinamico(Tablero tablero) {
 		this.tablero = tablero;
+		posicionador=new Posicionador();
 	}
 	
 	public void ocupar(Jugador jugador){
