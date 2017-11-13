@@ -167,6 +167,17 @@ public class RetrocesoTest {
 	}
 	
 	@Test
+	public void test06JugadorQueCaeEnRetrocesoSiSaca8EnLosDadosNoDeberiaRetrocederNingunCasillero() {
+		Jugador jugador = new Jugador("Jugador", 100000);
+		jugador.moverA(retroceso);
+		dados.setNumeros(5,3);
+		
+		retroceso.ocupar(jugador);
+		
+		assertEquals(retroceso, jugador.getPosicion());	
+	}
+	
+	@Test
 	public void test08JugadorCaeEnRetrocesoDinamicoSacando9EnLosDadosYRetrocedeASaltaNorte() {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		jugador.moverA(retroceso);
