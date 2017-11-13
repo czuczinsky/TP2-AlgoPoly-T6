@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import modelo.AvanceDinamico;
+import modelo.Avance;
 import modelo.Carcel;
 import modelo.Compania;
 import modelo.Dados;
@@ -30,7 +30,7 @@ public class RetrocesoTest {
 	private Terreno bsAsNorte;
 	private Carcel carcel;
 	private Terreno cordobaSur;
-	private AvanceDinamico avance;
+	private Avance avance;
 	private Compania subte;
 	private Terreno cordobaNorte;
 	private ImpuestoDeLujo impuesto;
@@ -65,7 +65,7 @@ public class RetrocesoTest {
 		tablero.agregarCasillero(carcel);
 		cordobaSur=new Terreno("CordobaSur", grupo, 18000, 1000, 1500, 2500, 3000, 2000, 3000);
 		tablero.agregarCasillero(cordobaSur);
-		avance=new AvanceDinamico(tablero);
+		avance=new Avance(tablero);
 		tablero.agregarCasillero(avance);
 		subte=new Compania("Subte", 40000,grupo, 600, 1100);
 		tablero.agregarCasillero(subte);

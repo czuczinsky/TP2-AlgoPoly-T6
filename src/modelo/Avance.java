@@ -8,9 +8,12 @@ public class Avance extends DesplazamientoDinamico {
 		super(tablero);
 	}
 
-	public void avanzarJugador(Jugador jugador,int posiciones){
-		
-		for (int i =0;i<posiciones;i++)
+	
+	public void avanzar(Jugador jugador){
+		Posicionador posicionador=new Posicionador();
+		Dados dados=Dados.getDados();
+		int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
+		for (int i =0;i<cantidadPosiciones;i++)
 			
 			this.tablero.avanzar(jugador);
 
