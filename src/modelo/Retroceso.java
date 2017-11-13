@@ -11,10 +11,8 @@ public class Retroceso extends DesplazamientoDinamico {
 		Posicionador posicionador=new Posicionador();
 		Dados dados=Dados.getDados();
 		int cantidadPosiciones=posicionador.posicionDelJugador(jugador,dados);
-		for (int i =0;i<cantidadPosiciones;i++)
-			
+		for (int i =0;i<cantidadPosiciones;i++) {
 			this.tablero.retroceder(jugador);
-
-
+		}
 	}
 }

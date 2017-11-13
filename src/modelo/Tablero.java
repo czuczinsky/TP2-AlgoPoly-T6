@@ -13,7 +13,8 @@ public class Tablero {
 
 	public void avanzar(Jugador jugador) {
 		Casillero posicionJugador = jugador.getPosicion();
-		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador) + 1);
+		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador)+1);
+		
 		if (iterador.hasNext()) {
 			jugador.moverA(iterador.next());
 		} else {
@@ -28,7 +29,6 @@ public class Tablero {
 	public void retroceder(Jugador jugador) {
 		
 		Casillero posicionJugador = jugador.getPosicion();
-	
 		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador));
 		
 		if (iterador.hasPrevious()) {
@@ -36,8 +36,6 @@ public class Tablero {
 		} 
 		else {
 			jugador.moverA(this.casilleros.get(this.casilleros.size()-1));
-			
-
 		}
 	}
 }
