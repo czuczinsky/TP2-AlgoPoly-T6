@@ -12,46 +12,33 @@ public abstract class DesplazamientoDinamico implements Casillero {
 		
 		Dados dados=Dados.getDados();
 		
-			if((dados.getSuma()>=2)&&(dados.getSuma()<=6)) {
+		if((dados.getSuma()>=2)&&(dados.getSuma()<=6)) {
 			
 				if ((jugador.getPosicion()) instanceof Avance){
 					((Avance) jugador.getPosicion()).avanzar(jugador);
 				}
-				
 				if ((jugador.getPosicion())instanceof Retroceso){
-					
 					((Retroceso) jugador.getPosicion()).retroceder(jugador);
 				}
-			}
+		}
 			
-			if ((dados.getSuma()>=7)&&(dados.getSuma()<=10)) {
+		if ((dados.getSuma()>=7)&&(dados.getSuma()<=10)) {
 				
 				if ((jugador.getPosicion()) instanceof Avance){
-		
 					((Avance) jugador.getPosicion()).avanzar(jugador);
 				}
-				
 				if ((jugador.getPosicion()) instanceof Retroceso){
-			
 					((Retroceso) jugador.getPosicion()).retroceder(jugador);
 				}
-				
-			}
-		
+		}
 			
-			if ((dados.getSuma()==11)||(dados.getSuma()==12)) {
-				
+		if ((dados.getSuma()==11)||(dados.getSuma()==12)) {
 				if ((jugador.getPosicion()) instanceof Avance){
-					
 					((Avance) jugador.getPosicion()).avanzar(jugador);
 				}
-				
 				if ((jugador.getPosicion()) instanceof Retroceso){
-	
 					((Retroceso) jugador.getPosicion()).retroceder(jugador);
 				}
-		
-			}
-	
+		}
 	}
 }
