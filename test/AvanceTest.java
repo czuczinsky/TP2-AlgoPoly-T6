@@ -218,5 +218,16 @@ public class AvanceTest {
 		
 		assertEquals(neuquen, jugador.getPosicion());
 	}
+	
+	@Test
+	public void test12JugadorCaeEnAvanceYSaca11EnLosDadosDeberiaAvanzarAlCasilleroRetrocesoYRetrocederNueveCasilleros() {
+		Jugador jugador = new Jugador("Jugador", 100000);
+		jugador.moverA(avance);
+		dados.setNumeros(5,6);
+		
+		avance.ocupar(jugador);
+		
+		assertEquals(cordobaNorte, jugador.getPosicion());
+	}
 
 }
