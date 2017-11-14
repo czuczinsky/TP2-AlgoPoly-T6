@@ -10,7 +10,7 @@ import modelo.Jugador;
 public class CompaniaTest {
 
 	@Test
-	public void test01Compra() {
+	public void test01SiJugadorCaeEnCasilleroQuePerteceACompaniaEdesurYLaCompraSuDineroDeberiaDecrementarse3500() {
 		Jugador propietario = new Jugador("Jugador x", 200000);
 		Grupo grupo = new Grupo();
 		Compania compania = new Compania("EDESUR", 35000, grupo, 500, 1000);
@@ -23,7 +23,7 @@ public class CompaniaTest {
 	}
 
 	@Test
-	public void test02OcuparSimple() {
+	public void test02OSiUnJugadorCaeEnCompaniaEdesurQueTieneDueñoSeLeDeberiaDescontar500VecesMasLoQueDicenLosDadosDeSuDinero() {
 		Jugador propietario = new Jugador("Jugador x", 200000);
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		Grupo grupo = new Grupo();
@@ -39,7 +39,7 @@ public class CompaniaTest {
 	}
 
 	@Test
-	public void test03OcuparMultiple() {
+	public void test03SiUnJugadorCaeEnCompaniaEdesurConDueñoYAdemasTambienEsDueñoDeAysaDeberiaDescontar1000VecesMasLoQueDicenLosDadosDeSuDinero() {
 		Jugador propietario = new Jugador("Jugador x", 200000);
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		Grupo grupo = new Grupo();
