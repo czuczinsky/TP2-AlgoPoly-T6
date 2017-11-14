@@ -21,7 +21,7 @@ public class TableroTest {
 		
 		tablero.agregarCasillero(salida);
 		tablero.agregarCasillero(quini6);
-		tablero.avanzar(jugador);
+		tablero.avanzar(jugador,1);
 		
 		assertEquals(quini6, jugador.getPosicion());
 	}
@@ -36,7 +36,7 @@ public class TableroTest {
 		
 		tablero.agregarCasillero(salida);
 		tablero.agregarCasillero(quini6);
-		tablero.avanzar(jugador);
+		tablero.avanzar(jugador,1);
 		
 		assertEquals(salida, jugador.getPosicion());
 	}
@@ -51,7 +51,7 @@ public class TableroTest {
 		
 		tablero.agregarCasillero(salida);
 		tablero.agregarCasillero(quini6);
-		tablero.retroceder(jugador);
+		tablero.retroceder(jugador,1);
 		
 		assertEquals(salida, jugador.getPosicion());
 	}
@@ -66,7 +66,7 @@ public class TableroTest {
 		
 		tablero.agregarCasillero(salida);
 		tablero.agregarCasillero(quini6);
-		tablero.retroceder(jugador);
+		tablero.retroceder(jugador,1);
 		
 		assertEquals(quini6, jugador.getPosicion());
 	}

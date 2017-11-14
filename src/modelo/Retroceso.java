@@ -7,7 +7,7 @@ public class Retroceso extends DesplazamientoDinamico{
 	}
 	
 	public void mover(Jugador jugador, int cantidadDeCasilleros) {
-		this.tablero.retroceder(jugador,cantidadDeCasilleros,this);
+		this.tablero.retroceder(jugador,cantidadDeCasilleros);
 	}
 	
 	public int cantidadDeCasillerosAMoverDe2a6(Dados dados,Jugador jugador) {

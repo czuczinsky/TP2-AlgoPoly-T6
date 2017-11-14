@@ -10,12 +10,10 @@ public class Tablero {
 	public Tablero() {
 		this.casilleros = new ArrayList<Casillero>();
 	}
-	
-	public void avanzar(Jugador jugador) {
-		this.avanzar(jugador, 1, null);
-	}
 
-	public void avanzar(Jugador jugador, int cantidad, Casillero casilleroAnterior) {
+	public void avanzar(Jugador jugador, int cantidad) {
+		Casillero casilleroAnterior=jugador.getPosicion();
+		
 		for (int i=0 ; i < cantidad ; i++) {
 			Casillero posicionJugador = jugador.getPosicion();
 			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador)+1);
@@ -34,11 +32,10 @@ public class Tablero {
 		this.casilleros.add(casillero);
 	}
 	
-	public void retroceder(Jugador jugador) {
-		this.retroceder(jugador, 1, null);
-	}
 
-	public void retroceder(Jugador jugador, int cantidad, Casillero casilleroAnterior) {
+	public void retroceder(Jugador jugador, int cantidad) {
+		Casillero casilleroAnterior=jugador.getPosicion();
+		
 		for (int i=0 ; i < cantidad ; i++) {
 			Casillero posicionJugador = jugador.getPosicion();
 			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador));

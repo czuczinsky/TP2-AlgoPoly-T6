@@ -15,24 +15,20 @@ public class Jugador {
 		this.posicion= new Salida();
 	}
 
-	
-	public void decrementarDinero(int monto) {
-		this.dinero-=monto;
-	}
-
-
 	public int getDinero() {
 		return dinero;
 	}
-
 
 	public void incrementarDinero(int monto) {
 		this.dinero += monto;
 	}
 	
+	public void decrementarDinero(int monto) {
+		this.dinero-=monto;
+	}
+	
 	public void moverA(Casillero unCasillero) {
-		posicion=unCasillero;
-		
+		posicion=unCasillero;	
 	}
 
 	public Casillero getPosicion() {
@@ -45,9 +41,11 @@ public class Jugador {
 
 	public int cantPropiedades() {
 		int cantidad = 0;
-	for (Terreno terreno : terrenos) {
-		cantidad += terreno.cantPropiedades(); 
+		
+		for (Terreno terreno : terrenos) {
+			cantidad += terreno.cantPropiedades(); 
 		}
+		
 	return cantidad;
 	}
 }

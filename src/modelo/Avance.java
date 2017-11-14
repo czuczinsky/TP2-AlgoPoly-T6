@@ -7,7 +7,7 @@ public class Avance extends DesplazamientoDinamico{
 	}
 
 	public void mover(Jugador jugador, int cantidadDeCasilleros) {
-		this.tablero.avanzar(jugador,cantidadDeCasilleros,this);
+		this.tablero.avanzar(jugador,cantidadDeCasilleros);
 	}
 	
 	public int cantidadDeCasillerosAMoverDe2a6(Dados dados,Jugador jugador) {
