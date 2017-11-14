@@ -6,16 +6,16 @@ public class Avance extends DesplazamientoDinamico{
 		super(tablero);
 	}
 
-	public void moverDel2al6(Jugador jugador, Dados dados) {
-		this.tablero.avanzar(jugador,dados.getSuma()-2,this);
+	public void mover(Jugador jugador, int cantidadDeCasilleros) {
+		this.tablero.avanzar(jugador,cantidadDeCasilleros,this);
 	}
 	
-	public void moverDel7al10(Jugador jugador,Dados dados) {
-		this.tablero.avanzar(jugador,(jugador.getDinero())%(dados.getSuma()),this);
+	public int cantidadDeCasillerosAMoverDe2a6(Dados dados,Jugador jugador) {
+		return dados.getSuma()-2;
 	}
-
-	public void moverDel11al12(Jugador jugador, Dados dados) {
-			this.tablero.avanzar(jugador,(dados.getSuma()-jugador.cantPropiedades()),this);
-	}	
-
+	
+	public int cantidadDeCasillerosAMoverDe11a12(Dados dados,Jugador jugador) {
+		return dados.getSuma()-jugador.cantPropiedades();
+	}
+	
 }

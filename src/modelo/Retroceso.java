@@ -5,17 +5,17 @@ public class Retroceso extends DesplazamientoDinamico{
 	public Retroceso(Tablero tablero) {
 		super(tablero);
 	}
-
-	public void moverDel2al6(Jugador jugador,Dados dados) {
-		this.tablero.retroceder(jugador,dados.getSuma()-jugador.cantPropiedades(),this);
+	
+	public void mover(Jugador jugador, int cantidadDeCasilleros) {
+		this.tablero.retroceder(jugador,cantidadDeCasilleros,this);
 	}
 	
-	public void moverDel7al10(Jugador jugador,Dados dados) {
-			this.tablero.retroceder(jugador,jugador.getDinero()%(dados.getSuma()),this);
+	public int cantidadDeCasillerosAMoverDe2a6(Dados dados,Jugador jugador) {
+		return dados.getSuma()-jugador.cantPropiedades();
 	}
-
-	public void moverDel11al12(Jugador jugador, Dados dados) {
-			this.tablero.retroceder(jugador,dados.getSuma()-2,this);
+	
+	public int cantidadDeCasillerosAMoverDe11a12(Dados dados,Jugador jugador) {
+		return dados.getSuma()-2;
 	}
 
 }
