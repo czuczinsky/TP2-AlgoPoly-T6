@@ -23,7 +23,7 @@ public class CompaniaTest {
 	}
 
 	@Test
-	public void test02OSiUnJugadorCaeEnCompaniaEdesurQueTieneDueñoSeLeDeberiaDescontar500VecesMasLoQueDicenLosDadosDeSuDinero() {
+	public void test02OSiUnJugadorCaeEnCompaniaEdesurQueTieneDuenioSeLeDeberiaDescontar500VecesMasLoQueDicenLosDadosDeSuDinero() {
 		Jugador propietario = new Jugador("Jugador x", 200000);
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		Grupo grupo = new Grupo();
@@ -39,7 +39,7 @@ public class CompaniaTest {
 	}
 
 	@Test
-	public void test03SiUnJugadorCaeEnCompaniaEdesurConDueñoYAdemasTambienEsDueñoDeAysaDeberiaDescontar1000VecesMasLoQueDicenLosDadosDeSuDinero() {
+	public void test03SiUnJugadorCaeEnCompaniaEdesurConDuenioYAdemasTambienEsDuenioDeAysaDeberiaDescontar1000VecesMasLoQueDicenLosDadosDeSuDinero() {
 		Jugador propietario = new Jugador("Jugador x", 200000);
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		Grupo grupo = new Grupo();
