@@ -30,8 +30,11 @@ public class Compania implements Casillero, Agrupable {
 
 	@Override
 	public void ocupar(Jugador jugador) {
+		
 		Dados dados = Dados.getDados();
-		if (this.propietario != null){
+		
+		if (this.tienePropietario()&& !jugador.equals(propietario)){
+			
 			if (grupo.esMultiple() && grupo.mismoPropietario()) {
 				jugador.decrementarDinero(multiplicadorMultiple * dados.getSuma());
 				propietario.incrementarDinero(multiplicadorMultiple * dados.getSuma());
@@ -40,6 +43,10 @@ public class Compania implements Casillero, Agrupable {
 				propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
 			}
 		}
+	}
+	
+	private boolean tienePropietario() {
+		return this.propietario!=null;
 	}
 
 }

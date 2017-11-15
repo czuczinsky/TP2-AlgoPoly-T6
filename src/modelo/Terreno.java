@@ -34,6 +34,7 @@ public class Terreno implements Casillero, Agrupable {
 		if(this.tienePropietario() && !jugador.equals(propietario)) {
 			int costoDeAlquiler=this.calcularCostoDeAlquiler(jugador);
 			jugador.decrementarDinero(costoDeAlquiler);
+			propietario.incrementarDinero(costoDeAlquiler);
 		}
 	}
 	
@@ -51,10 +52,11 @@ public class Terreno implements Casillero, Agrupable {
 	}
 	
 	public void comprar(Jugador jugador) {
-		// si ya tiene duenio lanzar exception
-		this.propietario = jugador;
-		jugador.decrementarDinero(precio);
-		jugador.agregarTerreno(this);
+		if (!this.tienePropietario()) {// si ya tiene duenio lanzar exception
+			this.propietario = jugador;
+			jugador.decrementarDinero(precio);
+			jugador.agregarTerreno(this);
+		}
 	}
 	
 	public void construirCasa(Jugador jugador) {

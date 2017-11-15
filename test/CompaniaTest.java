@@ -52,8 +52,39 @@ public class CompaniaTest {
 		compania1.comprar(propietario);
 		compania2.comprar(propietario);
 		compania1.ocupar(jugador1);
-//		Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000, propietario.getDinero());
+		Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000, propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 1000, jugador1.getDinero());
 	}
+	
+	@Test
+	public void test04SiUnJugadorCaeEnCompaniaEdesurYEsElPropietarioNoSeLeDeberiaDescontarNada() {
+		Jugador propietario = new Jugador("Jugador 1", 200000);
+		Grupo grupo = new Grupo();
+		Compania compania1 = new Compania("EDESUR", 35000, grupo, 500, 1000);
 
+		Dados dados = Dados.getDados();
+		dados.setNumeros(3, 4);
+
+		compania1.comprar(propietario);
+		compania1.ocupar(propietario);
+		
+		Assert.assertEquals(200000-35000, propietario.getDinero());
+	}
+	
+	@Test
+	public void test05SiUnJugadorCompraEdesurYAysaYLuegoCaeEnEseCasilleroNoSeLeDeberianCobrarExtras() {
+		Jugador propietario = new Jugador("Jugador 1", 200000);
+		Grupo grupo = new Grupo();
+		Compania compania1 = new Compania("EDESUR", 35000, grupo, 500, 1000);
+		Compania compania2 = new Compania("AYSA", 30000, grupo, 300, 500);
+
+		Dados dados = Dados.getDados();
+		dados.setNumeros(3, 4);
+
+		compania1.comprar(propietario);
+		compania2.comprar(propietario);
+		compania1.ocupar(propietario);
+		
+		Assert.assertEquals(200000-35000-30000, propietario.getDinero());
+	}
 }

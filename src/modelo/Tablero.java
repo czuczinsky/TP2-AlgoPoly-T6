@@ -23,6 +23,7 @@ public class Tablero {
 				jugador.moverA(this.casilleros.get(0));
 			}
 		}
+		
 		if (casilleroAnterior != jugador.getPosicion()){
 			jugador.getPosicion().ocupar(jugador);
 		}
