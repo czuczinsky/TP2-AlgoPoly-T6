@@ -13,16 +13,22 @@ public class Prisionero {
 		return (this.jugador.equals(jugador));
 	}
 	
-	public void incrementarTurno() {
+	public boolean cumplioLaCondena() {
+		boolean cumplioCondena=false;
+		if (this.turno>=4){
+			cumplioCondena=true;
+		}
+		else this.incrementarTurno();
+		
+		return cumplioCondena;
+	}
+	
+	public boolean puedePagarFianza(int dineroAPagar) {
+		return (this.turno>1 && jugador.getDinero()>=dineroAPagar);
+	}
+	
+	private void incrementarTurno() {
 		this.turno+=1;
-	}
-	
-	public int getTurno(){
-		return this.turno;
-	}
-	
-	public boolean tieneSuficienteDinero(int dinero) {
-		return (jugador.getDinero()>=dinero);
 	}
 	
 }

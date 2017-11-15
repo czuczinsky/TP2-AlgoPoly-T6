@@ -8,37 +8,31 @@ import modelo.Jugador;
 import modelo.Prisionero;
 
 public class PrisioneroTest {
-
+	
 	@Test
-	public void testSiAgregoUnJugadorComoPrisioneroDeberiaTenerComoTurnoUnUno() {
+	public void testpuedePagarFianzaDeberiaDarFalseSiSeLePasaUnMontoMayorAlQueTieneElJugador() {
 		Jugador jugador=new Jugador("carlos",1000);
 		Prisionero prisionero=new Prisionero(jugador);
 		
-		assertEquals(1,prisionero.getTurno());
+		assertEquals(false,prisionero.puedePagarFianza(45000));
 	}
 	
 	@Test
-	public void testTieneSuficienteDineroDeberiaDarFalseSiSeLePasaUnMontoMayorAlQueTieneElJugador() {
-		Jugador jugador=new Jugador("carlos",1000);
-		Prisionero prisionero=new Prisionero(jugador);
-		
-		assertEquals(false,prisionero.tieneSuficienteDinero(45000));
-	}
-	
-	@Test
-	public void testTieneSuficienteDineroDeberiaDarTrueSiSeLePasaUnMontoIgualAlQueTieneElJugador() {
+	public void testPuedePagarFianzaDeberiaDarTrueSiSeLePasaUnMontoIgualAlQueTieneElJugador() {
 		Jugador jugador=new Jugador("carlos",45000);
 		Prisionero prisionero=new Prisionero(jugador);
+		prisionero.cumplioLaCondena();
 		
-		assertEquals(true,prisionero.tieneSuficienteDinero(45000));
+		assertEquals(true,prisionero.puedePagarFianza(45000));
 	}
 	
 	@Test
 	public void testTieneSuficienteDineroDeberiaDarTrueSiSeLePasaUnMontoMenorAlQueTieneElJugador() {
 		Jugador jugador=new Jugador("carlos",100000);
 		Prisionero prisionero=new Prisionero(jugador);
+		prisionero.cumplioLaCondena();
 		
-		assertEquals(true,prisionero.tieneSuficienteDinero(45000));
+		assertEquals(true,prisionero.puedePagarFianza(45000));
 	}
 	
 	@Test

@@ -17,16 +17,15 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 	}
 	
 	public boolean puedeMoverse(Jugador jugador) {
-		boolean puedeMoverse;
+		boolean puedeMoverse=true;
 	
 		if (this.existePrisionero(jugador)) {
 			Prisionero prisionero=this.obtenerPrisionero(jugador);
-			puedeMoverse=this.cumplioLaCondena(prisionero);
+			if(!prisionero.cumplioLaCondena()) {
+				puedeMoverse=false;
+			}
+			else prisioneros.remove(prisionero);
 		}
-		else {
-			puedeMoverse=true;
-		}
-		
 		return puedeMoverse;	
 	}
 	
@@ -34,7 +33,7 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 		
 		Prisionero prisionero=this.obtenerPrisionero(jugador);
 		
-		if ((prisionero.tieneSuficienteDinero(45000)) && (prisionero.getTurno()>1)){
+		if (prisionero.puedePagarFianza(45000)){
 			this.prisioneros.remove(prisionero);
 			jugador.decrementarDinero(45000);
 		}
@@ -60,18 +59,4 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 		}
 		return false; 
 	}
-	
-	private boolean cumplioLaCondena(Prisionero prisionero) {
-		boolean cumplioCondena=false;
-	
-		if (prisionero.getTurno()>=4) {
-			this.prisioneros.remove(prisionero);
-			cumplioCondena=true;
-		}
-		else {
-			prisionero.incrementarTurno();
-		}
-		return cumplioCondena;
-	}
-
 }
