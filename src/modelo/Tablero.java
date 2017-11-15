@@ -12,21 +12,18 @@ public class Tablero {
 	}
 
 	public void avanzar(Jugador jugador, int cantidad) {
-		Casillero casilleroAnterior=jugador.getPosicion();
+		Casillero casilleroAMover=jugador.getPosicion();
 		
 		for (int i=0 ; i < cantidad ; i++) {
-			Casillero posicionJugador = jugador.getPosicion();
-			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador)+1);
+			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(casilleroAMover)+1);
 			if (iterador.hasNext()) {
-				jugador.moverA(iterador.next());
-			} else {
-				jugador.moverA(this.casilleros.get(0));
+				casilleroAMover=iterador.next();
+			} 
+			else {
+				casilleroAMover=this.casilleros.get(0);
 			}
 		}
-		
-		if (casilleroAnterior != jugador.getPosicion()){
-			jugador.getPosicion().ocupar(jugador);
-		}
+		jugador.moverA(casilleroAMover);
 	}
 	
 	public void agregarCasillero(Casillero casillero) {
@@ -35,21 +32,17 @@ public class Tablero {
 	
 
 	public void retroceder(Jugador jugador, int cantidad) {
-		Casillero casilleroAnterior=jugador.getPosicion();
+		Casillero casilleroAMover=jugador.getPosicion();
 		
 		for (int i=0 ; i < cantidad ; i++) {
-			Casillero posicionJugador = jugador.getPosicion();
-			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(posicionJugador));
-			
+			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(casilleroAMover));
 			if (iterador.hasPrevious()) {
-				jugador.moverA(iterador.previous());
+				casilleroAMover=iterador.previous();
 			} 
 			else {
-				jugador.moverA(this.casilleros.get(this.casilleros.size()-1));
+				casilleroAMover=this.casilleros.get(this.casilleros.size()-1);
 			}
 		}
-		if (casilleroAnterior != jugador.getPosicion()){
-			jugador.getPosicion().ocupar(jugador);
-		}
+		jugador.moverA(casilleroAMover);
 	}
 }

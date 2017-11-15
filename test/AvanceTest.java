@@ -97,10 +97,8 @@ public class AvanceTest {
 	@Test
 	public void test01JugadorCaeEnAvanceSiSaca2EnLosDadosNoDeberiaAvanzarNingunCasillero() {
 		Jugador jugador = new Jugador("Jugador", 0);
-		jugador.moverA(avance);
 		dados.setNumeros(1,1);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(avance, jugador.getPosicion());
 	}
@@ -108,10 +106,8 @@ public class AvanceTest {
 	@Test
 	public void test02JugadorCaeEnAvanceSiSaca3EnLosDadosDeberiaAvanzarUnCasillero() {
 		Jugador jugador = new Jugador("Jugador", 0);
-		jugador.moverA(avance);
 		dados.setNumeros(1,2);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(subte, jugador.getPosicion());	
 	}
@@ -119,10 +115,8 @@ public class AvanceTest {
 	@Test
 	public void test03JugadorCaeEnAvanceSiSaca4EnLosDadosDeberiaAvanzarDosCasilleros() {
 		Jugador jugador = new Jugador("Jugador", 0);
-		jugador.moverA(avance);
 		dados.setNumeros(3,1);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(cordobaNorte, jugador.getPosicion());
 	}
@@ -130,10 +124,9 @@ public class AvanceTest {
 	@Test
 	public void test04JugadorCaeEnAvanceSiSaca5EnLosDadosDeberiaAvanzarTresCasilleros() {
 		Jugador jugador = new Jugador("Jugador", 0);
-		jugador.moverA(avance);
-		dados.setNumeros(3,2);
 		
-		avance.ocupar(jugador);
+		dados.setNumeros(3,2);
+		jugador.moverA(avance);
 		
 		assertEquals(impuesto, jugador.getPosicion());
 	}
@@ -141,10 +134,8 @@ public class AvanceTest {
 	@Test
 	public void test05JugadorCaeEnAvanceSiSaca6EnLosDadosDeberiaAvanzarCuatroCasilleros() {
 		Jugador jugador = new Jugador("Jugador", 0);
-		jugador.moverA(avance);
 		dados.setNumeros(5,1);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(santaFe, jugador.getPosicion());
 	}
@@ -152,10 +143,8 @@ public class AvanceTest {
 	@Test
 	public void test06JugadorCaeEnAvanceSiSaca7EnLosDadosDeberiaAvanzarCincoCasilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
-		jugador.moverA(avance);
 		dados.setNumeros(5,2);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(aysa, jugador.getPosicion());
 	}
@@ -163,10 +152,8 @@ public class AvanceTest {
 	@Test
 	public void test07JugadorCaeEnAvanceSiSaca8EnLosDadosNoDeberiaAvanzarNingunCasillero() {
 		Jugador jugador = new Jugador("Jugador", 100000);
-		jugador.moverA(avance);
 		dados.setNumeros(5,3);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(avance, jugador.getPosicion());
 	}
@@ -174,10 +161,9 @@ public class AvanceTest {
 	@Test
 	public void test08JugadorCaeEnAvanceSiSaca9EnLosDadosDeberiaAvanzarUnCasillero() {
 		Jugador jugador = new Jugador("Jugador", 100000);
-		jugador.moverA(avance);
-		dados.setNumeros(5,4);
 		
-		avance.ocupar(jugador);
+		dados.setNumeros(5,4);
+		jugador.moverA(avance);
 		
 		assertEquals(subte, jugador.getPosicion());
 	}
@@ -185,10 +171,8 @@ public class AvanceTest {
 	@Test
 	public void test09JugadorCaeEnAvanceSiSaca10EnLosDadosDeberiaAvanzarDosCasilleros() {
 		Jugador jugador = new Jugador("Jugador", 100002);
-		jugador.moverA(avance);
 		dados.setNumeros(5,5);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(cordobaNorte, jugador.getPosicion());
 	}
@@ -198,10 +182,9 @@ public class AvanceTest {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		jugador.agregarTerreno(bsAsNorte);
 		jugador.agregarTerreno(cordobaNorte);
-		jugador.moverA(avance);
 		dados.setNumeros(5,6);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
+
 		
 		assertEquals(tren, jugador.getPosicion());
 	}
@@ -211,10 +194,9 @@ public class AvanceTest {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		jugador.agregarTerreno(bsAsNorte);
 		jugador.agregarTerreno(cordobaNorte);
-		jugador.moverA(avance);
-		dados.setNumeros(6,6);
 		
-		avance.ocupar(jugador);
+		dados.setNumeros(6,6);
+		jugador.moverA(avance);
 		
 		assertEquals(neuquen, jugador.getPosicion());
 	}
@@ -222,10 +204,8 @@ public class AvanceTest {
 	@Test
 	public void test12JugadorCaeEnAvanceYSaca11EnLosDadosDeberiaAvanzarAlCasilleroRetrocesoYRetrocederNueveCasilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
-		jugador.moverA(avance);
 		dados.setNumeros(5,6);
-		
-		avance.ocupar(jugador);
+		jugador.moverA(avance);
 		
 		assertEquals(cordobaNorte, jugador.getPosicion());
 	}

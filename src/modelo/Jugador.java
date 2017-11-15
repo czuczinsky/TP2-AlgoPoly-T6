@@ -28,7 +28,10 @@ public class Jugador {
 	}
 	
 	public void moverA(Casillero unCasillero) {
-		posicion=unCasillero;	
+		if (this.posicion!=unCasillero) {
+		this.posicion=unCasillero;
+		this.posicion.ocupar(this);
+		}
 	}
 
 	public Casillero getPosicion() {
