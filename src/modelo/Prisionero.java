@@ -14,12 +14,11 @@ public class Prisionero {
 	}
 	
 	public boolean cumplioLaCondena() {
-		boolean cumplioCondena=false;
-		if (this.turno>=4){
-			cumplioCondena=true;
+		boolean cumplioCondena=true;
+		if (!(this.turno>=4)){
+			cumplioCondena=false;
+			this.incrementarTurno();
 		}
-		else this.incrementarTurno();
-		
 		return cumplioCondena;
 	}
 	
