@@ -21,5 +21,14 @@ public class Grupo {
 			}
 		return resultado;
 	}
+	
+	public boolean mismoPropietario(Jugador jugador) {
+		boolean resultado = true;
+		for (Agrupable agrupable : elementos)
+			if (agrupable.getPropietario() != jugador) {
+				resultado = false;
+			}
+		return resultado;
+	}
 
 }
