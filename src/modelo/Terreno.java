@@ -3,54 +3,56 @@ package modelo;
 import java.util.ArrayList;
 
 public class Terreno implements Casillero, Agrupable {
-	
-//	private String nombre;
+
+	// private String nombre;
 	private int precio;
 	private Grupo grupo;
 	private Jugador propietario;
 	private int costoEdificarCasa;
 	private int costoEdificarHotel;
+	private int valorAlquiler;
+	private int valorAlquiler1raCasa;
+	private int valorAlquiler2daCasa;
+	private int valorAlquilerHotel;
+
 	private ArrayList<Construccion> casas = new ArrayList<Construccion>();
 	private ArrayList<Construccion> hoteles = new ArrayList<Construccion>();
-	private ArrayList<Integer> preciosDeAlquiler = new ArrayList<Integer>();
 
-	public Terreno(String nombre, Grupo provincia, int precio, int alquiler,
-			int alquiler1Casa, int alquiler2Casas, int alquilerHotel, int costoEdificarCasa, int costoEdificarHotel) {
-//		this.nombre = nombre;
+	public Terreno(String nombre, Grupo provincia, int precio, int alquiler, int alquiler1Casa, int alquiler2Casas,
+			int alquilerHotel, int costoEdificarCasa, int costoEdificarHotel) {
+		// this.nombre = nombre;
 		this.precio = precio;
 		this.grupo = provincia;
 		provincia.agregar(this);
-		this.preciosDeAlquiler.add(alquiler);
-		this.preciosDeAlquiler.add(alquiler1Casa);
-		this.preciosDeAlquiler.add(alquiler2Casas);
-		this.preciosDeAlquiler.add(alquilerHotel);
-		this.costoEdificarCasa= costoEdificarCasa;
-		this.costoEdificarHotel= costoEdificarHotel;
+		this.valorAlquiler = alquiler;
+		this.valorAlquiler1raCasa = alquiler1Casa - alquiler;
+		this.valorAlquiler2daCasa = alquiler2Casas - alquiler1Casa;
+		this.valorAlquilerHotel = alquilerHotel - alquiler;
+		this.costoEdificarCasa = costoEdificarCasa;
+		this.costoEdificarHotel = costoEdificarHotel;
 	}
-	
+
 	@Override
 	public void ocupar(Jugador jugador) {
-		
-		if(this.tienePropietario() && !jugador.equals(propietario)) {
-			int costoDeAlquiler=this.calcularCostoDeAlquiler(jugador);
-			jugador.decrementarDinero(costoDeAlquiler);
-			propietario.incrementarDinero(costoDeAlquiler);
+
+		if (this.tienePropietario() && !jugador.equals(propietario)) {
+			this.cobrarAlquileresA(jugador);
 		}
 	}
-	
-	private int calcularCostoDeAlquiler(Jugador jugador) {
-		int costoDeAlquiler=this.preciosDeAlquiler.get(0);
-		
-		if (this.hoteles.isEmpty()) {
-			if(!this.casas.isEmpty()) {
-				costoDeAlquiler=this.preciosDeAlquiler.get(this.casas.size());
-			}
-		}
-		else costoDeAlquiler=this.preciosDeAlquiler.get(3);
-		
-		return costoDeAlquiler;
+
+	private void cobrarAlquileresA(Jugador jugador) {
+		this.cobrarAlquilerTerrenoA(jugador);
+		for (Construccion casa : casas)
+			casa.cobrarAlquilerA(jugador);
+		for (Construccion hotel : hoteles)
+			hotel.cobrarAlquilerA(jugador);
 	}
-	
+
+	private void cobrarAlquilerTerrenoA(Jugador jugador) {
+		jugador.decrementarDinero(valorAlquiler);
+		propietario.incrementarDinero(valorAlquiler);
+	}
+
 	public void comprar(Jugador jugador) {
 		if (!this.tienePropietario()) {// si ya tiene duenio lanzar exception
 			this.propietario = jugador;
@@ -58,46 +60,48 @@ public class Terreno implements Casillero, Agrupable {
 			jugador.agregarTerreno(this);
 		}
 	}
-	
+
 	public void construirCasa(Jugador jugador) {
-		//lanzar exception si no se puede construir
-		if (this.puedeEdificar(jugador)) {
-			Construccion casaNueva=new Construccion(costoEdificarCasa);
+		// lanzar exception si no se puede construir
+		if (this.puedeEdificarCasa()) {
+			Construccion casaNueva;
+			if (casas.size() == 0) {
+				casaNueva = new Construccion(propietario, costoEdificarCasa, valorAlquiler1raCasa);
+			} else {
+				casaNueva = new Construccion(propietario, costoEdificarCasa, valorAlquiler2daCasa);
+			}
 			this.casas.add(casaNueva);
 			propietario.decrementarDinero(costoEdificarCasa);
 		}
 	}
-	
+
 	public void construirHotel(Jugador jugador) {
-		//lanzar exception si no se puede construir
-		if (this.puedeEdificar(jugador)) {
-			Construccion hotelNuevo=new Construccion(costoEdificarHotel);
+		// lanzar exception si no se puede construir
+		if (this.puedeEdificarHotel()) {
+			Construccion hotelNuevo = new Construccion(propietario, costoEdificarHotel, valorAlquilerHotel);
 			this.hoteles.add(hotelNuevo);
 			this.casas.clear();
 			propietario.decrementarDinero(costoEdificarHotel);
 		}
 	}
-	
-	private boolean puedeEdificar(Jugador jugador) {
-		boolean puedeEdificar=false;
-		
-		if (grupo.mismoPropietario(jugador)&& hoteles.isEmpty()) {
-			if (grupo.esMultiple() && casas.size()==2 && jugador.getDinero()>=costoEdificarHotel) {
-				puedeEdificar=true;
-			}
-			else if (casas.size()<2 && jugador.getDinero()>=costoEdificarCasa) {
-					puedeEdificar=true;
-			}
-		}
-		return puedeEdificar;
+
+	private boolean puedeEdificarCasa() {
+		return grupo.mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
+				&& propietario.getDinero() >= costoEdificarCasa;
+	}
+
+	private boolean puedeEdificarHotel() {
+		// TODO verificar casa en ambos terrenos
+		return grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && casas.size() == 2
+				&& propietario.getDinero() >= costoEdificarHotel;
 	}
 
 	public int cantPropiedades() {
-		return (1 + casas.size() + hoteles.size());
+		return 1 + casas.size() + hoteles.size();
 	}
-	
+
 	private boolean tienePropietario() {
-		return this.propietario!=null;
+		return this.propietario != null;
 	}
 
 	public Jugador getPropietario() {

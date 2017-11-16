@@ -183,14 +183,40 @@ public class TerrenoTest {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		Terreno terreno2 = new Terreno("Terreno 2", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",200000);
+		Jugador jugador2 = new Jugador("Jugador 2",100000);
+		terreno1.comprar(jugador1);
+		terreno2.comprar(jugador1);
+		terreno1.construirCasa(jugador1);
+		terreno1.construirCasa(jugador1);
+		terreno2.construirCasa(jugador1);
+		terreno2.construirCasa(jugador1);
+		terreno1.construirHotel(jugador1);
+		terreno1.ocupar(jugador2);
+		
+		Assert.assertEquals(100000-5000 , jugador2.getDinero());
+	}
+
+	@Test
+	public void test143SiUnJugadorCaeEnUnTerrenoMultipleQueTienePropietarioY2CasasSeLeDeberiaDescontarElAlquilerDelas2Casas() {
+		Grupo provincia1 = new Grupo();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		Terreno terreno2 = new Terreno("Terreno 2", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
 		terreno1.comprar(jugador1);
-		terreno1.construirHotel(jugador1); // primera casa
+		terreno2.comprar(jugador1);
+		terreno1.construirCasa(jugador1);
+		terreno1.construirCasa(jugador1);
 		terreno1.ocupar(jugador2);
 		
-		Assert.assertEquals(100000-5000 , jugador2.getDinero());
+		Assert.assertEquals(100000-3500 , jugador2.getDinero());
 	}
 	// TODO tests de casos en que ya no se puede edificar
 }
