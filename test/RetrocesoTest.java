@@ -199,56 +199,6 @@ public class RetrocesoTest {
 		assertEquals(subte, jugador.getPosicion());	
 	}	
 
-	@Test
-	public void test12JugadorPropietarioDeDosTerrenos2CasasYUnHotelCaeEnARetrocesoDinamicoSaca6EnLosDadosDeberiaRetroceder1PosicionANeuquen() {
-		Grupo bsAs = new Grupo();
-		Terreno bsAsSur = new Terreno("BsAsSur", bsAs,
-				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
-		Terreno bsAsNorte = new Terreno("BsAsNorte", bsAs,
-			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
-				
-		Jugador jugadora = new Jugador("Maria",100000);
-		bsAsSur.comprar(jugadora);
-		bsAsNorte.comprar(jugadora);
-		
-		bsAsSur.construirCasa(jugadora); // primera casa
-		bsAsSur.construirCasa(jugadora); // segunda casa
-		
-		bsAsNorte.construirCasa(jugadora);
-		bsAsNorte.construirCasa(jugadora);
-		bsAsNorte.construirHotel(jugadora);
-		
-		dados.setNumeros(5,1);
-		jugadora.moverA(retroceso);
-		
-		
-		
-		assertEquals(neuquen, jugadora.getPosicion());
-	}
-	
-	@Test
-	public void test13JugadorPropietarioDeDosTerrenosY2CasasYUnHotelCaeEnRetroesoDinamicoSaca4EnLosDadosNoDeberiaRetrocederNingunaPosicion() {
-		Grupo bsAs = new Grupo();
-		Terreno bsAsSur = new Terreno("BsAsSur", bsAs,
-				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
-		Terreno bsAsNorte = new Terreno("BsAsNorte", bsAs,
-			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
-				
-		Jugador jugadora = new Jugador("Maria",100000);
-		bsAsSur.comprar(jugadora);
-		bsAsNorte.comprar(jugadora);
-		
-		bsAsSur.construirCasa(jugadora); 
-		bsAsSur.construirCasa(jugadora);
-		
-		dados.setNumeros(1,3);
-		jugadora.moverA(retroceso);
-		
-		
-		
-		assertEquals(retroceso, jugadora.getPosicion());
-	}
-	
 
 
 }
