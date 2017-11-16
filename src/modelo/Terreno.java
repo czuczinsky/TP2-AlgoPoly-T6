@@ -61,7 +61,7 @@ public class Terreno implements Casillero, Agrupable {
 	
 	public void construirCasa(Jugador jugador) {
 		//lanzar exception si no se puede construir
-		if (this.puedeEdificarCasa(jugador)) {
+		if (this.puedeEdificar(jugador)) {
 			Construccion casaNueva=new Construccion(costoEdificarCasa);
 			this.casas.add(casaNueva);
 			propietario.decrementarDinero(costoEdificarCasa);
@@ -70,7 +70,7 @@ public class Terreno implements Casillero, Agrupable {
 	
 	public void construirHotel(Jugador jugador) {
 		//lanzar exception si no se puede construir
-		if (this.puedeEdificarHotel(jugador)) {
+		if (this.puedeEdificar(jugador)) {
 			Construccion hotelNuevo=new Construccion(costoEdificarHotel);
 			this.hoteles.add(hotelNuevo);
 			this.casas.clear();
@@ -78,42 +78,20 @@ public class Terreno implements Casillero, Agrupable {
 		}
 	}
 	
-//	private boolean puedeEdificar(Jugador jugador) {
-//		boolean puedeEdificar=false;
-//		
-//		if (grupo.mismoPropietario(jugador)&& hoteles.isEmpty()) {
-//			if (grupo.esMultiple() && casas.size()==2 && jugador.getDinero()>=costoEdificarHotel) {
-//				puedeEdificar=true;
-//			}
-//			else if (casas.size()<2 && jugador.getDinero()>=costoEdificarCasa) {
-//					puedeEdificar=true;
-//			}
-//		}
-//		return puedeEdificar;
-//	}
-	
-	private boolean puedeEdificarCasa(Jugador jugador) {
-		boolean puedeEdificar=false;
-		
-		if (grupo.mismoPropietario(jugador)&& hoteles.isEmpty()) {
-			if (casas.size()<2 && jugador.getDinero()>=costoEdificarCasa) {
-					puedeEdificar=true;
-			}
-		}
-		return puedeEdificar;
-	}
-	
-	private boolean puedeEdificarHotel(Jugador jugador) {
+	private boolean puedeEdificar(Jugador jugador) {
 		boolean puedeEdificar=false;
 		
 		if (grupo.mismoPropietario(jugador)&& hoteles.isEmpty()) {
 			if (grupo.esMultiple() && casas.size()==2 && jugador.getDinero()>=costoEdificarHotel) {
 				puedeEdificar=true;
 			}
+			else if (casas.size()<2 && jugador.getDinero()>=costoEdificarCasa) {
+					puedeEdificar=true;
+			}
 		}
 		return puedeEdificar;
 	}
-	
+
 	public int cantPropiedades() {
 		return (1 + casas.size() + hoteles.size());
 	}

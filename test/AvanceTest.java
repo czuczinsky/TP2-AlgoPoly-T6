@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import modelo.Avance;
 import modelo.Carcel;
+import modelo.Casillero;
 import modelo.Compania;
 import modelo.Dados;
 import modelo.Grupo;
@@ -209,5 +210,50 @@ public class AvanceTest {
 		
 		assertEquals(cordobaNorte, jugador.getPosicion());
 	}
-
+	
+	@Test
+	public void test13JugadorPropietarioDeDosTerrenos2CasasYUnHotelCaeEnAvanceDinamicoSaca11EnLosDadosDeberiaAvanzar6PosicionesASaltaNorte() {
+		Grupo bsAs = new Grupo();
+		Terreno bsAsSur = new Terreno("BsAsSur", bsAs,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		Terreno bsAsNorte = new Terreno("BsAsNorte", bsAs,
+			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
+				
+		Jugador jugadora = new Jugador("Maria",100000);
+		bsAsSur.comprar(jugadora);
+		bsAsNorte.comprar(jugadora);
+		
+		bsAsSur.construirCasa(jugadora);
+		bsAsSur.construirCasa(jugadora); 
+		
+		bsAsNorte.construirCasa(jugadora);
+		bsAsNorte.construirCasa(jugadora);
+		bsAsNorte.construirHotel(jugadora);
+		
+		dados.setNumeros(5,6);
+		jugadora.moverA(avance);
+		
+		assertEquals(saltaNorte, jugadora.getPosicion());
+	}
+	
+	@Test
+	public void test14JugadorPropietarioDeDosTerrenosY2CasasYUnHotelCaeEnAvanceDinamicoSaca12EnLosDadosDeberiaCaerEnPoliciaEIrALaCarcel() {
+		Grupo bsAs = new Grupo();
+		Terreno bsAsSur = new Terreno("BsAsSur", bsAs,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		Terreno bsAsNorte = new Terreno("BsAsNorte", bsAs,
+			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
+				
+		Jugador jugadora = new Jugador("Maria",100000);
+		bsAsSur.comprar(jugadora);
+		bsAsNorte.comprar(jugadora);
+		
+		bsAsSur.construirCasa(jugadora);
+		bsAsSur.construirCasa(jugadora);
+		
+		dados.setNumeros(6,6);
+		jugadora.moverA(avance);
+	
+		assertEquals(carcel, jugadora.getPosicion());
+	}
 }
