@@ -119,9 +119,21 @@ public class TerrenoTest {
 		terreno1.construirHotel(jugador1); // hotel?
 		Assert.assertEquals(100000-20000-5000-5000 , jugador1.getDinero());
 	}
-
+	
 	@Test
-	public void test09SiUnJugadorCompraUnTerrenoYConstruyeDosCasasDeberiaTenerTresPropiedades() {
+	public void test09SiUnJugadorIntentaConstruirUnHotelEnUnaProvinciaQueNoTieneZonaNorteYSurYTieneUnaSolaCasaNoSeLeDeberiaDescontarElPrecioDelHotel() {
+		Grupo provincia1 = new Grupo();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.comprar(jugador1);
+		terreno1.construirCasa(jugador1); // primera casa
+		terreno1.construirHotel(jugador1); // hotel?
+		Assert.assertEquals(100000-20000-5000-5000 , jugador1.getDinero());
+	}
+	@Test
+	public void test10SiUnJugadorCompraUnTerrenoYConstruyeDosCasasDeberiaTenerTresPropiedades() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -134,7 +146,23 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void test10SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYNoEsElSeLeDeberiaDescontarElAlquilerDelTerreno() {
+	public void test11SiUnJugadorCompraUnTerrenoYConstruyeUnHotelDeberiaTenerDosPropiedades() {
+		Grupo provincia1 = new Grupo();
+		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 15000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 15000, 2500, 3500, 3800, 5500, 5500, 8500);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terrenoNorte.comprar(jugador1);
+		terrenoSur.comprar(jugador1);
+		terrenoNorte.construirCasa(jugador1); // primera casa
+		terrenoNorte.construirCasa(jugador1); // segunda casa
+		terrenoNorte.construirHotel(jugador1);
+		Assert.assertEquals(2 , terrenoNorte.cantPropiedades());
+	}
+	
+	
+	@Test
+	public void test12SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYNoEsElSeLeDeberiaDescontarElAlquilerDelTerreno() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -148,7 +176,7 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void test11SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYUnaCasaSeLeDeberiaDescontarElAlquilerDeUnaCasa() {
+	public void test13SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYUnaCasaSeLeDeberiaDescontarElAlquilerDeUnaCasa() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -163,7 +191,7 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void test12SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYDosCasasSeLeDeberiaDescontarElAlquilerDeDosCasas() {
+	public void test14SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYDosCasasSeLeDeberiaDescontarElAlquilerDeDosCasas() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -179,16 +207,19 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void test13SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYUnHotelSeLeDeberiaDescontarElAlquilerDelHotel() {
+	public void test15SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYUnHotelSeLeDeberiaDescontarElAlquilerDelHotel() {
 		Grupo provincia1 = new Grupo();
-		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
-				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 15000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 15000, 2500, 3500, 3800, 5500, 5500, 8500);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
-		terreno1.comprar(jugador1);
-		terreno1.construirHotel(jugador1); // primera casa
-		terreno1.ocupar(jugador2);
+		terrenoNorte.comprar(jugador1);
+		terrenoSur.comprar(jugador1);
+		terrenoNorte.construirCasa(jugador1); // primera casa
+		terrenoNorte.construirCasa(jugador1);
+		terrenoNorte.construirHotel(jugador1);
+		terrenoNorte.ocupar(jugador2);
 		
 		Assert.assertEquals(100000-5000 , jugador2.getDinero());
 	}
