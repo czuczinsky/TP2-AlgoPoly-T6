@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Terreno implements Casillero, Agrupable {
 	
-	private String nombre;
+//	private String nombre;
 	private int precio;
 	private Grupo grupo;
 	private Jugador propietario;
@@ -16,7 +16,7 @@ public class Terreno implements Casillero, Agrupable {
 
 	public Terreno(String nombre, Grupo provincia, int precio, int alquiler,
 			int alquiler1Casa, int alquiler2Casas, int alquilerHotel, int costoEdificarCasa, int costoEdificarHotel) {
-		this.nombre = nombre;
+//		this.nombre = nombre;
 		this.precio = precio;
 		this.grupo = provincia;
 		provincia.agregar(this);

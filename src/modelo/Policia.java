@@ -2,7 +2,7 @@ package modelo;
 
 public class Policia implements Casillero {
 	
-	Carcel carcel;
+	private Carcel carcel;
 	
 	public Policia(Carcel carcel){
 		this.carcel=carcel;

@@ -15,13 +15,10 @@ public class Quini6 implements Casillero {
 		if (ganador == null) {
 			ganador = new Ganador(jugador);
 			this.ganadores.add(ganador);
-			jugador.incrementarDinero(50000);
+			ganador.pagar();
 		} else {
-			if (ganador.vecesQueGano(1)) {
-				jugador.incrementarDinero(30000);
-			}
+			ganador.pagar();
 		}
-		ganador.incrementarVictorias();
 	}
 	
 	private Ganador obtenerGanador(Jugador jugador) {
@@ -33,12 +30,4 @@ public class Quini6 implements Casillero {
 		return null;
 	}
 	
-//	private boolean existeGanador(Jugador jugador) {
-//		for (Ganador ganadorActual:ganadores) {
-//			if(ganadorActual.esIgualA(jugador)) {
-//				return true;
-//			}
-//		}
-//		return false; 
-//	}
 }

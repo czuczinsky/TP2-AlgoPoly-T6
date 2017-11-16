@@ -25,16 +25,26 @@ public class GanadorTest {
 	}
 
 	@Test
-	public void test02GanadorIncrementaUnaVictorias() {
-		ganador.incrementarVictorias();
-		assertTrue(this.ganador.vecesQueGano(1));
+	public void test02GanadorSeLePagaPorPrimeraVez() {
+		this.ganador.pagar();
+		
+		assertEquals(50000, this.jugador.getDinero());
 	}
 	
 	@Test
-	public void test03GanadorIncrementaCincoVictorias() {
-		for (int i=1; i<=5 ; i++) {
-			ganador.incrementarVictorias();
-		}
-		assertTrue(this.ganador.vecesQueGano(5));
+	public void test03GanadorSeLePagaPorSegundaVez() {
+		this.ganador.pagar();
+		this.ganador.pagar();
+		
+		assertEquals(80000,this.jugador.getDinero());
+	}
+	
+	@Test
+	public void test04GanadorSeLePagaPorTerceraVez() {
+		this.ganador.pagar();
+		this.ganador.pagar();
+		this.ganador.pagar();
+		
+		assertEquals(80000, this.jugador.getDinero());
 	}
 }

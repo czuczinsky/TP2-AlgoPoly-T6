@@ -2,7 +2,7 @@ package modelo;
 
 public class Construccion {
 	
-		int precio;
+		private int precio;
 		
 		public Construccion(int precio) {
 			this.precio=precio;

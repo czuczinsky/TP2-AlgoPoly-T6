@@ -2,7 +2,7 @@ package modelo;
 
 public abstract class DesplazamientoDinamico implements Casillero{
 	
-	public Tablero tablero;
+	protected Tablero tablero;
 	private Dados dados=Dados.getDados();
 
 	public DesplazamientoDinamico(Tablero tablero) {

@@ -1,8 +1,8 @@
 package modelo;
 
 public class Prisionero {
-	Jugador jugador;
-	int turno;
+	private Jugador jugador;
+	private int turno;
 	
 	public Prisionero(Jugador jugador) {
 		this.jugador=jugador;

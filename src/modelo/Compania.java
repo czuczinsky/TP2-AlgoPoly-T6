@@ -1,7 +1,7 @@
 package modelo;
 
 public class Compania implements Casillero, Agrupable {
-	private String nombre;
+//	private String nombre;
 	private int precio;
 	private Grupo grupo;
 	private int multiplicadorSimple;
@@ -9,7 +9,7 @@ public class Compania implements Casillero, Agrupable {
 	private Jugador propietario;
 
 	public Compania(String nombre, int precio, Grupo grupo, int multiplicadorSimple, int multiplicadorMultiple) {
-		this.nombre = nombre;
+//		this.nombre = nombre;
 		this.precio = precio;
 		this.grupo = grupo;
 		this.multiplicadorSimple = multiplicadorSimple;

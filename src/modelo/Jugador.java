@@ -3,14 +3,14 @@ package modelo;
 import java.util.ArrayList;
 
 public class Jugador {
-	private String nombre;
+//	private String nombre;
 	private int dinero;
-	Casillero posicion;
+	private Casillero posicion;
 	private ArrayList<Terreno> terrenos = new ArrayList<Terreno>();
 
 	
 	public Jugador(String nombre, int dinero) {
-		this.nombre = nombre;
+//		this.nombre = nombre;
 		this.dinero = dinero;
 		this.posicion= new Salida();
 	}
