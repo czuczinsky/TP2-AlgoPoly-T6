@@ -6,7 +6,11 @@ public class AlgoPoly {
 	
 	public AlgoPoly() {
 		this.tablero = new Tablero();
+//<<<<<<< HEAD
 	
+//=======
+		this.armarTablero();
+//>>>>>>> branch 'master' of https://github.com/czuczinsky/TP2-AlgoPoly-T6.git
 	}
 
 	public void armarTablero() {
@@ -40,6 +44,13 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Terreno("Tucuman", new Grupo(), 2500, 7000, 0, 0, 0, 0, 0));
 
 	}
+//<<<<<<< HEAD
 	
 
+//=======
+
+	public Tablero getTablero() {
+		return tablero;
+	}
+//>>>>>>> branch 'master' of https://github.com/czuczinsky/TP2-AlgoPoly-T6.git
 }

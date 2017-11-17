@@ -45,5 +45,12 @@ public class Tablero {
 		}
 		jugador.moverA(casilleroAMover,dados);
 	}
+//<<<<<<< HEAD
 	
+//=======
+
+	public ArrayList<Casillero> getCasilleros() {
+		return casilleros;
+	}
+//>>>>>>> branch 'master' of https://github.com/czuczinsky/TP2-AlgoPoly-T6.git
 }
