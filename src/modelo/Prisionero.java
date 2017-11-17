@@ -6,7 +6,7 @@ public class Prisionero {
 	
 	public Prisionero(Jugador jugador) {
 		this.jugador=jugador;
-		this.turno=1;	
+		this.turno=0;
 	}
 	
 	public boolean esIgualA (Jugador jugador) {
@@ -14,19 +14,14 @@ public class Prisionero {
 	}
 	
 	public boolean cumplioLaCondena() {
-		boolean cumplioCondena=true;
-		if (!(this.turno>=4)){
-			cumplioCondena=false;
-			this.incrementarTurno();
-		}
-		return cumplioCondena;
+		return (turno>=4);
 	}
-	
+
 	public boolean puedePagarFianza(int dineroAPagar) {
-		return (this.turno>1 && jugador.getDinero()>=dineroAPagar);
+		return (turno>1 && jugador.getDinero()>=dineroAPagar);
 	}
 	
-	private void incrementarTurno() {
+	public void incrementarTurno() {
 		this.turno+=1;
 	}
 	

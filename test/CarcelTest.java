@@ -8,7 +8,7 @@ import modelo.*;
 public class CarcelTest {
 
 	@Test
-	public void testAlCrearLaCarcelNoDeberiaTenerNingunPrisionero() {
+	public void test01AlCrearLaCarcelNoDeberiaTenerNingunPrisionero() {
 		
 		Carcel carcel=new Carcel();
 		
@@ -16,7 +16,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void testSiAgregoUnJugadorALaCarcelDeberiaTenerUnPrisionero() {
+	public void test02SiAgregoUnJugadorALaCarcelDeberiaTenerUnPrisionero() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
@@ -27,7 +27,7 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void testSiUnJugadorCaeEnLaCarcelNoDeberiaPoderMoverse() {
+	public void test03SiUnJugadorCaeEnLaCarcelNoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
@@ -38,156 +38,168 @@ public class CarcelTest {
 	}
 	
 	@Test
-	public void testSiAgregoUnJugadorALaCarcelEnElSegundoTurnoNoPuedeMoverse() {
+	public void test04SiAgregoUnJugadorALaCarcelEnElSegundoTurnoNoPuedeMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
 		
 		assertEquals(false,carcel.puedeMoverse(jugador));	
 	}
 	
 	@Test
-	public void testSiAgregoUnJugadorALaCarcelEnElTercerTurnoNoPuedeMoverse() {
+	public void test05SiAgregoUnJugadorALaCarcelEnElTercerTurnoNoPuedeMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
 		
 		assertEquals(false,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
-	public void testSiAgregoUnJugadorALaCarcelEnElCuartoTurnoDeberiaPoderMoverse() {
+	public void test06SiAgregoUnJugadorALaCarcelEnElCuartoTurnoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		
 		
 		assertEquals(true,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
-	public void testUnJugadorNoDeberiaPoderPagarLaFianzaEnElPrimerTurno() {
+	public void test07UnJugadorNoDeberiaPoderPagarLaFianzaEnElPrimerTurno() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",10000);
+		int dineroInicial=jugador.getDinero();
 		
 		carcel.ocupar(jugador);
-		int dineroInicial=jugador.getDinero();
+		carcel.avanzarTurnoDe(jugador);
 		carcel.cobrarFianza(jugador);
-		int dineroFinal=jugador.getDinero();
 		
-		assertEquals(dineroInicial,dineroFinal);
+		assertEquals(dineroInicial,jugador.getDinero());
 	}
 	
 	@Test
-	public void testJugadorDeberiaPoderPagarLaFianzaEnElSegundoTurno() {
+	public void test08JugadorDeberiaPoderPagarLaFianzaEnElSegundoTurno() {
+		
+		Carcel carcel=new Carcel();
+		Jugador jugador=new Jugador("carlos",100000);
+		int dineroInicial=jugador.getDinero();
+		;
+		carcel.ocupar(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.cobrarFianza(jugador);
+		
+		assertEquals(dineroInicial-45000,jugador.getDinero());
+	}
+	
+	@Test
+	public void test09JugadorDeberiaPoderPagarLaFianzaEnElTercerTurno() {
+		
+		Carcel carcel=new Carcel();
+		Jugador jugador=new Jugador("carlos",100000);
+		int dineroInicial=jugador.getDinero();
+		
+		carcel.ocupar(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.cobrarFianza(jugador);
+		
+		assertEquals(dineroInicial-45000,jugador.getDinero());
+	}
+	
+	@Test
+	public void test10SiElJugadorPagaLaFianzaEnElSegundoTurnoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",100000);
 		
 		carcel.ocupar(jugador);
-		int dineroInicial=jugador.getDinero();
-		carcel.puedeMoverse(jugador);
-		carcel.cobrarFianza(jugador);
-		int dineroFinal=jugador.getDinero();
-		
-		assertEquals(dineroInicial-45000,dineroFinal);
-	}
-	
-	@Test
-	public void testJugadorDeberiaPoderPagarLaFianzaEnElTercerTurno() {
-		
-		Carcel carcel=new Carcel();
-		Jugador jugador=new Jugador("carlos",100000);
-		
-		carcel.ocupar(jugador);
-		int dineroInicial=jugador.getDinero();
-		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
-		carcel.cobrarFianza(jugador);
-		int dineroFinal=jugador.getDinero();
-		
-		assertEquals(dineroInicial-45000,dineroFinal);
-	}
-	
-	@Test
-	public void testSiElJugadorPagaLaFianzaEnElSegundoTurnoDeberiaPoderMoverse() {
-		
-		Carcel carcel=new Carcel();
-		Jugador jugador=new Jugador("carlos",100000);
-		
-		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
 		carcel.cobrarFianza(jugador);
 		
 		assertEquals(true,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
-	public void testSiElJugadorPagaLaFianzaEnElTercerTurnoDeberiaPoderMoverse() {
+	public void test11SiElJugadorPagaLaFianzaEnElTercerTurnoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",100000);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
 		carcel.cobrarFianza(jugador);
 		
 		assertEquals(true,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
-	public void testSiElJugadorQuierePagarLaFianzaEnElSegundoTurnoPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
+	public void test12SiElJugadorQuierePagarLaFianzaEnElSegundoTurnoPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",100);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
 		carcel.cobrarFianza(jugador);
 		
 		assertEquals(false,carcel.puedeMoverse(jugador));
 	}
 	
 	@Test
-	public void testSiElJugadorQuierePagarLaFianzaEnElTercerTurnoPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
+	public void test13SiElJugadorQuierePagarLaFianzaEnElTercerTurnoPeroNoTieneDineroSuficienteNoDeberiaPoderMoverse() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador=new Jugador("carlos",100);
 		
 		carcel.ocupar(jugador);
-		carcel.puedeMoverse(jugador);
-		carcel.puedeMoverse(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
+		carcel.avanzarTurnoDe(jugador);
 		carcel.cobrarFianza(jugador);
 		
 		assertEquals(false,carcel.puedeMoverse(jugador));
 	}
 
 	@Test
-	public void testSiCaeMasDeUnJugadorALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+	public void test14SiCaeMasDeUnJugadorALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
 		
 		Carcel carcel=new Carcel();
 		Jugador jugador1=new Jugador("carlos",100);
 		Jugador jugador2=new Jugador("pedro",100);
 		
 		carcel.ocupar(jugador1);
-		carcel.puedeMoverse(jugador1);
-		carcel.puedeMoverse(jugador1);
 		carcel.ocupar(jugador2);
-		carcel.puedeMoverse(jugador2);	
-		carcel.puedeMoverse(jugador1);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		
 		
 		assertEquals(true,carcel.puedeMoverse(jugador1));
 		assertEquals(false,carcel.puedeMoverse(jugador2));

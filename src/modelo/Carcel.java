@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 public class Carcel extends Casillero {
 	
-private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
+	private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 	
 	@Override
 	public void ocupar(Jugador jugador) {
 		Prisionero nuevoPrisionero= new Prisionero(jugador);
 		this.prisioneros.add(nuevoPrisionero);
+	}
+	
+	public void avanzarTurnoDe(Jugador jugador) {
+		Prisionero prisionero=this.obtenerPrisionero(jugador);
+		prisionero.incrementarTurno();
 	}
 	
 	public int cantidadDePrisioneros() {
@@ -29,17 +34,13 @@ private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 		return puedeMoverse;	
 	}
 	
-	public void cobrarFianza(Jugador jugador) {
-		
+	public void cobrarFianza(Jugador jugador) { //que pasa si no puede pagar la fianza	
 		Prisionero prisionero=this.obtenerPrisionero(jugador);
 		
 		if (prisionero.puedePagarFianza(45000)){
 			this.prisioneros.remove(prisionero);
 			jugador.decrementarDinero(45000);
 		}
-//		else {
-//			throw new PagoDeFianzaNoHabilitadoException();
-//		}
 	}
 	
 	private Prisionero obtenerPrisionero(Jugador jugador) {
