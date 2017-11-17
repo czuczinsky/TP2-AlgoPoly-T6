@@ -15,7 +15,7 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Assert.assertEquals(100000 , jugador1.getDinero());
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		Assert.assertEquals(80000 , jugador1.getDinero());
 	}
 	
@@ -27,7 +27,7 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Assert.assertEquals(100000 , jugador1.getDinero());
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		Assert.assertEquals(jugador1 , terreno1.getPropietario());
 	}
 	
@@ -38,7 +38,7 @@ public class TerrenoTest {
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.construirCasa();
 		Assert.assertEquals(100000-20000-5000 , jugador1.getDinero());
 	}
@@ -50,7 +50,7 @@ public class TerrenoTest {
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.construirCasa();
 		terreno1.construirCasa();
 		Assert.assertEquals(100000-20000-5000-5000 , jugador1.getDinero());
@@ -63,8 +63,8 @@ public class TerrenoTest {
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 25000, 2500, 3500, 3800, 5500, 5500, 8500);
 
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
-		terrenoNorte.comprar(jugador1);
-		terrenoSur.comprar(jugador1);
+		terrenoNorte.venderA(jugador1);
+		terrenoSur.venderA(jugador1);
 		terrenoNorte.construirCasa(); // primera casa
 		terrenoNorte.construirCasa(); // segunda casa
 		terrenoSur.construirCasa(); // primera casa
@@ -79,8 +79,8 @@ public class TerrenoTest {
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 10000, 2500, 3500, 3800, 5500, 5500, 8500);
 
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
-		terrenoNorte.comprar(jugador1);
-		terrenoSur.comprar(jugador1);
+		terrenoNorte.venderA(jugador1);
+		terrenoSur.venderA(jugador1);
 		terrenoNorte.construirCasa(); // primera casa
 		terrenoNorte.construirCasa(); // segunda casa
 		terrenoSur.construirCasa(); // primera casa
@@ -96,8 +96,8 @@ public class TerrenoTest {
 		Terreno terrenoSur = new Terreno("Terreno Sur", provincia1, 15000, 2500, 3500, 3800, 5500, 5500, 8500);
 
 		Jugador jugador1 = new Jugador("Jugador 1", 51000);
-		terrenoNorte.comprar(jugador1);
-		terrenoSur.comprar(jugador1);
+		terrenoNorte.venderA(jugador1);
+		terrenoSur.venderA(jugador1);
 		terrenoNorte.construirCasa(); // primera casa
 		terrenoNorte.construirCasa(); // segunda casa
 		terrenoSur.construirCasa(); // primera casa
@@ -113,7 +113,7 @@ public class TerrenoTest {
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.construirCasa(); // segunda casa
 		terreno1.construirHotel(); // hotel?
@@ -127,7 +127,7 @@ public class TerrenoTest {
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.construirCasa(); // segunda casa
 		Assert.assertEquals(3 , terreno1.cantPropiedades());
@@ -141,7 +141,7 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.ocupar(jugador2);
 		
 		Assert.assertEquals(100000-2000 , jugador2.getDinero());
@@ -155,7 +155,7 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.ocupar(jugador2);
 		
@@ -170,7 +170,7 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.construirCasa(); // segunda casa
 		terreno1.ocupar(jugador2);
@@ -188,8 +188,8 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",200000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
-		terreno1.comprar(jugador1);
-		terreno2.comprar(jugador1);
+		terreno1.venderA(jugador1);
+		terreno2.venderA(jugador1);
 		terreno1.construirCasa();
 		terreno1.construirCasa();
 		terreno2.construirCasa();
@@ -210,8 +210,8 @@ public class TerrenoTest {
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
-		terreno1.comprar(jugador1);
-		terreno2.comprar(jugador1);
+		terreno1.venderA(jugador1);
+		terreno2.venderA(jugador1);
 		terreno1.construirCasa();
 		terreno1.construirCasa();
 		terreno1.ocupar(jugador2);

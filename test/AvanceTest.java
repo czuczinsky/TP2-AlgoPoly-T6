@@ -220,8 +220,8 @@ public class AvanceTest {
 			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
 				
 		Jugador jugadora = new Jugador("Maria",100000);
-		bsAsSur.comprar(jugadora);
-		bsAsNorte.comprar(jugadora);
+		bsAsSur.venderA(jugadora);
+		bsAsNorte.venderA(jugadora);
 		
 		bsAsSur.construirCasa();
 		bsAsSur.construirCasa(); 
@@ -245,8 +245,8 @@ public class AvanceTest {
 			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
 				
 		Jugador jugadora = new Jugador("Maria",100000);
-		bsAsSur.comprar(jugadora);
-		bsAsNorte.comprar(jugadora);
+		bsAsSur.venderA(jugadora);
+		bsAsNorte.venderA(jugadora);
 		
 		bsAsSur.construirCasa();
 		bsAsSur.construirCasa();

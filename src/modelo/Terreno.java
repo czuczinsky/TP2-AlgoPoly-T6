@@ -53,7 +53,7 @@ public class Terreno implements Casillero, Agrupable {
 		propietario.incrementarDinero(valorAlquiler);
 	}
 
-	public void comprar(Jugador jugador) {
+	public void venderA(Jugador jugador) {
 		if (!this.tienePropietario()) {// si ya tiene duenio lanzar exception
 			this.propietario = jugador;
 			jugador.decrementarDinero(precio);
@@ -86,13 +86,14 @@ public class Terreno implements Casillero, Agrupable {
 	}
 
 	private boolean puedeEdificarCasa() {
-		return grupo.mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
-				&& propietario.getDinero() >= costoEdificarCasa;
+		return(grupo.mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
+				&& propietario.getDinero() >= costoEdificarCasa);
 	}
 
 	private boolean puedeEdificarHotel() {
-		return grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && grupo.estaCompleto()
-				&& propietario.getDinero() >= costoEdificarHotel;
+
+		return(grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && casas.size() == 2
+				&& propietario.getDinero() >= costoEdificarHotel);
 	}
 
 	public int cantPropiedades() {

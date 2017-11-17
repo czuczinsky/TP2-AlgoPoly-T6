@@ -18,7 +18,7 @@ public class JugadorTest {
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
 				
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
-		terreno1.comprar(jugador1);
+		terreno1.venderA(jugador1);
 		Assert.assertEquals(jugador1 , terreno1.getPropietario());
 	}
 	
@@ -41,7 +41,7 @@ public class JugadorTest {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Jugador jugador = new Jugador("Test", 100000);
-		terreno.comprar(jugador);
+		terreno.venderA(jugador);
 		terreno.construirCasa();
 		terreno.construirCasa();
 		Assert.assertEquals(3 , jugador.cantPropiedades());
