@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Terreno implements Casillero, Agrupable {
+public class Terreno extends Casillero implements Agrupable {
 
 	// private String nombre;
 	private int precio;

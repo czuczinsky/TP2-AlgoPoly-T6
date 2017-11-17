@@ -1,6 +1,6 @@
 package modelo;
 
-public abstract class DesplazamientoDinamico implements Casillero{
+public abstract class DesplazamientoDinamico extends  Casillero{
 	
 	protected Tablero tablero;
 	private Dados dados=Dados.getDados();

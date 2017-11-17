@@ -1,6 +1,6 @@
 package modelo;
 
-public class Compania implements Casillero, Agrupable {
+public class Compania extends Casillero implements Agrupable {
 //	private String nombre;
 	private int precio;
 	private Grupo grupo;

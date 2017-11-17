@@ -1,6 +1,6 @@
 package modelo;
 
-public class Salida implements Casillero {
+public class Salida extends Casillero {
 
 	@Override
 	public void ocupar(Jugador jugador) {

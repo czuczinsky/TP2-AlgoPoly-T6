@@ -1,5 +1,7 @@
 package modelo;
 
-public interface Casillero {
-	public void ocupar(Jugador jugador);
+public abstract class Casillero {
+	public void ocupar(Jugador jugador) {
+		
+	}
 }

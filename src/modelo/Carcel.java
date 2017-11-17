@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Carcel implements Casillero {
+public class Carcel extends Casillero {
 	
 private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 	

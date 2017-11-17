@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Quini6 implements Casillero {
+public class Quini6 extends Casillero {
 	private ArrayList<Ganador> ganadores;
 	
 	public Quini6() {
