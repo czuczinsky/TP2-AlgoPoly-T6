@@ -17,85 +17,93 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import modelo.AlgoPoly;
 //import modelo.Robot;
 //import vista.eventos.BotonDireccionHandler;
 //import vista.eventos.BotonMoverHandler;
 
 public class ContenedorPrincipal extends BorderPane {
 
-    BarraDeMenu menuBar;
-    VistaTablero vistaTablero;
-    Canvas canvasCentral;
-    VBox contenedorCentral;
+	BarraDeMenu menuBar;
+	VistaTablero vistaTablero;
+	Canvas canvasCentral;
+	VBox contenedorCentral;
 
-    public ContenedorPrincipal(Stage stage) {
-        this.setMenu(stage);
-        this.setCentro();
-        this.setConsola();
-//        this.setBotonera(robot);
-    }
+	public ContenedorPrincipal(Stage stage) {
+		this.setMenu(stage);
+		this.setCentro();
+		this.setConsola();
+		// this.setBotonera(robot);
+	}
 
-// TODO armar botonera (Si va)
-//    private void setBotonera(Robot robot) {
-//
-//        Button botonMover = new Button();
-//        botonMover.setText("Mover");
-//        BotonMoverHandler moveButtonHandler = new BotonMoverHandler(vistaRobot, robot);
-//        botonMover.setOnAction(moveButtonHandler);
-//
-//        Button botonDireccion = new Button();
-//        botonDireccion.setText("Cambiar direccion");
-//        BotonDireccionHandler directionButtonHandler = new BotonDireccionHandler(robot);
-//        botonDireccion.setOnAction(directionButtonHandler);
-//
-//        VBox contenedorVertical = new VBox(botonMover, botonDireccion);
-//        contenedorVertical.setSpacing(10);
-//        contenedorVertical.setPadding(new Insets(15));
-//
-//        this.setLeft(contenedorVertical);
-//
-//    }
+	// TODO armar botonera (Si va)
+	// private void setBotonera(Robot robot) {
+	//
+	// Button botonMover = new Button();
+	// botonMover.setText("Mover");
+	// BotonMoverHandler moveButtonHandler = new BotonMoverHandler(vistaRobot,
+	// robot);
+	// botonMover.setOnAction(moveButtonHandler);
+	//
+	// Button botonDireccion = new Button();
+	// botonDireccion.setText("Cambiar direccion");
+	// BotonDireccionHandler directionButtonHandler = new
+	// BotonDireccionHandler(robot);
+	// botonDireccion.setOnAction(directionButtonHandler);
+	//
+	// VBox contenedorVertical = new VBox(botonMover, botonDireccion);
+	// contenedorVertical.setSpacing(10);
+	// contenedorVertical.setPadding(new Insets(15));
+	//
+	// this.setLeft(contenedorVertical);
+	//
+	// }
 
-    private void setMenu(Stage stage) {
-        this.menuBar = new BarraDeMenu(stage);
-        this.setTop(menuBar);
-    }
+	private void setMenu(Stage stage) {
+		this.menuBar = new BarraDeMenu(stage);
+		this.setTop(menuBar);
+	}
 
-    private void setCentro() {
+	private void setCentro() {
 
-        canvasCentral = new Canvas(600, 400);
-        vistaTablero = new VistaTablero(canvasCentral);
-        vistaTablero.dibujar();
+		canvasCentral = new Canvas(600, 400);
 
-        contenedorCentral = new VBox(canvasCentral);
-        contenedorCentral.setAlignment(Pos.CENTER);
-        contenedorCentral.setSpacing(20);
-        contenedorCentral.setPadding(new Insets(25));
-//        Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
-//        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-//        contenedorCentral.setBackground(new Background(imagenDeFondo));
+		// TODO mover
+		AlgoPoly algoPoly = new AlgoPoly();
+		vistaTablero = new VistaTablero(algoPoly.getTablero(), canvasCentral);
+		vistaTablero.dibujar();
 
-        this.setCenter(contenedorCentral);
-    }
+		contenedorCentral = new VBox(canvasCentral);
+		contenedorCentral.setAlignment(Pos.CENTER);
+		contenedorCentral.setSpacing(20);
+		contenedorCentral.setPadding(new Insets(25));
+		// Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
+		// BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
+		// BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+		// BackgroundSize.DEFAULT);
+		// contenedorCentral.setBackground(new Background(imagenDeFondo));
 
-    private void setConsola() {
+		this.setCenter(contenedorCentral);
+	}
 
-        // TODO cambiar por el modelo de Consola... Va la consola???
-        Label etiqueta = new Label();
-        etiqueta.setText("consola...");
-        etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
-        etiqueta.setTextFill(Color.WHITE);
+	private void setConsola() {
 
-        VBox contenedorConsola = new VBox(etiqueta);
-        contenedorConsola.setSpacing(10);
-        contenedorConsola.setPadding(new Insets(15));
-        contenedorConsola.setStyle("-fx-background-color: black;");
+		// TODO cambiar por el modelo de Consola... Va la consola???
+		Label etiqueta = new Label();
+		etiqueta.setText("consola...");
+		etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+		etiqueta.setTextFill(Color.WHITE);
 
-        this.setBottom(contenedorConsola);
-    }
+		VBox contenedorConsola = new VBox(etiqueta);
+		contenedorConsola.setSpacing(10);
+		contenedorConsola.setPadding(new Insets(15));
+		contenedorConsola.setStyle("-fx-background-color: black;");
 
-    public BarraDeMenu getBarraDeMenu() {
-        return menuBar;
-    }
+		this.setBottom(contenedorConsola);
+	}
+
+	public BarraDeMenu getBarraDeMenu() {
+		return menuBar;
+	}
 
 }

@@ -5,6 +5,7 @@ public class AlgoPoly {
 	
 	public AlgoPoly() {
 		this.tablero = new Tablero();
+		this.armarTablero();
 	}
 
 	public void armarTablero() {
@@ -37,5 +38,9 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Retroceso(tablero));
 		tablero.agregarCasillero(new Terreno("Tucuman", new Grupo(), 2500, 7000, 0, 0, 0, 0, 0));
 
+	}
+
+	public Tablero getTablero() {
+		return tablero;
 	}
 }

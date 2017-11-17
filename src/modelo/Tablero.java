@@ -45,4 +45,8 @@ public class Tablero {
 		}
 		jugador.moverA(casilleroAMover);
 	}
+
+	public ArrayList<Casillero> getCasilleros() {
+		return casilleros;
+	}
 }
