@@ -91,7 +91,6 @@ public class Terreno implements Casillero, Agrupable {
 	}
 
 	private boolean puedeEdificarHotel() {
-		// TODO verificar casa en ambos terrenos
 		return grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && grupo.estaCompleto()
 				&& propietario.getDinero() >= costoEdificarHotel;
 	}
