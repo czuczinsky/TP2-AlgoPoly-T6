@@ -211,12 +211,12 @@ public class RetrocesoTest {
 		bsAsSur.comprar(jugadora);
 		bsAsNorte.comprar(jugadora);
 		
-		bsAsSur.construirCasa(jugadora); // primera casa
-		bsAsSur.construirCasa(jugadora); // segunda casa
+		bsAsSur.construirCasa(); // primera casa
+		bsAsSur.construirCasa(); // segunda casa
 		
-		bsAsNorte.construirCasa(jugadora);
-		bsAsNorte.construirCasa(jugadora);
-		bsAsNorte.construirHotel(jugadora);
+		bsAsNorte.construirCasa();
+		bsAsNorte.construirCasa();
+		bsAsNorte.construirHotel();
 		
 		dados.setNumeros(5,1);
 		jugadora.moverA(retroceso);
@@ -238,8 +238,8 @@ public class RetrocesoTest {
 		bsAsSur.comprar(jugadora);
 		bsAsNorte.comprar(jugadora);
 		
-		bsAsSur.construirCasa(jugadora); 
-		bsAsSur.construirCasa(jugadora);
+		bsAsSur.construirCasa(); 
+		bsAsSur.construirCasa();
 		
 		dados.setNumeros(1,3);
 		jugadora.moverA(retroceso);

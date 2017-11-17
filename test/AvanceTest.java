@@ -223,12 +223,12 @@ public class AvanceTest {
 		bsAsSur.comprar(jugadora);
 		bsAsNorte.comprar(jugadora);
 		
-		bsAsSur.construirCasa(jugadora);
-		bsAsSur.construirCasa(jugadora); 
+		bsAsSur.construirCasa();
+		bsAsSur.construirCasa(); 
 		
-		bsAsNorte.construirCasa(jugadora);
-		bsAsNorte.construirCasa(jugadora);
-		bsAsNorte.construirHotel(jugadora);
+		bsAsNorte.construirCasa();
+		bsAsNorte.construirCasa();
+		bsAsNorte.construirHotel();
 		
 		dados.setNumeros(5,6);
 		jugadora.moverA(avance);
@@ -248,8 +248,8 @@ public class AvanceTest {
 		bsAsSur.comprar(jugadora);
 		bsAsNorte.comprar(jugadora);
 		
-		bsAsSur.construirCasa(jugadora);
-		bsAsSur.construirCasa(jugadora);
+		bsAsSur.construirCasa();
+		bsAsSur.construirCasa();
 		
 		dados.setNumeros(6,6);
 		jugadora.moverA(avance);

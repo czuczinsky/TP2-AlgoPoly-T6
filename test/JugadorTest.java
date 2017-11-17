@@ -42,8 +42,8 @@ public class JugadorTest {
 		Terreno terreno = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Jugador jugador = new Jugador("Test", 100000);
 		terreno.comprar(jugador);
-		terreno.construirCasa(jugador);
-		terreno.construirCasa(jugador);
+		terreno.construirCasa();
+		terreno.construirCasa();
 		Assert.assertEquals(3 , jugador.cantPropiedades());
 	}
 	

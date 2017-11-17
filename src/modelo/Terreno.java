@@ -61,7 +61,7 @@ public class Terreno implements Casillero, Agrupable {
 		}
 	}
 
-	public void construirCasa(Jugador jugador) {
+	public void construirCasa() {
 		// lanzar exception si no se puede construir
 		if (this.puedeEdificarCasa()) {
 			Construccion casaNueva;
@@ -75,7 +75,7 @@ public class Terreno implements Casillero, Agrupable {
 		}
 	}
 
-	public void construirHotel(Jugador jugador) {
+	public void construirHotel() {
 		// lanzar exception si no se puede construir
 		if (this.puedeEdificarHotel()) {
 			Construccion hotelNuevo = new Construccion(propietario, costoEdificarHotel, valorAlquilerHotel);
