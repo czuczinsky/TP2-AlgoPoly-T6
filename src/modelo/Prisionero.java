@@ -14,7 +14,7 @@ public class Prisionero {
 	}
 	
 	public boolean cumplioLaCondena() {
-		return (turno>=4);
+		return (turno>3);
 	}
 
 	public boolean puedePagarFianza(int dineroAPagar) {
