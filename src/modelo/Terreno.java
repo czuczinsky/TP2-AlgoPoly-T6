@@ -92,7 +92,7 @@ public class Terreno implements Casillero, Agrupable {
 
 	private boolean puedeEdificarHotel() {
 		// TODO verificar casa en ambos terrenos
-		return grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && casas.size() == 2
+		return grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && grupo.estaCompleto()
 				&& propietario.getDinero() >= costoEdificarHotel;
 	}
 
@@ -106,5 +106,10 @@ public class Terreno implements Casillero, Agrupable {
 
 	public Jugador getPropietario() {
 		return propietario;
+	}
+
+	@Override
+	public boolean estaCompleto() {
+		return (casas.size() == 2);
 	}
 }

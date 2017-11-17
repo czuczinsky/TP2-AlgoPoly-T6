@@ -31,4 +31,11 @@ public class Grupo {
 		return resultado;
 	}
 
+	public boolean estaCompleto() {
+		boolean resultado = true;
+		for (Agrupable agrupable : elementos)
+			resultado = resultado && agrupable.estaCompleto();
+		return resultado;
+	}
+
 }

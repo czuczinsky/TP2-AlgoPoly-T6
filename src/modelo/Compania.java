@@ -49,4 +49,9 @@ public class Compania implements Casillero, Agrupable {
 		return this.propietario!=null;
 	}
 
+	@Override
+	public boolean estaCompleto() {
+		return false;
+	}
+
 }
