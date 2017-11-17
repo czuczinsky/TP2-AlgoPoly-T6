@@ -6,8 +6,9 @@ public class Carcel extends Casillero {
 	
 	private ArrayList<Prisionero> prisioneros=new ArrayList<Prisionero>();
 	
+	
 	@Override
-	public void ocupar(Jugador jugador) {
+	public void ocupar(Jugador jugador, Dados dados) {
 		Prisionero nuevoPrisionero= new Prisionero(jugador);
 		this.prisioneros.add(nuevoPrisionero);
 	}

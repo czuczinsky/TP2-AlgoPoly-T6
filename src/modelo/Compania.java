@@ -7,6 +7,7 @@ public class Compania extends Casillero implements Agrupable {
 	private int multiplicadorSimple;
 	private int multiplicadorMultiple;
 	private Jugador propietario;
+	public Dados dados=new Dados();
 
 	public Compania(String nombre, int precio, Grupo grupo, int multiplicadorSimple, int multiplicadorMultiple) {
 //		this.nombre = nombre;
@@ -29,9 +30,8 @@ public class Compania extends Casillero implements Agrupable {
 	}
 
 	@Override
-	public void ocupar(Jugador jugador) {
+	public void ocupar(Jugador jugador, Dados dados) {
 		
-		Dados dados = Dados.getDados();
 		
 		if (this.tienePropietario()&& !jugador.equals(propietario)){
 			

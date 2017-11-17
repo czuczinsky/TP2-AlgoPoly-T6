@@ -11,7 +11,7 @@ public class Tablero {
 		this.casilleros = new ArrayList<Casillero>();
 	}
 
-	public void avanzar(Jugador jugador, int cantidad) {
+	public void avanzar(Jugador jugador, int cantidad,Dados dados) {
 		Casillero casilleroAMover=jugador.getPosicion();
 		
 		for (int i=0 ; i < cantidad ; i++) {
@@ -23,7 +23,7 @@ public class Tablero {
 				casilleroAMover=this.casilleros.get(0);
 			}
 		}
-		jugador.moverA(casilleroAMover);
+		jugador.moverA(casilleroAMover,dados);
 	}
 	
 	public void agregarCasillero(Casillero casillero) {
@@ -31,7 +31,7 @@ public class Tablero {
 	}
 	
 
-	public void retroceder(Jugador jugador, int cantidad) {
+	public void retroceder(Jugador jugador, int cantidad,Dados dados) {
 		Casillero casilleroAMover=jugador.getPosicion();
 		
 		for (int i=0 ; i < cantidad ; i++) {
@@ -43,6 +43,7 @@ public class Tablero {
 				casilleroAMover=this.casilleros.get(this.casilleros.size()-1);
 			}
 		}
-		jugador.moverA(casilleroAMover);
+		jugador.moverA(casilleroAMover,dados);
 	}
+	
 }

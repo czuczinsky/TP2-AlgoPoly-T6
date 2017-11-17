@@ -33,7 +33,7 @@ public class Terreno extends Casillero implements Agrupable {
 	}
 
 	@Override
-	public void ocupar(Jugador jugador) {
+	public void ocupar(Jugador jugador, Dados dados) {
 
 		if (this.tienePropietario() && !jugador.equals(propietario)) {
 			this.cobrarAlquileresA(jugador);

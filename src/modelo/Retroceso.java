@@ -2,21 +2,20 @@ package modelo;
 
 public class Retroceso extends DesplazamientoDinamico{
 	
-	private Dados dados =Dados.getDados();
 	
 	public Retroceso(Tablero tablero) {
 		super(tablero);
 	}
 	
-	public void mover(Jugador jugador, int cantidadDeCasilleros) {
-		this.tablero.retroceder(jugador,cantidadDeCasilleros);
+	public void mover(Jugador jugador, int cantidadDeCasilleros,Dados dados) {
+		this.tablero.retroceder(jugador,cantidadDeCasilleros,dados);
 	}
 	
-	public int cantidadDeCasillerosAMoverDe2a6(Jugador jugador) {
+	public int cantidadDeCasillerosAMoverDe2a6(Jugador jugador, Dados dados) {
 		return dados.getSuma()-jugador.cantPropiedades();
 	}
 	
-	public int cantidadDeCasillerosAMoverDe11a12(Jugador jugador) {
+	public int cantidadDeCasillerosAMoverDe11a12(Jugador jugador,Dados dados) {
 		return dados.getSuma()-2;
 	}
 

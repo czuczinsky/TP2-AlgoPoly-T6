@@ -15,7 +15,7 @@ public class CompaniaTest {
 		Grupo grupo = new Grupo();
 		Compania compania = new Compania("EDESUR", 35000, grupo, 500, 1000);
 
-		Dados dados = Dados.getDados();
+		Dados dados=new Dados();
 		dados.setNumeros(3, 4);
 
 		compania.comprar(propietario);
@@ -29,11 +29,11 @@ public class CompaniaTest {
 		Grupo grupo = new Grupo();
 		Compania compania = new Compania("EDESUR", 35000, grupo, 500, 1000);
 
-		Dados dados = Dados.getDados();
+		Dados dados=new Dados();
 		dados.setNumeros(3, 4);
 
 		compania.comprar(propietario);
-		compania.ocupar(jugador1);
+		compania.ocupar(jugador1,dados);
 		//Assert.assertEquals(200000 - 35000 + (3 + 4) * 500, propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 500, jugador1.getDinero());
 	}
@@ -46,12 +46,12 @@ public class CompaniaTest {
 		Compania compania1 = new Compania("EDESUR", 35000, grupo, 500, 1000);
 		Compania compania2 = new Compania("AYSA", 30000, grupo, 300, 500);
 
-		Dados dados = Dados.getDados();
+		Dados dados=new Dados();
 		dados.setNumeros(3, 4);
 
 		compania1.comprar(propietario);
 		compania2.comprar(propietario);
-		compania1.ocupar(jugador1);
+		compania1.ocupar(jugador1,dados);
 		//Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000, propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 1000, jugador1.getDinero());
 	}
@@ -62,11 +62,11 @@ public class CompaniaTest {
 		Grupo grupo = new Grupo();
 		Compania compania1 = new Compania("EDESUR", 35000, grupo, 500, 1000);
 
-		Dados dados = Dados.getDados();
+		Dados dados=new Dados();
 		dados.setNumeros(3, 4);
 
 		compania1.comprar(propietario);
-		compania1.ocupar(propietario);
+		compania1.ocupar(propietario,dados);
 		
 		Assert.assertEquals(200000-35000, propietario.getDinero());
 	}
@@ -78,12 +78,12 @@ public class CompaniaTest {
 		Compania compania1 = new Compania("EDESUR", 35000, grupo, 500, 1000);
 		Compania compania2 = new Compania("AYSA", 30000, grupo, 300, 500);
 
-		Dados dados = Dados.getDados();
+		Dados dados=new Dados();
 		dados.setNumeros(3, 4);
 
 		compania1.comprar(propietario);
 		compania2.comprar(propietario);
-		compania1.ocupar(propietario);
+		compania1.ocupar(propietario,dados);
 		
 		Assert.assertEquals(200000-35000-30000, propietario.getDinero());
 	}

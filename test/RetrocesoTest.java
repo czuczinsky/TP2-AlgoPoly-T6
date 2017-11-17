@@ -47,7 +47,7 @@ public class RetrocesoTest {
 
 	@Before
 	public void setUp() throws Exception {
-		dados = Dados.getDados();
+		//dados = Dados.getDados();
 		tablero = new Tablero();
 		
 		salida=new Salida();
@@ -98,8 +98,9 @@ public class RetrocesoTest {
 	public void test01JugadorQueTieneUnaPropiedadSiSaca2EnLosDadosDeberiaRetroceder1Casillero() {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		jugador.agregarTerreno(neuquen);
+		Dados dados=new Dados();
 		dados.setNumeros(1,1);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 
 		assertEquals(neuquen, jugador.getPosicion());	
 	}
@@ -107,8 +108,9 @@ public class RetrocesoTest {
 	@Test
 	public void test02JugadorCaeEnRetrocesoDinamicoSacando3EnLosDadosDeberiaRetroceder3CasillerosAPolicia() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(1,2);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(carcel, jugador.getPosicion());	
 	}
@@ -117,8 +119,9 @@ public class RetrocesoTest {
 	public void test03JugadorQueTieneUnaPropiedadSiSaca4EnLosDadosDeberiaRetroceder3Casilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		jugador.agregarTerreno(neuquen);
+		Dados dados=new Dados();
 		dados.setNumeros(3,1);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(carcel, jugador.getPosicion());	
 	}
@@ -129,8 +132,9 @@ public class RetrocesoTest {
 		jugador.agregarTerreno(neuquen);
 		jugador.agregarTerreno(bsAsNorte);
 		jugador.agregarTerreno(santaFe);
+		Dados dados=new Dados();
 		dados.setNumeros(4,1);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(tren, jugador.getPosicion());	
 	}
@@ -139,8 +143,9 @@ public class RetrocesoTest {
 	public void test05JugadorQueTieneUnaPropiedadSiSaca6EnLosDadosDeberiaRetroceder5Casilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		jugador.agregarTerreno(neuquen);
+		Dados dados=new Dados();
 		dados.setNumeros(4,2);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(saltaNorte, jugador.getPosicion());	
 	}
@@ -148,8 +153,9 @@ public class RetrocesoTest {
 	@Test
 	public void test06JugadorQueCaeEnRetrocesoSiSaca7EnLosDadosDeberiaRetroceder5Casilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(4,3);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(saltaNorte, jugador.getPosicion());	
 	}
@@ -157,8 +163,9 @@ public class RetrocesoTest {
 	@Test
 	public void test06JugadorQueCaeEnRetrocesoSiSaca8EnLosDadosNoDeberiaRetrocederNingunCasillero() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(5,3);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(retroceso, jugador.getPosicion());	
 	}
@@ -166,8 +173,9 @@ public class RetrocesoTest {
 	@Test
 	public void test08JugadorCaeEnRetrocesoDinamicoSacando9EnLosDadosYRetrocedeASaltaNorte() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(5,4);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(neuquen, jugador.getPosicion());
 	}
@@ -175,8 +183,9 @@ public class RetrocesoTest {
 	@Test
 	public void test09JugadorCaeEnRetrocesoDinamicoSacando10EnLosDadosYNoRetrocedeNingunaPosicion() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(5,5);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(retroceso, jugador.getPosicion());
 	}
@@ -184,8 +193,9 @@ public class RetrocesoTest {
 	@Test
 	public void test10JugadorCaeEnRetrocesoDinamicoSacando11EnLosDadosAvanzaACordobaNorte() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(5,6);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(cordobaNorte, jugador.getPosicion());
 	}
@@ -193,8 +203,9 @@ public class RetrocesoTest {
 	@Test
 	public void test11JugadorCaeEnRetrocesoDinamicoSacando12EnLosDadosRetrocedeASubte() {
 		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
 		dados.setNumeros(6,6);
-		jugador.moverA(retroceso);
+		jugador.moverA(retroceso,dados);
 		
 		assertEquals(subte, jugador.getPosicion());	
 	}	
@@ -217,9 +228,9 @@ public class RetrocesoTest {
 		bsAsNorte.construirCasa();
 		bsAsNorte.construirCasa();
 		bsAsNorte.construirHotel();
-		
+		Dados dados=new Dados();
 		dados.setNumeros(5,1);
-		jugadora.moverA(retroceso);
+		jugadora.moverA(retroceso,dados);
 		
 		
 		
@@ -240,9 +251,9 @@ public class RetrocesoTest {
 		
 		bsAsSur.construirCasa(); 
 		bsAsSur.construirCasa();
-		
+		Dados dados=new Dados();
 		dados.setNumeros(1,3);
-		jugadora.moverA(retroceso);
+		jugadora.moverA(retroceso,dados);
 		
 		
 		

@@ -1,19 +1,12 @@
 package modelo;
 
 public class Dados {
-	private static Dados dados = null;
+
 	private int dado1;
 	private int dado2;
-	protected Dados() {
+	public Dados() {
 	}
 
-	public static Dados getDados() {
-		if (dados == null) {
-			dados = new Dados();
-			dados.tirar();
-		}
-		return dados;
-	}
 
 	public void tirar() {
 		dado1 = 1 + (int)(Math.random() * 6);

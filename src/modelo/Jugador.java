@@ -27,10 +27,10 @@ public class Jugador {
 		this.dinero-=monto;
 	}
 	
-	public void moverA(Casillero unCasillero) {
+	public void moverA(Casillero unCasillero, Dados dados) {
 		if (this.posicion!=unCasillero) {
 		this.posicion=unCasillero;
-		this.posicion.ocupar(this);
+		this.posicion.ocupar(this,dados);
 		}
 	}
 

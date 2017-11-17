@@ -9,9 +9,9 @@ public class Policia extends Casillero {
 		
 	}
 	
-	public void ocupar(Jugador jugador) {
+	public void ocupar(Jugador jugador, Dados dados) {
 	
-		jugador.moverA(carcel);
+		jugador.moverA(carcel,dados);
 	}
 
 }

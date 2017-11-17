@@ -2,9 +2,11 @@ package modelo;
 
 public class AlgoPoly {
 	Tablero tablero;
+	Dados dados;
 	
 	public AlgoPoly() {
 		this.tablero = new Tablero();
+	
 	}
 
 	public void armarTablero() {
@@ -38,4 +40,6 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Terreno("Tucuman", new Grupo(), 2500, 7000, 0, 0, 0, 0, 0));
 
 	}
+	
+
 }

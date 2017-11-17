@@ -1,11 +1,13 @@
 package test;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import modelo.*;
 
 public class TerrenoTest {
+
 
 	@Test
 	public void test01SiUnJugadorCompraUnTerrenoSuDineroSeDeberiaDecrementarPorElPrecioDelTerreno() {
@@ -135,6 +137,7 @@ public class TerrenoTest {
 	
 	@Test
 	public void test10SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYNoEsElSeLeDeberiaDescontarElAlquilerDelTerreno() {
+		Dados dados=new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -142,13 +145,14 @@ public class TerrenoTest {
 		Jugador jugador1 = new Jugador("Jugador 1",100000);
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
 		terreno1.venderA(jugador1);
-		terreno1.ocupar(jugador2);
+		terreno1.ocupar(jugador2,dados);
 		
 		Assert.assertEquals(100000-2000 , jugador2.getDinero());
 	}
 	
 	@Test
 	public void test11SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYUnaCasaSeLeDeberiaDescontarElAlquilerDeUnaCasa() {
+		Dados dados=new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -157,13 +161,14 @@ public class TerrenoTest {
 		Jugador jugador2 = new Jugador("Jugador 2",100000);
 		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
-		terreno1.ocupar(jugador2);
+		terreno1.ocupar(jugador2,dados);
 		
 		Assert.assertEquals(100000-3000 , jugador2.getDinero());
 	}
 	
 	@Test
 	public void test12SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYDosCasasSeLeDeberiaDescontarElAlquilerDeDosCasas() {
+		Dados dados=new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -173,13 +178,14 @@ public class TerrenoTest {
 		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.construirCasa(); // segunda casa
-		terreno1.ocupar(jugador2);
+		terreno1.ocupar(jugador2,dados);
 		
 		Assert.assertEquals(100000-3500 , jugador2.getDinero());
 	}
 	
 	@Test
 	public void test13SiUnJugadorCaeEnUnTerrenoQueTienePropietarioYUnHotelSeLeDeberiaDescontarElAlquilerDelHotel() {
+		Dados dados=new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -195,13 +201,14 @@ public class TerrenoTest {
 		terreno2.construirCasa();
 		terreno2.construirCasa();
 		terreno1.construirHotel();
-		terreno1.ocupar(jugador2);
+		terreno1.ocupar(jugador2,dados);
 		
 		Assert.assertEquals(100000-5000 , jugador2.getDinero());
 	}
 
 	@Test
 	public void test143SiUnJugadorCaeEnUnTerrenoMultipleQueTienePropietarioY2CasasSeLeDeberiaDescontarElAlquilerDelas2Casas() {
+		Dados dados=new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
@@ -214,7 +221,7 @@ public class TerrenoTest {
 		terreno2.venderA(jugador1);
 		terreno1.construirCasa();
 		terreno1.construirCasa();
-		terreno1.ocupar(jugador2);
+		terreno1.ocupar(jugador2,dados);
 		
 		Assert.assertEquals(100000-3500 , jugador2.getDinero());
 	}
