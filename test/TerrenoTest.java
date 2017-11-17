@@ -207,7 +207,7 @@ public class TerrenoTest {
 	}
 
 	@Test
-	public void test143SiUnJugadorCaeEnUnTerrenoMultipleQueTienePropietarioY2CasasSeLeDeberiaDescontarElAlquilerDelas2Casas() {
+	public void test14SiUnJugadorCaeEnUnTerrenoMultipleQueTienePropietarioY2CasasSeLeDeberiaDescontarElAlquilerDelas2Casas() {
 		Dados dados=new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
@@ -224,6 +224,105 @@ public class TerrenoTest {
 		terreno1.ocupar(jugador2,dados);
 		
 		Assert.assertEquals(100000-3500 , jugador2.getDinero());
+	}
+	
+	@Test
+	public void test15SiUnJugadorCompraBuenosAiresSurYNoTieneDueñoSuDineroSeDeberiaDecrementarEn20Mil() {
+		Grupo buenosAires = new Grupo();
+		Terreno bsAsSur = new Terreno("Buenos Aires Sur",buenosAires,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		bsAsSur.venderA(jugador1);
+		Assert.assertEquals(80000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test16SiUnJugadorCompraBuenosAiresNorteYNoTieneDueñoSuDineroSeDeberiaDecrementarEn25Mil() {
+		Grupo buenosAires = new Grupo();
+		Terreno bsAsNorte = new Terreno("Buenos Aires Norte",buenosAires,
+				25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		Assert.assertEquals(100000 , jugador1.getDinero());
+		bsAsNorte.venderA(jugador1);
+		Assert.assertEquals(75000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test17SiUnJugadorCompraCordobaSurYNoTieneDueñoSuDineroSeDeberiaDecrementarEn18Mil() {
+		Grupo cordoba = new Grupo();
+		Terreno cordobaSur = new Terreno("Cordoba Sur",cordoba,
+				18000 , 1000 , 1500 , 2500 , 3000 , 2000 , 3000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		cordobaSur.venderA(jugador1);
+		Assert.assertEquals(82000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test18SiUnJugadorCompraCordobaNorteYNoTieneDueñoSuDineroSeDeberiaDecrementarEn20Mil() {
+		Grupo cordoba = new Grupo();
+		Terreno cordobaSur = new Terreno("Cordoba Sur",cordoba,
+				20000 , 1300 , 1800 , 2900 , 3500 , 2200 , 3500);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		cordobaSur.venderA(jugador1);
+		Assert.assertEquals(80000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test19SiUnJugadorCompraSantaFeYNoTieneDueñoSuDineroSeDeberiaDecrementarEn15Mil() {
+		Grupo staFe = new Grupo();
+		Terreno santaFe= new Terreno("Santa Fe",staFe,
+				15000 , 1500 , 3500 , 0 , 0 , 4000 , 0);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		santaFe.venderA(jugador1);
+		Assert.assertEquals(85000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test20SiUnJugadorCompraSaltaNorteYNoTieneDueñoSuDineroSeDeberiaDecrementarEn23Mil() {
+		Grupo salta = new Grupo();
+		Terreno saltaNorte= new Terreno("Salta Norte",salta,
+				23000 , 2000 , 3250 , 3850 , 5500 , 4500 , 7500);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		saltaNorte.venderA(jugador1);
+		Assert.assertEquals(77000 , jugador1.getDinero());
+	}
+	@Test
+	public void test21SiUnJugadorCompraSaltaSurYNoTieneDueñoSuDineroSeDeberiaDecrementarEn23Mil() {
+		Grupo salta = new Grupo();
+		Terreno saltaSur= new Terreno("Salta Sur",salta,
+				23000 , 2000 , 3250 , 3850 , 5500 , 4500 , 7500);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		saltaSur.venderA(jugador1);
+		Assert.assertEquals(77000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test22SiUnJugadorCompraNeuquenYNoTieneDueñoSuDineroSeDeberiaDecrementarEn17Mil() {
+		Grupo nquen = new Grupo();
+		Terreno neuquen= new Terreno("Neuquen",nquen,
+				17000 , 1800 , 3800 , 4800 , 0 , 4800 , 0);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		neuquen.venderA(jugador1);
+		Assert.assertEquals(83000 , jugador1.getDinero());
+	}
+	
+	@Test
+	public void test23SiUnJugadorCompraTucumanYNoTieneDueñoSuDineroSeDeberiaDecrementarEn25Mil() {
+		Grupo nquen = new Grupo();
+		Terreno neuquen= new Terreno("Neuquen",nquen,
+				25000 , 2500 ,4500 ,0 , 0 , 7000 , 0);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		neuquen.venderA(jugador1);
+		Assert.assertEquals(75000 , jugador1.getDinero());
 	}
 	// TODO tests de casos en que ya no se puede edificar
 }
