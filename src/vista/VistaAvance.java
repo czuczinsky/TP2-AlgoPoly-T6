@@ -1,7 +1,10 @@
 package vista;
 
+import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import modelo.Casillero;
 
 public class VistaAvance extends VistaRectangulo implements Dibujable {
@@ -17,7 +20,6 @@ public class VistaAvance extends VistaRectangulo implements Dibujable {
 	public void dibujar() {
 		canvas.getGraphicsContext2D().setFill(Color.GREENYELLOW);
 		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
-		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillText("AVANCE", x + 5, y + alto / 2);
+		this.etiquetar("AVANCE");
 	}
 }

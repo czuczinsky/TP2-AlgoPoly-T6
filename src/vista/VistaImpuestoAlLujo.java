@@ -1,5 +1,6 @@
 package vista;
 
+import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
@@ -17,8 +18,7 @@ public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 	public void dibujar() {
 		canvas.getGraphicsContext2D().setFill(Color.GREENYELLOW);
 		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
-		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillText("IMPUESTO LUJO", x + 5, y + alto / 2);
+		this.etiquetar("IMPUESTO LUJO");
 	}
 
 }
