@@ -428,6 +428,106 @@ public class TerrenoTest {
 		Assert.assertEquals(34000 -8000, pablo.getDinero());
 
 	}
+	
+	@Test
+	public void test29JugadorQueEsPropietarioDeBsAsSurYNorteYTiene4CasasCuandoConstruyeUnHotelCuandoCaeUnContricanteDeberiaDecrementarseAEsteSuDineroEn5Mil() {
+		Grupo buenosAires = new Grupo();
+		Dados dados=new Dados();
+		Terreno bsAsSur = new Terreno("Buenos Aires Sur", buenosAires,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		
+		Terreno bsAsNorte=new Terreno("Buenos Aires Norte", buenosAires, 
+				25000 , 2500 , 3500 , 4000 , 6000, 5500 , 9000);
+				
+		Jugador maria = new Jugador("Maria",100000);
+		bsAsSur.venderA(maria);
+		bsAsNorte.venderA(maria);
+		
+		bsAsSur.construirCasa();
+		bsAsSur.construirCasa();
+		
+		bsAsNorte.construirCasa();
+		bsAsNorte.construirCasa();
+		Assert.assertEquals( 100000-20000-25000-5000-5000-5500-5500, maria.getDinero());
+		bsAsSur.construirHotel();
+		Assert.assertEquals( 100000-20000-25000-5000-5000-5500-5500-8000, maria.getDinero());
+		Jugador laura=new Jugador ("Laura",100000);
+		
+		bsAsSur.ocupar(laura, dados);
+	
+		Assert.assertEquals(100000-5000, laura.getDinero());
+	}
+	@Test
+	public void test30JugadorQueEsPropietarioDeCordobaSurYNorteYTiene4CasasCuandoConstruyeUnHotelCuandoCaeUnContricanteDeberiaDecrementarseAEsteSuDineroEn3Mil() {
+		Grupo cordoba = new Grupo();
+		Dados dados=new Dados();
+		Terreno cordobaSur = new Terreno("Cordoba Sur", cordoba,
+				18000 , 1000 , 1500 , 2500 , 3000 , 2000 , 3000);
+		
+		Terreno cordobaNorte=new Terreno("Cordoba Norte", cordoba, 
+				20000 , 1300 , 1800 , 2900 , 3500, 2200 , 3500);
+				
+		Jugador lucia = new Jugador("Lucia",100000);
+		cordobaSur.venderA(lucia);
+		cordobaNorte.venderA(lucia);
+		
+		cordobaSur.construirCasa();
+		cordobaSur.construirCasa();
+		
+		cordobaNorte.construirCasa();
+		cordobaNorte.construirCasa();
+	
+		cordobaSur.construirHotel();
+		
+		Jugador laura=new Jugador ("Laura",100000);
+		
+		cordobaSur.ocupar(laura, dados);
+	
+		Assert.assertEquals(100000-3000, laura.getDinero());
+	}
+	
+	@Test
+	public void test31JugadorQueEsPropietarioDeSaltaSurYNorteYTiene4CasasCuandoConstruyeUnHotelCuandoCaeUnContricanteDeberiaDecrementarseAEsteSuDineroEn5500() {
+		Grupo salta = new Grupo();
+		Dados dados=new Dados();
+		Terreno saltaSur = new Terreno("Salta Sur", salta,
+				23000 , 2000 , 3500 , 3850 , 5500 , 4500 , 7500);
+		
+		Terreno saltaNorte=new Terreno("Salta Norte", salta, 
+				23000 , 2000 , 3500 , 3850 , 5500 , 4500 , 7500);
+				
+		Jugador lucia = new Jugador("Lucia",100000);
+		saltaSur.venderA(lucia);
+		saltaNorte.venderA(lucia);
+		
+		saltaSur.construirCasa();
+		saltaSur.construirCasa();
+		
+		saltaNorte.construirCasa();
+		saltaNorte.construirCasa();
+		
+		saltaSur.construirHotel();
+		
+		Jugador laura=new Jugador ("Laura",100000);
+		
+		saltaSur.ocupar(laura, dados);
+	
+		Assert.assertEquals(100000-5500, laura.getDinero());
+	}
+	
+	@Test
+	public void test32JugadorQueEsPropietarioDeSantaFeYConstruyeUnaCasaSeLeDeberiaDecrementarSuDineroEn4Mil() {
+		Grupo staFe = new Grupo();
+		Terreno santaFe = new Terreno("Salta Sur", staFe,
+				15000 , 1500 , 3500 , 0 , 0 , 4000 , 0);
+				
+		Jugador lucia = new Jugador("Lucia",100000);
+		santaFe.venderA(lucia);
+		Assert.assertEquals(100000-15000, lucia.getDinero());
+		santaFe.construirCasa();
+	
+		Assert.assertEquals(85000-4000, lucia.getDinero());
+	}
 
 	// TODO tests de casos en que ya no se puede edificar
 }
