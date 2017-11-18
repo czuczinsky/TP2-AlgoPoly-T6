@@ -65,7 +65,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 
-		canvasCentral = new Canvas(600, 400);
+		canvasCentral = new Canvas(640, 400);
 
 		// TODO mover
 		AlgoPoly algoPoly = new AlgoPoly();
@@ -76,11 +76,11 @@ public class ContenedorPrincipal extends BorderPane {
 		contenedorCentral.setAlignment(Pos.CENTER);
 		contenedorCentral.setSpacing(20);
 		contenedorCentral.setPadding(new Insets(25));
-		// Image imagen = new Image("file:src/vista/imagenes/fondo-verde.jpg");
-		// BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
-		// BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-		// BackgroundSize.DEFAULT);
-		// contenedorCentral.setBackground(new Background(imagenDeFondo));
+//		Image imagen = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
+//		BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
+//		BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+//		BackgroundSize.DEFAULT);
+//		contenedorCentral.setBackground(new Background(imagenDeFondo));
 
 		this.setCenter(contenedorCentral);
 	}

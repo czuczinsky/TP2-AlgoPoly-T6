@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
 import modelo.Tablero;
@@ -56,7 +57,12 @@ public class VistaTablero {
 
 	public void clean() {
 		canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
-		canvas.getGraphicsContext2D().fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+		canvas.getGraphicsContext2D().fillRect(0, 0, canvas.getWidth(),
+		canvas.getHeight());
+		Image image = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.drawImage(image, (canvas.getWidth() - image.getWidth()) / 2, (canvas.getHeight() - image.getHeight()) / 2);
+
 	}
 
 	public void update() {
