@@ -7,16 +7,16 @@ import modelo.Casillero;
 public class VistaQuini6 extends VistaRectangulo implements Dibujable {
 
 	public VistaQuini6(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero,canvas,x,y,ancho,alto);
+		super(casillero, canvas, x, y, ancho, alto);
 	}
 
-	public static VistaQuini6 Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		return new VistaQuini6(casillero,canvas,x,y,ancho,alto);
+	public static VistaQuini6 Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho,
+			double alto) {
+		return new VistaQuini6(casillero, canvas, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.GREENYELLOW);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		this.pintar(Color.GREENYELLOW);
 		this.etiquetar("QUINI 6");
 	}
 }

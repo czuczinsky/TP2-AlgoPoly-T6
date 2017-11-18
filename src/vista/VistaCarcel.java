@@ -11,16 +11,16 @@ import modelo.Casillero;
 public class VistaCarcel extends VistaRectangulo implements Dibujable {
 
 	public VistaCarcel(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero,canvas,x,y,ancho,alto);
+		super(casillero, canvas, x, y, ancho, alto);
 	}
 
-	public static VistaCarcel Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		return new VistaCarcel(casillero,canvas,x,y,ancho,alto);
+	public static VistaCarcel Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho,
+			double alto) {
+		return new VistaCarcel(casillero, canvas, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.GAINSBORO);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		this.pintar(Color.GAINSBORO);
 		Image image = new Image("file:src/vista/imagenes/carcel.png");
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(image, x + (ancho - image.getWidth()) / 2, y + (alto - image.getHeight()) / 2);

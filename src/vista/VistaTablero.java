@@ -8,7 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
 import modelo.Tablero;
-import sun.misc.GC;
 
 public class VistaTablero {
 

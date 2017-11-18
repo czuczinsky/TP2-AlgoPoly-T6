@@ -10,7 +10,6 @@ public class VistaCasillero {
 
 	public VistaCasillero(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
 
-		
 		Class[] param = new Class[6];
 		param[0] = Casillero.class;
 		param[1] = Canvas.class;
@@ -21,7 +20,7 @@ public class VistaCasillero {
 
 		String nombreClase = "vista.Vista" + casillero.getClass().getSimpleName();
 
-// TODO  Bloque por si cambia modelo.  Eliminar al fijar modelo		
+		// TODO Bloque por si cambia modelo. Eliminar al fijar modelo
 		boolean esta = false;
 		if (nombreClase.equals("vista.VistaCarcel"))
 			esta = true;
@@ -41,12 +40,11 @@ public class VistaCasillero {
 			esta = true;
 		if (nombreClase.equals("vista.VistaImpuestoAlLujo"))
 			esta = true;
-				
+
 		if (!esta)
-			nombreClase="vista.VistaSalida";
-//-----------------------------------------------------------------
-		
-		
+			nombreClase = "vista.VistaSalida";
+		// -----------------------------------------------------------------
+
 		try {
 			Class<?> clase = Class.forName(nombreClase);
 			Method metodo = clase.getDeclaredMethod("Instancia", param);

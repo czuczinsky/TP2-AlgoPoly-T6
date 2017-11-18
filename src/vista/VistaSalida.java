@@ -7,16 +7,16 @@ import modelo.Casillero;
 public class VistaSalida extends VistaRectangulo implements Dibujable {
 
 	public VistaSalida(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero,canvas,x,y,ancho,alto);
+		super(casillero, canvas, x, y, ancho, alto);
 	}
 
-	public static VistaSalida Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		return new VistaSalida(casillero,canvas,x,y,ancho,alto);
+	public static VistaSalida Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho,
+			double alto) {
+		return new VistaSalida(casillero, canvas, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.GREY);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		this.pintar(Color.GREY);
 		this.etiquetar("SALIDA");
 	}
 }

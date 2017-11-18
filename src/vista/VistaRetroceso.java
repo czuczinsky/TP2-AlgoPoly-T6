@@ -7,7 +7,7 @@ import modelo.Casillero;
 public class VistaRetroceso extends VistaRectangulo implements Dibujable {
 
 	public VistaRetroceso(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero,canvas,x,y,ancho,alto);
+		super(casillero, canvas, x, y, ancho, alto);
 	}
 
 	public static VistaRetroceso Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho,
@@ -16,8 +16,7 @@ public class VistaRetroceso extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.GREENYELLOW);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		this.pintar(Color.GREENYELLOW);
 		this.etiquetar("RETROCESO");
 	}
 
