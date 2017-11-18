@@ -18,7 +18,7 @@ public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 		canvas.getGraphicsContext2D().setFill(Color.GREENYELLOW);
 		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillText("IMPUESTEO LUJO", x + 5, y + alto / 2);
+		canvas.getGraphicsContext2D().fillText("IMPUESTO LUJO", x + 5, y + alto / 2);
 	}
 
 }
