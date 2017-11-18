@@ -5,22 +5,18 @@ import java.util.ArrayList;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import modelo.Agrupable;
-import modelo.Carcel;
 import modelo.Casillero;
 import modelo.Tablero;
-//import modelo.Robot;
 import sun.misc.GC;
 
 public class VistaTablero {
 
-	// private Robot robot;
 	Canvas canvas;
 	ArrayList<VistaCasillero> vistaCasilleros;
 
 	public VistaTablero(Tablero tablero, Canvas canvas) {
 		this.canvas = canvas;
-
+		double separacion = 3;
 		vistaCasilleros = new ArrayList<VistaCasillero>();
 		ArrayList<Casillero> casilleros = tablero.getCasilleros();
 		int cantidad = casilleros.size();
@@ -29,10 +25,8 @@ public class VistaTablero {
 		double alto = canvas.getHeight() / (porLinea + 1);
 		double x;
 		double y;
-		int i=0;
+		int i = 0;
 		for (Casillero casillero : casilleros) {
-			x = 0;
-			y = 0;
 			if (i < porLinea) {
 				x = canvas.getWidth() - ancho * (i + 1);
 				y = canvas.getHeight() - alto;
@@ -46,7 +40,9 @@ public class VistaTablero {
 				x = canvas.getWidth() - ancho;
 				y = alto * (i - 3 * porLinea);
 			}
-			vistaCasilleros.add(new VistaCasillero(casillero, canvas, x, y, ancho, alto));
+
+			vistaCasilleros.add( new VistaCasillero(casillero, canvas, x + separacion / 2, y + separacion / 2,
+					ancho - separacion, alto - separacion));
 			i++;
 		}
 
@@ -56,7 +52,6 @@ public class VistaTablero {
 		this.clean();
 		for (VistaCasillero vistaCasillero : vistaCasilleros)
 			vistaCasillero.dibujar();
-		
 	}
 
 	public void clean() {

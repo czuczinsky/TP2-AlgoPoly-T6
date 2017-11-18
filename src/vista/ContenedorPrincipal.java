@@ -18,7 +18,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
-//import modelo.Robot;
 //import vista.eventos.BotonDireccionHandler;
 //import vista.eventos.BotonMoverHandler;
 

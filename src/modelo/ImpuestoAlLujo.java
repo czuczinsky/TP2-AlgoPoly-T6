@@ -1,6 +1,6 @@
 package modelo;
 
-public class ImpuestoDeLujo extends Casillero {
+public class ImpuestoAlLujo extends Casillero {
 	
 	public void ocupar(Jugador jugador, Dados dados){
 		

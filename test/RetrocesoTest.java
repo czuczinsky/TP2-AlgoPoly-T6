@@ -10,7 +10,7 @@ import modelo.Carcel;
 import modelo.Compania;
 import modelo.Dados;
 import modelo.Grupo;
-import modelo.ImpuestoDeLujo;
+import modelo.ImpuestoAlLujo;
 import modelo.Jugador;
 import modelo.Policia;
 import modelo.Quini6;
@@ -33,7 +33,7 @@ public class RetrocesoTest {
 	private Avance avance;
 	private Compania subte;
 	private Terreno cordobaNorte;
-	private ImpuestoDeLujo impuesto;
+	private ImpuestoAlLujo impuesto;
 	private Terreno santaFe;
 	private Compania aysa;
 	private Terreno saltaNorte;
@@ -71,7 +71,7 @@ public class RetrocesoTest {
 		tablero.agregarCasillero(subte);
 		cordobaNorte=new Terreno("CordobaNorte",grupo, 20000, 1300, 1800, 2900, 3500, 2200, 3500);
 		tablero.agregarCasillero(cordobaNorte);
-		impuesto=new ImpuestoDeLujo();
+		impuesto=new ImpuestoAlLujo();
 		tablero.agregarCasillero(impuesto);
 		santaFe=new Terreno("SantaFe",grupo, 15000, 1500, 3500, 4000, 0, 0, 0);
 		tablero.agregarCasillero(santaFe);

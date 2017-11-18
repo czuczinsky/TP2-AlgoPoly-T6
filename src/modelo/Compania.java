@@ -1,7 +1,7 @@
 package modelo;
 
 public class Compania extends Casillero implements Agrupable {
-//	private String nombre;
+	private String nombre;
 	private int precio;
 	private Grupo grupo;
 	private int multiplicadorSimple;
@@ -10,7 +10,7 @@ public class Compania extends Casillero implements Agrupable {
 	public Dados dados=new Dados();
 
 	public Compania(String nombre, int precio, Grupo grupo, int multiplicadorSimple, int multiplicadorMultiple) {
-//		this.nombre = nombre;
+		this.nombre = nombre;
 		this.precio = precio;
 		this.grupo = grupo;
 		this.multiplicadorSimple = multiplicadorSimple;
@@ -52,6 +52,11 @@ public class Compania extends Casillero implements Agrupable {
 	@Override
 	public boolean estaCompleto() {
 		return false;
+	}
+
+	@Override
+	public String getNombre() {
+		return nombre;
 	}
 
 }

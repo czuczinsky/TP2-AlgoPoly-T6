@@ -30,7 +30,7 @@ public class AlgoPoly {
 		Grupo subteTren = new Grupo();
 		tablero.agregarCasillero(new Compania("Subte", 40000, subteTren, 600, 1100));
 		tablero.agregarCasillero(new Terreno("Cordoba Norte", cordoba, 20000, 1300, 1800, 2900, 3500, 2200, 3500));
-		tablero.agregarCasillero(new ImpuestoDeLujo());
+		tablero.agregarCasillero(new ImpuestoAlLujo());
 		Grupo santaFe = new Grupo();
 		tablero.agregarCasillero(new Terreno("Santa Fe", santaFe, 15000, 1500, 3500, 4000, 0, 0, 0));
 		tablero.agregarCasillero(new Compania("Aysa", 30000, edesurAysa, 300, 500));

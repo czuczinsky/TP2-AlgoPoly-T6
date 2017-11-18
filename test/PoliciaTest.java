@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import modelo.Carcel;
 import modelo.Dados;
-import modelo.ImpuestoDeLujo;
+import modelo.ImpuestoAlLujo;
 import modelo.Jugador;
 import modelo.Policia;
 
@@ -28,7 +28,7 @@ public class PoliciaTest{
 		Dados dados=new Dados();
 		Jugador jugador=new Jugador("Pepe",100000);
 		Carcel carcel=new Carcel();
-		ImpuestoDeLujo impuestoAlLujo=new ImpuestoDeLujo();
+		ImpuestoAlLujo impuestoAlLujo=new ImpuestoAlLujo();
 		Policia casilleroPolicia=new Policia(carcel);
 		
 		casilleroPolicia.ocupar(jugador,dados);

@@ -3,7 +3,6 @@ package vista;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-//import modelo.Robot;
 //import vista.eventos.AplicacionOnKeyPressEventHandler;
 
 
@@ -21,7 +20,7 @@ public class Aplicacion extends Application  {
 //        Robot robot = crearModelo();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
+        Scene escenaJuego = new Scene(contenedorPrincipal, 800, 600);
 
  //       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
  //       escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);

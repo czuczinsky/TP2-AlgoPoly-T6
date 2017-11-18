@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.Dados;
-import modelo.ImpuestoDeLujo;
+import modelo.ImpuestoAlLujo;
 import modelo.Jugador;
 
 public class ImpuestoDeLujoTest {
@@ -13,7 +13,7 @@ public class ImpuestoDeLujoTest {
 	public void test01DineroDelJugadorSeDecrementaEnUn10PorCientoSiCaeEnImpuestoDeLujo() {
 		Dados dados=new Dados();
 		Jugador jugador=new Jugador("Pepa",100000);
-		ImpuestoDeLujo impuestoDeLujo=new ImpuestoDeLujo();
+		ImpuestoAlLujo impuestoDeLujo=new ImpuestoAlLujo();
 		
 		impuestoDeLujo.ocupar(jugador,dados);
 		

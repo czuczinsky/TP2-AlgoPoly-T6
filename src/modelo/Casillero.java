@@ -11,4 +11,8 @@ public abstract class Casillero {
 	public void avanzarTurnoDe(Jugador jugador) {
 		
 	}
+	
+	public String getNombre() {
+		return "";
+	}
 }
