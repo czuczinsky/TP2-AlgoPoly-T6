@@ -57,7 +57,7 @@ public class VistaTablero {
 	public void clean() {
 		canvas.getGraphicsContext2D().setFill(Color.LIGHTBLUE);
 		canvas.getGraphicsContext2D().fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-		Image image = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
+		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(image, (canvas.getWidth() - image.getWidth()) / 2, (canvas.getHeight() - image.getHeight()) / 2);
 	}
