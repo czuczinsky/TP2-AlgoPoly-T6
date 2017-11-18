@@ -16,8 +16,11 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.BROWN);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		if (casillero.getNombre().equals("TUCUMAN")) {
+			this.pintar(Color.BLUEVIOLET);
+		} else {
+			this.pintar(Color.BROWN);
+		}
 		this.etiquetar(casillero.getNombre());
 	}
 
