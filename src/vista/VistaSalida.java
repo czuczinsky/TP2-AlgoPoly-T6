@@ -15,9 +15,9 @@ public class VistaSalida extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.YELLOW);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillText("Salida", x + 5, y + alto / 2);
+		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		canvas.getGraphicsContext2D().setFill(Color.WHITE);
+		canvas.getGraphicsContext2D().fillText("SALIDA", x + 5, y + alto / 2);
 	}
 }

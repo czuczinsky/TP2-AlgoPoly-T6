@@ -15,10 +15,10 @@ public class VistaRetroceso extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.CYAN);
+		canvas.getGraphicsContext2D().setFill(Color.GREENYELLOW);
 		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillText("Retroceso", x + 5, y + alto / 2);
+		canvas.getGraphicsContext2D().fillText("RETROCESO", x + 5, y + alto / 2);
 	}
 
 }

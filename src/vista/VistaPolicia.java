@@ -15,9 +15,9 @@ public class VistaPolicia extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		canvas.getGraphicsContext2D().setFill(Color.MAGENTA);
+		canvas.getGraphicsContext2D().setFill(Color.GAINSBORO);
 		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
 		canvas.getGraphicsContext2D().setFill(Color.BLACK);
-		canvas.getGraphicsContext2D().fillText("Policia", x + 5, y + alto / 2);
+		canvas.getGraphicsContext2D().fillText("POLICIA", x + 5, y + alto / 2);
 	}
 }
