@@ -3,6 +3,7 @@ package vista;
 import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import modelo.Casillero;
@@ -23,18 +24,25 @@ public abstract class VistaRectangulo {
 		this.ancho = ancho;
 		this.alto = alto;
 	}
-	
+
 	public void pintar(Color color) {
-		canvas.getGraphicsContext2D().setFill(color);
-		canvas.getGraphicsContext2D().fillRect(x, y, ancho, alto);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.setFill(color);
+		gc.fillRect(x, y, ancho, alto);
 	}
 
-	
-	public void etiquetar(String etiqueta) {
-		canvas.getGraphicsContext2D().setFill(Color.BLACK);
+	public void etiquetar(String etiqueta, Color color) {
 		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.setFill(color);
 		gc.setTextAlign(TextAlignment.CENTER);
-		gc.setTextBaseline(VPos.CENTER);
-		canvas.getGraphicsContext2D().fillText(etiqueta,x + ancho / 2, y + alto / 2);
+		gc.setTextBaseline(VPos.BOTTOM);
+		gc.fillText(etiqueta, x + ancho / 2, y + alto);
 	}
+
+	public void ponerImagen(String sImagen) {
+		Image image = new Image(sImagen);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.drawImage(image, x + (ancho - image.getWidth()) / 2, y + (alto - image.getHeight()) / 2);
+	}
+
 }
