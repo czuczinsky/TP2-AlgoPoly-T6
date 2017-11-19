@@ -8,8 +8,9 @@ import modelo.Casillero;
 public class VistaCasillero {
 	private Dibujable dibujable;
 
-	public VistaCasillero(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
+public VistaCasillero(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
 
+		@SuppressWarnings("rawtypes")
 		Class[] param = new Class[6];
 		param[0] = Casillero.class;
 		param[1] = Canvas.class;
