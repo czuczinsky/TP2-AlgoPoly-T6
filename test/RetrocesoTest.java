@@ -47,7 +47,6 @@ public class RetrocesoTest {
 
 	@Before
 	public void setUp() throws Exception {
-		//dados = Dados.getDados();
 		tablero = new Tablero();
 		
 		salida=new Salida();
