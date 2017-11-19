@@ -1,38 +1,30 @@
 package modelo;
 
+import java.util.HashMap;
+
 public abstract class DesplazamientoDinamico extends  Casillero{
 	
 	protected Tablero tablero;
-
+	
+	public HashMap<Integer,EstrategiaDesplazamiento> desplazamientosPosibles;
 
 	public DesplazamientoDinamico(Tablero tablero) {
 		this.tablero=tablero;
+		this.desplazamientosPosibles=new HashMap<Integer,EstrategiaDesplazamiento>();		
 	}
 	
 	@Override
 	public void ocupar(Jugador jugador, Dados dados) {
-
-		int cantidadDeCasilleros;
 		
-		if((dados.getSuma()>=2)&&(dados.getSuma()<=6)) {
-			cantidadDeCasilleros=this.cantidadDeCasillerosAMoverDe2a6(jugador,dados);
-		}
-		else if ((dados.getSuma()>=7)&&(dados.getSuma()<=10)) {
-			cantidadDeCasilleros=this.cantidadDeCasillerosAMoverDe7a10(jugador,dados);
-		}	
-		else cantidadDeCasilleros=this.cantidadDeCasillerosAMoverDe11a12(jugador,dados);
+		int numeroDados=dados.getSuma();
+		this.cargarEstrategias(jugador, dados);
+		EstrategiaDesplazamiento unaEstrategia=this.desplazamientosPosibles.get(numeroDados);
+		int cantidadDeCasilleros=unaEstrategia.getCantidadADesplazar(jugador,dados);
 
 		this.mover(jugador,cantidadDeCasilleros,dados);
 	}
-	
 	abstract public void mover(Jugador jugador, int cantidadDeCasilleros, Dados dados);
-	
-	abstract public int cantidadDeCasillerosAMoverDe2a6(Jugador jugador, Dados dados);
-	
-	abstract public int cantidadDeCasillerosAMoverDe11a12(Jugador jugador,Dados dados);
-	
-	public int cantidadDeCasillerosAMoverDe7a10(Jugador jugador, Dados dados) {
-		return jugador.getDinero()%(dados.getSuma());
-	}
+	abstract public void cargarEstrategias(Jugador jugador, Dados dados);
+
 	
 }
