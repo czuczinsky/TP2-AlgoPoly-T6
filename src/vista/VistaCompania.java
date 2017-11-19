@@ -22,18 +22,13 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 		if (casillero.getNombre() == "EDESUR") {
 			this.ponerImagen("file:src/vista/imagenes/edesur.png");
 		}
-
 		if (casillero.getNombre() == "TREN") {
-
 			this.ponerImagen("file:src/vista/imagenes/tren.png");
 			this.etiquetar("TRENES", Color.WHITE);
 		}
-
 		if (casillero.getNombre() == "SUBTE") {
-
 			this.ponerImagen("file:src/vista/imagenes/subte.png");
 			this.etiquetar("SUBTE", Color.BLACK);
 		}
 	}
-
 }

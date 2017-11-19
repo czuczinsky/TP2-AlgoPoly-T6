@@ -1,6 +1,5 @@
 package vista;
 
-import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -25,5 +24,4 @@ public class VistaCarcel extends VistaRectangulo implements Dibujable {
 		gc.drawImage(image, x + (ancho - image.getWidth()) / 2, y + (alto - image.getHeight()) / 2);
 		this.etiquetar("CARCEL", Color.WHITE);
 	}
-
 }
