@@ -3,7 +3,7 @@ package modelo;
 public class AlgoPoly {
 	Tablero tablero;
 	Dados dados;
-	
+
 	public AlgoPoly() {
 		this.tablero = new Tablero();
 		this.armarTablero();
@@ -27,17 +27,16 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Compania("SUBTE", 40000, subteTren, 600, 1100));
 		tablero.agregarCasillero(new Terreno("CORDOBA NORTE", cordoba, 20000, 1300, 1800, 2900, 3500, 2200, 3500));
 		tablero.agregarCasillero(new ImpuestoAlLujo());
-		Grupo santaFe = new Grupo();
-		tablero.agregarCasillero(new Terreno("SANTA FE", santaFe, 15000, 1500, 3500, 4000, 0, 0, 0));
+		tablero.agregarCasillero(new Terreno("SANTA FE", new Grupo(), 15000, 1500, 3500, 0, 0, 4000, 0));
 		tablero.agregarCasillero(new Compania("AYSA", 30000, edesurAysa, 300, 500));
 		Grupo salta = new Grupo();
 		tablero.agregarCasillero(new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500));
 		tablero.agregarCasillero(new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500));
 		tablero.agregarCasillero(new Policia(carcel));
 		tablero.agregarCasillero(new Compania("TREN", 38000, subteTren, 450, 800));
-		tablero.agregarCasillero(new Terreno("NEUQUEN", new Grupo(), 17000, 1800, 3800, 4800, 0, 0, 0));
+		tablero.agregarCasillero(new Terreno("NEUQUEN", new Grupo(), 17000, 1800, 3800, 0, 0, 4800, 0));
 		tablero.agregarCasillero(new Retroceso(tablero));
-		tablero.agregarCasillero(new Terreno("TUCUMAN", new Grupo(), 2500, 7000, 0, 0, 0, 0, 0));
+		tablero.agregarCasillero(new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0));
 
 	}
 
