@@ -138,7 +138,7 @@ public class CompaniaTest {
 		Jugador ocupante = new Jugador("Jugador 1", 100000);
 		Grupo edesurAysa = new Grupo();
 		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
-		Compania aysa = new Compania("AYSA", 30000, edesurAysa, 300, 500);
+//		Compania aysa = new Compania("AYSA", 30000, edesurAysa, 300, 500);
 
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
