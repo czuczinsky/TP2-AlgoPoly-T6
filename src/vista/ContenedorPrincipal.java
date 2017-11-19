@@ -59,7 +59,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 
-		canvasCentral = new Canvas(720, 560);
+		canvasCentral = new Canvas(640, 400);
 
 		// TODO mover
 		AlgoPoly algoPoly = new AlgoPoly();
