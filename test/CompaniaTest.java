@@ -170,4 +170,35 @@ public class CompaniaTest {
 		Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000, propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 1000, ocupante.getDinero());
 	}
+	
+	@Test
+	public void test10Jugador1CuentaConEdesurYLoVendeDeberiaCobrarEl15PorcientoMenosDeTodoLoQueVende() {
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		
+		edesur.venderA(jugador1);
+		edesur.vender();
+		
+		Assert.assertEquals(100000 - 35000+ (35000*(100-15)/100), jugador1.getDinero());
+	}
+	
+	@Test
+	public void test11Jugador1CuentaConEdesurYLoVendeYLoCompraJugador2SiCaeJugador1EnEdesurSeLeDebeDescontar500PorDadosYSumarEseMontoAlJugador2() {
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		Jugador jugador2 = new Jugador("Jugador2", 100000);
+		
+		Dados dados = new Dados();
+		dados.setNumeros(3, 4);
+		
+		edesur.venderA(jugador1);
+		edesur.vender();
+		edesur.venderA(jugador2);
+		edesur.ocupar(jugador1, dados);
+		
+		Assert.assertEquals(100000 - 35000+ (35000*(100-15)/100)-(500*7), jugador1.getDinero());
+		Assert.assertEquals(100000 - 35000+ +(500*7), jugador2.getDinero());
+	}
 }

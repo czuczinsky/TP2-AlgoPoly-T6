@@ -28,6 +28,10 @@ public class Compania extends Agrupable {
 			propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
 		}	
 	}
+	
+	public int precioTotalDeVenta() {
+		return this.getPrecio();
+	}
 
 	public boolean estaCompleto() {
 		return false;

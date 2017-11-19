@@ -36,6 +36,21 @@ public class Terreno extends Agrupable {
 		jugador.agregarTerreno(this);
 	}
 	
+	public int precioTotalDeVenta() {
+		int precioTotal=this.precio;
+		for (Construccion casa : casas)
+			precioTotal=precioTotal+casa.getprecio();
+		for (Construccion hotel : hoteles)
+			precioTotal=precioTotal+hotel.getprecio();
+		
+		return precioTotal;
+	}
+
+	public void eliminarEdificaciones() {
+		this.casas.clear();
+		this.hoteles.clear();
+	}
+	
 	public void cobrarA(Jugador jugador, Dados dados) {
 		this.cobrarAlquilerTerrenoA(jugador);
 		for (Construccion casa : casas)
