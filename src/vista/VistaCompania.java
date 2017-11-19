@@ -16,17 +16,17 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		if (casillero.getNombre() == "AYSA") {
+		if (this.getCasillero().getNombre() == "AYSA") {
 			this.ponerImagen("file:src/vista/imagenes/aysa.png");
 		}
-		if (casillero.getNombre() == "EDESUR") {
+		if (this.getCasillero().getNombre() == "EDESUR") {
 			this.ponerImagen("file:src/vista/imagenes/edesur.png");
 		}
-		if (casillero.getNombre() == "TREN") {
+		if (this.getCasillero().getNombre() == "TREN") {
 			this.ponerImagen("file:src/vista/imagenes/tren.png");
 			this.etiquetar("TRENES", Color.WHITE);
 		}
-		if (casillero.getNombre() == "SUBTE") {
+		if (this.getCasillero().getNombre() == "SUBTE") {
 			this.ponerImagen("file:src/vista/imagenes/subte.png");
 			this.etiquetar("SUBTE", Color.BLACK);
 		}

@@ -9,12 +9,12 @@ import javafx.scene.text.TextAlignment;
 import modelo.Casillero;
 
 public abstract class VistaRectangulo {
-	Casillero casillero;
-	Canvas canvas;
-	double x;
-	double y;
-	double ancho;
-	double alto;
+	private Casillero casillero;
+	private Canvas canvas;
+	private double x;
+	private double y;
+	private double ancho;
+	private double alto;
 
 	public VistaRectangulo(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
 		this.casillero = casillero;
@@ -43,6 +43,10 @@ public abstract class VistaRectangulo {
 		Image image = new Image(sImagen);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(image, x + (ancho - image.getWidth()) / 2, y + (alto - image.getHeight()) / 2);
+	}
+	
+	public Casillero getCasillero() {
+		return casillero;
 	}
 
 }

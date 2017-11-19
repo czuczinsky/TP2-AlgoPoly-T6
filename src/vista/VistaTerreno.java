@@ -16,45 +16,45 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		if (casillero.getNombre() == "Bs.As. SUR") {
+		if (this.getCasillero().getNombre() == "Bs.As. SUR") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. SUR", Color.BLACK);
 		}
-		if (casillero.getNombre() == "Bs.As. NORTE") {
+		if (this.getCasillero().getNombre() == "Bs.As. NORTE") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. NORTE", Color.BLACK);
 		}
 
-		if (casillero.getNombre() == "CORDOBA SUR") {
+		if (this.getCasillero().getNombre() == "CORDOBA SUR") {
 			this.ponerImagen("file:src/vista/imagenes/cordoba.png");
 			this.etiquetar("CORDOBA SUR", Color.BLACK);
 		}
 
-		if (casillero.getNombre() == "CORDOBA NORTE") {
+		if (this.getCasillero().getNombre() == "CORDOBA NORTE") {
 			this.ponerImagen("file:src/vista/imagenes/cordoba.png");
 			this.etiquetar("CORDOBA NORTE", Color.BLACK);
 		}
 
-		if (casillero.getNombre() == "SALTA SUR") {
+		if (this.getCasillero().getNombre() == "SALTA SUR") {
 			this.ponerImagen("file:src/vista/imagenes/salta.png");
 			this.etiquetar("SALTA SUR", Color.BLACK);
 		}
 
-		if (casillero.getNombre() == "SALTA NORTE") {
+		if (this.getCasillero().getNombre() == "SALTA NORTE") {
 			this.ponerImagen("file:src/vista/imagenes/salta.png");
 			this.etiquetar("SALTA NORTE", Color.BLACK);
 		}
-		if (casillero.getNombre() == "NEUQUEN") {
+		if (this.getCasillero().getNombre() == "NEUQUEN") {
 			this.ponerImagen("file:src/vista/imagenes/neuquen.png");
 			this.etiquetar("NEUQUEN", Color.BLACK);
 		}
 
-		if (casillero.getNombre() == "TUCUMAN") {
+		if (this.getCasillero().getNombre() == "TUCUMAN") {
 			this.ponerImagen("file:src/vista/imagenes/tucuman.png");
 			this.etiquetar("TUCUMAN", Color.BLACK);
 		}
 
-		if (casillero.getNombre() == "SANTA FE") {
+		if (this.getCasillero().getNombre() == "SANTA FE") {
 			this.ponerImagen("file:src/vista/imagenes/santafe.png");
 			this.etiquetar("SANTA FE", Color.BLACK);
 		}
