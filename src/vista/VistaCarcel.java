@@ -18,7 +18,7 @@ public class VistaCarcel extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		this.pintar(Color.GAINSBORO);
+		//this.pintar(Color.GAINSBORO);
 		Image image = new Image("file:src/vista/imagenes/prision.png");
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(image, x + (ancho - image.getWidth()) / 2, y + (alto - image.getHeight()) / 2);

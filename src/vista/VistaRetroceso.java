@@ -16,8 +16,8 @@ public class VistaRetroceso extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		this.pintar(Color.GAINSBORO);
+		//this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/retroceso.png");
-		this.etiquetar("RETROCESO", Color.WHITE);
+		this.etiquetar("RETROCESO", Color.BLACK);
 	}
 }

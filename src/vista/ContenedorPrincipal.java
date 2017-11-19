@@ -59,7 +59,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 
-		canvasCentral = new Canvas(640, 400);
+		canvasCentral = new Canvas(750, 500);
 
 		// TODO mover
 		AlgoPoly algoPoly = new AlgoPoly();
@@ -67,9 +67,9 @@ public class ContenedorPrincipal extends BorderPane {
 		vistaTablero.dibujar();
 
 		contenedorCentral = new VBox(canvasCentral);
-		contenedorCentral.setAlignment(Pos.CENTER);
-		contenedorCentral.setSpacing(20);
-		contenedorCentral.setPadding(new Insets(25));
+		contenedorCentral.setAlignment(Pos.CENTER_LEFT);
+		contenedorCentral.setSpacing(600);
+		contenedorCentral.setPadding(new Insets(40));
 //		Image imagen = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
 //		BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
 //		BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
@@ -83,7 +83,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 		// TODO cambiar por el modelo de Consola... Va la consola???
 		Label etiqueta = new Label();
-		etiqueta.setText("consola...");
+		etiqueta.setText("Consola...");
 		etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
 		etiqueta.setTextFill(Color.WHITE);
 

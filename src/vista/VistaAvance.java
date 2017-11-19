@@ -16,8 +16,8 @@ public class VistaAvance extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		this.pintar(Color.GAINSBORO);
+		//this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/avance.png");
-		this.etiquetar("AVANCE", Color.WHITE);
+		this.etiquetar("AVANCE", Color.BLACK);
 	}
 }
