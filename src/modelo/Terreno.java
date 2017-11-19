@@ -31,7 +31,11 @@ public class Terreno extends Agrupable {
 		this.costoEdificarCasa = costoEdificarCasa;
 		this.costoEdificarHotel = costoEdificarHotel;
 	}
-
+	
+	public void agregarA(Jugador jugador) {
+		jugador.agregarTerreno(this);
+	}
+	
 	public void cobrarA(Jugador jugador, Dados dados) {
 		this.cobrarAlquilerTerrenoA(jugador);
 		for (Construccion casa : casas)
@@ -43,14 +47,6 @@ public class Terreno extends Agrupable {
 	private void cobrarAlquilerTerrenoA(Jugador jugador) {
 		jugador.decrementarDinero(valorAlquiler);
 		propietario.incrementarDinero(valorAlquiler);
-	}
-
-	public void venderA(Jugador jugador) {
-		if (!this.tienePropietario()) {// si ya tiene duenio lanzar exception
-			this.propietario = jugador;
-			jugador.decrementarDinero(precio);
-			jugador.agregarTerreno(this);
-		}
 	}
 
 	public void construirCasa() {
@@ -92,14 +88,18 @@ public class Terreno extends Agrupable {
 		return 1 + casas.size() + hoteles.size();
 	}
 
-	private boolean tienePropietario() {
-		return this.propietario != null;
-	}
-
 	public Jugador getPropietario() {
 		return propietario;
 	}
-
+	
+	public int getPrecio() {
+		return this.precio;
+	}
+	
+	public void setPropietario(Jugador jugador) {
+		this.propietario=jugador;
+	}
+	
 	public boolean estaCompleto() {
 		return (casas.size() == 2);
 	}

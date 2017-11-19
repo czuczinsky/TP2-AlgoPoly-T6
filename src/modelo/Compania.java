@@ -18,14 +18,6 @@ public class Compania extends Agrupable {
 		grupo.agregar(this);
 	}
 
-	public void venderA(Jugador jugador) {
-		// TODO si ya tiene duenio lanzar exception
-		if (!this.tienePropietario()) {
-		this.propietario = jugador;
-		jugador.decrementarDinero(precio);
-		}
-	}
-
 	public void cobrarA(Jugador jugador, Dados dados) {
 		
 		if (grupo.esMultiple() && grupo.mismoPropietario()) {
@@ -36,10 +28,6 @@ public class Compania extends Agrupable {
 			propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
 		}	
 	}
-	
-	private boolean tienePropietario() {
-		return this.propietario!=null;
-	}
 
 	public boolean estaCompleto() {
 		return false;
@@ -48,9 +36,15 @@ public class Compania extends Agrupable {
 	public String getNombre() {
 		return nombre;
 	}
-	
-	@Override
 	public Jugador getPropietario() {
 		return propietario;
+	}
+	
+	public int getPrecio() {
+		return this.precio;
+	}
+	
+	public void setPropietario(Jugador jugador) {
+		this.propietario=jugador;
 	}
 }
