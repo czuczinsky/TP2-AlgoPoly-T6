@@ -1,11 +1,7 @@
 package vista;
 
-import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.text.TextAlignment;
 import modelo.Casillero;
 
 public class VistaRetroceso extends VistaRectangulo implements Dibujable {
@@ -24,5 +20,4 @@ public class VistaRetroceso extends VistaRectangulo implements Dibujable {
 		this.ponerImagen("file:src/vista/imagenes/retroceso.png");
 		this.etiquetar("RETROCESO", Color.WHITE);
 	}
-
 }

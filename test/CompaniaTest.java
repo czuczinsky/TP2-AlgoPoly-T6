@@ -97,7 +97,7 @@ public class CompaniaTest {
 		Jugador ocupante = new Jugador("Jugador 1", 100000);
 		Grupo subteTren = new Grupo();
 		Compania tren = new Compania("TREN", 38000, subteTren, 450, 800);
-		Compania subte = new Compania("SUBTE", 40000, subteTren, 600, 1100);
+//		Compania subte = new Compania("SUBTE", 40000, subteTren, 600, 1100);
 
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);

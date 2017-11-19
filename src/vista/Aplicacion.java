@@ -20,7 +20,7 @@ public class Aplicacion extends Application  {
 //        Robot robot = crearModelo();
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 800, 600);
+        Scene escenaJuego = new Scene(contenedorPrincipal, 1000, 700);
 
  //       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
  //       escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);

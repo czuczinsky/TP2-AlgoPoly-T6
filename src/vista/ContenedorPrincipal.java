@@ -5,12 +5,6 @@ import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -38,7 +32,7 @@ public class ContenedorPrincipal extends BorderPane {
 	// TODO armar botonera (Si va)
 	// private void setBotonera(Robot robot) {
 	//
-	// Button botonMover = new Button();
+	Button botonMover = new Button();
 	// botonMover.setText("Mover");
 	// BotonMoverHandler moveButtonHandler = new BotonMoverHandler(vistaRobot,
 	// robot);
@@ -50,7 +44,7 @@ public class ContenedorPrincipal extends BorderPane {
 	// BotonDireccionHandler(robot);
 	// botonDireccion.setOnAction(directionButtonHandler);
 	//
-	// VBox contenedorVertical = new VBox(botonMover, botonDireccion);
+	VBox contenedorVertical = new VBox(botonMover);
 	// contenedorVertical.setSpacing(10);
 	// contenedorVertical.setPadding(new Insets(15));
 	//
@@ -65,7 +59,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 
-		canvasCentral = new Canvas(640, 400);
+		canvasCentral = new Canvas(720, 560);
 
 		// TODO mover
 		AlgoPoly algoPoly = new AlgoPoly();
