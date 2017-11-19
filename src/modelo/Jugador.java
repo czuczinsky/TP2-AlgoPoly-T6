@@ -6,7 +6,7 @@ public class Jugador {
 //	private String nombre;
 	private int dinero;
 	private Casillero posicion;
-	private ArrayList<Terreno> terrenos = new ArrayList<Terreno>();
+	private ArrayList<Agrupable> terrenos = new ArrayList<Agrupable>();
 
 	
 	public Jugador(String nombre, int dinero) {
@@ -38,14 +38,14 @@ public class Jugador {
 		return (this.posicion);
 	}
 	
-	public void agregarTerreno(Terreno terreno) {
+	public void agregarTerreno(Agrupable terreno) {
 		this.terrenos.add(terreno);
 	}
 
 	public int cantPropiedades() {
 		int cantidad = 0;
 		
-		for (Terreno terreno : terrenos) {
+		for (Agrupable terreno : terrenos) {
 			cantidad += terreno.cantPropiedades(); 
 		}
 		

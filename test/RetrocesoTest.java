@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import modelo.Agrupable;
 import modelo.Avance;
 import modelo.Carcel;
 import modelo.Compania;
@@ -22,27 +23,26 @@ import modelo.Terreno;
 public class RetrocesoTest {
 
 	private Tablero tablero;
-	private Dados dados;
 	private Salida salida;
 	private Quini6 quini;
-	private Terreno bsAsSur;
-	private Compania edesur;
-	private Terreno bsAsNorte;
+	private Agrupable bsAsSur;
+	private Agrupable edesur;
+	private Agrupable bsAsNorte;
 	private Carcel carcel;
-	private Terreno cordobaSur;
+	private Agrupable cordobaSur;
 	private Avance avance;
-	private Compania subte;
-	private Terreno cordobaNorte;
+	private Agrupable subte;
+	private Agrupable cordobaNorte;
 	private ImpuestoAlLujo impuesto;
-	private Terreno santaFe;
-	private Compania aysa;
-	private Terreno saltaNorte;
-	private Terreno saltaSur;
+	private Agrupable santaFe;
+	private Agrupable aysa;
+	private Agrupable saltaNorte;
+	private Agrupable saltaSur;
 	private Policia policia;
-	private Compania tren;
-	private Terreno neuquen;
+	private Agrupable tren;
+	private Agrupable neuquen;
 	private Retroceso retroceso;
-	private Terreno tucuman;
+	private Agrupable tucuman;
 	
 
 	@Before

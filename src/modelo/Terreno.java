@@ -84,7 +84,7 @@ public class Terreno extends Agrupable {
 
 	private boolean puedeEdificarHotel() {
 
-		return(grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && casas.size() == 2
+		return(grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && grupo.estaCompleto()
 				&& propietario.getDinero() >= costoEdificarHotel);
 	}
 
