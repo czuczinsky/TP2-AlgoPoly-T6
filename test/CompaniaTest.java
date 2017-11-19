@@ -18,7 +18,7 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		compania.comprar(propietario);
+		compania.venderA(propietario);
 		Assert.assertEquals(200000 - 35000, propietario.getDinero());
 	}
 
@@ -32,7 +32,7 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		compania.comprar(propietario);
+		compania.venderA(propietario);
 		compania.ocupar(jugador1, dados);
 		// Assert.assertEquals(200000 - 35000 + (3 + 4) * 500, propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 500, jugador1.getDinero());
@@ -49,8 +49,8 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		compania1.comprar(propietario);
-		compania2.comprar(propietario);
+		compania1.venderA(propietario);
+		compania2.venderA(propietario);
 		compania1.ocupar(jugador1, dados);
 		// Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000,
 		// propietario.getDinero());
@@ -66,7 +66,7 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		compania1.comprar(propietario);
+		compania1.venderA(propietario);
 		compania1.ocupar(propietario, dados);
 
 		Assert.assertEquals(200000 - 35000, propietario.getDinero());
@@ -82,8 +82,8 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		compania1.comprar(propietario);
-		compania2.comprar(propietario);
+		compania1.venderA(propietario);
+		compania2.venderA(propietario);
 		compania1.ocupar(propietario, dados);
 
 		Assert.assertEquals(200000 - 35000 - 30000, propietario.getDinero());
@@ -102,7 +102,7 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		tren.comprar(propietario);
+		tren.venderA(propietario);
 		tren.ocupar(ocupante, dados);
 
 		Assert.assertEquals(200000 - 38000 + (3 + 4) * 450, propietario.getDinero());
@@ -122,8 +122,8 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		tren.comprar(propietario);
-		subte.comprar(propietario);
+		tren.venderA(propietario);
+		subte.venderA(propietario);
 		tren.ocupar(ocupante, dados);
 
 		Assert.assertEquals(200000 - 38000 - 40000 + (3 + 4) * 800, propietario.getDinero());
@@ -143,7 +143,7 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		edesur.comprar(propietario);
+		edesur.venderA(propietario);
 		edesur.ocupar(ocupante, dados);
 
 		Assert.assertEquals(200000 - 35000 + (3 + 4) * 500, propietario.getDinero());
@@ -163,8 +163,8 @@ public class CompaniaTest {
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
 
-		edesur.comprar(propietario);
-		aysa.comprar(propietario);
+		edesur.venderA(propietario);
+		aysa.venderA(propietario);
 		edesur.ocupar(ocupante, dados);
 
 		Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000, propietario.getDinero());

@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Terreno extends Casillero implements Agrupable {
+public class Terreno extends Agrupable {
 
 	private String nombre;
 	private int precio;
@@ -32,15 +32,7 @@ public class Terreno extends Casillero implements Agrupable {
 		this.costoEdificarHotel = costoEdificarHotel;
 	}
 
-	@Override
-	public void ocupar(Jugador jugador, Dados dados) {
-
-		if (this.tienePropietario() && !jugador.equals(propietario)) {
-			this.cobrarAlquileresA(jugador);
-		}
-	}
-
-	private void cobrarAlquileresA(Jugador jugador) {
+	public void cobrarA(Jugador jugador, Dados dados) {
 		this.cobrarAlquilerTerrenoA(jugador);
 		for (Construccion casa : casas)
 			casa.cobrarAlquilerA(jugador);
@@ -108,12 +100,10 @@ public class Terreno extends Casillero implements Agrupable {
 		return propietario;
 	}
 
-	@Override
 	public boolean estaCompleto() {
 		return (casas.size() == 2);
 	}
 	
-	@Override
 	public String getNombre() {
 		return nombre;
 	}

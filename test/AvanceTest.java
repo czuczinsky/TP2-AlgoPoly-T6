@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import modelo.Agrupable;
 import modelo.Avance;
 import modelo.Carcel;
 import modelo.Casillero;

@@ -9,7 +9,6 @@ public class Estrategia3 extends EstrategiaDesplazamiento{
 	@Override
 	public int getCantidadADesplazar(Jugador jugador, Dados dados) {
 
-		
 		return(dados.getSuma()-jugador.cantPropiedades());
 	}
 

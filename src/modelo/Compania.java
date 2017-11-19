@@ -1,6 +1,6 @@
 package modelo;
 
-public class Compania extends Casillero implements Agrupable {
+public class Compania extends Agrupable {
 	private String nombre;
 	private int precio;
 	private Grupo grupo;
@@ -18,45 +18,39 @@ public class Compania extends Casillero implements Agrupable {
 		grupo.agregar(this);
 	}
 
-	public void comprar(Jugador jugador) {
+	public void venderA(Jugador jugador) {
 		// TODO si ya tiene duenio lanzar exception
+		if (!this.tienePropietario()) {
 		this.propietario = jugador;
 		jugador.decrementarDinero(precio);
-	}
-
-	@Override
-	public Jugador getPropietario() {
-		return propietario;
-	}
-
-	@Override
-	public void ocupar(Jugador jugador, Dados dados) {
-		
-		
-		if (this.tienePropietario()&& !jugador.equals(propietario)){
-			
-			if (grupo.esMultiple() && grupo.mismoPropietario()) {
-				jugador.decrementarDinero(multiplicadorMultiple * dados.getSuma());
-				propietario.incrementarDinero(multiplicadorMultiple * dados.getSuma());
-			} else {
-				jugador.decrementarDinero(multiplicadorSimple * dados.getSuma());
-				propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
-			}
 		}
+	}
+
+	public void cobrarA(Jugador jugador, Dados dados) {
+		
+		if (grupo.esMultiple() && grupo.mismoPropietario()) {
+			jugador.decrementarDinero(multiplicadorMultiple * dados.getSuma());
+			propietario.incrementarDinero(multiplicadorMultiple * dados.getSuma());
+		} else {
+			jugador.decrementarDinero(multiplicadorSimple * dados.getSuma());
+			propietario.incrementarDinero(multiplicadorSimple * dados.getSuma());
+		}	
 	}
 	
 	private boolean tienePropietario() {
 		return this.propietario!=null;
 	}
 
-	@Override
 	public boolean estaCompleto() {
 		return false;
 	}
 
-	@Override
 	public String getNombre() {
 		return nombre;
 	}
-
+	
+	@Override
+	public Jugador getPropietario() {
+		return propietario;
+	}
 }
