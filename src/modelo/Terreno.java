@@ -3,11 +3,6 @@ package modelo;
 import java.util.ArrayList;
 
 public class Terreno extends Agrupable {
-
-	private String nombre;
-	private int precio;
-	private Grupo grupo;
-	private Jugador propietario;
 	private int costoEdificarCasa;
 	private int costoEdificarHotel;
 	private int valorAlquiler;
@@ -18,12 +13,12 @@ public class Terreno extends Agrupable {
 	private ArrayList<Construccion> casas = new ArrayList<Construccion>();
 	private ArrayList<Construccion> hoteles = new ArrayList<Construccion>();
 
-	public Terreno(String nombre, Grupo provincia, int precio, int alquiler, int alquiler1Casa, int alquiler2Casas,
+	public Terreno(String nombre, Grupo grupo, int precio, int alquiler, int alquiler1Casa, int alquiler2Casas,
 			int alquilerHotel, int costoEdificarCasa, int costoEdificarHotel) {
-		this.nombre = nombre;
-		this.precio = precio;
-		this.grupo = provincia;
-		provincia.agregar(this);
+		this.setNombre(nombre);
+		this.setPrecio(precio);
+		this.setGrupo(grupo);
+		grupo.agregar(this);
 		this.valorAlquiler = alquiler;
 		this.valorAlquiler1raCasa = alquiler1Casa - alquiler;
 		this.valorAlquiler2daCasa = alquiler2Casas - alquiler1Casa;
@@ -37,12 +32,11 @@ public class Terreno extends Agrupable {
 	}
 	
 	public int precioTotalDeVenta() {
-		int precioTotal=this.precio;
+		int precioTotal=this.getPrecio();
 		for (Construccion casa : casas)
 			precioTotal=precioTotal+casa.getprecio();
 		for (Construccion hotel : hoteles)
 			precioTotal=precioTotal+hotel.getprecio();
-		
 		return precioTotal;
 	}
 
@@ -61,7 +55,7 @@ public class Terreno extends Agrupable {
 
 	private void cobrarAlquilerTerrenoA(Jugador jugador) {
 		jugador.decrementarDinero(valorAlquiler);
-		propietario.incrementarDinero(valorAlquiler);
+		this.getPropietario().incrementarDinero(valorAlquiler);
 	}
 
 	public void construirCasa() {
@@ -69,58 +63,41 @@ public class Terreno extends Agrupable {
 		if (this.puedeEdificarCasa()) {
 			Construccion casaNueva;
 			if (casas.size() == 0) {
-				casaNueva = new Construccion(propietario, costoEdificarCasa, valorAlquiler1raCasa);
+				casaNueva = new Construccion(this.getPropietario(), costoEdificarCasa, valorAlquiler1raCasa);
 			} else {
-				casaNueva = new Construccion(propietario, costoEdificarCasa, valorAlquiler2daCasa);
+				casaNueva = new Construccion(this.getPropietario(), costoEdificarCasa, valorAlquiler2daCasa);
 			}
 			this.casas.add(casaNueva);
-			propietario.decrementarDinero(costoEdificarCasa);
+			this.getPropietario().decrementarDinero(costoEdificarCasa);
 		}
 	}
 
 	public void construirHotel() {
 		// lanzar exception si no se puede construir
 		if (this.puedeEdificarHotel()) {
-			Construccion hotelNuevo = new Construccion(propietario, costoEdificarHotel, valorAlquilerHotel);
+			Construccion hotelNuevo = new Construccion(this.getPropietario(), costoEdificarHotel, valorAlquilerHotel);
 			this.hoteles.add(hotelNuevo);
 			this.casas.clear();
-			propietario.decrementarDinero(costoEdificarHotel);
+			this.getPropietario().decrementarDinero(costoEdificarHotel);
 		}
 	}
 
 	private boolean puedeEdificarCasa() {
-		return(grupo.mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
-				&& propietario.getDinero() >= costoEdificarCasa);
+		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
+				&& this.getPropietario().getDinero() >= costoEdificarCasa);
 	}
 
 	private boolean puedeEdificarHotel() {
 
-		return(grupo.mismoPropietario() && hoteles.isEmpty() && grupo.esMultiple() && grupo.estaCompleto()
-				&& propietario.getDinero() >= costoEdificarHotel);
+		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && this.getGrupo().esMultiple() && this.getGrupo().estaCompleto()
+				&& this.getPropietario().getDinero() >= costoEdificarHotel);
 	}
 
 	public int cantPropiedades() {
 		return 1 + casas.size() + hoteles.size();
 	}
 
-	public Jugador getPropietario() {
-		return propietario;
-	}
-	
-	public int getPrecio() {
-		return this.precio;
-	}
-	
-	public void setPropietario(Jugador jugador) {
-		this.propietario=jugador;
-	}
-	
 	public boolean estaCompleto() {
 		return (casas.size() == 2);
 	}
-	
-	public String getNombre() {
-		return nombre;
-	}
-
 }
