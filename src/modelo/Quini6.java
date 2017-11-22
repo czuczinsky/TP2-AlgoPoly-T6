@@ -12,13 +12,7 @@ public class Quini6 extends Casillero {
 	@Override
 	public void ocupar(Jugador jugador, Dados dados) {
 		Ganador ganador = this.obtenerGanador(jugador);
-		if (ganador == null) {
-			ganador = new Ganador(jugador);
-			this.ganadores.add(ganador);
-			ganador.pagar();
-		} else {
-			ganador.pagar();
-		}
+		ganador.pagar();
 	}
 	
 	private Ganador obtenerGanador(Jugador jugador) {
@@ -27,7 +21,9 @@ public class Quini6 extends Casillero {
 				return ganadorActual;
 			}
 		}
-		return null;
+		Ganador ganadorNuevo = new Ganador(jugador);
+		this.ganadores.add(ganadorNuevo);
+		return ganadorNuevo;
 	}
 	
 }

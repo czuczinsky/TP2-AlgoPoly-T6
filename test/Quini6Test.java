@@ -58,7 +58,8 @@ public class Quini6Test {
 		quini6.ocupar(jugador2,dados);
 		quini6.ocupar(jugador1,dados);
 		
-		assertTrue(jugador1.getDinero() == 80000 && jugador2.getDinero() == 50000);
+		assertEquals(80000,jugador1.getDinero());
+		assertEquals(50000,jugador2.getDinero());
 	}
 
 	@Test
@@ -73,6 +74,8 @@ public class Quini6Test {
 		quini6.ocupar(jugador3,dados);
 		quini6.ocupar(jugador2,dados);
 		
-		assertTrue(jugador1.getDinero() == 50000 && jugador2.getDinero() == 51000 && jugador3.getDinero() == 100000);
+		assertEquals(50000,jugador1.getDinero());
+		assertEquals(51000,jugador2.getDinero());
+		assertEquals(100000,jugador3.getDinero());
 	}
 }
