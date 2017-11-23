@@ -79,6 +79,7 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setCenter(contenedorCentral);
 	}
 
+
 	private void setConsola() {
 
 		// TODO cambiar por el modelo de Consola... Va la consola???
