@@ -1,11 +1,16 @@
 package vista;
 
+import eventos.BotonTirarDadosHandler;
+import eventos.OpcionSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -21,12 +26,32 @@ public class ContenedorPrincipal extends BorderPane {
 	VistaTablero vistaTablero;
 	Canvas canvasCentral;
 	VBox contenedorCentral;
+	
+	public VistaAvance vistaAvance;
+	public VistaCarcel vistaCarcel;
+	public VistaCasillero vistaCasillero;
+	public VistaCompania vistaCompania;
+	public VistaImpuestoAlLujo vistaImpuestoAlLujo;
+	public VistaJugador jugador1;
+	public VistaJugador jugador2;
+	public VistaJugador jugador3;
+	public VistaPolicia vistaPolicia;
+	public VistaQuini6 vistaQuini6;
+	public VistaRetroceso vistaRetroceso;
+	public VistaSalida vistaSalida;
+	public VistaTerreno vistaTerreno;
+	
+	Label dineroDisponible;
+	GridPane datosYBotones;
+	Stage stage;
+	
 
 	public ContenedorPrincipal(Stage stage) {
 		this.setMenu(stage);
 		this.setCentro();
 		this.setConsola();
 		// this.setBotonera(robot);
+		//this.setPanelInformativo(null);
 	}
 
 	// TODO armar botonera (Si va)
@@ -78,7 +103,31 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.setCenter(contenedorCentral);
 	}
+	
+	private void setPanelInformativo(AlgoPoly algoPoly) {
+		// Para poner la info de cada jugador
+		this.datosYBotones = new GridPane();
+        this.datosYBotones.setVgap(55);
+        this.datosYBotones.setHgap(49);
+        this.dineroDisponible = new Label("");
+        
+        Button tirarDados = new Button();
+        tirarDados.setText("Tirar Dados");
+        BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(algoPoly);
+        tirarDados.setOnAction(tirarDadosHandler);
+        
+        this.datosYBotones.add(tirarDados,1,11);
+        this.setRight(datosYBotones);
+		
+	}
 
+	public void colocarJugadores() {
+		jugador1.dibujarInicial();
+		jugador2.dibujarInicial();
+		jugador3.dibujarInicial();
+		
+	}
+	
 
 	private void setConsola() {
 
@@ -95,6 +144,16 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.setBottom(contenedorConsola);
 	}
+	
+	public void terminarJuego(String ganador){
+    	Alert alert = new Alert(AlertType.INFORMATION);
+	    alert.setTitle("ALGOPOLY");
+	    alert.setHeaderText("TERMINA EL JUEGO");
+	    alert.setContentText("El ganador es " + ganador);
+	    alert.show();
+	    OpcionSalirEventHandler reiniciar = new OpcionSalirEventHandler();
+	    reiniciar.handle(null);
+    }
 
 	public BarraDeMenu getBarraDeMenu() {
 		return menuBar;
