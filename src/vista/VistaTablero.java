@@ -16,7 +16,7 @@ public class VistaTablero {
 
 	public VistaTablero(Tablero tablero, Canvas canvas) {
 		this.canvas = canvas;
-		double separacion = 3;
+		double separacion = 10;
 		vistaCasilleros = new ArrayList<VistaCasillero>();
 		ArrayList<Casillero> casilleros = tablero.getCasilleros();
 		int cantidad = casilleros.size();
@@ -60,6 +60,10 @@ public class VistaTablero {
 		gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
 		gc.drawImage(image, (canvas.getWidth() - image.getWidth()) / 2, (canvas.getHeight() - image.getHeight()) / 2);
+		
+		//Image imageDados = new Image("file:src/vista/imagenes/dados.gif");
+		//gc.drawImage(imageDados, (canvas.getWidth() - imageDados.getWidth()) / 2, (canvas.getHeight() - image.getHeight()) /3);
+	
 	}
 
 	public void update() {

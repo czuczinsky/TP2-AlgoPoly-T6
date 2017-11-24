@@ -1,6 +1,7 @@
 package vista;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.paint.Color;
 import modelo.Casillero;
 
 public class VistaSalida extends VistaRectangulo implements Dibujable {
@@ -15,6 +16,7 @@ public class VistaSalida extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
+		this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/salida.png");
 	}
 }

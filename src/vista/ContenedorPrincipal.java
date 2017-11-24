@@ -30,7 +30,7 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	// TODO armar botonera (Si va)
-	// private void setBotonera(Robot robot) {
+	// private void setBotonera() {
 	//
 	Button botonMover = new Button();
 	// botonMover.setText("Mover");
@@ -59,7 +59,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 
-		canvasCentral = new Canvas(750, 500);
+		canvasCentral = new Canvas(850, 600);
 
 		// TODO mover
 		AlgoPoly algoPoly = new AlgoPoly();
