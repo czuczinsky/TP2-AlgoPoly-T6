@@ -1,9 +1,6 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import javafx.scene.Node;
 
 public class AlgoPoly {
 	Tablero tablero;
