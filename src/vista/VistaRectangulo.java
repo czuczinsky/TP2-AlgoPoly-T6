@@ -62,13 +62,13 @@ public abstract class VistaRectangulo implements Dibujable {
 		Text text = new Text(etiqueta);
 		text.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 		text.setFill(color);
-		// text.setStroke(Color.web("#7080A0"));
+//		text.setStroke(Color.web("#7080A0"));
 
 		this.pane.getChildren().add(text);
 		text.setTranslateX(x + 10);
 		text.setTranslateY(y + alto - 12);
 		// this.pane.setAlignment(Pos.CENTER_RIGHT); // Right-justify nodes in stack
-		// StackPane.setMargin(text, new Insets(0, 10, 0, 0)); // Center "?"
+		// StackPane.setMargin(text, new Insets(0, 10, 0, 0)); 
 
 	}
 

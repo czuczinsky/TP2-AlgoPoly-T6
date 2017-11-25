@@ -18,11 +18,12 @@ public class VistaTablero {
 	StackPane pane;
 
 	public VistaTablero(AlgoPoly algoPoly, StackPane pane) {
-		ancho = 850;
-		alto = 600;
+		this.ancho = 850;
+		this.alto = 600;
+		double separacion = 10;
+
 		this.pane = pane;
 
-		double separacion = 10;
 		vistaCasilleros = new ArrayList<VistaCasillero>();
 		ArrayList<Casillero> casilleros = algoPoly.getTablero().getCasilleros();
 		int cantidad = casilleros.size();
