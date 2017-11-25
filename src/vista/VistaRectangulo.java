@@ -49,6 +49,10 @@ public abstract class VistaRectangulo {
 		Image image = new Image(sImagen);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.drawImage(image, x + (ancho - image.getWidth()) / 2, y + (alto - image.getHeight()) / 2);
+//		ImageView imageView = new ImageView(sImagen);
+//		this.pane.getChildren().add(imageView);
+//		imageView.setTranslateX(x+12);
+//		imageView.setTranslateY(y+12);
 	}
 	
 	public Casillero getCasillero() {
