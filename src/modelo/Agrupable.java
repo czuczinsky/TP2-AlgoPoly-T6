@@ -36,7 +36,7 @@ public abstract class Agrupable extends Casillero {
 		this.eliminarEdificaciones();
 	}
 
-	private boolean tienePropietario() {
+	public boolean tienePropietario() {
 		return this.getPropietario() != null;
 	}
 

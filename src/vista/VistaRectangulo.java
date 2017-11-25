@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
 import modelo.Casillero;
 
 public abstract class VistaRectangulo {
@@ -64,6 +63,9 @@ public abstract class VistaRectangulo {
 	        iconoConstruir.setOnMouseClicked(e -> {
 	        	JOptionPane.showMessageDialog(null, "Presionó el botonito!!!");
 	        });
+	}
 
+	public void ponerFichasJugador() {
+		// TODO necesita array de jugadores para saber la posicion de c/u
 	}
 }

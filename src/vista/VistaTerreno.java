@@ -1,10 +1,10 @@
 package vista;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
+import modelo.Terreno;
 
 public class VistaTerreno extends VistaRectangulo implements Dibujable {
 
@@ -18,7 +18,20 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	public void dibujar() {
-		this.pintar(Color.GAINSBORO);
+		Terreno terreno = (Terreno) this.getCasillero();
+		if (terreno.tienePropietario())
+			if (terreno.getPropietario().getNombre().equals("Rojo"))
+
+				this.pintar(Color.RED);
+			else if (terreno.getPropietario().getNombre().equals("Verde"))
+				this.pintar(Color.GREEN);
+			else if (terreno.getPropietario().getNombre().equals("Azul"))
+				this.pintar(Color.BLUE);
+			else
+				this.pintar(Color.GAINSBORO);
+		else
+			this.pintar(Color.GAINSBORO);
+
 		if (this.getCasillero().getNombre() == "Bs.As. SUR") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. SUR", Color.BLACK);

@@ -1,15 +1,34 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class AlgoPoly {
 	Tablero tablero;
 	Dados dados;
+	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+
 
 	public AlgoPoly() {
 		this.tablero = new Tablero();
-		this.armarTablero();
+		this.armarTableroYJugadores();
+		
+		// TODO SACAR!!! llamada para inicializar en un estado que permita probar la Vista
+		armarEstadoInicialTrucho();
+	}
+	
+	private void armarEstadoInicialTrucho() {
+		tablero.avanzar(jugadores.get(0),2, dados); // mueve jugador Rojo a bsasSur
+		tablero.avanzar(jugadores.get(1),3, dados); // mueve jugador Verde a Edesur
+		tablero.avanzar(jugadores.get(1),8, dados); // mueve jugador Azul a subte
+		
+		((Terreno)tablero.getCasilleros().get(2)).venderA(jugadores.get(0)); //bsasSur a jugador Rojo
+		((Terreno)tablero.getCasilleros().get(4)).venderA(jugadores.get(0)); //bsasNorte a jugador Rojo
+		((Terreno)tablero.getCasilleros().get(6)).venderA(jugadores.get(1)); //CordobaSur a jugador Verde
+		((Compania)tablero.getCasilleros().get(8)).venderA(jugadores.get(2)); //CordobaSur a jugador Azul
 	}
 
-	public void armarTablero() {
+
+	public void armarTableroYJugadores() {
 		Grupo bsas = new Grupo();
 		Grupo edesurAysa = new Grupo();
 		Grupo cordoba = new Grupo();
@@ -29,7 +48,8 @@ public class AlgoPoly {
 		Agrupable neuquen=new Terreno("NEUQUEN", new Grupo(), 17000, 1800, 3800, 0, 0, 4800, 0);
 		Agrupable tucuman=new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
 
-		tablero.agregarCasillero(new Salida());
+		Salida salida = new Salida();
+		tablero.agregarCasillero(salida);
 		tablero.agregarCasillero(new Quini6());
 		tablero.agregarCasillero(bsAsSur);
 		tablero.agregarCasillero(edesur);
@@ -51,6 +71,14 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Retroceso(tablero));
 		tablero.agregarCasillero(tucuman);
 
+		
+		jugadores.add(new Jugador("Rojo", 100000));
+		jugadores.add(new Jugador("Verde", 100000));
+		jugadores.add(new Jugador("Azul", 100000));
+
+		for (Jugador jugador : this.jugadores)
+			jugador.moverA(salida, dados);
+		
 	}
 
 	public Tablero getTablero() {
