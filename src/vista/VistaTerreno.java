@@ -1,18 +1,19 @@
 package vista;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
 
 public class VistaTerreno extends VistaRectangulo implements Dibujable {
 
-	public VistaTerreno(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero, canvas, x, y, ancho, alto);
+	public VistaTerreno(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
+		super(casillero, pane, canvas, x, y, ancho, alto);
 	}
 
-	public static VistaTerreno Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho,
+	public static VistaTerreno Instancia(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho,
 			double alto) {
-		return new VistaTerreno(casillero, canvas, x, y, ancho, alto);
+		return new VistaTerreno(casillero, pane, canvas, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

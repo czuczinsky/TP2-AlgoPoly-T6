@@ -12,13 +12,14 @@ public class VistaCasillero {
 public VistaCasillero(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
 
 		@SuppressWarnings("rawtypes")
-		Class[] param = new Class[6];
+		Class[] param = new Class[7];
 		param[0] = Casillero.class;
-		param[1] = Canvas.class;
-		param[2] = double.class;
+		param[1] = StackPane.class;
+		param[2] = Canvas.class;
 		param[3] = double.class;
 		param[4] = double.class;
 		param[5] = double.class;
+		param[6] = double.class;
 
 		String nombreClase = "vista.Vista" + casillero.getClass().getSimpleName();
 
@@ -43,14 +44,14 @@ public VistaCasillero(Casillero casillero, StackPane pane, Canvas canvas, double
 		if (nombreClase.equals("vista.VistaImpuestoAlLujo"))
 			esta = true;
 
-//		if (!esta)
+		if (!esta)
 			nombreClase = "vista.VistaSalida";
 		// -----------------------------------------------------------------
 
 		try {
 			Class<?> clase = Class.forName(nombreClase);
 			Method metodo = clase.getDeclaredMethod("Instancia", param);
-			dibujable = (Dibujable) metodo.invoke(null, casillero, canvas, x, y, ancho, alto);
+			dibujable = (Dibujable) metodo.invoke(null, casillero, pane, canvas, x, y, ancho, alto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

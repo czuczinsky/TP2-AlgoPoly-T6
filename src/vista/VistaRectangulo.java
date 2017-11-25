@@ -17,7 +17,7 @@ public abstract class VistaRectangulo {
 	private double ancho;
 	private double alto;
 
-	public VistaRectangulo(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
+	public VistaRectangulo(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
 		this.casillero = casillero;
 		this.canvas = canvas;
 		this.x = x;

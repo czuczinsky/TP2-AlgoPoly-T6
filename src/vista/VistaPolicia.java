@@ -1,18 +1,19 @@
 package vista;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
 
 public class VistaPolicia extends VistaRectangulo implements Dibujable {
 
-	public VistaPolicia(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero, canvas, x, y, ancho, alto);
+	public VistaPolicia(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
+		super(casillero, pane, canvas, x, y, ancho, alto);
 	}
 
-	public static VistaPolicia Instancia(Casillero casillero, Canvas canvas, double x, double y, double ancho,
+	public static VistaPolicia Instancia(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho,
 			double alto) {
-		return new VistaPolicia(casillero, canvas, x, y, ancho, alto);
+		return new VistaPolicia(casillero, pane, canvas, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
