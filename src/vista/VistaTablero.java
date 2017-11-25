@@ -2,15 +2,13 @@ package vista;
 
 import java.util.ArrayList;
 
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import modelo.AlgoPoly;
 import modelo.Casillero;
-import modelo.Tablero;
 
 public class VistaTablero {
 
@@ -63,25 +61,20 @@ public class VistaTablero {
 	}
 
 	public void clean() {
-		Canvas canvas = new Canvas(ancho, alto);
-		pane.getChildren().add(canvas);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		gc.setFill(Color.CHARTREUSE);
-		gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        Rectangle fondo = new Rectangle(0, 0, ancho, alto);
+        fondo.setFill(Color.CHARTREUSE);
+        this.pane.getChildren().add(fondo);
+ 
 		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
-		gc.drawImage(image, (canvas.getWidth() - image.getWidth()) / 2, (canvas.getHeight() - image.getHeight()) / 2);
-
-		// Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
-		// ImageView imageView = new ImageView();
-		// imageView.setImage(image);
-		// this.pane.getChildren().add(imageView);
-		// imageView.setTranslateX(image.getWidth() / 2);
-		// imageView.setTranslateY(image.getHeight());
+		ImageView imageView = new ImageView();
+		imageView.setImage(image);
+		this.pane.getChildren().add(imageView);
+		imageView.setTranslateX((ancho - image.getWidth()) / 2);
+		imageView.setTranslateY((alto - image.getHeight()) / 2);
 
 		// Image imageDados = new Image("file:src/vista/imagenes/dados.gif");
 		// gc.drawImage(imageDados, (canvas.getWidth() - imageDados.getWidth()) / 2,
 		// (canvas.getHeight() - image.getHeight()) /3);
-
 	}
 
 	public void update() {

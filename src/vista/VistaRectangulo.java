@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -36,29 +37,25 @@ public abstract class VistaRectangulo implements Dibujable {
 	}
 
 	public void pintar(Color color) {
-		final Canvas canvas = new Canvas(ancho, ancho);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		gc.setFill(color);
-		gc.fillRect(0, 0, ancho, alto);
-		this.pane.getChildren().add(canvas);
-		canvas.setTranslateX(x);
-		canvas.setTranslateY(y);
+		Rectangle fondo = new Rectangle(0, 0, ancho, alto);
+		fondo.setFill(color);
+		this.pane.getChildren().add(fondo);
+		fondo.setTranslateX(x);
+		fondo.setTranslateY(y);
 	}
 
 	public void pintar(Jugador propietario) {
-		final Canvas canvas = new Canvas(ancho, ancho);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
+		Rectangle fondo = new Rectangle(0, 0, ancho, alto);
 		if (propietario.getNombre().equals("Rojo"))
-			gc.setFill(Color.RED);
+			fondo.setFill(Color.RED);
 		if (propietario.getNombre().equals("Verde"))
-			gc.setFill(Color.GREEN);
+			fondo.setFill(Color.GREEN);
 		if (propietario.getNombre().equals("Azul"))
-			gc.setFill(Color.BLUE);
+			fondo.setFill(Color.BLUE);
 
-		gc.fillRect(0, 0, ancho, alto);
-		this.pane.getChildren().add(canvas);
-		canvas.setTranslateX(x);
-		canvas.setTranslateY(y);
+		this.pane.getChildren().add(fondo);
+		fondo.setTranslateX(x);
+		fondo.setTranslateY(y);
 	}
 
 	public void etiquetar(String etiqueta, Color color) {
@@ -132,8 +129,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.pane.getChildren().add(canvas);
 		canvas.setTranslateX(x);
 		canvas.setTranslateY(y);
-
-		// TODO necesita array de jugadores para saber la posicion de c/u
 	}
 
 	public void dibujar() {
