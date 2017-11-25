@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 //import vista.eventos.AplicacionOnKeyPressEventHandler;
+import modelo.AlgoPoly;
 
 
 public class Aplicacion extends Application  {
@@ -17,10 +18,10 @@ public class Aplicacion extends Application  {
 
         stage.setTitle("AlgoPoly");
 
-//        Robot robot = crearModelo();
+        AlgoPoly algoPoly = new AlgoPoly();  // Crea el modelo
 
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 900, 650);
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoPoly, stage);
+        Scene escenaJuego = new Scene(contenedorPrincipal, 900, 700);
 
  //       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
  //       escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);

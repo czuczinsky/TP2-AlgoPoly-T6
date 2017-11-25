@@ -1,7 +1,5 @@
 package vista;
 
-import javax.swing.JOptionPane;
-
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;

@@ -28,7 +28,7 @@ public class ContenedorPrincipal extends BorderPane {
 	Canvas canvas;
 	StackPane paneCentral;
 	
-	public VistaAvance vistaAvance;
+	public VistaAvance vistaAvance;  // van aca estas vistas o solo dentro de vistaTablero?
 	public VistaCarcel vistaCarcel;
 	public VistaCasillero vistaCasillero;
 	public VistaCompania vistaCompania;
@@ -47,9 +47,9 @@ public class ContenedorPrincipal extends BorderPane {
 	Stage stage;
 	
 
-	public ContenedorPrincipal(Stage stage) {
+	public ContenedorPrincipal(AlgoPoly algoPoly, Stage stage) {
 		this.setMenu(stage);
-		this.setCentro();
+		this.setCentro(algoPoly);
 		this.setConsola();
 		// this.setBotonera(robot);
 		//this.setPanelInformativo(null);
@@ -83,23 +83,11 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setTop(menuBar);
 	}
 
-	private void setCentro() {
-
-		// TODO mover
-		AlgoPoly algoPoly = new AlgoPoly();
-
+	private void setCentro(AlgoPoly algoPoly) {
 		paneCentral = new StackPane();
 		vistaTablero = new VistaTablero(algoPoly,paneCentral);
 		vistaTablero.dibujar();
-
 		paneCentral.setAlignment(Pos.TOP_LEFT);
-		paneCentral.setPadding(new Insets(40));
-//		Image imagen = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
-//		BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
-//		BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
-//		BackgroundSize.DEFAULT);
-//		contenedorCentral.setBackground(new Background(imagenDeFondo));
-
 		this.setCenter(paneCentral);
 	}
 	
@@ -121,6 +109,13 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	public void colocarJugadores() {
+		// los jugadores se deberian pedir al modelo
+		// algo asi
+		// algoPoly.getJugadores()
+		
+		// y recorrer el arrayList de jugadores con un for
+		//(si se eliminan jugadores van a ser menos de 3)
+		
 		jugador1.dibujarInicial();
 		jugador2.dibujarInicial();
 		jugador3.dibujarInicial();
