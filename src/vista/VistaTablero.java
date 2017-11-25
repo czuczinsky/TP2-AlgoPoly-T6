@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
@@ -69,6 +70,13 @@ public class VistaTablero {
 		gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
 		gc.drawImage(image, (canvas.getWidth() - image.getWidth()) / 2, (canvas.getHeight() - image.getHeight()) / 2);
+
+		// Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
+		// ImageView imageView = new ImageView();
+		// imageView.setImage(image);
+		// this.pane.getChildren().add(imageView);
+		// imageView.setTranslateX(image.getWidth() / 2);
+		// imageView.setTranslateY(image.getHeight());
 
 		// Image imageDados = new Image("file:src/vista/imagenes/dados.gif");
 		// gc.drawImage(imageDados, (canvas.getWidth() - imageDados.getWidth()) / 2,
