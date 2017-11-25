@@ -2,17 +2,18 @@ package vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 
 public class VistaCarcel extends VistaRectangulo implements Dibujable {
 
-	public VistaCarcel(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(casillero, pane, x, y, ancho, alto);
+	public VistaCarcel(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaCarcel Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
+	public static VistaCarcel Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaCarcel(casillero, pane, x, y, ancho, alto);
+		return new VistaCarcel(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

@@ -2,17 +2,18 @@ package vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 
 public class VistaQuini6 extends VistaRectangulo implements Dibujable {
 
-	public VistaQuini6(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(casillero, pane, x, y, ancho, alto);
+	public VistaQuini6(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaQuini6 Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
+	public static VistaQuini6 Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaQuini6(casillero, pane, x, y, ancho, alto);
+		return new VistaQuini6(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

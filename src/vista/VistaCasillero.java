@@ -2,21 +2,24 @@ package vista;
 
 import java.lang.reflect.Method;
 import javafx.scene.layout.StackPane;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 
 public class VistaCasillero {
 	private Dibujable dibujable;
 
-public VistaCasillero(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+	public VistaCasillero(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
+			double alto) {
 
 		@SuppressWarnings("rawtypes")
-		Class[] param = new Class[6];
-		param[0] = Casillero.class;
-		param[1] = StackPane.class;
-		param[2] = double.class;
+		Class[] param = new Class[7];
+		param[0] = AlgoPoly.class;
+		param[1] = Casillero.class;
+		param[2] = StackPane.class;
 		param[3] = double.class;
 		param[4] = double.class;
 		param[5] = double.class;
+		param[6] = double.class;
 
 		String nombreClase = "vista.Vista" + casillero.getClass().getSimpleName();
 
@@ -48,7 +51,7 @@ public VistaCasillero(Casillero casillero, StackPane pane, double x, double y, d
 		try {
 			Class<?> clase = Class.forName(nombreClase);
 			Method metodo = clase.getDeclaredMethod("Instancia", param);
-			dibujable = (Dibujable) metodo.invoke(null, casillero, pane, x, y, ancho, alto);
+			dibujable = (Dibujable) metodo.invoke(null, algoPoly, casillero, pane, x, y, ancho, alto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

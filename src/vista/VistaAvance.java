@@ -2,17 +2,19 @@ package vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 
 public class VistaAvance extends VistaRectangulo implements Dibujable {
 
-	public VistaAvance(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(casillero, pane, x, y, ancho, alto);
+	public VistaAvance(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
+			double alto) {
+		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaAvance Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
-			double alto) {
-		return new VistaAvance(casillero, pane, x, y, ancho, alto);
+	public static VistaAvance Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y,
+			double ancho, double alto) {
+		return new VistaAvance(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

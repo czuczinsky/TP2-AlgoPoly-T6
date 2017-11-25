@@ -48,7 +48,7 @@ public class VistaTablero {
 				y = altoCasillero * (i - 3 * porLinea);
 			}
 
-			vistaCasilleros.add(new VistaCasillero(casillero, pane, x + separacion / 2, y + separacion / 2,
+			vistaCasilleros.add(new VistaCasillero(algoPoly, casillero, pane, x + separacion / 2, y + separacion / 2,
 					anchoCasillero - separacion, altoCasillero - separacion));
 			i++;
 		}

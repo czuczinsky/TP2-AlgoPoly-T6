@@ -11,9 +11,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import modelo.AlgoPoly;
 import modelo.Casillero;
+import modelo.Jugador;
 
 public abstract class VistaRectangulo implements Dibujable {
+	private AlgoPoly algoPoly;
 	private Casillero casillero;
 	private double x;
 	private double y;
@@ -21,7 +24,9 @@ public abstract class VistaRectangulo implements Dibujable {
 	private double alto;
 	private StackPane pane;
 
-	public VistaRectangulo(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+	public VistaRectangulo(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
+			double alto) {
+		this.algoPoly = algoPoly;
 		this.casillero = casillero;
 		this.pane = pane;
 		this.x = x;
@@ -34,6 +39,21 @@ public abstract class VistaRectangulo implements Dibujable {
 		final Canvas canvas = new Canvas(ancho, ancho);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		gc.setFill(color);
+		gc.fillRect(0, 0, ancho, alto);
+		this.pane.getChildren().add(canvas);
+		canvas.setTranslateX(x);
+		canvas.setTranslateY(y);
+	}
+
+	public void pintar(Jugador propietario) {
+		final Canvas canvas = new Canvas(ancho, ancho);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		if (propietario.equals(algoPoly.getJugadores().get(0)))
+			gc.setFill(Color.RED);
+		if (propietario.equals(algoPoly.getJugadores().get(1)))
+			gc.setFill(Color.GREEN);
+		if (propietario.equals(algoPoly.getJugadores().get(2)))
+			gc.setFill(Color.BLUE);
 		gc.fillRect(0, 0, ancho, alto);
 		this.pane.getChildren().add(canvas);
 		canvas.setTranslateX(x);
@@ -62,25 +82,43 @@ public abstract class VistaRectangulo implements Dibujable {
 		imageView.setTranslateX(x + (ancho - image.getWidth()) / 2);
 		imageView.setTranslateY(y + (alto - image.getHeight()) / 2);
 	}
-	
+
 	public Casillero getCasillero() {
 		return casillero;
 	}
-	
+
 	public void ponerBotonConstruir() {
-	       ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construir.png");
-			this.pane.getChildren().add(iconoConstruir);
-			iconoConstruir.setTranslateX(x);
-	        iconoConstruir.setTranslateY(y);
-	        iconoConstruir.setOnMouseClicked(e -> {
-	        	JOptionPane.showMessageDialog(null, "Presiono el botonito!!!");
-	        });
+		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construir.png");
+		this.pane.getChildren().add(iconoConstruir);
+		iconoConstruir.setTranslateX(x);
+		iconoConstruir.setTranslateY(y);
+		iconoConstruir.setOnMouseClicked(e -> {
+			JOptionPane.showMessageDialog(null, "Presiono el botonito!!!");
+		});
 	}
 
 	public void ponerFichasJugador() {
+		final Canvas canvas = new Canvas(ancho, ancho);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		if (casillero.equals(algoPoly.getJugadores().get(0).getPosicion())) {
+			gc.setFill(Color.RED);
+			gc.fillOval(ancho / 2 - 25, alto / 2 - 18, 30, 36);
+		}
+		if (casillero.equals(algoPoly.getJugadores().get(1).getPosicion())) {
+			gc.setFill(Color.GREEN);
+			gc.fillOval(ancho / 2 - 15, alto / 2 - 18, 30, 36);
+		}
+		if (casillero.equals(algoPoly.getJugadores().get(2).getPosicion())) {
+			gc.setFill(Color.BLUE);
+			gc.fillOval(ancho / 2 - 5, alto / 2 - 18, 30, 36);
+		}
+		this.pane.getChildren().add(canvas);
+		canvas.setTranslateX(x);
+		canvas.setTranslateY(y);
+
 		// TODO necesita array de jugadores para saber la posicion de c/u
 	}
-	
+
 	public void dibujar() {
 		ponerFichasJugador();
 	}

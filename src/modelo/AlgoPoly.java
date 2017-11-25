@@ -1,6 +1,9 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javafx.scene.Node;
 
 public class AlgoPoly {
 	Tablero tablero;
@@ -11,22 +14,22 @@ public class AlgoPoly {
 	public AlgoPoly() {
 		this.tablero = new Tablero();
 		this.armarTableroYJugadores();
-		
-		// TODO SACAR!!! llamada para inicializar en un estado que permita probar la Vista
+
+		// TODO SACAR!!! llamada para inicializar en un estado que permita probar la
+		// Vista
 		armarEstadoInicialTrucho();
 	}
-	
-	private void armarEstadoInicialTrucho() {
-		tablero.avanzar(jugadores.get(0),2, dados); // mueve jugador Rojo a bsasSur
-		tablero.avanzar(jugadores.get(1),3, dados); // mueve jugador Verde a Edesur
-		tablero.avanzar(jugadores.get(1),8, dados); // mueve jugador Azul a subte
-		
-		((Terreno)tablero.getCasilleros().get(2)).venderA(jugadores.get(0)); //bsasSur a jugador Rojo
-		((Terreno)tablero.getCasilleros().get(4)).venderA(jugadores.get(0)); //bsasNorte a jugador Rojo
-		((Terreno)tablero.getCasilleros().get(6)).venderA(jugadores.get(1)); //CordobaSur a jugador Verde
-		((Compania)tablero.getCasilleros().get(8)).venderA(jugadores.get(2)); //CordobaSur a jugador Azul
-	}
 
+	private void armarEstadoInicialTrucho() {
+		tablero.avanzar(jugadores.get(0), 2, dados); // mueve jugador Rojo a bsasSur
+		tablero.avanzar(jugadores.get(1), 3, dados); // mueve jugador Verde a Edesur
+		tablero.avanzar(jugadores.get(2), 8, dados); // mueve jugador Azul a subte
+
+		((Terreno) tablero.getCasilleros().get(2)).venderA(jugadores.get(0)); // bsasSur a jugador Rojo
+		((Terreno) tablero.getCasilleros().get(4)).venderA(jugadores.get(0)); // bsasNorte a jugador Rojo
+		((Terreno) tablero.getCasilleros().get(6)).venderA(jugadores.get(1)); // CordobaSur a jugador Verde
+		((Compania) tablero.getCasilleros().get(8)).venderA(jugadores.get(2)); // CordobaSur a jugador Azul
+	}
 
 	public void armarTableroYJugadores() {
 		Grupo bsas = new Grupo();
@@ -83,5 +86,9 @@ public class AlgoPoly {
 
 	public Tablero getTablero() {
 		return tablero;
+	}
+
+	public ArrayList<Jugador> getJugadores() {
+		return jugadores;
 	}
 }

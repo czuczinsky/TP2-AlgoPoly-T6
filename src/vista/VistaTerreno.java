@@ -2,35 +2,33 @@ package vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
+import modelo.Jugador;
 import modelo.Terreno;
 
 public class VistaTerreno extends VistaRectangulo implements Dibujable {
 
-	public VistaTerreno(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(casillero, pane, x, y, ancho, alto);
+	public VistaTerreno(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaTerreno Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
-			double alto) {
-		return new VistaTerreno(casillero, pane, x, y, ancho, alto);
+	public static VistaTerreno Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y,
+			double ancho, double alto) {
+		return new VistaTerreno(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
+		Jugador propietario;
 		Terreno terreno = (Terreno) this.getCasillero();
-		if (terreno.tienePropietario())
-			if (terreno.getPropietario().getNombre().equals("Rojo"))
-
-				this.pintar(Color.RED);
-			else if (terreno.getPropietario().getNombre().equals("Verde"))
-				this.pintar(Color.GREEN);
-			else if (terreno.getPropietario().getNombre().equals("Azul"))
-				this.pintar(Color.BLUE);
-			else
-				this.pintar(Color.GAINSBORO);
-		else
+		if (terreno.tienePropietario()) {
+			propietario = terreno.getPropietario();
+			this.pintar(propietario);
+		} else
 			this.pintar(Color.GAINSBORO);
 
+		
+		
 		if (this.getCasillero().getNombre() == "Bs.As. SUR") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. SUR", Color.BLACK);

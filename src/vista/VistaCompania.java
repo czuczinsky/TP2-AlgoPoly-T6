@@ -2,34 +2,31 @@ package vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Compania;
+import modelo.Jugador;
 
 public class VistaCompania extends VistaRectangulo implements Dibujable {
 
-	public VistaCompania(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(casillero, pane, x, y, ancho, alto);
+	public VistaCompania(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaCompania Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
+	public static VistaCompania Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaCompania(casillero, pane, x, y, ancho, alto);
+		return new VistaCompania(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
-		Compania comapnia = (Compania) this.getCasillero();
-		if (comapnia.tienePropietario())
-			if (comapnia.getPropietario().getNombre().equals("Rojo"))
-
-				this.pintar(Color.RED);
-			else if (comapnia.getPropietario().getNombre().equals("Verde"))
-				this.pintar(Color.GREEN);
-			else if (comapnia.getPropietario().getNombre().equals("Azul"))
-				this.pintar(Color.BLUE);
-			else
-				this.pintar(Color.GAINSBORO);
-		else
+		Jugador propietario;
+		Compania compania = (Compania) this.getCasillero();
+		if (compania.tienePropietario()) {
+			propietario = compania.getPropietario();
+			this.pintar(propietario);
+		} else
 			this.pintar(Color.GAINSBORO);
+
 
 		if (this.getCasillero().getNombre() == "AYSA") {
 			this.ponerImagen("file:src/vista/imagenes/aysa.png");

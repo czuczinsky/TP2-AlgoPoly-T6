@@ -2,17 +2,18 @@ package vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 
 public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 
-	public VistaImpuestoAlLujo(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(casillero, pane, x, y, ancho, alto);
+	public VistaImpuestoAlLujo(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaImpuestoAlLujo Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
+	public static VistaImpuestoAlLujo Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaImpuestoAlLujo(casillero, pane, x, y, ancho, alto);
+		return new VistaImpuestoAlLujo(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
