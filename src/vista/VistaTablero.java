@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
 import modelo.Tablero;
@@ -14,8 +15,11 @@ public class VistaTablero {
 	Canvas canvas;
 	ArrayList<VistaCasillero> vistaCasilleros;
 
-	public VistaTablero(Tablero tablero, Canvas canvas) {
-		this.canvas = canvas;
+	public VistaTablero(Tablero tablero, StackPane pane) {
+		canvas = new Canvas(850, 600);
+		pane.getChildren().add(canvas);
+
+		
 		double separacion = 10;
 		vistaCasilleros = new ArrayList<VistaCasillero>();
 		ArrayList<Casillero> casilleros = tablero.getCasilleros();
@@ -41,7 +45,7 @@ public class VistaTablero {
 				y = alto * (i - 3 * porLinea);
 			}
 
-			vistaCasilleros.add( new VistaCasillero(casillero, canvas, x + separacion / 2, y + separacion / 2,
+			vistaCasilleros.add(new VistaCasillero(casillero, canvas, x + separacion / 2, y + separacion / 2,
 					ancho - separacion, alto - separacion));
 			i++;
 		}

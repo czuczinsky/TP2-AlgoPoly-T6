@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -24,8 +25,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
-	Canvas canvasCentral;
-	VBox contenedorCentral;
+	Canvas canvas;
+	StackPane paneCentral;
 	
 	public VistaAvance vistaAvance;
 	public VistaCarcel vistaCarcel;
@@ -84,24 +85,23 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 
-		canvasCentral = new Canvas(850, 600);
-
 		// TODO mover
 		AlgoPoly algoPoly = new AlgoPoly();
-		vistaTablero = new VistaTablero(algoPoly.getTablero(), canvasCentral);
+
+		paneCentral = new StackPane();
+		vistaTablero = new VistaTablero(algoPoly.getTablero(),paneCentral);
 		vistaTablero.dibujar();
 
-		contenedorCentral = new VBox(canvasCentral);
-		contenedorCentral.setAlignment(Pos.CENTER_LEFT);
-		contenedorCentral.setSpacing(600);
-		contenedorCentral.setPadding(new Insets(40));
+		paneCentral.setAlignment(Pos.CENTER_LEFT);
+//		vBoxCentral.setSpacing(600);
+		paneCentral.setPadding(new Insets(40));
 //		Image imagen = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
 //		BackgroundImage imagenDeFondo = new BackgroundImage(imagen,
 //		BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
 //		BackgroundSize.DEFAULT);
 //		contenedorCentral.setBackground(new Background(imagenDeFondo));
 
-		this.setCenter(contenedorCentral);
+		this.setCenter(paneCentral);
 	}
 	
 	private void setPanelInformativo(AlgoPoly algoPoly) {
