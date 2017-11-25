@@ -1,19 +1,18 @@
 package vista;
 
-import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
 
 public class VistaRetroceso extends VistaRectangulo implements Dibujable {
 
-	public VistaRetroceso(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero, pane, canvas, x, y, ancho, alto);
+	public VistaRetroceso(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaRetroceso Instancia(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho,
+	public static VistaRetroceso Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaRetroceso(casillero, pane, canvas, x, y, ancho, alto);
+		return new VistaRetroceso(casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

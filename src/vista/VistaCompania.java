@@ -1,6 +1,5 @@
 package vista;
 
-import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.Casillero;
@@ -8,13 +7,13 @@ import modelo.Compania;
 
 public class VistaCompania extends VistaRectangulo implements Dibujable {
 
-	public VistaCompania(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
-		super(casillero, pane, canvas, x, y, ancho, alto);
+	public VistaCompania(Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaCompania Instancia(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho,
+	public static VistaCompania Instancia(Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaCompania(casillero, pane, canvas, x, y, ancho, alto);
+		return new VistaCompania(casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
