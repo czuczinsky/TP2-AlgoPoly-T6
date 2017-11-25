@@ -48,12 +48,13 @@ public abstract class VistaRectangulo implements Dibujable {
 	public void pintar(Jugador propietario) {
 		final Canvas canvas = new Canvas(ancho, ancho);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
-		if (propietario.equals(algoPoly.getJugadores().get(0)))
+		if (propietario.getNombre().equals("Rojo"))
 			gc.setFill(Color.RED);
-		if (propietario.equals(algoPoly.getJugadores().get(1)))
+		if (propietario.getNombre().equals("Verde"))
 			gc.setFill(Color.GREEN);
-		if (propietario.equals(algoPoly.getJugadores().get(2)))
+		if (propietario.getNombre().equals("Azul"))
 			gc.setFill(Color.BLUE);
+
 		gc.fillRect(0, 0, ancho, alto);
 		this.pane.getChildren().add(canvas);
 		canvas.setTranslateX(x);
@@ -102,24 +103,32 @@ public abstract class VistaRectangulo implements Dibujable {
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		double diametro = 36;
 		double offset = 10;
-		if (casillero.equals(algoPoly.getJugadores().get(0).getPosicion())) {
-			gc.setFill(Color.BLACK);
-			gc.fillOval((ancho - diametro) / 2 - offset, (alto - diametro) / 2, diametro, diametro);
-			gc.setFill(Color.RED);
-			gc.fillOval((ancho - diametro + 6) / 2 - offset, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
+		for (Jugador jugador : algoPoly.getJugadores()) {
+
+			if (casillero.equals(jugador.getPosicion())) {
+				if (jugador.getNombre().equals("Rojo")) {
+					gc.setFill(Color.BLACK);
+					gc.fillOval((ancho - diametro) / 2 - offset, (alto - diametro) / 2, diametro, diametro);
+					gc.setFill(Color.RED);
+					gc.fillOval((ancho - diametro + 6) / 2 - offset, (alto - diametro + 6) / 2, diametro - 6,
+							diametro - 6);
+				}
+				if (jugador.getNombre().equals("Verde")) {
+					gc.setFill(Color.BLACK);
+					gc.fillOval((ancho - diametro) / 2, (alto - diametro) / 2, diametro, diametro);
+					gc.setFill(Color.GREEN);
+					gc.fillOval((ancho - diametro + 6) / 2, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
+				}
+				if (jugador.getNombre().equals("Azul")) {
+					gc.setFill(Color.BLACK);
+					gc.fillOval((ancho - diametro) / 2 + offset, (alto - diametro) / 2, diametro, diametro);
+					gc.setFill(Color.BLUE);
+					gc.fillOval((ancho - diametro + 6) / 2 + offset, (alto - diametro + 6) / 2, diametro - 6,
+							diametro - 6);
+				}
+			}
 		}
-		if (casillero.equals(algoPoly.getJugadores().get(1).getPosicion())) {
-			gc.setFill(Color.BLACK);
-			gc.fillOval((ancho - diametro) / 2, (alto - diametro) / 2, diametro, diametro);
-			gc.setFill(Color.GREEN);
-			gc.fillOval((ancho - diametro + 6) / 2, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
-		}
-		if (casillero.equals(algoPoly.getJugadores().get(2).getPosicion())) {
-			gc.setFill(Color.BLACK);
-			gc.fillOval((ancho - diametro) / 2 + offset, (alto - diametro) / 2, diametro, diametro);
-			gc.setFill(Color.BLUE);
-			gc.fillOval((ancho - diametro + 6) / 2 + offset, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
-		}
+
 		this.pane.getChildren().add(canvas);
 		canvas.setTranslateX(x);
 		canvas.setTranslateY(y);
