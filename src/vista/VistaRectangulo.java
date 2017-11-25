@@ -100,17 +100,25 @@ public abstract class VistaRectangulo implements Dibujable {
 	public void ponerFichasJugador() {
 		final Canvas canvas = new Canvas(ancho, ancho);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
+		double diametro = 36;
+		double offset = 10;
 		if (casillero.equals(algoPoly.getJugadores().get(0).getPosicion())) {
+			gc.setFill(Color.BLACK);
+			gc.fillOval((ancho - diametro) / 2 - offset, (alto - diametro) / 2, diametro, diametro);
 			gc.setFill(Color.RED);
-			gc.fillOval(ancho / 2 - 25, alto / 2 - 18, 30, 36);
+			gc.fillOval((ancho - diametro + 6) / 2 - offset, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
 		}
 		if (casillero.equals(algoPoly.getJugadores().get(1).getPosicion())) {
+			gc.setFill(Color.BLACK);
+			gc.fillOval((ancho - diametro) / 2, (alto - diametro) / 2, diametro, diametro);
 			gc.setFill(Color.GREEN);
-			gc.fillOval(ancho / 2 - 15, alto / 2 - 18, 30, 36);
+			gc.fillOval((ancho - diametro + 6) / 2, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
 		}
 		if (casillero.equals(algoPoly.getJugadores().get(2).getPosicion())) {
+			gc.setFill(Color.BLACK);
+			gc.fillOval((ancho - diametro) / 2 + offset, (alto - diametro) / 2, diametro, diametro);
 			gc.setFill(Color.BLUE);
-			gc.fillOval(ancho / 2 - 5, alto / 2 - 18, 30, 36);
+			gc.fillOval((ancho - diametro + 6) / 2 + offset, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
 		}
 		this.pane.getChildren().add(canvas);
 		canvas.setTranslateX(x);
