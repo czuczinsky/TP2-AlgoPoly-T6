@@ -45,7 +45,7 @@ public class VistaTablero {
 				y = alto * (i - 3 * porLinea);
 			}
 
-			vistaCasilleros.add(new VistaCasillero(casillero, canvas, x + separacion / 2, y + separacion / 2,
+			vistaCasilleros.add(new VistaCasillero(casillero, pane, canvas, x + separacion / 2, y + separacion / 2,
 					ancho - separacion, alto - separacion));
 			i++;
 		}

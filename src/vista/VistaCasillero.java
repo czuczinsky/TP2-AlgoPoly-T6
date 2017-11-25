@@ -3,12 +3,13 @@ package vista;
 import java.lang.reflect.Method;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.layout.StackPane;
 import modelo.Casillero;
 
 public class VistaCasillero {
 	private Dibujable dibujable;
 
-public VistaCasillero(Casillero casillero, Canvas canvas, double x, double y, double ancho, double alto) {
+public VistaCasillero(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
 
 		@SuppressWarnings("rawtypes")
 		Class[] param = new Class[6];
@@ -42,7 +43,7 @@ public VistaCasillero(Casillero casillero, Canvas canvas, double x, double y, do
 		if (nombreClase.equals("vista.VistaImpuestoAlLujo"))
 			esta = true;
 
-		if (!esta)
+//		if (!esta)
 			nombreClase = "vista.VistaSalida";
 		// -----------------------------------------------------------------
 
