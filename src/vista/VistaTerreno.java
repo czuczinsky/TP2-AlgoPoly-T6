@@ -67,8 +67,8 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 			this.etiquetar("SANTA FE", Color.BLACK);
 			this.ponerBotones();
 		}
-		this.ponerBotones();
 		super.dibujar();
+		this.ponerBotones();
 	}
 
 	private void ponerBotones() {
