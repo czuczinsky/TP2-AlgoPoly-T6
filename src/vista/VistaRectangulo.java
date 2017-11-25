@@ -1,12 +1,16 @@
 package vista;
 
+import javax.swing.JOptionPane;
+
 import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 import modelo.Casillero;
 
 public abstract class VistaRectangulo {
@@ -16,9 +20,11 @@ public abstract class VistaRectangulo {
 	private double y;
 	private double ancho;
 	private double alto;
+	private StackPane pane;
 
 	public VistaRectangulo(Casillero casillero, StackPane pane, Canvas canvas, double x, double y, double ancho, double alto) {
 		this.casillero = casillero;
+		this.pane = pane;
 		this.canvas = canvas;
 		this.x = x;
 		this.y = y;
@@ -49,5 +55,15 @@ public abstract class VistaRectangulo {
 	public Casillero getCasillero() {
 		return casillero;
 	}
+	
+	public void ponerBotonConstruir() {
+	       ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construir.png");
+			this.pane.getChildren().add(iconoConstruir);
+			iconoConstruir.setTranslateX(x);
+	        iconoConstruir.setTranslateY(y);
+	        iconoConstruir.setOnMouseClicked(e -> {
+	        	JOptionPane.showMessageDialog(null, "Presionó el botonito!!!");
+	        });
 
+	}
 }

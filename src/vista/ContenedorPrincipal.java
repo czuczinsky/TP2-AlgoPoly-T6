@@ -92,7 +92,7 @@ public class ContenedorPrincipal extends BorderPane {
 		vistaTablero = new VistaTablero(algoPoly.getTablero(),paneCentral);
 		vistaTablero.dibujar();
 
-		paneCentral.setAlignment(Pos.CENTER_LEFT);
+		paneCentral.setAlignment(Pos.TOP_LEFT);
 //		vBoxCentral.setSpacing(600);
 		paneCentral.setPadding(new Insets(40));
 //		Image imagen = new Image("file:src/vista/imagenes/Monopoly_pack_logo.png");
