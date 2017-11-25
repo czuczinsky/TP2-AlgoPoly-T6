@@ -21,6 +21,7 @@ public class AlgoPoly {
 	}
 
 	private void armarEstadoInicialTrucho() {
+		//TODO Sacar este metodo
 		tablero.avanzar(jugadores.get(0), 2, dados); // mueve jugador Rojo a bsasSur
 		tablero.avanzar(jugadores.get(1), 3, dados); // mueve jugador Verde a Edesur
 		tablero.avanzar(jugadores.get(2), 8, dados); // mueve jugador Azul a subte
