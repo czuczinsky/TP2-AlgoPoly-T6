@@ -70,9 +70,10 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 			this.ponerBotones();
 		}
 		this.ponerBotones();
+		super.dibujar();
 	}
 
 	private void ponerBotones() {
-		super.ponerBotonConstruir();
+		this.ponerBotonConstruir();
 	}
 }

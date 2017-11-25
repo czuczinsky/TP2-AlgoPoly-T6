@@ -7,6 +7,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Tablero;
 
@@ -17,14 +18,14 @@ public class VistaTablero {
 	double alto;
 	StackPane pane;
 
-	public VistaTablero(Tablero tablero, StackPane pane) {
+	public VistaTablero(AlgoPoly algoPoly, StackPane pane) {
 		ancho = 850;
 		alto = 600;
 		this.pane = pane;
 
 		double separacion = 10;
 		vistaCasilleros = new ArrayList<VistaCasillero>();
-		ArrayList<Casillero> casilleros = tablero.getCasilleros();
+		ArrayList<Casillero> casilleros = algoPoly.getTablero().getCasilleros();
 		int cantidad = casilleros.size();
 		int porLinea = cantidad / 4;
 		double anchoCasillero = this.ancho / (porLinea + 1);

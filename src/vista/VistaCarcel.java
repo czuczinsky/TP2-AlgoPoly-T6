@@ -19,5 +19,6 @@ public class VistaCarcel extends VistaRectangulo implements Dibujable {
 		this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/prision.png");
 		this.etiquetar("CARCEL", Color.WHITE);
+		super.dibujar();
 	}
 }

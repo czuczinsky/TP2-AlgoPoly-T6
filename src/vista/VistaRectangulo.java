@@ -13,7 +13,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import modelo.Casillero;
 
-public abstract class VistaRectangulo {
+public abstract class VistaRectangulo implements Dibujable {
 	private Casillero casillero;
 	private double x;
 	private double y;
@@ -79,5 +79,9 @@ public abstract class VistaRectangulo {
 
 	public void ponerFichasJugador() {
 		// TODO necesita array de jugadores para saber la posicion de c/u
+	}
+	
+	public void dibujar() {
+		ponerFichasJugador();
 	}
 }

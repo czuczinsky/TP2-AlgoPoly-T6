@@ -18,6 +18,7 @@ public class VistaQuini6 extends VistaRectangulo implements Dibujable {
 	public void dibujar() {
 		this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/quini6.png");
+		super.dibujar();
 	}
 
 }

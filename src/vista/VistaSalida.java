@@ -18,5 +18,6 @@ public class VistaSalida extends VistaRectangulo implements Dibujable {
 	public void dibujar() {
 		this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/salida.png");
+		super.dibujar();
 	}
 }

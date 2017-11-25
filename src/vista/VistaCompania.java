@@ -45,5 +45,6 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 			this.ponerImagen("file:src/vista/imagenes/subte.png");
 			this.etiquetar("SUBTE", Color.BLACK);
 		}
+		super.dibujar();
 	}
 }

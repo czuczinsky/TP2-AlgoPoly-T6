@@ -19,5 +19,6 @@ public class VistaPolicia extends VistaRectangulo implements Dibujable {
 		this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/policia.png");
 		this.etiquetar("POLICIA", Color.WHITE);
+		super.dibujar();
 	}
 }

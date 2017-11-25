@@ -19,6 +19,7 @@ public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 		this.pintar(Color.GAINSBORO);
 		this.ponerImagen("file:src/vista/imagenes/impuesto.png");
 		this.etiquetar("IMPUESTO AL LUJO", Color.BLACK);
+		super.dibujar();
 	}
 
 }
