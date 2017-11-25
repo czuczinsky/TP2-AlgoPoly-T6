@@ -1,5 +1,7 @@
 package vista;
 
+import javax.swing.JOptionPane;
+
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
@@ -72,6 +74,8 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	private void ponerBotones() {
-		this.ponerBotonConstruir();
+		// TODO cambiar puedeEdificarCasa por version dependiente del turno
+		if (((Terreno) this.getCasillero()).puedeEdificarCasa())
+			this.ponerBotonConstruir();
 	}
 }

@@ -82,7 +82,9 @@ public class Terreno extends Agrupable {
 		}
 	}
 
-	private boolean puedeEdificarCasa() {
+	public boolean puedeEdificarCasa() {
+		if (!this.tienePropietario())
+			return false;
 		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
 				&& this.getPropietario().getDinero() >= costoEdificarCasa);
 	}
