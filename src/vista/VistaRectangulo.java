@@ -65,7 +65,7 @@ public abstract class VistaRectangulo {
 			iconoConstruir.setTranslateX(x);
 	        iconoConstruir.setTranslateY(y);
 	        iconoConstruir.setOnMouseClicked(e -> {
-	        	JOptionPane.showMessageDialog(null, "Presionó el botonito!!!");
+	        	JOptionPane.showMessageDialog(null, "Presiono el botonito!!!");
 	        });
 	}
 
