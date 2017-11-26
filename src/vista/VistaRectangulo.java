@@ -94,10 +94,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control
-			((Terreno)casillero).construirCasa();
+			// TODO mover a Control. Agregar refresh
+			((Terreno) casillero).construirCasa();
 			JOptionPane.showMessageDialog(null, "Construyo casa (la muestra en proximo turno)");
-
 		});
 	}
 
@@ -107,7 +106,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			JOptionPane.showMessageDialog(null, "Presiono construir casa!!!");
+			// TODO mover a Control. Agregar refresh
+			((Terreno) casillero).construirHotel();
+			JOptionPane.showMessageDialog(null, "Construyo hotel (la muestra en proximo turno)");
 		});
 	}
 
@@ -116,6 +117,13 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.pane.getChildren().add(iconoCasa);
 		iconoCasa.setTranslateX(x + 28 + i * 40);
 		iconoCasa.setTranslateY(y + 30);
+	}
+
+	public void ponerHotel() {
+		ImageView iconoCasa = new ImageView("file:src/vista/imagenes/hotel.png");
+		this.pane.getChildren().add(iconoCasa);
+		iconoCasa.setTranslateX(x + 40);
+		iconoCasa.setTranslateY(y + 20);
 	}
 
 	public void ponerFichasJugador() {

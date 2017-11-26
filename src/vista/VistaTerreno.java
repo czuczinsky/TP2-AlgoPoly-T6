@@ -74,6 +74,8 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	private void ponerConstrucciones() {
 		for (int i = 0; i < ((Terreno) this.getCasillero()).cantCasas(); i++)
 			this.ponerCasa(i);
+		if (((Terreno) this.getCasillero()).cantHoteles() == 1)
+			this.ponerHotel();
 	}
 
 	private void ponerBotones() {
