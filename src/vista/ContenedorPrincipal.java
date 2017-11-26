@@ -1,5 +1,6 @@
 package vista;
 
+import eventos.BotonMoverHandler;
 import eventos.BotonTirarDadosHandler;
 import eventos.OpcionSalirEventHandler;
 import javafx.geometry.Insets;
@@ -115,7 +116,7 @@ public class ContenedorPrincipal extends BorderPane {
 		 */
 		this.datosYBotones = new VBox();
 		// datosYBotones.setPadding(new Insets(60));
-		datosYBotones.setSpacing(80);
+		datosYBotones.setSpacing(50);
 
 		this.setBorder(algoPoly, datosYBotones);
 
@@ -134,16 +135,23 @@ public class ContenedorPrincipal extends BorderPane {
 		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado1())));
 		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado2())));
 	
-		Button tirarDados = new Button();
-		tirarDados.setText("Tirar Dados");
+		Button btnTirarDados = new Button();
+		btnTirarDados.setText("Tirar Dados");
 		BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(this.algoPoly, this);
-		tirarDados.setOnAction(tirarDadosHandler);
+		btnTirarDados.setOnAction(tirarDadosHandler);
+		VBox.setMargin(btnTirarDados, new Insets(20));
+		this.datosYBotones.getChildren().add(btnTirarDados);
 
-		VBox.setMargin(tirarDados, new Insets(20));
-		this.datosYBotones.getChildren().add(tirarDados);
+		Button btnMover = new Button();
+		btnMover.setText("Mover");
+		BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
+		btnMover.setOnAction(moverHandler);
+		VBox.setMargin(btnMover, new Insets(20));
+		this.datosYBotones.getChildren().add(btnMover);
 
+		
+		
 		this.datosYBotones.setAlignment(Pos.CENTER);
-
 		this.setRight(datosYBotones);
 	}
 
