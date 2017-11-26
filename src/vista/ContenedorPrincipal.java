@@ -173,20 +173,6 @@ public class ContenedorPrincipal extends BorderPane {
 		pane.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;" + "-fx-border-width: 7;"
 				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}
-	//
-	// public void colocarJugadores() {
-	// // los jugadores se deberian pedir al modelo
-	// // algo asi
-	// // algoPoly.getJugadores()
-	//
-	// // y recorrer el arrayList de jugadores con un for
-	// // (si se eliminan jugadores van a ser menos de 3)
-	//
-	// jugador1.dibujarInicial();
-	// jugador2.dibujarInicial();
-	// jugador3.dibujarInicial();
-	//
-	// }
 
 	private void setConsola() {
 
