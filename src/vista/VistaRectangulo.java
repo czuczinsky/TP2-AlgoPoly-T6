@@ -96,6 +96,8 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control
 			((Terreno)casillero).construirCasa();
+			JOptionPane.showMessageDialog(null, "Construyo casa (la muestra en proximo turno)");
+
 		});
 	}
 

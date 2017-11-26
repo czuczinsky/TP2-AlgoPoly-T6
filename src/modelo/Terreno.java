@@ -26,17 +26,17 @@ public class Terreno extends Agrupable {
 		this.costoEdificarCasa = costoEdificarCasa;
 		this.costoEdificarHotel = costoEdificarHotel;
 	}
-	
+
 	public void agregarA(Jugador jugador) {
 		jugador.agregarTerreno(this);
 	}
-	
+
 	public int precioTotalDeVenta() {
-		int precioTotal=this.getPrecio();
+		int precioTotal = this.getPrecio();
 		for (Construccion casa : casas)
-			precioTotal=precioTotal+casa.getprecio();
+			precioTotal = precioTotal + casa.getprecio();
 		for (Construccion hotel : hoteles)
-			precioTotal=precioTotal+hotel.getprecio();
+			precioTotal = precioTotal + hotel.getprecio();
 		return precioTotal;
 	}
 
@@ -44,7 +44,7 @@ public class Terreno extends Agrupable {
 		this.casas.clear();
 		this.hoteles.clear();
 	}
-	
+
 	public void cobrarA(Jugador jugador, Dados dados) {
 		this.cobrarAlquilerTerrenoA(jugador);
 		for (Construccion casa : casas)
@@ -85,34 +85,35 @@ public class Terreno extends Agrupable {
 	public boolean puedeEdificarCasa() {
 		if (!this.tienePropietario())
 			return false;
-		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
-				&& this.getPropietario().getDinero() >= costoEdificarCasa);
+		if (this.getGrupo().esMultiple())
+			return (this.getGrupo().mismoPropietario() && hoteles.isEmpty() && casas.size() < 2
+					&& this.getPropietario().getDinero() >= costoEdificarCasa);
+		return (casas.size() < 1 && this.getPropietario().getDinero() >= costoEdificarCasa);
 	}
 
 	public boolean puedeEdificarCasa(Turno turno) {
 		if (turno.getJugadorActual() != getPropietario())
 			return false;
-			else
-				return puedeEdificarCasa();
+		else
+			return puedeEdificarCasa();
 	}
-	
+
 	private boolean puedeEdificarHotel() {
-		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && this.getGrupo().esMultiple() && this.getGrupo().estaCompleto()
-				&& this.getPropietario().getDinero() >= costoEdificarHotel);
+		return (this.getGrupo().mismoPropietario() && hoteles.isEmpty() && this.getGrupo().esMultiple()
+				&& this.getGrupo().estaCompleto() && this.getPropietario().getDinero() >= costoEdificarHotel);
 	}
 
 	public boolean puedeEdificarHotel(Turno turno) {
 		if (turno.getJugadorActual() != getPropietario())
 			return false;
-			else
-				return puedeEdificarHotel();
+		else
+			return puedeEdificarHotel();
 	}
-	
 
 	public int cantPropiedades() {
 		return 1 + casas.size() + hoteles.size();
 	}
-	
+
 	public int cantCasas() {
 		return casas.size();
 	}
