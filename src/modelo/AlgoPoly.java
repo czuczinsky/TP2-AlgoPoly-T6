@@ -88,7 +88,9 @@ public class AlgoPoly {
 	}
 	
 	public void mover() {
-		tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
+		if (turno.getJugadorActual().getPosicion().puedeMoverse(turno.getJugadorActual()))
+			tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
+		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());
 		turno.siguienteJugador(dados);
 	}
 
