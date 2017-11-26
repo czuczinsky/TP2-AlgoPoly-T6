@@ -49,6 +49,7 @@ public class ContenedorPrincipal extends BorderPane {
 	// GridPane datosYBotones;
 	VBox datosYBotones;
 	Stage stage;
+	Label turno;
 
 	public ContenedorPrincipal(AlgoPoly algoPoly, Stage stage) {
 
@@ -70,55 +71,24 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void setPanelInformativo() {
-		// Para poner la info de cada jugador
-		/*
-		 * this.datosYBotones = new GridPane(); this.datosYBotones.setVgap(5);
-		 * this.datosYBotones.setHgap(5); this.dineroDisponible = new Label("");
-		 * 
-		 * Button tirarDados = new Button(); tirarDados.setText("Tirar Dados");
-		 * BotonTirarDadosHandler tirarDadosHandler = new
-		 * BotonTirarDadosHandler(algoPoly); tirarDados.setOnAction(tirarDadosHandler);
-		 * 
-		 * Button b2 = new Button(); b2.setText("2");
-		 * 
-		 * this.datosYBotones.add(tirarDados,1,8); this.datosYBotones.add(b2,10,10);
-		 * //datosYBotones.setAlignment(Pos.BOTTOM_CENTER);
-		 * 
-		 * Text jugador1 = new Text("JUGADOR ROJO:");
-		 * jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		 * datosYBotones.add(jugador1, 0,1); Text jugador2 = new Text("JUGADOR VERDE:");
-		 * jugador2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		 * datosYBotones.add(jugador2, 1,2); Text jugador3 = new Text("JUGADOR AZUL:");
-		 * jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		 * datosYBotones.add(jugador3, 2,3);
-		 */
+
 		this.datosYBotones = new VBox();
 		// datosYBotones.setPadding(new Insets(60));
 		datosYBotones.setSpacing(40);
 
 		this.setBorder(algoPoly, datosYBotones);
-
+		
+		this.turno = new Label("TURNO DE    :");
+		this.datosYBotones.getChildren().add(turno);
+		VBox.setMargin(turno, new Insets(20));
+		
 		for (Jugador jugador : algoPoly.getJugadores()) {
-			Text txtJugador = new Text("$ " + String.valueOf(jugador.getDinero()) );
+			Text txtJugador = new Text("Dinero Disponible : $ " + String.valueOf(jugador.getDinero()) );
 			txtJugador.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 			setearColor(txtJugador, jugador);
 			datosYBotones.getChildren().add(txtJugador);
 			VBox.setMargin(txtJugador, new Insets(20));
 		}
-
-//		Text jugador1 = new Text("JUGADOR ROJO:");
-//		jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-//		Text jugador2 = new Text("JUGADOR VERDE:");
-//		jugador2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-//		Text jugador3 = new Text("JUGADOR AZUL:");
-//		jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-//		VBox.setMargin(jugador1, new Insets(20));
-//		VBox.setMargin(jugador2, new Insets(20));
-//		VBox.setMargin(jugador3, new Insets(20));
-//		datosYBotones.getChildren().addAll(jugador1, jugador2, jugador3);
-
-		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado1())));
-		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado2())));
 
 		Button btnTirarDados = new Button();
 		btnTirarDados.setText("Tirar Dados");
@@ -126,9 +96,12 @@ public class ContenedorPrincipal extends BorderPane {
 		btnTirarDados.setOnAction(tirarDadosHandler);
 		VBox.setMargin(btnTirarDados, new Insets(20));
 		this.datosYBotones.getChildren().add(btnTirarDados);
+		
+		datosYBotones.getChildren().add(new Text("Dado uno:   "+String.valueOf(this.algoPoly.getDados().getDado1())));
+		datosYBotones.getChildren().add(new Text("Dado dos:   "+String.valueOf(this.algoPoly.getDados().getDado2())));
 
 		Button btnMover = new Button();
-		btnMover.setText("Mover");
+		btnMover.setText("Mover Ficha");
 		BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
 		btnMover.setOnAction(moverHandler);
 		VBox.setMargin(btnMover, new Insets(20));
