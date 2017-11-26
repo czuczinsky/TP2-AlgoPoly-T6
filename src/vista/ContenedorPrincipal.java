@@ -92,7 +92,7 @@ public class ContenedorPrincipal extends BorderPane {
 		paneCentral = new StackPane();
 		vistaTablero = new VistaTablero(algoPoly,paneCentral);
 		vistaTablero.dibujar();
-		paneCentral.setAlignment(Pos.CENTER);
+		paneCentral.setAlignment(Pos.TOP_LEFT);
 		this.setCenter(paneCentral);
 	}
 	
@@ -125,8 +125,7 @@ public class ContenedorPrincipal extends BorderPane {
 		jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		datosYBotones.add(jugador3, 2,3);*/
 		this.datosYBotones=new VBox();
-		datosYBotones.setPadding(new Insets(60));
-		datosYBotones.setAlignment(Pos.TOP_LEFT);
+//		datosYBotones.setPadding(new Insets(60));
 	    datosYBotones.setSpacing(80);
 	    
 	    Text jugador1 = new Text("JUGADOR ROJO:");
