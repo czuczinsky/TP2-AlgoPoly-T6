@@ -37,14 +37,16 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void test03SiUnJugadorCompraUnTerrenoYLeConstruyeDosCasasDeberiaTenerTresPropiedades() {
+	public void test03SiUnJugadorCompraDosTerrenosYConstruyeDosCasasEnUnoDeberiaTenerCuatroPropiedades() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terreno2 = new Terreno("Terreno 2", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Jugador jugador = new Jugador("Test", 100000);
 		terreno.venderA(jugador);
+		terreno2.venderA(jugador);
 		terreno.construirCasa();
 		terreno.construirCasa();
-		Assert.assertEquals(3 , jugador.cantPropiedades());
+		Assert.assertEquals(4 , jugador.cantPropiedades());
 	}
 	
 

@@ -41,15 +41,17 @@ public class TerrenoTest {
 	}
 
 	@Test
-	public void test04SiUnJugadorConstruyeDosCasasSeDeberiaDecrementarSuDineroPorElPrecioDelTerrenoMasLasDosCasas() {
+	public void test04SiUnJugadorConstruyeDosCasasSeDeberiaDecrementarSuDineroPorElPrecioDeLosTerrenoMasLasDosCasas() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terreno2 = new Terreno("Terreno 2", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		terreno1.venderA(jugador1);
+		terreno2.venderA(jugador1);
 		terreno1.construirCasa();
 		terreno1.construirCasa();
-		Assert.assertEquals(100000 - 20000 - 5000 - 5000, jugador1.getDinero());
+		Assert.assertEquals(100000 - 20000 - 20000 - 5000 - 5000, jugador1.getDinero());
 	}
 
 	@Test
@@ -110,18 +112,19 @@ public class TerrenoTest {
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
-		terreno1.construirCasa(); // segunda casa
 		terreno1.construirHotel(); // hotel?
-		Assert.assertEquals(100000 - 20000 - 5000 - 5000, jugador1.getDinero());
+		Assert.assertEquals(100000 - 20000 - 5000, jugador1.getDinero());
 	}
 
 	@Test
-	public void test09SiUnJugadorCompraUnTerrenoYConstruyeDosCasasDeberiaTenerTresPropiedades() {
+	public void test09SiUnJugadorCompraDosTerrenosYConstruyeDosCasasEnUnoEsteDeberiaTenerTresPropiedades() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terreno2 = new Terreno("Terreno 2", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		terreno1.venderA(jugador1);
+		terreno2.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.construirCasa(); // segunda casa
 		Assert.assertEquals(3, terreno1.cantPropiedades());
@@ -161,10 +164,12 @@ public class TerrenoTest {
 		Dados dados = new Dados();
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Terreno terreno2 = new Terreno("Terreno 2", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
 
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		Jugador jugador2 = new Jugador("Jugador 2", 100000);
 		terreno1.venderA(jugador1);
+		terreno2.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
 		terreno1.construirCasa(); // segunda casa
 		terreno1.ocupar(jugador2, dados);
@@ -492,8 +497,8 @@ public class TerrenoTest {
 		Assert.assertEquals(85000 - 4000, lucia.getDinero());
 	}
 
-// 2da Entrega 10
-	
+	// 2da Entrega 10
+
 	@Test
 	public void test33JugadorCaeEnBsAsSurConUnaCasaDecrementarSuDineroEn3Mil() {
 		Dados dados = new Dados();
@@ -547,7 +552,6 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 5000, ocupante.getDinero());
 	}
 
-	
 	@Test
 	public void test36JugadorCaeEnBsAsNorteConUnaCasaDecrementarSuDineroEn3Mil() {
 		Dados dados = new Dados();
@@ -600,7 +604,7 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500 - 5500 - 9000 + 6000, propietario.getDinero());
 		Assert.assertEquals(100000 - 6000, ocupante.getDinero());
 	}
-	
+
 	@Test
 	public void test39JugadorCaeEnCordobaSurConUnaCasaDecrementarSuDineroEn1500() {
 		Dados dados = new Dados();
@@ -654,7 +658,6 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 3000, ocupante.getDinero());
 	}
 
-	
 	@Test
 	public void test42JugadorCaeEnCordobaNorteConUnaCasaDecrementarSuDineroEn1800() {
 		Dados dados = new Dados();
@@ -761,7 +764,6 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 5500, ocupante.getDinero());
 	}
 
-	
 	@Test
 	public void test48JugadorCaeEnSaltaNorteConUnaCasaDecrementarSuDineroEn3250() {
 		Dados dados = new Dados();
@@ -814,7 +816,7 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 23000 - 23000 - 4500 - 4500 - 4500 - 4500 - 7500 + 5500, propietario.getDinero());
 		Assert.assertEquals(100000 - 5500, ocupante.getDinero());
 	}
-	
+
 	@Test
 	public void test51JugadorCaeEnSantaFeConUnaCasaDecrementarSuDineroEn3500() {
 		Dados dados = new Dados();
@@ -853,7 +855,7 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 25000 - 7000 + 4500, propietario.getDinero());
 		Assert.assertEquals(100000 - 4500, ocupante.getDinero());
 	}
-	
+
 	@Test
 	public void test54Jugador1CuentaConTucumanYLoVendeDeberiaCobrarEl15PorcientoMenosDeLaSumaDeTodoLoQueVende() {
 		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
@@ -861,10 +863,10 @@ public class TerrenoTest {
 		tucuman.venderA(jugador1);
 		tucuman.construirCasa();
 		tucuman.vender();
-		
-		Assert.assertEquals(100000 - 25000 - 7000 + ((25000+7000)*(100-15)/100), jugador1.getDinero());
+
+		Assert.assertEquals(100000 - 25000 - 7000 + ((25000 + 7000) * (100 - 15) / 100), jugador1.getDinero());
 	}
-	
+
 	@Test
 	public void test55Jugador1CuentaConTucumanYLoVendeYJugador2CompraTucumanSiCaeJugador1EnTucumanSeLeDebeDescontarElPrecioDeAlquilerYSumarEsePrecioAlJugador2() {
 		Dados dados = new Dados();
@@ -877,17 +879,17 @@ public class TerrenoTest {
 		tucuman.venderA(jugador2);
 		tucuman.ocupar(jugador1, dados);
 
-		Assert.assertEquals(100000 - 25000 - 7000 + ((25000+7000)*(100-15)/100)-2500, jugador1.getDinero());
-		Assert.assertEquals(100000 - 25000 +2500,jugador2.getDinero());
+		Assert.assertEquals(100000 - 25000 - 7000 + ((25000 + 7000) * (100 - 15) / 100) - 2500, jugador1.getDinero());
+		Assert.assertEquals(100000 - 25000 + 2500, jugador2.getDinero());
 	}
-	
+
 	@Test
-	public void test56Jugador1CuentaConSaltaNorteConUnHotelYLoVendeDeberiaCobrarEl15PorcientoMenosDeLaSumaDeTodoLoQueVende(){
+	public void test56Jugador1CuentaConSaltaNorteConUnHotelYLoVendeDeberiaCobrarEl15PorcientoMenosDeLaSumaDeTodoLoQueVende() {
 		Grupo salta = new Grupo();
 		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
-		
+
 		saltaSur.venderA(jugador1);
 		saltaNorte.venderA(jugador1);
 		saltaSur.construirCasa();
@@ -896,11 +898,13 @@ public class TerrenoTest {
 		saltaNorte.construirCasa();
 		saltaNorte.construirHotel();
 		saltaNorte.vender();
-		
-		Assert.assertEquals(100000 - 23000 - 23000 - 4500 - 4500 - 4500 - 4500 - 7500 +((23000+7500)*(100-15)/100) , jugador1.getDinero());
-		
+
+		Assert.assertEquals(
+				100000 - 23000 - 23000 - 4500 - 4500 - 4500 - 4500 - 7500 + ((23000 + 7500) * (100 - 15) / 100),
+				jugador1.getDinero());
+
 	}
-	
+
 	@Test
 	public void test56Jugador1CuentaConSaltaNorteYLoVendeYJugador2CompraSaltaNorteSiCaeJugador1EnSaltaNorteSeLeDebeDescontarElPrecioDeAlquilerYSumarEsePrecioAlJugador2() {
 		Dados dados = new Dados();
@@ -909,7 +913,7 @@ public class TerrenoTest {
 		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
 		Jugador jugador2 = new Jugador("Jugador2", 100000);
-		
+
 		saltaSur.venderA(jugador1);
 		saltaNorte.venderA(jugador1);
 		saltaSur.construirCasa();
@@ -918,11 +922,13 @@ public class TerrenoTest {
 		saltaNorte.construirCasa();
 		saltaNorte.construirHotel();
 		saltaNorte.vender();
-		
+
 		saltaNorte.venderA(jugador2);
 		saltaNorte.ocupar(jugador1, dados);
-		
-		Assert.assertEquals(100000 - 23000 - 23000 - 4500 - 4500 - 4500 - 4500 - 7500 +((23000+7500)*(100-15)/100) -2000, jugador1.getDinero());
+
+		Assert.assertEquals(
+				100000 - 23000 - 23000 - 4500 - 4500 - 4500 - 4500 - 7500 + ((23000 + 7500) * (100 - 15) / 100) - 2000,
+				jugador1.getDinero());
 		Assert.assertEquals(100000 - 23000 + 2000, jugador2.getDinero());
 	}
 
