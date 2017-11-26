@@ -108,7 +108,7 @@ public class ContenedorPrincipal extends BorderPane {
 		 */
 		this.datosYBotones = new VBox();
 		// datosYBotones.setPadding(new Insets(60));
-		datosYBotones.setSpacing(50);
+		datosYBotones.setSpacing(40);
 
 		this.setBorder(algoPoly, datosYBotones);
 
