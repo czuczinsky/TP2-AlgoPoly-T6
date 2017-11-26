@@ -3,25 +3,22 @@ package modelo;
 import java.util.ArrayList;
 
 public class AlgoPoly {
-	Tablero tablero;
-	Dados dados;
-	Turno turno;
-	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
+	private Tablero tablero;
+	private Dados dados;
+	private Turno turno;
+	private ArrayList<Jugador> jugadores;
 
 
 	public AlgoPoly() {
 		this.tablero = new Tablero();
+		this.jugadores = new ArrayList<Jugador>();
 		this.armarTableroYJugadores();
 		this.dados = new Dados();
 		this.turno = new Turno(jugadores);
-
-		// TODO SACAR!!! llamada para inicializar en un estado que permita probar la
-		// Vista
-		armarEstadoInicialTrucho();
 	}
 
-	private void armarEstadoInicialTrucho() {
-		//TODO Sacar este metodo
+	public void armarEstadoInicialTrucho() {
+		// Sacar este metodo
 		tablero.avanzar(jugadores.get(0), 2, dados); // mueve jugador Rojo a bsasSur
 		tablero.avanzar(jugadores.get(1), 3, dados); // mueve jugador Verde a Edesur
 		tablero.avanzar(jugadores.get(2), 8, dados); // mueve jugador Azul a subte
@@ -92,8 +89,9 @@ public class AlgoPoly {
 	}
 	
 	public void mover() {
-		if (turno.getJugadorActual().getPosicion().puedeMoverse(turno.getJugadorActual()))
+		if (turno.getJugadorActual().getPosicion().puedeMoverse(turno.getJugadorActual())) {
 			tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
+		}
 		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());
 		turno.siguienteJugador(dados);
 	}
@@ -116,5 +114,9 @@ public class AlgoPoly {
 
 	public Dados getDados() {
 		return dados;
+	}
+	
+	public Jugador getJugadorActual() {
+		return this.turno.getJugadorActual();
 	}
 }
