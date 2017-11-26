@@ -23,7 +23,7 @@ public class Aplicacion extends Application  {
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoPoly, stage);
         Scene escenaJuego = new Scene(contenedorPrincipal, 1050, 700);
 
- //       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
+ //        AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
  //       escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
 
 

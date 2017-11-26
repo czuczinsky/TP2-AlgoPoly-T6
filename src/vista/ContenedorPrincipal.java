@@ -92,7 +92,7 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 	
 	private void setPanelInformativo(AlgoPoly algoPoly) {
-		// Para poner la info de cada jugador
+		//  Para poner la info de cada jugador
 		this.datosYBotones = new GridPane();
         this.datosYBotones.setVgap(5);
         this.datosYBotones.setHgap(5);
