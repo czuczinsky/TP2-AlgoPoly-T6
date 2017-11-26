@@ -52,7 +52,7 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setCentro(algoPoly);
 		this.setConsola();
 		// this.setBotonera(robot);
-		//this.setPanelInformativo(null);
+	this.setPanelInformativo(null);
 	}
 
 	// TODO armar botonera (Si va)
@@ -94,8 +94,8 @@ public class ContenedorPrincipal extends BorderPane {
 	private void setPanelInformativo(AlgoPoly algoPoly) {
 		// Para poner la info de cada jugador
 		this.datosYBotones = new GridPane();
-        this.datosYBotones.setVgap(55);
-        this.datosYBotones.setHgap(49);
+        this.datosYBotones.setVgap(5);
+        this.datosYBotones.setHgap(5);
         this.dineroDisponible = new Label("");
         
         Button tirarDados = new Button();
@@ -103,7 +103,12 @@ public class ContenedorPrincipal extends BorderPane {
         BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(algoPoly);
         tirarDados.setOnAction(tirarDadosHandler);
         
-        this.datosYBotones.add(tirarDados,1,11);
+        Button b2 = new Button();
+        b2.setText("2");
+
+        this.datosYBotones.add(tirarDados,1,1);
+        this.datosYBotones.add(b2,10,10);
+		datosYBotones.setAlignment(Pos.BOTTOM_CENTER);
         this.setRight(datosYBotones);
 		
 	}
