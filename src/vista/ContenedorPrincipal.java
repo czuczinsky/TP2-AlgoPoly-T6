@@ -12,6 +12,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -77,7 +82,11 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones = new VBox();
 		// datosYBotones.setPadding(new Insets(60));
 		datosYBotones.setSpacing(30);
-
+		
+		Image fondo = new Image("file:src/vista/imagenes/fondo.png");
+		BackgroundImage imagenDeFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+				BackgroundPosition.DEFAULT, new BackgroundSize(1,1,true,true,false,false));
+		this.setBackground(new Background(imagenDeFondo));
 		this.setBorder(algoPoly, datosYBotones);
 
 		this.turno = new Label("TURNO DE JUGADOR: ");
