@@ -9,7 +9,8 @@ import modelo.Terreno;
 
 public class VistaTerreno extends VistaRectangulo implements Dibujable {
 
-	public VistaTerreno(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+	public VistaTerreno(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
+			double alto) {
 		super(algoPoly, casillero, pane, x, y, ancho, alto);
 	}
 
@@ -27,8 +28,6 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 		} else
 			this.pintar(Color.GAINSBORO);
 
-		
-		
 		if (this.getCasillero().getNombre() == "Bs.As. SUR") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. SUR", Color.BLACK);
@@ -72,8 +71,7 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	private void ponerBotones() {
-		// TODO cambiar puedeEdificarCasa por version dependiente del turno
-		if (((Terreno) this.getCasillero()).puedeEdificarCasa())
-			this.ponerBotonConstruir();
+		if (((Terreno) this.getCasillero()).puedeEdificarCasa(this.getAlgoPoly().getTurno()))
+			this.ponerBotonConstruirCasa();
 	}
 }

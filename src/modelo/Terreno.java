@@ -89,6 +89,13 @@ public class Terreno extends Agrupable {
 				&& this.getPropietario().getDinero() >= costoEdificarCasa);
 	}
 
+	public boolean puedeEdificarCasa(Turno turno) {
+		if (turno.getJugadorActual() != getPropietario())
+			return false;
+			else
+				return puedeEdificarCasa();
+	}
+	
 	private boolean puedeEdificarHotel() {
 
 		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && this.getGrupo().esMultiple() && this.getGrupo().estaCompleto()

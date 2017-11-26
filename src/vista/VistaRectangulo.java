@@ -84,13 +84,13 @@ public abstract class VistaRectangulo implements Dibujable {
 		return casillero;
 	}
 
-	public void ponerBotonConstruir() {
+	public void ponerBotonConstruirCasa() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construir.png");
 		this.pane.getChildren().add(iconoConstruir);
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			JOptionPane.showMessageDialog(null, "Presiono el botonito!!!");
+			JOptionPane.showMessageDialog(null, "Presiono construir casa!!!");
 		});
 	}
 
@@ -132,5 +132,9 @@ public abstract class VistaRectangulo implements Dibujable {
 
 	public void dibujar() {
 		ponerFichasJugador();
+	}
+
+	public AlgoPoly getAlgoPoly() {
+		return algoPoly;
 	}
 }
