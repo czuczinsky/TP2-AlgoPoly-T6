@@ -54,14 +54,6 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.algoPoly = algoPoly;
 		
-		// TODO sacar es para probar el color de borde en funcion del jugador actual. Es
-		// random depende de valor dados
-		for (int i = 0; i < 5000; i++) {
-			algoPoly.getDados().tirar();
-			algoPoly.getTurno().siguienteJugador(algoPoly.getDados());
-		}
-		/////////////////////////////////////////////
-
 		this.setCentro();
 		this.setConsola();
 		this.setPanelInformativo();
