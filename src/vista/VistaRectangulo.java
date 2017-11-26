@@ -1,6 +1,9 @@
 package vista;
 
 import javax.swing.JOptionPane;
+
+import eventos.BotonConstruirCasaHandler;
+import eventos.BotonTirarDadosHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -14,6 +17,7 @@ import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Jugador;
+import modelo.Terreno;
 
 public abstract class VistaRectangulo implements Dibujable {
 	private AlgoPoly algoPoly;
@@ -61,13 +65,13 @@ public abstract class VistaRectangulo implements Dibujable {
 		Text text = new Text(etiqueta);
 		text.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 		text.setFill(color);
-//		text.setStroke(Color.web("#7080A0"));
+		// text.setStroke(Color.web("#7080A0"));
 
 		this.pane.getChildren().add(text);
 		text.setTranslateX(x + 10);
 		text.setTranslateY(y + alto - 12);
 		// this.pane.setAlignment(Pos.CENTER_RIGHT); // Right-justify nodes in stack
-		// StackPane.setMargin(text, new Insets(0, 10, 0, 0)); 
+		// StackPane.setMargin(text, new Insets(0, 10, 0, 0));
 
 	}
 
@@ -90,7 +94,8 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			JOptionPane.showMessageDialog(null, "Presiono construir casa!!!");
+			// TODO mover a Control
+			((Terreno)casillero).construirCasa();
 		});
 	}
 
@@ -100,7 +105,7 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			JOptionPane.showMessageDialog(null, "Presiono construir hotel!!!");
+			JOptionPane.showMessageDialog(null, "Presiono construir casa!!!");
 		});
 	}
 
