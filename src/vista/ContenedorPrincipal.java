@@ -23,6 +23,8 @@ import modelo.Jugador;
 
 public class ContenedorPrincipal extends BorderPane {
 
+	private AlgoPoly algoPoly;
+	
 	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
 	Canvas canvas;
@@ -49,6 +51,8 @@ public class ContenedorPrincipal extends BorderPane {
 
 	public ContenedorPrincipal(AlgoPoly algoPoly, Stage stage) {
 
+		this.algoPoly = algoPoly;
+		
 		// TODO sacar es para probar el color de borde en funcion del jugador actual. Es
 		// random depende de valor dados
 		for (int i = 0; i < 5000; i++) {
@@ -57,12 +61,12 @@ public class ContenedorPrincipal extends BorderPane {
 		}
 		/////////////////////////////////////////////
 
-		this.setCentro(algoPoly);
+		this.setCentro();
 		this.setConsola();
-		this.setPanelInformativo(algoPoly);
+		this.setPanelInformativo();
 	}
 
-	private void setCentro(AlgoPoly algoPoly) {
+	private void setCentro() {
 		paneCentral = new StackPane();
 		vistaTablero = new VistaTablero(algoPoly, paneCentral);
 		vistaTablero.dibujar();
@@ -86,7 +90,7 @@ public class ContenedorPrincipal extends BorderPane {
 				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}
 
-	private void setPanelInformativo(AlgoPoly algoPoly) {
+	private void setPanelInformativo() {
 		// Para poner la info de cada jugador
 		/*
 		 * this.datosYBotones = new GridPane(); this.datosYBotones.setVgap(5);
@@ -127,12 +131,12 @@ public class ContenedorPrincipal extends BorderPane {
 		VBox.setMargin(jugador3, new Insets(20));
 		datosYBotones.getChildren().addAll(jugador1, jugador2, jugador3);
 		
-		datosYBotones.getChildren().add(new Text(String.valueOf(algoPoly.getDados().getDado1())));
-		datosYBotones.getChildren().add(new Text(String.valueOf(algoPoly.getDados().getDado2())));
+		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado1())));
+		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado2())));
 	
 		Button tirarDados = new Button();
 		tirarDados.setText("Tirar Dados");
-		BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(algoPoly);
+		BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(this.algoPoly, this);
 		tirarDados.setOnAction(tirarDadosHandler);
 
 		VBox.setMargin(tirarDados, new Insets(20));
@@ -141,7 +145,6 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones.setAlignment(Pos.CENTER);
 
 		this.setRight(datosYBotones);
-
 	}
 
 	public void colocarJugadores() {
@@ -182,5 +185,11 @@ public class ContenedorPrincipal extends BorderPane {
 		alert.show();
 		OpcionSalirEventHandler reiniciar = new OpcionSalirEventHandler();
 		reiniciar.handle(null);
+	}
+	
+	public void refrescar() {
+		this.setCentro();
+		this.setConsola();
+		this.setPanelInformativo();
 	}
 }
