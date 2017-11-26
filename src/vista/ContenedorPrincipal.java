@@ -1,9 +1,12 @@
 package vista;
 
+import java.util.List;
+
 import eventos.BotonTirarDadosHandler;
 import eventos.OpcionSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.AlgoPoly;
 //import vista.eventos.BotonDireccionHandler;
@@ -43,7 +47,8 @@ public class ContenedorPrincipal extends BorderPane {
 	public VistaTerreno vistaTerreno;
 	
 	Label dineroDisponible;
-	GridPane datosYBotones;
+	//GridPane datosYBotones;
+	VBox datosYBotones;
 	Stage stage;
 	
 
@@ -52,7 +57,7 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setCentro(algoPoly);
 		this.setConsola();
 		// this.setBotonera(robot);
-	this.setPanelInformativo(null);
+		this.setPanelInformativo(null);
 	}
 
 	// TODO armar botonera (Si va)
@@ -87,13 +92,13 @@ public class ContenedorPrincipal extends BorderPane {
 		paneCentral = new StackPane();
 		vistaTablero = new VistaTablero(algoPoly,paneCentral);
 		vistaTablero.dibujar();
-		paneCentral.setAlignment(Pos.TOP_LEFT);
+		paneCentral.setAlignment(Pos.CENTER);
 		this.setCenter(paneCentral);
 	}
 	
 	private void setPanelInformativo(AlgoPoly algoPoly) {
 		//  Para poner la info de cada jugador
-		this.datosYBotones = new GridPane();
+		/*this.datosYBotones = new GridPane();
         this.datosYBotones.setVgap(5);
         this.datosYBotones.setHgap(5);
         this.dineroDisponible = new Label("");
@@ -106,9 +111,48 @@ public class ContenedorPrincipal extends BorderPane {
         Button b2 = new Button();
         b2.setText("2");
 
-        this.datosYBotones.add(tirarDados,1,1);
+        this.datosYBotones.add(tirarDados,1,8);
         this.datosYBotones.add(b2,10,10);
-		datosYBotones.setAlignment(Pos.BOTTOM_CENTER);
+		//datosYBotones.setAlignment(Pos.BOTTOM_CENTER);
+		
+		Text jugador1 = new Text("JUGADOR ROJO:");
+		jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		datosYBotones.add(jugador1, 0,1);
+		Text jugador2 = new Text("JUGADOR VERDE:");
+		jugador2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		datosYBotones.add(jugador2, 1,2);
+		Text jugador3 = new Text("JUGADOR AZUL:");
+		jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		datosYBotones.add(jugador3, 2,3);*/
+		this.datosYBotones=new VBox();
+		datosYBotones.setPadding(new Insets(60));
+		datosYBotones.setAlignment(Pos.TOP_LEFT);
+	    datosYBotones.setSpacing(80);
+	    
+	    Text jugador1 = new Text("JUGADOR ROJO:");
+		jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		Text jugador2 = new Text("JUGADOR VERDE:");
+		jugador2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		Text jugador3 = new Text("JUGADOR AZUL:");
+		jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		
+	    VBox.setMargin(jugador1, new Insets(20));
+	    VBox.setMargin(jugador2, new Insets(20));
+	    VBox.setMargin(jugador3, new Insets(20));
+        datosYBotones.getChildren().addAll(jugador1,jugador2,jugador3);
+        
+        Button tirarDados = new Button();
+        tirarDados.setText("Tirar Dados");
+        BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(algoPoly);
+        tirarDados.setOnAction(tirarDadosHandler);
+        
+        VBox.setMargin(tirarDados, new Insets(20));
+        this.datosYBotones.getChildren().add(tirarDados);
+       
+        
+		this.datosYBotones.setAlignment(Pos.CENTER);
+        
+	    
         this.setRight(datosYBotones);
 		
 	}
