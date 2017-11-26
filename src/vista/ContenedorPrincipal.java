@@ -126,7 +126,10 @@ public class ContenedorPrincipal extends BorderPane {
 		VBox.setMargin(jugador2, new Insets(20));
 		VBox.setMargin(jugador3, new Insets(20));
 		datosYBotones.getChildren().addAll(jugador1, jugador2, jugador3);
-
+		
+		datosYBotones.getChildren().add(new Text(String.valueOf(algoPoly.getDados().getDado1())));
+		datosYBotones.getChildren().add(new Text(String.valueOf(algoPoly.getDados().getDado2())));
+	
 		Button tirarDados = new Button();
 		tirarDados.setText("Tirar Dados");
 		BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(algoPoly);
