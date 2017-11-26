@@ -91,8 +91,8 @@ public class Terreno extends Agrupable {
 		return (casas.size() < 1 && this.getPropietario().getDinero() >= costoEdificarCasa);
 	}
 
-	public boolean puedeEdificarCasa(Turno turno) {
-		if (turno.getJugadorActual() != getPropietario())
+	public boolean puedeEdificarCasa(Jugador jugador) {
+		if (jugador != getPropietario())
 			return false;
 		else
 			return puedeEdificarCasa();
@@ -103,8 +103,8 @@ public class Terreno extends Agrupable {
 				&& this.getGrupo().estaCompleto() && this.getPropietario().getDinero() >= costoEdificarHotel);
 	}
 
-	public boolean puedeEdificarHotel(Turno turno) {
-		if (turno.getJugadorActual() != getPropietario())
+	public boolean puedeEdificarHotel(Jugador jugador) {
+		if (jugador != getPropietario())
 			return false;
 		else
 			return puedeEdificarHotel();

@@ -1,9 +1,6 @@
 package vista;
 
 import javax.swing.JOptionPane;
-
-import eventos.BotonConstruirCasaHandler;
-import eventos.BotonTirarDadosHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -131,28 +128,46 @@ public abstract class VistaRectangulo implements Dibujable {
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		double diametro = 36;
 		double offset = 10;
+		Image image;
+		ImageView imageView;
 		for (Jugador jugador : algoPoly.getJugadores()) {
 
 			if (casillero.equals(jugador.getPosicion())) {
 				if (jugador.getNombre().equals("Rojo")) {
-					gc.setFill(Color.BLACK);
-					gc.fillOval((ancho - diametro) / 2 - offset, (alto - diametro) / 2, diametro, diametro);
-					gc.setFill(Color.RED);
-					gc.fillOval((ancho - diametro + 6) / 2 - offset, (alto - diametro + 6) / 2, diametro - 6,
-							diametro - 6);
+					image = new Image("file:src/vista/imagenes/ficharoja.png");
+					imageView = new ImageView();
+					imageView.setTranslateX(x + 40);
+					imageView.setTranslateY(y + 20);
+					imageView.setImage(image);
+					imageView.setFitWidth(50);
+					imageView.setFitHeight(50);
+					imageView.setPreserveRatio(true);
+					imageView.setSmooth(true);
+					this.pane.getChildren().add(imageView);
 				}
 				if (jugador.getNombre().equals("Verde")) {
-					gc.setFill(Color.BLACK);
-					gc.fillOval((ancho - diametro) / 2, (alto - diametro) / 2, diametro, diametro);
-					gc.setFill(Color.GREEN);
-					gc.fillOval((ancho - diametro + 6) / 2, (alto - diametro + 6) / 2, diametro - 6, diametro - 6);
+					image = new Image("file:src/vista/imagenes/fichaverde.png");
+					imageView = new ImageView();
+					imageView.setTranslateX(x + 55);
+					imageView.setTranslateY(y + 20);
+					imageView.setImage(image);
+					imageView.setFitWidth(50);
+					imageView.setFitHeight(50);
+					imageView.setPreserveRatio(true);
+					imageView.setSmooth(true);
+					this.pane.getChildren().add(imageView);
 				}
 				if (jugador.getNombre().equals("Azul")) {
-					gc.setFill(Color.BLACK);
-					gc.fillOval((ancho - diametro) / 2 + offset, (alto - diametro) / 2, diametro, diametro);
-					gc.setFill(Color.BLUE);
-					gc.fillOval((ancho - diametro + 6) / 2 + offset, (alto - diametro + 6) / 2, diametro - 6,
-							diametro - 6);
+					image = new Image("file:src/vista/imagenes/fichaazul.png");
+					imageView = new ImageView();
+					imageView.setTranslateX(x + 70);
+					imageView.setTranslateY(y + 20);
+					imageView.setImage(image);
+					imageView.setFitWidth(50);
+					imageView.setFitHeight(50);
+					imageView.setPreserveRatio(true);
+					imageView.setSmooth(true);
+					this.pane.getChildren().add(imageView);
 				}
 			}
 		}
