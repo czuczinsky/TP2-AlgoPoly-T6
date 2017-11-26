@@ -104,6 +104,13 @@ public abstract class VistaRectangulo implements Dibujable {
 		});
 	}
 
+	public void ponerCasa(int i) {
+		ImageView iconoCasa = new ImageView("file:src/vista/imagenes/casa.png");
+		this.pane.getChildren().add(iconoCasa);
+		iconoCasa.setTranslateX(x + 28 + i * 40);
+		iconoCasa.setTranslateY(y + 30);
+	}
+
 	public void ponerFichasJugador() {
 		final Canvas canvas = new Canvas(ancho, ancho);
 		GraphicsContext gc = canvas.getGraphicsContext2D();

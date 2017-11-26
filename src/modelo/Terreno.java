@@ -112,6 +112,10 @@ public class Terreno extends Agrupable {
 	public int cantPropiedades() {
 		return 1 + casas.size() + hoteles.size();
 	}
+	
+	public int cantCasas() {
+		return casas.size();
+	}
 
 	public boolean estaCompleto() {
 		return (casas.size() == 2);

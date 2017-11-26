@@ -66,8 +66,14 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 			this.etiquetar("SANTA FE", Color.BLACK);
 			this.ponerBotones();
 		}
+		this.ponerConstrucciones();
 		super.dibujar();
 		this.ponerBotones();
+	}
+
+	private void ponerConstrucciones() {
+		for (int i = 0; i < ((Terreno) this.getCasillero()).cantCasas(); i++)
+			this.ponerCasa(i);
 	}
 
 	private void ponerBotones() {
