@@ -9,6 +9,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -77,13 +79,18 @@ public class ContenedorPrincipal extends BorderPane {
 		datosYBotones.setSpacing(40);
 
 		this.setBorder(algoPoly, datosYBotones);
-		
+
 		this.turno = new Label("TURNO DE    :");
 		this.datosYBotones.getChildren().add(turno);
 		VBox.setMargin(turno, new Insets(20));
-		
+
+		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
+		ImageView imageView = new ImageView();
+		imageView.setImage(image);
+		datosYBotones.getChildren().add(imageView);
+
 		for (Jugador jugador : algoPoly.getJugadores()) {
-			Text txtJugador = new Text("Dinero Disponible : $ " + String.valueOf(jugador.getDinero()) );
+			Text txtJugador = new Text("Dinero Disponible : $ " + String.valueOf(jugador.getDinero()));
 			txtJugador.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 			setearColor(txtJugador, jugador);
 			datosYBotones.getChildren().add(txtJugador);
@@ -96,9 +103,9 @@ public class ContenedorPrincipal extends BorderPane {
 		btnTirarDados.setOnAction(tirarDadosHandler);
 		VBox.setMargin(btnTirarDados, new Insets(20));
 		this.datosYBotones.getChildren().add(btnTirarDados);
-		
-		datosYBotones.getChildren().add(new Text("Dado uno:   "+String.valueOf(this.algoPoly.getDados().getDado1())));
-		datosYBotones.getChildren().add(new Text("Dado dos:   "+String.valueOf(this.algoPoly.getDados().getDado2())));
+
+		datosYBotones.getChildren().add(new Text("Dado uno:   " + String.valueOf(this.algoPoly.getDados().getDado1())));
+		datosYBotones.getChildren().add(new Text("Dado dos:   " + String.valueOf(this.algoPoly.getDados().getDado2())));
 
 		Button btnMover = new Button();
 		btnMover.setText("Mover Ficha");
