@@ -16,7 +16,7 @@ public class BotonTirarDadosHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
-		algoPoly.getDados().tirar();
+		algoPoly.tirarDados();
 		contenedorPrincipal.refrescar();
 	}
 

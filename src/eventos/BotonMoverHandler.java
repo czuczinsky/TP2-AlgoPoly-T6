@@ -16,9 +16,7 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
-		algoPoly.getTablero().avanzar(algoPoly.getTurno().getJugadorActual(), algoPoly.getDados().getSuma(), algoPoly.getDados());
-		algoPoly.getTurno().siguienteJugador(algoPoly.getDados());
+		algoPoly.mover();
 		contenedorPrincipal.refrescar();
 	}
-
 }
