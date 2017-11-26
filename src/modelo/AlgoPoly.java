@@ -32,6 +32,10 @@ public class AlgoPoly {
 		((Compania) tablero.getCasilleros().get(8)).venderA(jugadores.get(2)); // CordobaSur a jugador Azul
 		((Terreno) tablero.getCasilleros().get(11)).venderA(jugadores.get(2)); // SantaFe a jugador Azul
 		((Terreno) tablero.getCasilleros().get(17)).venderA(jugadores.get(1)); // Neuquen a jugador Verde
+		((Terreno) tablero.getCasilleros().get(2)).construirCasa(); // casa bsasSur jugador Rojo
+		((Terreno) tablero.getCasilleros().get(2)).construirCasa(); // casa bsasSur jugador Rojo
+		((Terreno) tablero.getCasilleros().get(4)).construirCasa(); // casa bsasNorte jugador Rojo
+		((Terreno) tablero.getCasilleros().get(4)).construirCasa(); // casa bsasNorte jugador Rojo
 	}
 
 	public void armarTableroYJugadores() {

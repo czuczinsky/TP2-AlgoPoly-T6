@@ -97,10 +97,17 @@ public class Terreno extends Agrupable {
 	}
 	
 	private boolean puedeEdificarHotel() {
-
 		return(this.getGrupo().mismoPropietario() && hoteles.isEmpty() && this.getGrupo().esMultiple() && this.getGrupo().estaCompleto()
 				&& this.getPropietario().getDinero() >= costoEdificarHotel);
 	}
+
+	public boolean puedeEdificarHotel(Turno turno) {
+		if (turno.getJugadorActual() != getPropietario())
+			return false;
+			else
+				return puedeEdificarHotel();
+	}
+	
 
 	public int cantPropiedades() {
 		return 1 + casas.size() + hoteles.size();

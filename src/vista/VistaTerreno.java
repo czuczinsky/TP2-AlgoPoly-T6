@@ -73,5 +73,7 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	private void ponerBotones() {
 		if (((Terreno) this.getCasillero()).puedeEdificarCasa(this.getAlgoPoly().getTurno()))
 			this.ponerBotonConstruirCasa();
+		if (((Terreno) this.getCasillero()).puedeEdificarHotel(this.getAlgoPoly().getTurno()))
+			this.ponerBotonConstruirHotel();
 	}
 }

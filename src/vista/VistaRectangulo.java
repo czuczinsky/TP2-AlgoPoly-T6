@@ -85,12 +85,22 @@ public abstract class VistaRectangulo implements Dibujable {
 	}
 
 	public void ponerBotonConstruirCasa() {
-		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construir.png");
+		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirCasa.png");
 		this.pane.getChildren().add(iconoConstruir);
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
 			JOptionPane.showMessageDialog(null, "Presiono construir casa!!!");
+		});
+	}
+
+	public void ponerBotonConstruirHotel() {
+		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirHotel.png");
+		this.pane.getChildren().add(iconoConstruir);
+		iconoConstruir.setTranslateX(x);
+		iconoConstruir.setTranslateY(y);
+		iconoConstruir.setOnMouseClicked(e -> {
+			JOptionPane.showMessageDialog(null, "Presiono construir hotel!!!");
 		});
 	}
 
