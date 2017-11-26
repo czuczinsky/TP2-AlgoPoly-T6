@@ -43,9 +43,6 @@ public class ContenedorPrincipal extends BorderPane {
 	public VistaCasillero vistaCasillero;
 	public VistaCompania vistaCompania;
 	public VistaImpuestoAlLujo vistaImpuestoAlLujo;
-	public VistaJugador jugador1;
-	public VistaJugador jugador2;
-	public VistaJugador jugador3;
 	public VistaPolicia vistaPolicia;
 	public VistaQuini6 vistaQuini6;
 	public VistaRetroceso vistaRetroceso;
