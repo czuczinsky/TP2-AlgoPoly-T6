@@ -7,16 +7,18 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import modelo.Dados;
 import modelo.Jugador;
 import modelo.Turno;
 
 public class TurnoTest {
 
-	ArrayList<Jugador> jugadores;
+	private ArrayList<Jugador> jugadores;
 	private Jugador jugadorRojo;
 	private Jugador jugadorVerde;
 	private Jugador jugadorAzul;
 	private Turno turno;
+	private Dados dados;
 
 	@Before
 	public void setUp() throws Exception {
@@ -28,41 +30,66 @@ public class TurnoTest {
 		this.jugadores.add(jugadorVerde);
 		this.jugadores.add(jugadorAzul);
 		this.turno = new Turno(jugadores);
+		this.dados = new Dados();
 	}
 
 	@Test
-	public void test01PosicionInicial() {
-		assertEquals(jugadorRojo, turno.getActual());
+	public void test01TurnoDelPrimerJugador() {
+		assertEquals(jugadorRojo, turno.siguienteJugador(this.dados));
 	}
 
 	@Test
-	public void test02Avanzar1Vez() {
-		turno.avanzar();
-		assertEquals(jugadorVerde, turno.getActual());
+	public void test02TurnoDelSegundoJugador() {
+		turno.siguienteJugador(this.dados);
+		dados.setNumeros(2, 3);
+		assertEquals(jugadorVerde, turno.siguienteJugador(this.dados));
 	}
 
 	@Test
-	public void test03Avanzar2Veces() {
-		turno.avanzar();
-		turno.avanzar();
-		assertEquals(jugadorAzul, turno.getActual());
+	public void test03TurnoDelTercerJugador() {
+		turno.siguienteJugador(this.dados);
+		dados.setNumeros(2, 3);
+		turno.siguienteJugador(this.dados);
+		dados.setNumeros(2, 3);
+		assertEquals(jugadorAzul, turno.siguienteJugador(this.dados));
 	}
 
 	@Test
-	public void test04Avanzar3Veces() {
-		turno.avanzar();
-		turno.avanzar();
-		turno.avanzar();
-		assertEquals(jugadorRojo, turno.getActual());
+	public void test04VuelveElTurnoAlPrimerJugador() {
+		turno.siguienteJugador(this.dados);
+		dados.setNumeros(2, 3);
+		turno.siguienteJugador(this.dados);
+		dados.setNumeros(2, 3);
+		turno.siguienteJugador(this.dados);
+		dados.setNumeros(2, 3);
+		assertEquals(jugadorRojo,turno.siguienteJugador(this.dados));
+	}
+	
+	@Test
+	public void test05JugadorVuelveAJugarPorSacarDobles() {
+		turno.siguienteJugador(dados);
+		dados.setNumeros(2, 2);
+		assertEquals(jugadorRojo,turno.siguienteJugador(this.dados));
 	}
 
 	@Test
-	public void test05Avanzar4Veces() {
-		turno.avanzar();
-		turno.avanzar();
-		turno.avanzar();
-		turno.avanzar();
-		assertEquals(jugadorVerde, turno.getActual());
+	public void test06JugadorSacaDosVecesDoblesNoVuelveAJugar() {
+		turno.siguienteJugador(dados);
+		dados.setNumeros(2, 2);
+		turno.siguienteJugador(dados);
+		dados.setNumeros(6, 6);
+		assertEquals(jugadorVerde,turno.siguienteJugador(this.dados));
 	}
-
+	
+	@Test
+	public void test07DosJugadoresConsecutivosSacanDobles() {
+		turno.siguienteJugador(dados);
+		dados.setNumeros(2, 2);
+		turno.siguienteJugador(dados);
+		dados.setNumeros(6, 6);
+		turno.siguienteJugador(dados);
+		dados.setNumeros(5, 5);
+		assertEquals(jugadorVerde,turno.siguienteJugador(this.dados));
+	}
+	
 }

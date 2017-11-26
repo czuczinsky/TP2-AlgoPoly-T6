@@ -1,27 +1,34 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class Turno {
 
 	private ArrayList<Jugador> jugadores;
-	private int posicionActual;
+	private ListIterator<Jugador> iterador;
+	private Jugador jugadorActual;
+	private boolean vuelveAJugar;
 
 	public Turno(ArrayList<Jugador> jugadores) {
 		this.jugadores = jugadores;
-		posicionActual = 0;
+		this.iterador = this.jugadores.listIterator();
+		this.jugadorActual = this.iterador.next();
+		this.iterador.previous();
+		this.vuelveAJugar = false;
 	}
 
-	public void avanzar() {
-		// TODO ver que pasa si se elimina jugador actual
-		if (posicionActual < (jugadores.size() - 1))
-			posicionActual++;
-		else
-			posicionActual = 0;
+	public Jugador siguienteJugador(Dados dados) {
+		if (dados.getDado1() != dados.getDado2() || !this.vuelveAJugar) {
+			if (!this.iterador.hasNext()) {
+				iterador = this.jugadores.listIterator();
+			}
+			this.jugadorActual = this.iterador.next();
+			this.vuelveAJugar = true;
+		} else {
+			this.vuelveAJugar = false;
+		}
+		return this.jugadorActual;
 	}
-
-	public Jugador getActual() {
-		// TODO ver que pasa si se elimina jugador actual
-		return jugadores.get(posicionActual);
-	}
+	
 }
