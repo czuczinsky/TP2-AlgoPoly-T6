@@ -76,17 +76,23 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.datosYBotones = new VBox();
 		// datosYBotones.setPadding(new Insets(60));
-		datosYBotones.setSpacing(40);
+		datosYBotones.setSpacing(30);
 
 		this.setBorder(algoPoly, datosYBotones);
 
-		this.turno = new Label("TURNO DE    :");
+		this.turno = new Label("TURNO DE JUGADOR: "+algoPoly.getJugadorActual().getNombre());
 		this.datosYBotones.getChildren().add(turno);
-		VBox.setMargin(turno, new Insets(20));
+		VBox.setMargin(turno, new Insets(10));
 
 		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
+
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(50);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+        
 		datosYBotones.getChildren().add(imageView);
 
 		for (Jugador jugador : algoPoly.getJugadores()) {
@@ -94,14 +100,14 @@ public class ContenedorPrincipal extends BorderPane {
 			txtJugador.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 			setearColor(txtJugador, jugador);
 			datosYBotones.getChildren().add(txtJugador);
-			VBox.setMargin(txtJugador, new Insets(20));
+			VBox.setMargin(txtJugador, new Insets(15));
 		}
 
 		Button btnTirarDados = new Button();
 		btnTirarDados.setText("Tirar Dados");
 		BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(this.algoPoly, this);
 		btnTirarDados.setOnAction(tirarDadosHandler);
-		VBox.setMargin(btnTirarDados, new Insets(20));
+		VBox.setMargin(btnTirarDados, new Insets(15));
 		this.datosYBotones.getChildren().add(btnTirarDados);
 
 		datosYBotones.getChildren().add(new Text("Dado uno:   " + String.valueOf(this.algoPoly.getDados().getDado1())));
