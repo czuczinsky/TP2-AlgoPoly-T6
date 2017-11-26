@@ -1,8 +1,6 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -124,57 +122,34 @@ public abstract class VistaRectangulo implements Dibujable {
 	}
 
 	public void ponerFichasJugador() {
-		final Canvas canvas = new Canvas(ancho, ancho);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		double diametro = 36;
-		double offset = 10;
-		Image image;
+		double offset = 15;
+		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
 		ImageView imageView;
 		for (Jugador jugador : algoPoly.getJugadores()) {
-
+			imageView = new ImageView();
 			if (casillero.equals(jugador.getPosicion())) {
+				imageView = new ImageView();
 				if (jugador.getNombre().equals("Rojo")) {
 					image = new Image("file:src/vista/imagenes/ficharoja.png");
-					imageView = new ImageView();
-					imageView.setTranslateX(x + 40);
-					imageView.setTranslateY(y + 20);
-					imageView.setImage(image);
-					imageView.setFitWidth(50);
-					imageView.setFitHeight(50);
-					imageView.setPreserveRatio(true);
-					imageView.setSmooth(true);
-					this.pane.getChildren().add(imageView);
+					imageView.setTranslateX(x + 55 - offset);
 				}
 				if (jugador.getNombre().equals("Verde")) {
 					image = new Image("file:src/vista/imagenes/fichaverde.png");
-					imageView = new ImageView();
 					imageView.setTranslateX(x + 55);
-					imageView.setTranslateY(y + 20);
-					imageView.setImage(image);
-					imageView.setFitWidth(50);
-					imageView.setFitHeight(50);
-					imageView.setPreserveRatio(true);
-					imageView.setSmooth(true);
-					this.pane.getChildren().add(imageView);
 				}
 				if (jugador.getNombre().equals("Azul")) {
 					image = new Image("file:src/vista/imagenes/fichaazul.png");
-					imageView = new ImageView();
-					imageView.setTranslateX(x + 70);
-					imageView.setTranslateY(y + 20);
-					imageView.setImage(image);
-					imageView.setFitWidth(50);
-					imageView.setFitHeight(50);
-					imageView.setPreserveRatio(true);
-					imageView.setSmooth(true);
-					this.pane.getChildren().add(imageView);
+					imageView.setTranslateX(x + 55 + offset);
 				}
+				imageView.setImage(image);
+				imageView.setTranslateY(y + 25);
+				imageView.setFitWidth(40);
+				imageView.setFitHeight(40);
+				imageView.setPreserveRatio(true);
+				imageView.setSmooth(true);
+				this.pane.getChildren().add(imageView);
 			}
 		}
-
-		this.pane.getChildren().add(canvas);
-		canvas.setTranslateX(x);
-		canvas.setTranslateY(y);
 	}
 
 	public void dibujar() {
