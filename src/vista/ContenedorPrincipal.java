@@ -80,20 +80,54 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.setBorder(algoPoly, datosYBotones);
 
-		this.turno = new Label("TURNO DE JUGADOR: "+algoPoly.getJugadorActual().getNombre());
+		this.turno = new Label("TURNO DE JUGADOR: ");
+		
 		this.datosYBotones.getChildren().add(turno);
 		VBox.setMargin(turno, new Insets(10));
+		
+		if (algoPoly.getJugadorActual().getNombre()=="Rojo") {
+			
 
-		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(image);
+			Image image = new Image("file:src/vista/imagenes/ficharoja.png");
+			ImageView imageView = new ImageView();
+			imageView.setImage(image);
 
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        imageView.setPreserveRatio(true);
-        imageView.setSmooth(true);
-        
-		datosYBotones.getChildren().add(imageView);
+	        imageView.setFitWidth(50);
+	        imageView.setFitHeight(50);
+	        imageView.setPreserveRatio(true);
+	        imageView.setSmooth(true);
+	        
+			datosYBotones.getChildren().add(imageView);
+		}
+		if (algoPoly.getJugadorActual().getNombre()=="Azul") {
+			
+
+			Image image = new Image("file:src/vista/imagenes/fichaazul.png");
+			ImageView imageView = new ImageView();
+			imageView.setImage(image);
+
+	        imageView.setFitWidth(50);
+	        imageView.setFitHeight(50);
+	        imageView.setPreserveRatio(true);
+	        imageView.setSmooth(true);
+	        
+			datosYBotones.getChildren().add(imageView);
+		}
+		if (algoPoly.getJugadorActual().getNombre()=="Verde") {
+			
+
+			Image image = new Image("file:src/vista/imagenes/fichaverde.png");
+			ImageView imageView = new ImageView();
+			imageView.setImage(image);
+
+	        imageView.setFitWidth(50);
+	        imageView.setFitHeight(50);
+	        imageView.setPreserveRatio(true);
+	        imageView.setSmooth(true);
+	        
+			datosYBotones.getChildren().add(imageView);
+		}
+
 
 		for (Jugador jugador : algoPoly.getJugadores()) {
 			Text txtJugador = new Text("Dinero Disponible : $ " + String.valueOf(jugador.getDinero()));
