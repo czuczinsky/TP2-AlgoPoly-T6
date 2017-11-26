@@ -25,7 +25,7 @@ import modelo.Jugador;
 public class ContenedorPrincipal extends BorderPane {
 
 	private AlgoPoly algoPoly;
-	
+
 	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
 	Canvas canvas;
@@ -53,7 +53,7 @@ public class ContenedorPrincipal extends BorderPane {
 	public ContenedorPrincipal(AlgoPoly algoPoly, Stage stage) {
 
 		this.algoPoly = algoPoly;
-		
+
 		this.setCentro();
 		this.setConsola();
 		this.setPanelInformativo();
@@ -67,20 +67,6 @@ public class ContenedorPrincipal extends BorderPane {
 		paneCentral.setAlignment(Pos.TOP_LEFT);
 		this.setBorder(algoPoly, paneCentral);
 		this.setCenter(paneCentral);
-	}
-
-	private void setBorder(AlgoPoly algoPoly, Pane pane) {
-		String color = "BLACK";
-		Jugador jugadorActual = algoPoly.getTurno().getJugadorActual();
-
-		if (jugadorActual.getNombre().equals("Rojo"))
-			color = "RED";
-		if (jugadorActual.getNombre().equals("Verde"))
-			color = "GREEN";
-		if (jugadorActual.getNombre().equals("Azul"))
-			color = "BLUE";
-		pane.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;" + "-fx-border-width: 7;"
-				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}
 
 	private void setPanelInformativo() {
@@ -112,21 +98,28 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.setBorder(algoPoly, datosYBotones);
 
-		Text jugador1 = new Text("JUGADOR ROJO:");
-		jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		Text jugador2 = new Text("JUGADOR VERDE:");
-		jugador2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
-		Text jugador3 = new Text("JUGADOR AZUL:");
-		jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+		for (Jugador jugador : algoPoly.getJugadores()) {
+			Text txtJugador = new Text("$ " + String.valueOf(jugador.getDinero()) );
+			txtJugador.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+			setearColor(txtJugador, jugador);
+			datosYBotones.getChildren().add(txtJugador);
+			VBox.setMargin(txtJugador, new Insets(20));
+		}
 
-		VBox.setMargin(jugador1, new Insets(20));
-		VBox.setMargin(jugador2, new Insets(20));
-		VBox.setMargin(jugador3, new Insets(20));
-		datosYBotones.getChildren().addAll(jugador1, jugador2, jugador3);
-		
+//		Text jugador1 = new Text("JUGADOR ROJO:");
+//		jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+//		Text jugador2 = new Text("JUGADOR VERDE:");
+//		jugador2.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+//		Text jugador3 = new Text("JUGADOR AZUL:");
+//		jugador3.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+//		VBox.setMargin(jugador1, new Insets(20));
+//		VBox.setMargin(jugador2, new Insets(20));
+//		VBox.setMargin(jugador3, new Insets(20));
+//		datosYBotones.getChildren().addAll(jugador1, jugador2, jugador3);
+
 		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado1())));
 		datosYBotones.getChildren().add(new Text(String.valueOf(this.algoPoly.getDados().getDado2())));
-	
+
 		Button btnTirarDados = new Button();
 		btnTirarDados.setText("Tirar Dados");
 		BotonTirarDadosHandler tirarDadosHandler = new BotonTirarDadosHandler(this.algoPoly, this);
@@ -141,25 +134,46 @@ public class ContenedorPrincipal extends BorderPane {
 		VBox.setMargin(btnMover, new Insets(20));
 		this.datosYBotones.getChildren().add(btnMover);
 
-		
-		
 		this.datosYBotones.setAlignment(Pos.CENTER);
 		this.setRight(datosYBotones);
 	}
 
-	public void colocarJugadores() {
-		// los jugadores se deberian pedir al modelo
-		// algo asi
-		// algoPoly.getJugadores()
-
-		// y recorrer el arrayList de jugadores con un for
-		// (si se eliminan jugadores van a ser menos de 3)
-
-		jugador1.dibujarInicial();
-		jugador2.dibujarInicial();
-		jugador3.dibujarInicial();
-
+	private void setearColor(Text txt, Jugador jugador) {
+		if (jugador.getNombre().equals("Rojo"))
+			txt.setFill(Color.RED);
+		if (jugador.getNombre().equals("Verde"))
+			txt.setFill(Color.GREEN);
+		if (jugador.getNombre().equals("Azul"))
+			txt.setFill(Color.BLUE);
 	}
+
+	private void setBorder(AlgoPoly algoPoly, Pane pane) {
+		String color = "BLACK";
+		Jugador jugadorActual = algoPoly.getTurno().getJugadorActual();
+
+		if (jugadorActual.getNombre().equals("Rojo"))
+			color = "RED";
+		if (jugadorActual.getNombre().equals("Verde"))
+			color = "GREEN";
+		if (jugadorActual.getNombre().equals("Azul"))
+			color = "BLUE";
+		pane.setStyle("-fx-padding: 2;" + "-fx-border-style: solid inside;" + "-fx-border-width: 7;"
+				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
+	}
+	//
+	// public void colocarJugadores() {
+	// // los jugadores se deberian pedir al modelo
+	// // algo asi
+	// // algoPoly.getJugadores()
+	//
+	// // y recorrer el arrayList de jugadores con un for
+	// // (si se eliminan jugadores van a ser menos de 3)
+	//
+	// jugador1.dibujarInicial();
+	// jugador2.dibujarInicial();
+	// jugador3.dibujarInicial();
+	//
+	// }
 
 	private void setConsola() {
 
@@ -186,7 +200,7 @@ public class ContenedorPrincipal extends BorderPane {
 		OpcionSalirEventHandler reiniciar = new OpcionSalirEventHandler();
 		reiniciar.handle(null);
 	}
-	
+
 	public void refrescar() {
 		this.setCentro();
 		this.setConsola();
