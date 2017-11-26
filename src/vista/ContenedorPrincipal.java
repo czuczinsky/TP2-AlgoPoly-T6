@@ -37,20 +37,7 @@ public class ContenedorPrincipal extends BorderPane {
 	VistaTablero vistaTablero;
 	Canvas canvas;
 	StackPane paneCentral;
-
-	public VistaAvance vistaAvance; // van aca estas vistas o solo dentro de vistaTablero?
-	public VistaCarcel vistaCarcel;
-	public VistaCasillero vistaCasillero;
-	public VistaCompania vistaCompania;
-	public VistaImpuestoAlLujo vistaImpuestoAlLujo;
-	public VistaPolicia vistaPolicia;
-	public VistaQuini6 vistaQuini6;
-	public VistaRetroceso vistaRetroceso;
-	public VistaSalida vistaSalida;
-	public VistaTerreno vistaTerreno;
-
 	Label dineroDisponible;
-	// GridPane datosYBotones;
 	VBox datosYBotones;
 	Stage stage;
 	Label turno;
