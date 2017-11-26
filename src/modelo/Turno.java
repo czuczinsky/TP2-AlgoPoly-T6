@@ -30,5 +30,8 @@ public class Turno {
 		}
 		return this.jugadorActual;
 	}
-	
+
+	public Jugador getJugadorActual() {
+		return this.jugadorActual;
+	}
 }

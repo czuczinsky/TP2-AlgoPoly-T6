@@ -6,7 +6,7 @@ public class Dados {
 	private int dado2;
 	
 	public Dados() {
-		
+		tirar();
 	}
 
 

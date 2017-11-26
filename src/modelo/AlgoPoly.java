@@ -5,12 +5,15 @@ import java.util.ArrayList;
 public class AlgoPoly {
 	Tablero tablero;
 	Dados dados;
+	Turno turno;
 	private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
 
 
 	public AlgoPoly() {
 		this.tablero = new Tablero();
 		this.armarTableroYJugadores();
+		this.dados = new Dados();
+		this.turno = new Turno(jugadores);
 
 		// TODO SACAR!!! llamada para inicializar en un estado que permita probar la
 		// Vista
@@ -89,5 +92,13 @@ public class AlgoPoly {
 
 	public ArrayList<Jugador> getJugadores() {
 		return jugadores;
+	}
+
+	public Turno getTurno() {
+		return turno;
+	}
+
+	public Dados getDados() {
+		return dados;
 	}
 }

@@ -89,7 +89,13 @@ public class TurnoTest {
 		dados.setNumeros(6, 6);
 		turno.siguienteJugador(dados);
 		dados.setNumeros(5, 5);
-		assertEquals(jugadorVerde,turno.siguienteJugador(this.dados));
+		assertEquals(jugadorVerde, turno.siguienteJugador(this.dados));
 	}
-	
+
+	@Test
+	public void test08JugadorActual() {
+		assertEquals(jugadorRojo, turno.siguienteJugador(this.dados));
+		assertEquals(jugadorRojo, turno.getJugadorActual());
+	}
+
 }
