@@ -93,6 +93,13 @@ public class ContenedorPrincipal extends BorderPane {
 		vistaTablero = new VistaTablero(algoPoly,paneCentral);
 		vistaTablero.dibujar();
 		paneCentral.setAlignment(Pos.TOP_LEFT);
+	    paneCentral.setStyle("-fx-padding: 10;" + 
+                "-fx-border-style: solid inside;" + 
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: 5;" + 
+                "-fx-border-radius: 5;" + 
+                "-fx-border-color: red;");
+
 		this.setCenter(paneCentral);
 	}
 	
@@ -127,7 +134,13 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones=new VBox();
 //		datosYBotones.setPadding(new Insets(60));
 	    datosYBotones.setSpacing(80);
-	    
+	    datosYBotones.setStyle("-fx-padding: 10;" + 
+                "-fx-border-style: solid inside;" + 
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: 5;" + 
+                "-fx-border-radius: 5;" + 
+                "-fx-border-color: blue;");
+  
 	    Text jugador1 = new Text("JUGADOR ROJO:");
 		jugador1.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 		Text jugador2 = new Text("JUGADOR VERDE:");
