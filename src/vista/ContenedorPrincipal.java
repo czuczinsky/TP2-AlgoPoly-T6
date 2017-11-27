@@ -248,7 +248,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setBorder(AlgoPoly algoPoly, Pane pane) {
 		String color = "BLACK";
-		Jugador jugadorActual = algoPoly.getTurno().getJugadorActual();
+		Jugador jugadorActual = algoPoly.getJugadorActual();
 
 		if (jugadorActual.getNombre().equals("Rojo"))
 			color = "RED";

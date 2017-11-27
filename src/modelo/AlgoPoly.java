@@ -112,9 +112,9 @@ public class AlgoPoly {
 		return jugadores;
 	}
 
-	public Turno getTurno() {
-		return turno;
-	}
+//	public Turno getTurno() {
+//		return turno;
+//	}
 
 	public Dados getDados() {
 		return dados;
