@@ -16,24 +16,7 @@ public class AlgoPoly {
 		this.dados = new Dados();
 		this.turno = new Turno(jugadores);
 		this.turno.siguienteJugador(this.dados);
-	}
-
-	public void armarEstadoInicialTrucho() {
-		// Sacar este metodo
-		tablero.avanzar(jugadores.get(0), 2, dados); // mueve jugador Rojo a bsasSur
-		tablero.avanzar(jugadores.get(1), 3, dados); // mueve jugador Verde a Edesur
-		tablero.avanzar(jugadores.get(2), 8, dados); // mueve jugador Azul a subte
-
-		((Terreno) tablero.getCasilleros().get(2)).venderA(jugadores.get(0)); // bsasSur a jugador Rojo
-		((Terreno) tablero.getCasilleros().get(4)).venderA(jugadores.get(0)); // bsasNorte a jugador Rojo
-		((Terreno) tablero.getCasilleros().get(6)).venderA(jugadores.get(1)); // CordobaSur a jugador Verde
-		((Compania) tablero.getCasilleros().get(8)).venderA(jugadores.get(2)); // CordobaSur a jugador Azul
-		((Terreno) tablero.getCasilleros().get(11)).venderA(jugadores.get(2)); // SantaFe a jugador Azul
-		((Terreno) tablero.getCasilleros().get(17)).venderA(jugadores.get(1)); // Neuquen a jugador Verde
-		((Terreno) tablero.getCasilleros().get(2)).construirCasa(); // casa bsasSur jugador Rojo
-		((Terreno) tablero.getCasilleros().get(2)).construirCasa(); // casa bsasSur jugador Rojo
-		((Terreno) tablero.getCasilleros().get(4)).construirCasa(); // casa bsasNorte jugador Rojo
-		((Terreno) tablero.getCasilleros().get(4)).construirCasa(); // casa bsasNorte jugador Rojo
+		this.dadosTirados = false;
 	}
 
 	public void armarTableroYJugadores() {
@@ -93,7 +76,7 @@ public class AlgoPoly {
 			try {
 				tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
 			} catch (SinDineroException e) {
-				// ver que va aca
+				// TODO ver que va aca
 			}
 		}
 		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());
@@ -123,10 +106,14 @@ public class AlgoPoly {
 	}
 
 	public boolean puedeMover() {
-		return this.turno.getJugadorActual().puedoMoverse();
+		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse());
 	}
 
 	public boolean puedeTirarDados() {
-		return !this.dadosTirados;
+		return (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados);
+	}
+
+	public boolean debePasarTurno() {
+		return !this.turno.getJugadorActual().puedoMoverse();
 	}
 }

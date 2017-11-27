@@ -86,6 +86,9 @@ public class ContenedorPrincipal extends BorderPane {
 			VBox.setMargin(txtJugador, new Insets(15));
 		}
 
+		this.mostrarDados(algoPoly.getDados().getDado1());
+		this.mostrarDados(algoPoly.getDados().getDado2());
+
 		if (algoPoly.puedeTirarDados()) {
 			Button btnTirarDados = new Button();
 			btnTirarDados.setText("Tirar Dados");
@@ -94,20 +97,28 @@ public class ContenedorPrincipal extends BorderPane {
 			VBox.setMargin(btnTirarDados, new Insets(15));
 			this.datosYBotones.getChildren().add(btnTirarDados);
 		}
-		this.mostrarDados(algoPoly.getDados().getDado1());
-		this.mostrarDados(algoPoly.getDados().getDado2());
 
 		if (algoPoly.puedeMover()) {
 			Button btnMover = new Button();
 			btnMover.setText("Mover Ficha");
 			BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
 			btnMover.setOnAction(moverHandler);
-			VBox.setMargin(btnMover, new Insets(20));
+			VBox.setMargin(btnMover, new Insets(15));
 			this.datosYBotones.getChildren().add(btnMover);
-
-			this.datosYBotones.setAlignment(Pos.CENTER);
-			this.setRight(datosYBotones);
 		}
+
+		if (algoPoly.debePasarTurno()) {
+			Button btnMover = new Button();
+			btnMover.setText("Pasar Turno");
+			BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
+			btnMover.setOnAction(moverHandler);
+			VBox.setMargin(btnMover, new Insets(15));
+			this.datosYBotones.getChildren().add(btnMover);
+		}
+
+		
+		this.datosYBotones.setAlignment(Pos.CENTER);
+		this.setRight(datosYBotones);
 	}
 
 	private void mostrarJugadorActual(String nombre) {
