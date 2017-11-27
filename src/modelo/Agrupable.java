@@ -83,7 +83,7 @@ public abstract class Agrupable extends Casillero {
 	}
 
 	public boolean puedeComprarsePor(Jugador jugadorActual) {
-		return (!tienePropietario() && jugadorActual.getPosicion() == this);
+		return (!tienePropietario() && jugadorActual.getPosicion() == this && jugadorActual.getDinero() >= this.precio);
 	}
 
 	public boolean puedeVendersePor(Jugador jugadorActual) {
