@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Jugador;
+import modelo.Agrupable;
 import modelo.Terreno;
 
 public abstract class VistaRectangulo implements Dibujable {
@@ -83,6 +84,18 @@ public abstract class VistaRectangulo implements Dibujable {
 		return casillero;
 	}
 
+	public void ponerBotonComprar() {
+		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/comprar.png");
+		this.pane.getChildren().add(iconoComprar);
+		iconoComprar.setTranslateX(x);
+		iconoComprar.setTranslateY(y);
+		iconoComprar.setOnMouseClicked(e -> {
+			// TODO mover a Control. Agregar refresh
+			((Agrupable) casillero).venderA(algoPoly.getJugadorActual());;
+			
+			JOptionPane.showMessageDialog(null, "Compro Casillero (la muestra en proximo turno)");
+		});
+	}
 	public void ponerBotonConstruirCasa() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirCasa.png");
 		this.pane.getChildren().add(iconoConstruir);

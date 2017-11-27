@@ -80,4 +80,10 @@ public abstract class Agrupable extends Casillero {
 	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
 	}
+	
+	public boolean puedeComprarse(Jugador jugadorActual) {
+		return (!tienePropietario() && jugadorActual.getPosicion() == this);
+	}
+
+
 }

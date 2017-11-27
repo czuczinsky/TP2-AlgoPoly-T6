@@ -28,20 +28,25 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 			this.pintar(Color.GAINSBORO);
 
 
-		if (this.getCasillero().getNombre() == "AYSA") {
+		if (compania.getNombre() == "AYSA") {
 			this.ponerImagen("file:src/vista/imagenes/aysa.png");
 		}
-		if (this.getCasillero().getNombre() == "EDESUR") {
+		if (compania.getNombre() == "EDESUR") {
 			this.ponerImagen("file:src/vista/imagenes/edesur.png");
 		}
-		if (this.getCasillero().getNombre() == "TREN") {
+		if (compania.getNombre() == "TREN") {
 			this.ponerImagen("file:src/vista/imagenes/tren.png");
 			this.etiquetar("TRENES", Color.WHITE);
 		}
-		if (this.getCasillero().getNombre() == "SUBTE") {
+		if (compania.getNombre() == "SUBTE") {
 			this.ponerImagen("file:src/vista/imagenes/subte.png");
 			this.etiquetar("SUBTE", Color.BLACK);
 		}
 		super.dibujar();
+		this.ponerBotones();
+	}
+	private void ponerBotones() {
+		if (((Compania) this.getCasillero()).puedeComprarse(this.getAlgoPoly().getJugadorActual()))
+			this.ponerBotonComprar();
 	}
 }

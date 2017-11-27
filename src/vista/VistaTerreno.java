@@ -28,40 +28,40 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 		} else
 			this.pintar(Color.GAINSBORO);
 
-		if (this.getCasillero().getNombre() == "Bs.As. SUR") {
+		if (terreno.getNombre() == "Bs.As. SUR") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. SUR", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "Bs.As. NORTE") {
+		if (terreno.getNombre() == "Bs.As. NORTE") {
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. NORTE", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "CORDOBA SUR") {
+		if (terreno.getNombre() == "CORDOBA SUR") {
 			this.ponerImagen("file:src/vista/imagenes/cordoba.png");
 			this.etiquetar("CORDOBA SUR", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "CORDOBA NORTE") {
+		if (terreno.getNombre() == "CORDOBA NORTE") {
 			this.ponerImagen("file:src/vista/imagenes/cordoba.png");
 			this.etiquetar("CORDOBA NORTE", Color.BLACK);
 		}
 
-		if (this.getCasillero().getNombre() == "SALTA SUR") {
+		if (terreno.getNombre() == "SALTA SUR") {
 			this.ponerImagen("file:src/vista/imagenes/salta.png");
 			this.etiquetar("SALTA SUR", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "SALTA NORTE") {
+		if (terreno.getNombre() == "SALTA NORTE") {
 			this.ponerImagen("file:src/vista/imagenes/salta.png");
 			this.etiquetar("SALTA NORTE", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "NEUQUEN") {
+		if (terreno.getNombre() == "NEUQUEN") {
 			this.ponerImagen("file:src/vista/imagenes/neuquen.png");
 			this.etiquetar("NEUQUEN", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "TUCUMAN") {
+		if (terreno.getNombre() == "TUCUMAN") {
 			this.ponerImagen("file:src/vista/imagenes/tucuman.png");
 			this.etiquetar("TUCUMAN", Color.BLACK);
 		}
-		if (this.getCasillero().getNombre() == "SANTA FE") {
+		if (terreno.getNombre() == "SANTA FE") {
 			this.ponerImagen("file:src/vista/imagenes/santafe.png");
 			this.etiquetar("SANTA FE", Color.BLACK);
 			this.ponerBotones();
@@ -79,6 +79,8 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	private void ponerBotones() {
+		if (((Terreno) this.getCasillero()).puedeComprarse(this.getAlgoPoly().getJugadorActual()))
+			this.ponerBotonComprar();
 		if (((Terreno) this.getCasillero()).puedeEdificarCasa(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonConstruirCasa();
 		if (((Terreno) this.getCasillero()).puedeEdificarHotel(this.getAlgoPoly().getJugadorActual()))
