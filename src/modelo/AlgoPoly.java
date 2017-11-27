@@ -8,7 +8,6 @@ public class AlgoPoly {
 	private Turno turno;
 	private ArrayList<Jugador> jugadores;
 
-
 	public AlgoPoly() {
 		this.tablero = new Tablero();
 		this.jugadores = new ArrayList<Jugador>();
@@ -42,19 +41,19 @@ public class AlgoPoly {
 		Grupo cordoba = new Grupo();
 		Grupo subteTren = new Grupo();
 		Grupo salta = new Grupo();
-		Agrupable bsAsSur=new Terreno("Bs.As. SUR", bsas, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
-		Agrupable edesur=new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
-		Agrupable bsAsNorte=new Terreno("Bs.As. NORTE", bsas, 25000, 2500, 3500, 4000, 6000, 5500, 9000);
-		Agrupable cordobaSur=new Terreno("CORDOBA SUR", cordoba, 18000, 1000, 1500, 2500, 3000, 2000, 3000);
-		Agrupable subte=new Compania("SUBTE", 40000, subteTren, 600, 1100);
-		Agrupable cordobaNorte=new Terreno("CORDOBA NORTE", cordoba, 20000, 1300, 1800, 2900, 3500, 2200, 3500);
-		Agrupable santaFe=new Terreno("SANTA FE", new Grupo(), 15000, 1500, 3500, 0, 0, 4000, 0);
-		Agrupable aysa=new Compania("AYSA", 30000, edesurAysa, 300, 500);
-		Agrupable saltaNorte=new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
-		Agrupable saltaSur=new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
-		Agrupable tren=new Compania("TREN", 38000, subteTren, 450, 800);
-		Agrupable neuquen=new Terreno("NEUQUEN", new Grupo(), 17000, 1800, 3800, 0, 0, 4800, 0);
-		Agrupable tucuman=new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
+		Agrupable bsAsSur = new Terreno("Bs.As. SUR", bsas, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Agrupable edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		Agrupable bsAsNorte = new Terreno("Bs.As. NORTE", bsas, 25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Agrupable cordobaSur = new Terreno("CORDOBA SUR", cordoba, 18000, 1000, 1500, 2500, 3000, 2000, 3000);
+		Agrupable subte = new Compania("SUBTE", 40000, subteTren, 600, 1100);
+		Agrupable cordobaNorte = new Terreno("CORDOBA NORTE", cordoba, 20000, 1300, 1800, 2900, 3500, 2200, 3500);
+		Agrupable santaFe = new Terreno("SANTA FE", new Grupo(), 15000, 1500, 3500, 0, 0, 4000, 0);
+		Agrupable aysa = new Compania("AYSA", 30000, edesurAysa, 300, 500);
+		Agrupable saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Agrupable saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Agrupable tren = new Compania("TREN", 38000, subteTren, 450, 800);
+		Agrupable neuquen = new Terreno("NEUQUEN", new Grupo(), 17000, 1800, 3800, 0, 0, 4800, 0);
+		Agrupable tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
 
 		Salida salida = new Salida();
 		tablero.agregarCasillero(salida);
@@ -62,7 +61,7 @@ public class AlgoPoly {
 		tablero.agregarCasillero(bsAsSur);
 		tablero.agregarCasillero(edesur);
 		tablero.agregarCasillero(bsAsNorte);
-		Carcel carcel=new Carcel();
+		Carcel carcel = new Carcel();
 		tablero.agregarCasillero(carcel);
 		tablero.agregarCasillero(cordobaSur);
 		tablero.agregarCasillero(new Avance(tablero));
@@ -79,16 +78,15 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Retroceso(tablero));
 		tablero.agregarCasillero(tucuman);
 
-		
 		jugadores.add(new Jugador("Rojo", 100000));
 		jugadores.add(new Jugador("Verde", 100000));
 		jugadores.add(new Jugador("Azul", 100000));
 
 		for (Jugador jugador : this.jugadores)
 			jugador.moverA(salida, dados);
-		
+
 	}
-	
+
 	public void mover() {
 		if (turno.getJugadorActual().getPosicion().puedeMoverse(turno.getJugadorActual())) {
 			try {
@@ -113,15 +111,21 @@ public class AlgoPoly {
 		return jugadores;
 	}
 
-//	public Turno getTurno() {
-//		return turno;
-//	}
-
 	public Dados getDados() {
 		return dados;
 	}
-	
+
 	public Jugador getJugadorActual() {
 		return this.turno.getJugadorActual();
+	}
+
+	public boolean puedeMover() {
+		// TODO Agregar logica
+		return true;
+	}
+
+	public boolean puedeTirarDados() {
+		// TODO Agregar logica
+		return true;
 	}
 }
