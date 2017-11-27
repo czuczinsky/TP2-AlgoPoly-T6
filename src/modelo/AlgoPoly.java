@@ -7,6 +7,7 @@ public class AlgoPoly {
 	private Dados dados;
 	private Turno turno;
 	private ArrayList<Jugador> jugadores;
+	private boolean dadosTirados;
 
 	public AlgoPoly() {
 		this.tablero = new Tablero();
@@ -97,10 +98,12 @@ public class AlgoPoly {
 		}
 		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());
 		turno.siguienteJugador(dados);
+		this.dadosTirados = false;
 	}
 
 	public void tirarDados() {
 		dados.tirar();
+		dadosTirados = true;
 	}
 
 	public Tablero getTablero() {
@@ -124,7 +127,6 @@ public class AlgoPoly {
 	}
 
 	public boolean puedeTirarDados() {
-		// TODO Agregar logica
-		return true;
+		return !this.dadosTirados;
 	}
 }
