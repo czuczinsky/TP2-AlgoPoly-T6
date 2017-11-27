@@ -123,7 +123,7 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control.
+			// TODO mover a Control
 			((Terreno) casillero).construirHotel();
 			contenedorPrincipal.refrescar();
 		});
