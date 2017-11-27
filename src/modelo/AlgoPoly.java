@@ -76,7 +76,7 @@ public class AlgoPoly {
 			try {
 				tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
 			} catch (SinDineroException e) {
-				// TODO ver que va aca
+				turno.borrar();
 			}
 		}
 		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());

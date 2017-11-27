@@ -97,5 +97,31 @@ public class TurnoTest {
 		assertEquals(jugadorRojo, turno.siguienteJugador(this.dados));
 		assertEquals(jugadorRojo, turno.getJugadorActual());
 	}
+	
+	@Test
+	public void test09BorrarJugadorRojo() {
+		dados.setNumeros(1, 2);
+		assertEquals(jugadorRojo, turno.siguienteJugador(dados));
+		turno.borrar();
+		assertEquals(2, jugadores.size());
+	}
 
+	@Test
+	public void test10BorrarJugadorVerde() {
+		dados.setNumeros(1, 2);
+		turno.siguienteJugador(dados);
+		assertEquals(jugadorVerde, turno.siguienteJugador(dados));
+		turno.borrar();
+		assertEquals(2, jugadores.size());
+	}
+	
+	@Test
+	public void test11BorrarJugadorAzul() {
+		dados.setNumeros(1, 3);
+		turno.siguienteJugador(dados);
+		turno.siguienteJugador(dados);
+		assertEquals(jugadorAzul, turno.siguienteJugador(dados));
+		turno.borrar();
+		assertEquals(2, jugadores.size());
+	}
 }

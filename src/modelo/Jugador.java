@@ -63,4 +63,11 @@ public class Jugador {
 	public boolean puedoMoverse() {
 		return this.posicion.puedeMoverse(this);
 	}
+
+	public void quiebra() {
+		for (Agrupable terrenoActual:this.terrenos) {
+			terrenoActual.setPropietario(null);
+		}
+		this.terrenos.clear();
+	}
 }

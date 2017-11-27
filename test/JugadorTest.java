@@ -80,5 +80,17 @@ public class JugadorTest {
 		
 		assertFalse(jugador.puedoMoverse());
 	}
+	
+	@Test
+	public void test06JugadorQuiebraDeberiaDisvincularSusPropiedades() {
+		Grupo provincia1 = new Grupo();
+		Terreno terreno1 = new Terreno("Terreno 1", provincia1,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+				
+		Jugador jugador1 = new Jugador("Jugador 1",100000);
+		terreno1.venderA(jugador1);
+		jugador1.quiebra();
+		assertEquals(0, jugador1.cantPropiedades());
+	}
 
 }

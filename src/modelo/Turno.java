@@ -34,4 +34,8 @@ public class Turno {
 	public Jugador getJugadorActual() {
 		return this.jugadorActual;
 	}
+	
+	public void borrar() {
+		iterador.remove();
+	}
 }
