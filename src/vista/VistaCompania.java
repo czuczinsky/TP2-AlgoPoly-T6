@@ -9,13 +9,14 @@ import modelo.Jugador;
 
 public class VistaCompania extends VistaRectangulo implements Dibujable {
 
-	public VistaCompania(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(algoPoly, casillero, pane, x, y, ancho, alto);
+	public VistaCompania(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
+			StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaCompania Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
-			double alto) {
-		return new VistaCompania(algoPoly, casillero, pane, x, y, ancho, alto);
+	public static VistaCompania Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal,
+			Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		return new VistaCompania(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
@@ -26,7 +27,6 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 			this.pintar(propietario);
 		} else
 			this.pintar(Color.GAINSBORO);
-
 
 		if (compania.getNombre() == "AYSA") {
 			this.ponerImagen("file:src/vista/imagenes/aysa.png");
@@ -45,6 +45,7 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 		super.dibujar();
 		this.ponerBotones();
 	}
+
 	private void ponerBotones() {
 		if (((Compania) this.getCasillero()).puedeComprarse(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonComprar();

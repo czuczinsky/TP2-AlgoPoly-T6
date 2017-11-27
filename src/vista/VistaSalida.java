@@ -7,13 +7,13 @@ import modelo.Casillero;
 
 public class VistaSalida extends VistaRectangulo implements Dibujable {
 
-	public VistaSalida(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(algoPoly, casillero, pane, x, y, ancho, alto);
+	public VistaSalida(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaSalida Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
+	public static VistaSalida Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
-		return new VistaSalida(algoPoly, casillero, pane, x, y, ancho, alto);
+		return new VistaSalida(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

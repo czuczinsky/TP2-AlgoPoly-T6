@@ -17,6 +17,7 @@ import modelo.Terreno;
 
 public abstract class VistaRectangulo implements Dibujable {
 	private AlgoPoly algoPoly;
+	private ContenedorPrincipal contenedorPrincipal;
 	private Casillero casillero;
 	private double x;
 	private double y;
@@ -24,9 +25,10 @@ public abstract class VistaRectangulo implements Dibujable {
 	private double alto;
 	private StackPane pane;
 
-	public VistaRectangulo(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
+	public VistaRectangulo(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane, double x, double y, double ancho,
 			double alto) {
 		this.algoPoly = algoPoly;
+		this.contenedorPrincipal = contenedorPrincipal;
 		this.casillero = casillero;
 		this.pane = pane;
 		this.x = x;
@@ -62,13 +64,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		text.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 		text.setFill(color);
 		// text.setStroke(Color.web("#7080A0"));
-
 		this.pane.getChildren().add(text);
 		text.setTranslateX(x + 10);
 		text.setTranslateY(y + alto - 12);
-		// this.pane.setAlignment(Pos.CENTER_RIGHT); // Right-justify nodes in stack
-		// StackPane.setMargin(text, new Insets(0, 10, 0, 0));
-
 	}
 
 	public void ponerImagen(String sImagen) {
@@ -94,10 +92,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoComprar.setTranslateX(x);
 		iconoComprar.setTranslateY(y);
 		iconoComprar.setOnMouseClicked(e -> {
-			// TODO mover a Control. Agregar refresh
-			((Agrupable) casillero).venderA(algoPoly.getJugadorActual());;
-			
-			JOptionPane.showMessageDialog(null, "Compro este sitio (Lo vera reflejado en el proximo turno)");
+			// TODO mover a Control.
+			((Agrupable) casillero).venderA(algoPoly.getJugadorActual());
+			contenedorPrincipal.refrescar();
 		});
 	}
 	public void ponerBotonConstruirCasa() {
@@ -110,9 +107,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control. Agregar refresh
+			// TODO mover a Control.
 			((Terreno) casillero).construirCasa();
-			JOptionPane.showMessageDialog(null, "Construyo casa (la muestra en proximo turno)");
+			contenedorPrincipal.refrescar();
 		});
 	}
 
@@ -126,9 +123,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
 		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control. Agregar refresh
+			// TODO mover a Control.
 			((Terreno) casillero).construirHotel();
-			JOptionPane.showMessageDialog(null, "Construyo hotel (la muestra en proximo turno)");
+			contenedorPrincipal.refrescar();
 		});
 	}
 

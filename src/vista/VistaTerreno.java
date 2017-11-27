@@ -9,14 +9,14 @@ import modelo.Terreno;
 
 public class VistaTerreno extends VistaRectangulo implements Dibujable {
 
-	public VistaTerreno(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
-			double alto) {
-		super(algoPoly, casillero, pane, x, y, ancho, alto);
+	public VistaTerreno(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane,
+			double x, double y, double ancho, double alto) {
+		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaTerreno Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y,
-			double ancho, double alto) {
-		return new VistaTerreno(algoPoly, casillero, pane, x, y, ancho, alto);
+	public static VistaTerreno Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal,
+			Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		return new VistaTerreno(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {
