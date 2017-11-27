@@ -73,17 +73,22 @@ public abstract class Agrupable extends Casillero {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public Grupo getGrupo() {
 		return this.grupo;
 	}
+
 	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
 	}
-	
-	public boolean puedeComprarse(Jugador jugadorActual) {
+
+	public boolean puedeComprarsePor(Jugador jugadorActual) {
 		return (!tienePropietario() && jugadorActual.getPosicion() == this);
 	}
 
-
+	public boolean puedeVendersePor(Jugador jugadorActual) {
+		if (!tienePropietario())
+			return false;
+		return (this.getPropietario() == jugadorActual);
+	}
 }

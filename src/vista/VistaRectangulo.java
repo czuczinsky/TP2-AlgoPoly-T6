@@ -96,6 +96,24 @@ public abstract class VistaRectangulo implements Dibujable {
 			contenedorPrincipal.refrescar();
 		});
 	}
+
+	public void ponerBotonVender() {
+		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/vender.png");
+		iconoComprar.setFitWidth(40);
+        iconoComprar.setFitHeight(40);
+        iconoComprar.setPreserveRatio(true);
+        iconoComprar.setSmooth(true);
+		this.pane.getChildren().add(iconoComprar);
+		iconoComprar.setTranslateX(x+83);
+		iconoComprar.setTranslateY(y+3);
+		iconoComprar.setOnMouseClicked(e -> {
+			// TODO mover a Control.
+			((Agrupable) casillero).vender();
+			contenedorPrincipal.refrescar();
+		});
+	}
+
+	
 	public void ponerBotonConstruirCasa() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirCasa.png");
 		iconoConstruir.setFitWidth(40);

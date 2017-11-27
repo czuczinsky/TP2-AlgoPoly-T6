@@ -47,7 +47,9 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 	}
 
 	private void ponerBotones() {
-		if (((Compania) this.getCasillero()).puedeComprarse(this.getAlgoPoly().getJugadorActual()))
+		if (((Compania) this.getCasillero()).puedeComprarsePor(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonComprar();
+		if (((Compania) this.getCasillero()).puedeVendersePor(this.getAlgoPoly().getJugadorActual()))
+			this.ponerBotonVender();
 	}
 }
