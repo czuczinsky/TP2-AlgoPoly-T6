@@ -118,7 +118,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 		
 		this.datosYBotones.setAlignment(Pos.CENTER);
-		this.setRight(datosYBotones);
+		this.setCenter(datosYBotones);
 	}
 
 	private void mostrarJugadorActual(String nombre) {
@@ -155,7 +155,6 @@ public class ContenedorPrincipal extends BorderPane {
 		imageView.setPreserveRatio(true);
 		imageView.setSmooth(true);
 		datosYBotones.getChildren().add(imageView);
-
 	}
 
 	private void setearColor(Text txt, Jugador jugador) {
