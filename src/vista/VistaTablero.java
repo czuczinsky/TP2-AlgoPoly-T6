@@ -17,7 +17,7 @@ public class VistaTablero {
 	double alto;
 	StackPane pane;
 
-	public VistaTablero(AlgoPoly algoPoly, StackPane pane) {
+	public VistaTablero(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, StackPane pane) {
 		this.ancho = 850;
 		this.alto = 600;
 		double separacion = 10;
@@ -48,8 +48,8 @@ public class VistaTablero {
 				y = altoCasillero * (i - 3 * porLinea);
 			}
 
-			vistaCasilleros.add(new VistaCasillero(algoPoly, casillero, pane, x + separacion / 2, y + separacion / 2,
-					anchoCasillero - separacion, altoCasillero - separacion));
+			vistaCasilleros.add(new VistaCasillero(algoPoly, contenedorPrincipal, casillero, pane, x + separacion / 2,
+					y + separacion / 2, anchoCasillero - separacion, altoCasillero - separacion));
 			i++;
 		}
 
@@ -62,20 +62,16 @@ public class VistaTablero {
 	}
 
 	public void clean() {
-        Rectangle fondo = new Rectangle(0, 0, ancho, alto);
-        fondo.setFill(Color.CHARTREUSE);
-        this.pane.getChildren().add(fondo);
- 
+		Rectangle fondo = new Rectangle(0, 0, ancho, alto);
+		fondo.setFill(Color.CHARTREUSE);
+		this.pane.getChildren().add(fondo);
+
 		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
 		this.pane.getChildren().add(imageView);
 		imageView.setTranslateX((ancho - image.getWidth()) / 2);
 		imageView.setTranslateY((alto - image.getHeight()) / 2);
-
-		// Image imageDados = new Image("file:src/vista/imagenes/dados.gif");
-		// gc.drawImage(imageDados, (canvas.getWidth() - imageDados.getWidth()) / 2,
-		// (canvas.getHeight() - image.getHeight()) /3);
 	}
 
 	public void update() {

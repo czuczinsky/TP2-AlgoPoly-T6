@@ -7,13 +7,14 @@ import modelo.Casillero;
 
 public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 
-	public VistaImpuestoAlLujo(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
-		super(algoPoly, casillero, pane, x, y, ancho, alto);
+	public VistaImpuestoAlLujo(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane,
+			double x, double y, double ancho, double alto) {
+		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaImpuestoAlLujo Instancia(AlgoPoly algoPoly, Casillero casillero, StackPane pane, double x, double y, double ancho,
-			double alto) {
-		return new VistaImpuestoAlLujo(algoPoly, casillero, pane, x, y, ancho, alto);
+	public static VistaImpuestoAlLujo Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal,
+			Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+		return new VistaImpuestoAlLujo(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
 	public void dibujar() {

@@ -53,7 +53,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setCentro() {
 		paneCentral = new StackPane();
-		vistaTablero = new VistaTablero(algoPoly, paneCentral);
+		vistaTablero = new VistaTablero(algoPoly, this, paneCentral);
 		vistaTablero.dibujar();
 
 		paneCentral.setAlignment(Pos.TOP_LEFT);
