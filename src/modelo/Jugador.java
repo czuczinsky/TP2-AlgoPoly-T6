@@ -24,7 +24,11 @@ public class Jugador {
 	}
 	
 	public void decrementarDinero(int monto) {
-		this.dinero-=monto;
+		if (monto <= this.dinero) {
+			this.dinero-=monto;
+		} else {
+			throw new SinDineroException();
+		}
 	}
 	
 	public void moverA(Casillero unCasillero, Dados dados) {

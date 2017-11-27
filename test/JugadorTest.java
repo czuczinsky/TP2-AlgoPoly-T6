@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import modelo.Grupo;
 import modelo.Jugador;
+import modelo.SinDineroException;
 import modelo.Terreno;
 
 public class JugadorTest {
@@ -49,5 +50,10 @@ public class JugadorTest {
 		Assert.assertEquals(4 , jugador.cantPropiedades());
 	}
 	
+	@Test (expected = SinDineroException.class)
+	public void test04DecrementarMontoAJugadorSinDinero() {
+		Jugador jugador = new Jugador("Azul", 0);
+		jugador.decrementarDinero(100);
+	}
 
 }
