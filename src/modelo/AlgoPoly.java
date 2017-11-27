@@ -120,8 +120,7 @@ public class AlgoPoly {
 	}
 
 	public boolean puedeMover() {
-		// TODO Agregar logica
-		return true;
+		return this.turno.getJugadorActual().puedoMoverse();
 	}
 
 	public boolean puedeTirarDados() {

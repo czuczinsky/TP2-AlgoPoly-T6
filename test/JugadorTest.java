@@ -5,8 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import modelo.Carcel;
+import modelo.Dados;
 import modelo.Grupo;
 import modelo.Jugador;
+import modelo.Salida;
 import modelo.SinDineroException;
 import modelo.Terreno;
 
@@ -54,6 +57,28 @@ public class JugadorTest {
 	public void test04DecrementarMontoAJugadorSinDinero() {
 		Jugador jugador = new Jugador("Azul", 0);
 		jugador.decrementarDinero(100);
+	}
+	
+	@Test
+	public void test05JugadorPuedeMoverse() {
+		Salida salida = new Salida();
+		Jugador jugador = new Jugador("Azul", 0);
+		Dados dados = new Dados();
+		dados.setNumeros(1, 1);
+		jugador.moverA(salida, dados);
+		
+		assertTrue(jugador.puedoMoverse());
+	}
+	
+	@Test
+	public void test05JugadorNoPuedeMoverse() {
+		Carcel carcel = new Carcel();
+		Jugador jugador = new Jugador("Azul", 0);
+		Dados dados = new Dados();
+		dados.setNumeros(1, 1);
+		jugador.moverA(carcel, dados);
+		
+		assertFalse(jugador.puedoMoverse());
 	}
 
 }

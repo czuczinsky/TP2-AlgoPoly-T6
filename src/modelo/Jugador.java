@@ -59,4 +59,8 @@ public class Jugador {
 	public String getNombre() {
 		return nombre;
 	}
+	
+	public boolean puedoMoverse() {
+		return this.posicion.puedeMoverse(this);
+	}
 }
