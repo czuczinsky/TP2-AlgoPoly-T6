@@ -44,6 +44,12 @@ public class Carcel extends Casillero {
 		}
 	}
 	
+	public boolean puedePagarFianza(Jugador jugador) {	
+		Prisionero prisionero=this.obtenerPrisionero(jugador);
+		
+		return(prisionero.puedePagarFianza(45000));
+	}
+	
 	private Prisionero obtenerPrisionero(Jugador jugador) {
 		for (Prisionero prisionero:prisioneros) {
 			if(prisionero.esIgualA(jugador)) {	
