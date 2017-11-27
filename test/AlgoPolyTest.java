@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import modelo.Agrupable;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Dados;
@@ -53,7 +52,7 @@ public class AlgoPolyTest {
 	@Test
 	public void test04JugadorPierdeDeberiaSerEliminadoDelJuegoDejandoLasPropiedades() {
 		AlgoPoly algoPoly = new AlgoPoly();
-		Dados dados = new AlgoPoly().getDados();
+		Dados dados = algoPoly.getDados();
 		ArrayList<Jugador> jugadores = algoPoly.getJugadores();
 		ArrayList<Casillero> casilleros = algoPoly.getTablero().getCasilleros();
 		Jugador jRojo = jugadores.get(0);
