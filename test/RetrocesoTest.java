@@ -260,7 +260,7 @@ public class RetrocesoTest {
 	}
 	
 	@Test
-	public void test14JugadorPropietarioDeTresTerrenosYUnaCasaCaeEnRetrocesoDinamicoYSaca5EnLosDadosDeberiaRetroceder1PosicionANeuquen() {
+	public void test14JugadorPropietarioDeTresTerrenosYUnaCasaCaeEnRetrocesoYSaca5EnLosDadosDeberiaRetroceder1PosicionANeuquen() {
 		Grupo grupo = new Grupo();
 		Terreno bsAsSur = new Terreno("BsAsSur", grupo,
 				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
