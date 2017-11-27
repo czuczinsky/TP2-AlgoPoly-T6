@@ -190,7 +190,7 @@ public class RetrocesoTest {
 	}
 	
 	@Test
-	public void test10JugadorCaeEnRetrocesoDinamicoSacando11EnLosDadosAvanzaACordobaNorte() {
+	public void test10JugadorCaeEnRetrocesoDinamicoSacando11EnLosDadosRetrocede9Casilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		Dados dados=new Dados();
 		dados.setNumeros(5,6);
@@ -200,7 +200,7 @@ public class RetrocesoTest {
 	}
 	
 	@Test
-	public void test11JugadorCaeEnRetrocesoDinamicoSacando12EnLosDadosRetrocedeASubte() {
+	public void test11JugadorCaeEnRetrocesoDinamicoSacando12EnLosDadosRetrocede10Casilleros() {
 		Jugador jugador = new Jugador("Jugador", 100000);
 		Dados dados=new Dados();
 		dados.setNumeros(6,6);
@@ -259,6 +259,29 @@ public class RetrocesoTest {
 		assertEquals(retroceso, jugadora.getPosicion());
 	}
 	
+	@Test
+	public void test14JugadorPropietarioDeTresTerrenosYUnaCasaCaeEnRetrocesoDinamicoYSaca5EnLosDadosDeberiaRetroceder1PosicionANeuquen() {
+		Grupo grupo = new Grupo();
+		Terreno bsAsSur = new Terreno("BsAsSur", grupo,
+				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
+		
+		Terreno santaFe=new Terreno("SantaFe",grupo, 15000, 1500, 3500, 4000, 0, 0, 0);
+		
+		Terreno saltaSur=new Terreno("SaltaSur",grupo, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+				
+		Jugador jugadora = new Jugador("Maria",100000);
+		bsAsSur.venderA(jugadora);
+		santaFe.venderA(jugadora);
+		saltaSur.venderA(jugadora);
+		
+		santaFe.construirCasa();
+		
+		Dados dados=new Dados();
+		dados.setNumeros(4,1);
+		jugadora.moverA(retroceso,dados);
+		
+		assertEquals(neuquen, jugadora.getPosicion());
+	}
 
 
 }
