@@ -43,19 +43,19 @@ public class ContenedorPrincipal extends BorderPane {
 
 		this.algoPoly = algoPoly;
 
-		this.setCentro();
+		this.setIzquierda();
 		this.setConsola();
 		this.setPanelInformativo();
 	}
 
-	private void setCentro() {
+	private void setIzquierda() {
 		paneCentral = new StackPane();
 		vistaTablero = new VistaTablero(algoPoly, this, paneCentral);
 		vistaTablero.dibujar();
 
 		paneCentral.setAlignment(Pos.TOP_LEFT);
 		this.setBorder(algoPoly, paneCentral);
-		this.setCenter(paneCentral);
+		this.setLeft(paneCentral);
 	}
 
 	private void setPanelInformativo() {
@@ -197,7 +197,7 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	public void refrescar() {
-		this.setCentro();
+		this.setIzquierda();
 		this.setConsola();
 		this.setPanelInformativo();
 	}
