@@ -19,5 +19,4 @@ public class BotonTirarDadosHandler implements EventHandler<ActionEvent> {
 		algoPoly.tirarDados();
 		contenedorPrincipal.refrescar();
 	}
-
 }

@@ -15,6 +15,7 @@ public class AlgoPoly {
 		this.armarTableroYJugadores();
 		this.dados = new Dados();
 		this.turno = new Turno(jugadores);
+		this.turno.siguienteJugador(this.dados);
 	}
 
 	public void armarEstadoInicialTrucho() {
