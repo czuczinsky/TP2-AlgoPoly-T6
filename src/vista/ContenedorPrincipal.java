@@ -2,7 +2,6 @@ package vista;
 
 import eventos.BotonMoverHandler;
 import eventos.BotonTirarDadosHandler;
-import eventos.OpcionSalirEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -274,16 +273,6 @@ public class ContenedorPrincipal extends BorderPane {
 		contenedorConsola.setStyle("-fx-background-color: black;");
 
 		this.setBottom(contenedorConsola);
-	}
-
-	public void terminarJuego(String ganador) {
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("ALGOPOLY");
-		alert.setHeaderText("TERMINA EL JUEGO");
-		alert.setContentText("El ganador es " + ganador);
-		alert.show();
-		OpcionSalirEventHandler reiniciar = new OpcionSalirEventHandler();
-		reiniciar.handle(null);
 	}
 
 	public void refrescar() {
