@@ -83,8 +83,8 @@ public abstract class VistaRectangulo implements Dibujable {
 
 	public void ponerBotonComprar() {
 		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/changuito.png");
-		iconoComprar.setFitWidth(30);
-        iconoComprar.setFitHeight(30);
+		iconoComprar.setFitWidth(40);
+        iconoComprar.setFitHeight(40);
         iconoComprar.setPreserveRatio(true);
         iconoComprar.setSmooth(true);
 		this.pane.getChildren().add(iconoComprar);

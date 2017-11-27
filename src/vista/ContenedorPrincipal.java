@@ -5,12 +5,10 @@ import eventos.BotonTirarDadosHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -65,23 +63,20 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones = new VBox();
 		// datosYBotones.setPadding(new Insets(60));
 		datosYBotones.setSpacing(20);
-		
+
 		Image fondo = new Image("file:src/vista/imagenes/fondo.png");
 		BackgroundImage imagenDeFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
-				BackgroundPosition.DEFAULT, new BackgroundSize(1,1,true,true,false,false));
+				BackgroundPosition.DEFAULT, new BackgroundSize(1, 1, true, true, false, false));
 		this.setBackground(new Background(imagenDeFondo));
 		this.setBorder(algoPoly, datosYBotones);
 
-	 
-		
 		Text titulo = new Text("TURNO DEL JUGADOR: ");
 		titulo.setFill(Color.BLACK);
 		titulo.setFont(Font.font(30));
 		this.datosYBotones.getChildren().add(titulo);
 		VBox.setMargin(titulo, new Insets(10));
-		
+
 		this.mostrarJugadorActual(algoPoly.getJugadorActual().getNombre());
-	
 
 		for (Jugador jugador : algoPoly.getJugadores()) {
 			Text txtJugador = new Text("Dinero Disponible : $ " + String.valueOf(jugador.getDinero()));
@@ -97,10 +92,10 @@ public class ContenedorPrincipal extends BorderPane {
 		btnTirarDados.setOnAction(tirarDadosHandler);
 		VBox.setMargin(btnTirarDados, new Insets(15));
 		this.datosYBotones.getChildren().add(btnTirarDados);
-		
+
 		this.mostrarDados(algoPoly.getDados().getDado1());
 		this.mostrarDados(algoPoly.getDados().getDado2());
-		
+
 		Button btnMover = new Button();
 		btnMover.setText("Mover Ficha");
 		BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
@@ -111,131 +106,44 @@ public class ContenedorPrincipal extends BorderPane {
 		this.datosYBotones.setAlignment(Pos.CENTER);
 		this.setRight(datosYBotones);
 	}
-	
-	
+
 	private void mostrarJugadorActual(String nombre) {
-		
-		if(nombre=="Rojo") {
-
 		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
+		if (nombre == "Verde")
+			image = new Image("file:src/vista/imagenes/fichaverde.png");
+		if (nombre == "Azul")
+			image = new Image("file:src/vista/imagenes/fichaazul.png");
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
-
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        imageView.setPreserveRatio(true);
-        imageView.setSmooth(true);
-        
-		datosYBotones.getChildren().add(imageView);
-		
-		}
-		
-		if (nombre=="Azul") {
-	
-		Image image = new Image("file:src/vista/imagenes/fichaazul.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(image);
-
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        imageView.setPreserveRatio(true);
-        imageView.setSmooth(true);
-        
-		datosYBotones.getChildren().add(imageView);
-		}
-		if (nombre=="Verde") {
-
-		Image image = new Image("file:src/vista/imagenes/fichaverde.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(image);
-
-        imageView.setFitWidth(50);
-        imageView.setFitHeight(50);
-        imageView.setPreserveRatio(true);
-        imageView.setSmooth(true);
-        
+		imageView.setFitWidth(50);
+		imageView.setFitHeight(50);
+		imageView.setPreserveRatio(true);
+		imageView.setSmooth(true);
 		datosYBotones.getChildren().add(imageView);
 	}
-		
-	}
-	
+
 	private void mostrarDados(double valor) {
-		if(valor==1) {
-			Image image = new Image("file:src/vista/imagenes/dado1.png");
-			ImageView imageView = new ImageView();
-			imageView.setImage(image);
+		Image image = new Image("file:src/vista/imagenes/dado1.png");
+		if (valor == 2)
+			image = new Image("file:src/vista/imagenes/dado2.png");
+		if (valor == 3)
+			image = new Image("file:src/vista/imagenes/dado3.png");
+		if (valor == 4)
+			image = new Image("file:src/vista/imagenes/dado4.png");
+		if (valor == 5)
+			image = new Image("file:src/vista/imagenes/dado5.png");
+		if (valor == 6)
+			image = new Image("file:src/vista/imagenes/dado6.png");
+		ImageView imageView = new ImageView();
+		imageView.setImage(image);
+		imageView.setFitWidth(50);
+		imageView.setFitHeight(50);
+		imageView.setPreserveRatio(true);
+		imageView.setSmooth(true);
+		datosYBotones.getChildren().add(imageView);
 
-	        imageView.setFitWidth(50);
-	        imageView.setFitHeight(50);
-	        imageView.setPreserveRatio(true);
-	        imageView.setSmooth(true);
-	        
-			datosYBotones.getChildren().add(imageView);
-		}
-		if(valor==2) {
-			Image image = new Image("file:src/vista/imagenes/dado2.png");
-			ImageView imageView = new ImageView();
-			imageView.setImage(image);
-
-	        imageView.setFitWidth(50);
-	        imageView.setFitHeight(50);
-	        imageView.setPreserveRatio(true);
-	        imageView.setSmooth(true);
-	        
-			datosYBotones.getChildren().add(imageView);
-		}
-		if(valor==3) {
-			Image image = new Image("file:src/vista/imagenes/dado3.png");
-			ImageView imageView = new ImageView();
-			imageView.setImage(image);
-
-	        imageView.setFitWidth(50);
-	        imageView.setFitHeight(50);
-	        imageView.setPreserveRatio(true);
-	        imageView.setSmooth(true);
-	        
-			datosYBotones.getChildren().add(imageView);
-		}
-		if(valor==4) {
-			Image image = new Image("file:src/vista/imagenes/dado4.png");
-			ImageView imageView = new ImageView();
-			imageView.setImage(image);
-
-	        imageView.setFitWidth(50);
-	        imageView.setFitHeight(50);
-	        imageView.setPreserveRatio(true);
-	        imageView.setSmooth(true);
-	        
-			datosYBotones.getChildren().add(imageView);
-		}
-		if(valor==5) {
-			Image image = new Image("file:src/vista/imagenes/dado5.png");
-			ImageView imageView = new ImageView();
-			imageView.setImage(image);
-
-	        imageView.setFitWidth(50);
-	        imageView.setFitHeight(50);
-	        imageView.setPreserveRatio(true);
-	        imageView.setSmooth(true);
-	        
-			datosYBotones.getChildren().add(imageView);
-		}
-		if(valor==6) {
-			Image image = new Image("file:src/vista/imagenes/dado6.png");
-			ImageView imageView = new ImageView();
-			imageView.setImage(image);
-
-	        imageView.setFitWidth(50);
-	        imageView.setFitHeight(50);
-	        imageView.setPreserveRatio(true);
-	        imageView.setSmooth(true);
-	        
-			datosYBotones.getChildren().add(imageView);
-		}
-		
 	}
-	
-	
+
 	private void setearColor(Text txt, Jugador jugador) {
 		if (jugador.getNombre().equals("Rojo"))
 			txt.setFill(Color.RED);
@@ -248,7 +156,6 @@ public class ContenedorPrincipal extends BorderPane {
 	private void setBorder(AlgoPoly algoPoly, Pane pane) {
 		String color = "BLACK";
 		Jugador jugadorActual = algoPoly.getJugadorActual();
-
 		if (jugadorActual.getNombre().equals("Rojo"))
 			color = "RED";
 		if (jugadorActual.getNombre().equals("Verde"))

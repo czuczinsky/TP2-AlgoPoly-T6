@@ -36,7 +36,7 @@ public class VistaCompania extends VistaRectangulo implements Dibujable {
 		}
 		if (compania.getNombre() == "TREN") {
 			this.ponerImagen("file:src/vista/imagenes/tren.png");
-			this.etiquetar("TRENES", Color.WHITE);
+			this.etiquetar("TRENES", Color.BLACK);
 		}
 		if (compania.getNombre() == "SUBTE") {
 			this.ponerImagen("file:src/vista/imagenes/subte.png");
