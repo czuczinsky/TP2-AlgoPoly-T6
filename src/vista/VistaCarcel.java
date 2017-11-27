@@ -3,6 +3,7 @@ package vista;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
+import modelo.Carcel;
 import modelo.Casillero;
 
 public class VistaCarcel extends VistaRectangulo implements Dibujable {
@@ -22,5 +23,12 @@ public class VistaCarcel extends VistaRectangulo implements Dibujable {
 		this.ponerImagen("file:src/vista/imagenes/prision.png");
 		this.etiquetar("CARCEL", Color.BLACK);
 		super.dibujar();
+		this.ponerBotones();
+
+	}
+
+	private void ponerBotones() {
+		if (((Carcel) this.getCasillero()).puedePagarFianza(this.getAlgoPoly().getJugadorActual()))
+			this.ponerBotonPagarFianza();
 	}
 }

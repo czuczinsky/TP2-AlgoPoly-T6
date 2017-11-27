@@ -9,6 +9,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import modelo.AlgoPoly;
+import modelo.Carcel;
 import modelo.Casillero;
 import modelo.Jugador;
 import modelo.Agrupable;
@@ -24,8 +25,8 @@ public abstract class VistaRectangulo implements Dibujable {
 	private double alto;
 	private StackPane pane;
 
-	public VistaRectangulo(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane, double x, double y, double ancho,
-			double alto) {
+	public VistaRectangulo(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
+			StackPane pane, double x, double y, double ancho, double alto) {
 		this.algoPoly = algoPoly;
 		this.contenedorPrincipal = contenedorPrincipal;
 		this.casillero = casillero;
@@ -84,9 +85,9 @@ public abstract class VistaRectangulo implements Dibujable {
 	public void ponerBotonComprar() {
 		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/changuito.png");
 		iconoComprar.setFitWidth(40);
-        iconoComprar.setFitHeight(40);
-        iconoComprar.setPreserveRatio(true);
-        iconoComprar.setSmooth(true);
+		iconoComprar.setFitHeight(40);
+		iconoComprar.setPreserveRatio(true);
+		iconoComprar.setSmooth(true);
 		this.pane.getChildren().add(iconoComprar);
 		iconoComprar.setTranslateX(x);
 		iconoComprar.setTranslateY(y);
@@ -100,12 +101,12 @@ public abstract class VistaRectangulo implements Dibujable {
 	public void ponerBotonVender() {
 		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/vender.png");
 		iconoComprar.setFitWidth(40);
-        iconoComprar.setFitHeight(40);
-        iconoComprar.setPreserveRatio(true);
-        iconoComprar.setSmooth(true);
+		iconoComprar.setFitHeight(40);
+		iconoComprar.setPreserveRatio(true);
+		iconoComprar.setSmooth(true);
 		this.pane.getChildren().add(iconoComprar);
-		iconoComprar.setTranslateX(x+83);
-		iconoComprar.setTranslateY(y+3);
+		iconoComprar.setTranslateX(x + 83);
+		iconoComprar.setTranslateY(y + 3);
 		iconoComprar.setOnMouseClicked(e -> {
 			// TODO mover a Control.
 			((Agrupable) casillero).vender();
@@ -113,13 +114,29 @@ public abstract class VistaRectangulo implements Dibujable {
 		});
 	}
 
-	
+	public void ponerBotonPagarFianza() {
+		ImageView iconoFianza = new ImageView("file:src/vista/imagenes/fianza.png");
+		iconoFianza.setFitWidth(40);
+		iconoFianza.setFitHeight(40);
+		iconoFianza.setPreserveRatio(true);
+		iconoFianza.setSmooth(true);
+		this.pane.getChildren().add(iconoFianza);
+		iconoFianza.setTranslateX(x + 83);
+		iconoFianza.setTranslateY(y + 3);
+		iconoFianza.setOnMouseClicked(e -> {
+			// TODO mover a Control.
+			((Carcel) casillero).cobrarFianza(algoPoly.getJugadorActual());
+			;
+			contenedorPrincipal.refrescar();
+		});
+	}
+
 	public void ponerBotonConstruirCasa() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirCasa.png");
 		iconoConstruir.setFitWidth(40);
-        iconoConstruir.setFitHeight(40);
-        iconoConstruir.setPreserveRatio(true);
-        iconoConstruir.setSmooth(true);
+		iconoConstruir.setFitHeight(40);
+		iconoConstruir.setPreserveRatio(true);
+		iconoConstruir.setSmooth(true);
 		this.pane.getChildren().add(iconoConstruir);
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
@@ -133,9 +150,9 @@ public abstract class VistaRectangulo implements Dibujable {
 	public void ponerBotonConstruirHotel() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirHotel.png");
 		iconoConstruir.setFitWidth(40);
-        iconoConstruir.setFitHeight(40);
-        iconoConstruir.setPreserveRatio(true);
-        iconoConstruir.setSmooth(true);
+		iconoConstruir.setFitHeight(40);
+		iconoConstruir.setPreserveRatio(true);
+		iconoConstruir.setSmooth(true);
 		this.pane.getChildren().add(iconoConstruir);
 		iconoConstruir.setTranslateX(x);
 		iconoConstruir.setTranslateY(y);
