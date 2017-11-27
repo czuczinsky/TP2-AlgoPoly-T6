@@ -85,7 +85,11 @@ public abstract class VistaRectangulo implements Dibujable {
 	}
 
 	public void ponerBotonComprar() {
-		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/comprar.png");
+		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/changuito.png");
+		iconoComprar.setFitWidth(30);
+        iconoComprar.setFitHeight(30);
+        iconoComprar.setPreserveRatio(true);
+        iconoComprar.setSmooth(true);
 		this.pane.getChildren().add(iconoComprar);
 		iconoComprar.setTranslateX(x);
 		iconoComprar.setTranslateY(y);
@@ -93,7 +97,7 @@ public abstract class VistaRectangulo implements Dibujable {
 			// TODO mover a Control. Agregar refresh
 			((Agrupable) casillero).venderA(algoPoly.getJugadorActual());;
 			
-			JOptionPane.showMessageDialog(null, "Compro Casillero (la muestra en proximo turno)");
+			JOptionPane.showMessageDialog(null, "Compro este sitio (Lo vera reflejado en el proximo turno)");
 		});
 	}
 	public void ponerBotonConstruirCasa() {
