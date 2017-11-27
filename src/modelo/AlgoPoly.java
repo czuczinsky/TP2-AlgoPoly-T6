@@ -105,18 +105,31 @@ public class AlgoPoly {
 		return this.turno.getJugadorActual();
 	}
 
+//	public boolean puedeMover() {
+//		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse());
+//	}
+//
+//	public boolean puedeTirarDados() {
+//		return (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados);
+//	}
+//
+//	public boolean debePasarTurno() {
+//		return !this.turno.getJugadorActual().puedoMoverse();
+//	}
+
+	
+	
+// para prueba /////////////////////////////////
 	public boolean puedeMover() {
 		return true;
-//		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse());
 	}
-
 	public boolean puedeTirarDados() {
 		return true;
-//		return (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados);
 	}
 
 	public boolean debePasarTurno() {
 		return false;
-//		return !this.turno.getJugadorActual().puedoMoverse();
 	}
+///////////////////////////////////////////////
+
 }
