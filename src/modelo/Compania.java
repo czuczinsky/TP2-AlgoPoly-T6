@@ -32,4 +32,19 @@ public class Compania extends Agrupable {
 		return false;
 	}
 	
+	@Override
+	public int getAlquiler(Jugador jugador, Dados dados) {
+		if (this.tienePropietario() && !jugador.equals(this.getPropietario())) {
+			return this.calcularAlquiler(jugador, dados);
+		}
+		return 0;
+	}
+	
+	public int calcularAlquiler(Jugador jugador, Dados dados) {
+		if (this.getGrupo().esMultiple() && this.getGrupo().mismoPropietario()) {
+			return multiplicadorMultiple * dados.getSuma();
+		} else {
+			return multiplicadorSimple * dados.getSuma();
+		}
+	}
 }

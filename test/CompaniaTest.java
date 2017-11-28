@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 import modelo.Compania;
@@ -200,5 +202,62 @@ public class CompaniaTest {
 		
 		Assert.assertEquals(100000 - 35000+ (35000*(100-15)/100)-(500*7), jugador1.getDinero());
 		Assert.assertEquals(100000 - 35000+ +(500*7), jugador2.getDinero());
+	}
+	
+	@Test
+	public void test12ObtenerAlquilerDeCompaniaSinDuenioDeberiaDevolverCero() {
+		Dados dados = new Dados();
+		dados.setNumeros(2, 2);
+		Jugador jugador = new Jugador("Azul", 100000);
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		
+		assertEquals(0,edesur.getAlquiler(jugador, dados));
+	}
+	
+	@Test
+	public void test13ObtenerAlquilerDeCompaniaEdesurConDuenioDeberiaDevolver500LoQueDicenLosDados() {
+		Dados dados = new Dados();
+		dados.setNumeros(2, 2);
+		Jugador jugador = new Jugador("Azul", 100000);
+		Jugador propietario = new Jugador("Jugador 1", 200000);
+		
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		
+		edesur.venderA(propietario);
+		
+		assertEquals(500 * 4, edesur.getAlquiler(jugador, dados));
+	}
+	
+	@Test
+	public void test14DueñoObtieneAlquilerDeSuCompaniaDeberiaDevolverCero() {
+		Dados dados = new Dados();
+		dados.setNumeros(2, 2);
+		Jugador propietario = new Jugador("Jugador 1", 200000);
+		
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		
+		edesur.venderA(propietario);
+		
+		assertEquals(0, edesur.getAlquiler(propietario, dados));
+	}
+	
+	@Test
+	public void test15ObtenerAlquilerDeCompaniaEdesurAysaConDuenioDeberiaDevolver1000LoQueDicenLosDados() {
+		Dados dados = new Dados();
+		dados.setNumeros(2, 2);
+		Jugador jugador = new Jugador("Azul", 100000);
+		Jugador propietario = new Jugador("Jugador 1", 200000);
+		
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		Compania aysa = new Compania("AYSA", 30000, edesurAysa, 300, 500);
+		
+		edesur.venderA(propietario);
+		aysa.venderA(propietario);
+		
+		assertEquals(1000 * 4, edesur.getAlquiler(jugador, dados));
 	}
 }

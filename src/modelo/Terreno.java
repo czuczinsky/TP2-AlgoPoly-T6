@@ -133,4 +133,10 @@ public class Terreno extends Agrupable {
 	public int getCostoEdificarHotel() {
 		return costoEdificarHotel;
 	}
+
+	@Override
+	public int getAlquiler(Jugador jugador, Dados dados) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

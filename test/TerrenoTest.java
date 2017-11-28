@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -930,6 +932,16 @@ public class TerrenoTest {
 				100000 - 23000 - 23000 - 4500 - 4500 - 4500 - 4500 - 7500 + ((23000 + 7500) * (100 - 15) / 100) - 2000,
 				jugador1.getDinero());
 		Assert.assertEquals(100000 - 23000 + 2000, jugador2.getDinero());
+	}
+	
+	@Test
+	public void test57ObtenerAlquilerDeTerrenoSinDuenioDeberiaDevolverCero() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+
+		assertEquals(0, saltaSur.getAlquiler(jugador1, dados));
 	}
 
 }
