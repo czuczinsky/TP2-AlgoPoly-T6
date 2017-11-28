@@ -145,4 +145,8 @@ public class AlgoPoly {
 		((Agrupable) this.getJugadorActual().getPosicion()).venderA(this.getJugadorActual());
 		agrupableCompradoEnTurnoActual = (Agrupable) this.getJugadorActual().getPosicion();
 	}
+	
+	public String getMensaje() {
+		return "Nada";
+	}
 }
