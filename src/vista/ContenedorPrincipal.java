@@ -29,7 +29,6 @@ import modelo.Jugador;
 public class ContenedorPrincipal extends BorderPane {
 
 	private AlgoPoly algoPoly;
-
 	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
 	Canvas canvas;
@@ -181,10 +180,9 @@ public class ContenedorPrincipal extends BorderPane {
 
 	private void setConsola() {
 
-		// TODO cambiar por el modelo de Consola... Va la consola???
 		Label etiqueta = new Label();
-		etiqueta.setText("Consola...");
-		etiqueta.setFont(Font.font("courier new", FontWeight.SEMI_BOLD, 14));
+		etiqueta.setText(algoPoly.getMensaje());
+		etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 		etiqueta.setTextFill(Color.WHITE);
 
 		VBox contenedorConsola = new VBox(etiqueta);
