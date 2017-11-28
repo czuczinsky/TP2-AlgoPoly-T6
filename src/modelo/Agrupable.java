@@ -92,5 +92,6 @@ public abstract class Agrupable extends Casillero {
 		return (this.getPropietario() == jugadorActual);
 	}
 	
+	@Override
 	public abstract int getAlquiler(Jugador jugador, Dados dados);
 }
