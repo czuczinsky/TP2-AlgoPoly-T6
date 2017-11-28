@@ -184,7 +184,7 @@ public class CarcelTest {
 	}
 
 	@Test
-	public void test14SiCaeMasDeUnJugadorALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+	public void test14SiCaenDosJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
 		Dados dados=new Dados();
 		Carcel carcel=new Carcel();
 		Jugador jugador1=new Jugador("carlos",100);
@@ -196,14 +196,476 @@ public class CarcelTest {
 		carcel.avanzarTurnoDe(jugador1);
 		carcel.avanzarTurnoDe(jugador2);
 		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
 		carcel.avanzarTurnoDe(jugador1);
-		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
 		carcel.avanzarTurnoDe(jugador1);
 		
 		
 		assertEquals(true,carcel.puedeMoverse(jugador1));
 		assertEquals(false,carcel.puedeMoverse(jugador2));
-		
 	}
 	
+	@Test
+	public void test15SiCaenDosJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+	}
+	
+	@Test
+	public void test16SiCaenDosJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+	}
+	
+	@Test
+	public void test17SiCaenDosJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+	}
+	
+	@Test
+	public void test18SiCaenDosJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador2);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+	}
+	
+	@Test
+	public void test19SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		carcel.ocupar(jugador2,dados);
+		carcel.ocupar(jugador3,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(true,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test20SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		carcel.ocupar(jugador2,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(true,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test21SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		carcel.ocupar(jugador2,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(true,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test22SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		carcel.ocupar(jugador2,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(true,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test23SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		carcel.ocupar(jugador2,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(true,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test24SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	
+	@Test
+	public void test25SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test26SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test27SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test28SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		carcel.avanzarTurnoDe(jugador1);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test29SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test30SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.ocupar(jugador3,dados);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test31SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador3);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test32SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
+	
+	@Test
+	public void test33SiCaenTresJugadoresALaCarcelSaleSolamenteElQueYaPasoTresTurnosAdentroDeLaCarcel() {
+		Dados dados=new Dados();
+		Carcel carcel=new Carcel();
+		Jugador jugador1=new Jugador("carlos",100);
+		Jugador jugador2=new Jugador("pedro",100);
+		Jugador jugador3=new Jugador("pablo",100);
+		
+		carcel.ocupar(jugador1,dados);
+		
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.ocupar(jugador2,dados);
+		carcel.avanzarTurnoDe(jugador1);
+		carcel.avanzarTurnoDe(jugador2);
+		carcel.ocupar(jugador3,dados);
+		
+		assertEquals(true,carcel.puedeMoverse(jugador1));
+		assertEquals(false,carcel.puedeMoverse(jugador2));
+		assertEquals(false,carcel.puedeMoverse(jugador3));
+	}
 }
