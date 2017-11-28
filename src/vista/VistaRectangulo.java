@@ -218,8 +218,8 @@ public abstract class VistaRectangulo implements Dibujable {
 				}
 				imageView.setImage(image);
 				imageView.setTranslateY(y + 25);
-				imageView.setFitWidth(40);
-				imageView.setFitHeight(40);
+				imageView.setFitWidth(60);
+				imageView.setFitHeight(60);
 				imageView.setPreserveRatio(true);
 				imageView.setSmooth(true);
 				this.pane.getChildren().add(imageView);

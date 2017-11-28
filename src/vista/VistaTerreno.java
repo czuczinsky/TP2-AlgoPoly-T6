@@ -4,7 +4,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
-import modelo.Compania;
 import modelo.Jugador;
 import modelo.Terreno;
 
