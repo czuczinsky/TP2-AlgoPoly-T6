@@ -4,6 +4,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
+import modelo.Compania;
 import modelo.Jugador;
 import modelo.Terreno;
 
@@ -79,13 +80,19 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 	}
 
 	private void ponerBotones() {
-		if (((Terreno) this.getCasillero()).puedeComprarsePor(this.getAlgoPoly().getJugadorActual()))
+		Terreno terreno = (Terreno) this.getCasillero(); 
+		if (terreno.puedeComprarsePor(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonComprar();
-		if (((Terreno) this.getCasillero()).puedeVendersePor(this.getAlgoPoly().getJugadorActual()))
+		if (terreno.puedeVendersePor(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonVender();
-		if (((Terreno) this.getCasillero()).puedeEdificarCasa(this.getAlgoPoly().getJugadorActual()))
+		if (terreno.puedeEdificarCasa(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonConstruirCasa();
-		if (((Terreno) this.getCasillero()).puedeEdificarHotel(this.getAlgoPoly().getJugadorActual()))
+		if (terreno.puedeEdificarHotel(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonConstruirHotel();
+		String txtInfo = "Precio: $" + String.valueOf(terreno.getPrecio());
+		txtInfo += "\nCasa: $" + String.valueOf(terreno.getCostoEdificarCasa());
+if (terreno.getCostoEdificarHotel() >0)
+		txtInfo += "\nHotel: $" + String.valueOf(terreno.getCostoEdificarHotel());
+		this.ponerBotonInfo(txtInfo);
 	}
 }

@@ -125,4 +125,12 @@ public class Terreno extends Agrupable {
 	public boolean estaCompleto() {
 		return (casas.size() == 2 || hoteles.size() == 1);
 	}
+	
+	public int getCostoEdificarCasa() {
+		return costoEdificarCasa;
+	}
+
+	public int getCostoEdificarHotel() {
+		return costoEdificarHotel;
+	}
 }

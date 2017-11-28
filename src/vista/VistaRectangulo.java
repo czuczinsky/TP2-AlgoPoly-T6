@@ -172,8 +172,8 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setPreserveRatio(true);
 		iconoConstruir.setSmooth(true);
 		this.pane.getChildren().add(iconoConstruir);
-		iconoConstruir.setTranslateX(x+90);
-		iconoConstruir.setTranslateY(y+30);
+		iconoConstruir.setTranslateX(x+96);
+		iconoConstruir.setTranslateY(y+28);
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control
 			JOptionPane.showMessageDialog(null, texto);
