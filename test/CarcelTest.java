@@ -205,4 +205,5 @@ public class CarcelTest {
 		assertEquals(false,carcel.puedeMoverse(jugador2));
 		
 	}
+	
 }

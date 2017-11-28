@@ -5,6 +5,7 @@ import modelo.Quini6;
 import vista.ContenedorPrincipal;
 
 import java.io.File;
+import java.net.URL;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,15 +27,16 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
 		algoPoly.mover();
 		
 		if ((algoPoly.getJugadorActual().getPosicion()) instanceof Quini6 ) {
-			
-		String path = "File:src/vista/sonidos/Quini6.mp3";
+	
+		String path = "file:src/vista/sonidos/Quini6.mp3";
 		Media media = new Media(new File(path).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.play();
-		//mediaPlayer.setAutoPlay(true);
-		//MediaView mediaView = new MediaView(mediaPlayer);
+//		mediaPlayer.setAutoPlay(true);
+//		MediaView mediaView = new MediaView(mediaPlayer);
 		
 		}
 		contenedorPrincipal.refrescar();
 	}
+	
 }

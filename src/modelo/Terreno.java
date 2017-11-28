@@ -30,7 +30,7 @@ public class Terreno extends Agrupable {
 	public void agregarA(Jugador jugador) {
 		jugador.agregarTerreno(this);
 	}
-
+	
 	public int precioTotalDeVenta() {
 		int precioTotal = this.getPrecio();
 		for (Construccion casa : casas)
@@ -95,7 +95,7 @@ public class Terreno extends Agrupable {
 		if (jugador != getPropietario())
 			return false;
 		else
-			return puedeEdificarCasa();
+			return (puedeEdificarCasa());
 	}
 
 	private boolean puedeEdificarHotel() {
@@ -107,7 +107,7 @@ public class Terreno extends Agrupable {
 		if (jugador != getPropietario())
 			return false;
 		else
-			return puedeEdificarHotel();
+			return (puedeEdificarHotel());
 	}
 
 	public int cantPropiedades() {

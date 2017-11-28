@@ -31,4 +31,5 @@ public class Compania extends Agrupable {
 	public boolean estaCompleto() {
 		return false;
 	}
+	
 }
