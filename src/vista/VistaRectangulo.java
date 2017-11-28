@@ -95,7 +95,8 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoComprar.setTranslateY(y);
 		iconoComprar.setOnMouseClicked(e -> {
 			// TODO mover a Control.
-			((Agrupable) casillero).venderA(algoPoly.getJugadorActual());
+			this.algoPoly.comprarAgrupagle();
+			// ((Agrupable) casillero).venderA(algoPoly.getJugadorActual());
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -172,16 +173,15 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setPreserveRatio(true);
 		iconoConstruir.setSmooth(true);
 		this.pane.getChildren().add(iconoConstruir);
-		iconoConstruir.setTranslateX(x+96);
-		iconoConstruir.setTranslateY(y+28);
+		iconoConstruir.setTranslateX(x + 96);
+		iconoConstruir.setTranslateY(y + 28);
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control
 			JOptionPane.showMessageDialog(null, texto);
-//			contenedorPrincipal.refrescar();
+			// contenedorPrincipal.refrescar();
 		});
 	}
 
-	
 	public void ponerCasa(int i) {
 		ImageView iconoCasa = new ImageView("file:src/vista/imagenes/casa.png");
 		this.pane.getChildren().add(iconoCasa);

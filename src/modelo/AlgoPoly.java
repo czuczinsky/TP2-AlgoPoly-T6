@@ -8,6 +8,7 @@ public class AlgoPoly {
 	private Turno turno;
 	private ArrayList<Jugador> jugadores;
 	private boolean dadosTirados;
+	private Agrupable agrupableCompradoEnTurnoActual;
 
 	public AlgoPoly() {
 		this.tablero = new Tablero();
@@ -82,6 +83,7 @@ public class AlgoPoly {
 		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());
 		turno.siguienteJugador(dados);
 		this.dadosTirados = false;
+		this.agrupableCompradoEnTurnoActual = null;
 	}
 
 	public void tirarDados() {
@@ -105,23 +107,22 @@ public class AlgoPoly {
 		return this.turno.getJugadorActual();
 	}
 
-	/*public boolean puedeMover() {
-		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse());
-	}
+	/*
+	 * public boolean puedeMover() { return (this.dadosTirados &&
+	 * this.turno.getJugadorActual().puedoMoverse()); }
+	 * 
+	 * public boolean puedeTirarDados() { return
+	 * (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados); }
+	 * 
+	 * public boolean debePasarTurno() { return
+	 * !this.turno.getJugadorActual().puedoMoverse(); }
+	 */
 
-	public boolean puedeTirarDados() {
-		return (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados);
-	}
-
-	public boolean debePasarTurno() {
-		return !this.turno.getJugadorActual().puedoMoverse();
-	}*/
-
-	
-// para prueba /////////////////////////////////
+	// para prueba /////////////////////////////////
 	public boolean puedeMover() {
 		return true;
 	}
+
 	public boolean puedeTirarDados() {
 		return true;
 	}
@@ -130,4 +131,18 @@ public class AlgoPoly {
 		return false;
 	}
 
+	public boolean puedoEdificarCasa(Terreno terreno) {
+		if (terreno == agrupableCompradoEnTurnoActual)
+			return false;
+		return terreno.puedeEdificarCasa(getJugadorActual());
+	}
+
+	public boolean puedoEdificarHotel(Terreno terreno) {
+		return terreno.puedeEdificarHotel(getJugadorActual());
+	}
+
+	public void comprarAgrupagle() {
+		((Agrupable) this.getJugadorActual().getPosicion()).venderA(this.getJugadorActual());
+		agrupableCompradoEnTurnoActual = (Agrupable) this.getJugadorActual().getPosicion();
+	}
 }
