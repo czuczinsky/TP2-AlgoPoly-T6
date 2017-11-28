@@ -70,16 +70,16 @@ public class ContenedorPrincipal extends BorderPane {
 		this.setBackground(new Background(imagenDeFondo));
 		this.setBorder(algoPoly, datosYBotones);
 
-		Text titulo = new Text("TURNO DEL JUGADOR: ");
+		Text titulo = new Text("TURNO:");
 		titulo.setFill(Color.BLACK);
-		titulo.setFont(Font.font(30));
+		titulo.setFont(Font.font("Arial", FontWeight.BOLD, 30));
 		this.datosYBotones.getChildren().add(titulo);
 		VBox.setMargin(titulo, new Insets(10));
 
 		this.mostrarJugadorActual(algoPoly.getJugadorActual().getNombre());
 
 		for (Jugador jugador : algoPoly.getJugadores()) {
-			Text txtJugador = new Text("Dinero Disponible : $ " + String.valueOf(jugador.getDinero()));
+			Text txtJugador = new Text("Disponible : $ " + String.valueOf(jugador.getDinero()));
 			txtJugador.setFont(Font.font("Arial", FontWeight.BOLD, 20));
 			setearColor(txtJugador, jugador);
 			datosYBotones.getChildren().add(txtJugador);

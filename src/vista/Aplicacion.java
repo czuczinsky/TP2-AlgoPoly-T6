@@ -21,7 +21,7 @@ public class Aplicacion extends Application  {
         AlgoPoly algoPoly = new AlgoPoly();  // Crea el modelo
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoPoly, stage);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 1070, 670);
+        Scene escenaJuego = new Scene(contenedorPrincipal, 1160, 670);
        
 
 
