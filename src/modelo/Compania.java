@@ -40,7 +40,7 @@ public class Compania extends Agrupable {
 		return 0;
 	}
 	
-	public int calcularAlquiler(Jugador jugador, Dados dados) {
+	private int calcularAlquiler(Jugador jugador, Dados dados) {
 		if (this.getGrupo().esMultiple() && this.getGrupo().mismoPropietario()) {
 			return multiplicadorMultiple * dados.getSuma();
 		} else {

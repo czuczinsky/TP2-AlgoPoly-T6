@@ -20,4 +20,8 @@ public class Construccion {
 		jugador.decrementarDinero(alquiler);
 		propietario.incrementarDinero(alquiler);
 	}
+
+	public int getAlquiler() {
+		return this.alquiler;
+	}
 }

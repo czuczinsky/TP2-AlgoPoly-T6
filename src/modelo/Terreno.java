@@ -136,7 +136,18 @@ public class Terreno extends Agrupable {
 
 	@Override
 	public int getAlquiler(Jugador jugador, Dados dados) {
-		// TODO Auto-generated method stub
+		if (this.tienePropietario() && !jugador.equals(this.getPropietario())) {
+			return this.calcularAlquiler(jugador, dados);
+		}
 		return 0;
+	}
+
+	private int calcularAlquiler(Jugador jugador, Dados dados) {
+		int alquiler = this.valorAlquiler;
+		for (Construccion casa : casas)
+			alquiler = alquiler + casa.getAlquiler();
+		for (Construccion hotel : hoteles)
+			alquiler = alquiler + hotel.getAlquiler();
+		return alquiler;
 	}
 }

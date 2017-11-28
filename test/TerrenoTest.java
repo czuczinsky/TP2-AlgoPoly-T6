@@ -943,5 +943,81 @@ public class TerrenoTest {
 
 		assertEquals(0, saltaSur.getAlquiler(jugador1, dados));
 	}
+	
+	@Test
+	public void test58ObtenerAlquilerDeTerrenoSaltaSinCasaConDuenioDeberiaDevolver2000() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		Jugador jugador2 = new Jugador("Jugador2", 100000);
+		
+		saltaSur.venderA(jugador2);
+		
+		assertEquals(2000, saltaSur.getAlquiler(jugador1, dados));
+	}
 
+	@Test
+	public void test59ObtenerAlquilerDeTerrenoSaltaConCasaConDuenioDeberiaDevolver3250() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		Jugador jugador2 = new Jugador("Jugador2", 100000);
+		
+		saltaSur.venderA(jugador2);
+		saltaNorte.venderA(jugador2);
+		saltaSur.construirCasa();
+		
+		assertEquals(3250, saltaSur.getAlquiler(jugador1, dados));
+	}
+	
+	@Test
+	public void test60ObtenerAlquilerDeTerrenoSaltaConDosCasasConDuenioDeberiaDevolver3850() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		Jugador jugador2 = new Jugador("Jugador2", 100000);
+		
+		saltaSur.venderA(jugador2);
+		saltaNorte.venderA(jugador2);
+		saltaSur.construirCasa();
+		saltaSur.construirCasa();
+		
+		assertEquals(3850, saltaSur.getAlquiler(jugador1, dados));
+	}
+	
+	@Test
+	public void test61ObtenerAlquilerDeTerrenoSaltaConHotelConDuenioDeberiaDevolver5500() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		Jugador jugador2 = new Jugador("Jugador2", 200000);
+		
+		saltaSur.venderA(jugador2);
+		saltaNorte.venderA(jugador2);
+		saltaSur.construirCasa();
+		saltaSur.construirCasa();
+		saltaNorte.construirCasa();
+		saltaNorte.construirCasa();
+		saltaSur.construirHotel();
+		
+		assertEquals(5500, saltaSur.getAlquiler(jugador1, dados));
+	}
+	
+	@Test
+	public void test62DuenioObtieneAlquilerDeSuTerrenoDeberiaDevolverCero() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		saltaSur.venderA(jugador1);
+
+		assertEquals(0, saltaSur.getAlquiler(jugador1, dados));
+	}
 }
