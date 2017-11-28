@@ -178,9 +178,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control
 			JOptionPane.showMessageDialog(null, texto, titulo, JOptionPane.INFORMATION_MESSAGE);
-			// JOptionPane.showOptionDialog(null, texto, , JOptionPane.DEFAULT_OPTION,
-			// JOptionPane.INFORMATION_MESSAGE, null, new Object[] {}, null); //
-			// contenedorPrincipal.refrescar();
 		});
 	}
 
