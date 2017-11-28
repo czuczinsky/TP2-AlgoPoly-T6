@@ -1,6 +1,7 @@
 package vista;
 
 import eventos.BotonMoverHandler;
+import eventos.BotonPasarTurnoHandler;
 import eventos.BotonTirarDadosHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -107,12 +108,12 @@ public class ContenedorPrincipal extends BorderPane {
 		}
 
 		if (algoPoly.debePasarTurno()) {
-			Button btnMover = new Button();
-			btnMover.setText("Pasar Turno");
-			BotonMoverHandler moverHandler = new BotonMoverHandler(this.algoPoly, this);
-			btnMover.setOnAction(moverHandler);
-			VBox.setMargin(btnMover, new Insets(15));
-			this.datosYBotones.getChildren().add(btnMover);
+			Button btnPasar = new Button();
+			btnPasar.setText("Pasar Turno");
+			BotonPasarTurnoHandler pasarHandler = new BotonPasarTurnoHandler(this.algoPoly, this);
+			btnPasar.setOnAction(pasarHandler);
+			VBox.setMargin(btnPasar, new Insets(15));
+			this.datosYBotones.getChildren().add(btnPasar);
 		}
 
 		
