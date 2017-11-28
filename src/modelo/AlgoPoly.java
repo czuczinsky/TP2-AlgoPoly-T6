@@ -105,7 +105,7 @@ public class AlgoPoly {
 		return this.turno.getJugadorActual();
 	}
 
-	public boolean puedeMover() {
+	/*public boolean puedeMover() {
 		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse());
 	}
 
@@ -115,20 +115,19 @@ public class AlgoPoly {
 
 	public boolean debePasarTurno() {
 		return !this.turno.getJugadorActual().puedoMoverse();
-	}
+	}*/
 
 	
 // para prueba /////////////////////////////////
-//	public boolean puedeMover() {
-//		return true;
-//	}
-//	public boolean puedeTirarDados() {
-//		return true;
-//	}
-//
-//	public boolean debePasarTurno() {
-//		return false;
-//	}
-///////////////////////////////////////////////
+	public boolean puedeMover() {
+		return true;
+	}
+	public boolean puedeTirarDados() {
+		return true;
+	}
+
+	public boolean debePasarTurno() {
+		return false;
+	}
 
 }
