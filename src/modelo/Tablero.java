@@ -49,4 +49,19 @@ public class Tablero {
 	public ArrayList<Casillero> getCasilleros() {
 		return casilleros;
 	}
+
+	public boolean puedeMover(Jugador jugador, Dados dados) {
+		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(jugador.getPosicion()));
+		Casillero nuevaPosicion = null;
+		for (int i=0 ; i <= dados.getSuma() ; i++) {
+			if (iterador.hasNext()) {
+				nuevaPosicion = iterador.next();
+			} 
+			else {
+				iterador = this.casilleros.listIterator();
+				nuevaPosicion = iterador.next();
+			}
+		}
+		return (nuevaPosicion.getAlquiler(jugador, dados) <= jugador.getDinero());
+	}
 }
