@@ -88,10 +88,10 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 			this.ponerBotonConstruirCasa();
 		if (this.getAlgoPoly().puedoEdificarHotel(terreno))
 			this.ponerBotonConstruirHotel();
-		String txtInfo = "Precio: $" + String.valueOf(terreno.getPrecio());
+		String txtInfo = "Terreno: $" + String.valueOf(terreno.getPrecio());
 		txtInfo += "\nCasa: $" + String.valueOf(terreno.getCostoEdificarCasa());
 		if (terreno.getCostoEdificarHotel() > 0)
 			txtInfo += "\nHotel: $" + String.valueOf(terreno.getCostoEdificarHotel());
-		this.ponerBotonInfo(txtInfo);
+		this.ponerBotonInfo(txtInfo,"Precios");
 	}
 }

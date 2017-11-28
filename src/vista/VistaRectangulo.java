@@ -166,7 +166,7 @@ public abstract class VistaRectangulo implements Dibujable {
 		});
 	}
 
-	public void ponerBotonInfo(String texto) {
+	public void ponerBotonInfo(String texto, String titulo) {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/info.png");
 		iconoConstruir.setFitWidth(40);
 		iconoConstruir.setFitHeight(40);
@@ -177,7 +177,9 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateY(y + 28);
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control
-			JOptionPane.showMessageDialog(null, texto);
+			JOptionPane.showMessageDialog(null, texto, titulo, JOptionPane.INFORMATION_MESSAGE);
+			// JOptionPane.showOptionDialog(null, texto, , JOptionPane.DEFAULT_OPTION,
+			// JOptionPane.INFORMATION_MESSAGE, null, new Object[] {}, null); //
 			// contenedorPrincipal.refrescar();
 		});
 	}
