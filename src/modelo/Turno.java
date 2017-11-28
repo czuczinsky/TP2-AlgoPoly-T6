@@ -36,6 +36,7 @@ public class Turno {
 	}
 	
 	public void borrar() {
-		iterador.remove();
+		this.iterador.remove();
+		this.vuelveAJugar = false;
 	}
 }

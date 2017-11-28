@@ -124,4 +124,12 @@ public class TurnoTest {
 		turno.borrar();
 		assertEquals(2, jugadores.size());
 	}
+	
+	@Test
+	public void test12BorrarJugadorQueSacoDobles() {
+		dados.setNumeros(2, 2);
+		assertEquals(jugadorRojo, turno.siguienteJugador(dados));
+		turno.borrar();
+		assertEquals(jugadorVerde, turno.siguienteJugador(dados));
+	}
 }
