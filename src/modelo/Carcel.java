@@ -35,12 +35,12 @@ public class Carcel extends Casillero {
 		return puedeMoverse;	
 	}
 	
-	public void cobrarFianza(Jugador jugador) { //que pasa si no puede pagar la fianza	
+	public void cobrarFianza(Jugador jugador) {
 		Prisionero prisionero=this.obtenerPrisionero(jugador);
 		
 		if (prisionero.puedePagarFianza(45000)){
-			this.prisioneros.remove(prisionero);
-			jugador.decrementarDinero(45000);
+				this.prisioneros.remove(prisionero);
+				jugador.decrementarDinero(45000);
 		}
 	}
 	
