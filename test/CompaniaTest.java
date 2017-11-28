@@ -231,7 +231,7 @@ public class CompaniaTest {
 	}
 	
 	@Test
-	public void test14DueñoObtieneAlquilerDeSuCompaniaDeberiaDevolverCero() {
+	public void test14DuenioObtieneAlquilerDeSuCompaniaDeberiaDevolverCero() {
 		Dados dados = new Dados();
 		dados.setNumeros(2, 2);
 		Jugador propietario = new Jugador("Jugador 1", 200000);
