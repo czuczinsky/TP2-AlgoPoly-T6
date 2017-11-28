@@ -1,5 +1,7 @@
 package vista;
 
+import javax.swing.JOptionPane;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -163,6 +165,23 @@ public abstract class VistaRectangulo implements Dibujable {
 		});
 	}
 
+	public void ponerBotonInfo(String texto) {
+		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/info.png");
+		iconoConstruir.setFitWidth(40);
+		iconoConstruir.setFitHeight(40);
+		iconoConstruir.setPreserveRatio(true);
+		iconoConstruir.setSmooth(true);
+		this.pane.getChildren().add(iconoConstruir);
+		iconoConstruir.setTranslateX(x+80);
+		iconoConstruir.setTranslateY(y+30);
+		iconoConstruir.setOnMouseClicked(e -> {
+			// TODO mover a Control
+			JOptionPane.showMessageDialog(null, texto);
+//			contenedorPrincipal.refrescar();
+		});
+	}
+
+	
 	public void ponerCasa(int i) {
 		ImageView iconoCasa = new ImageView("file:src/vista/imagenes/casa.png");
 		this.pane.getChildren().add(iconoCasa);
