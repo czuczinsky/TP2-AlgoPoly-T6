@@ -21,11 +21,16 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent actionEvent) {
 		algoPoly.mover();
-		// el algoPoly.mover te cambia el jugador actual. el sonido se escucha en el turno siguiente del jugador que cayo en quni6
+		
+		// el algoPoly.mover te cambia el jugador actual.
+		// por eso el sonido se escucha en el turno siguiente del jugador que cayo en quni6
+
 		if ((algoPoly.getJugadorActual().getPosicion()) instanceof Quini6 ) {
-		// sobraba el file: en "file:src/vista/sonidos/Quini6.mp3"	
+
+// sobraba el file: en "file:src/vista/sonidos/Quini6.mp3"	
 		String path = "src/vista/sonidos/Quini6.mp3";
 //		String path = "file:src/vista/sonidos/Quini6.mp3";
+
 		Media media = new Media(new File(path).toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.play();
