@@ -1,5 +1,9 @@
 package vista;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
+
 import javax.swing.JOptionPane;
 
 import javafx.scene.image.Image;
@@ -96,7 +100,11 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoComprar.setOnMouseClicked(e -> {
 			// TODO mover a Control.
 			this.algoPoly.comprarAgrupagle();
-			// ((Agrupable) casillero).venderA(algoPoly.getJugadorActual());
+
+			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
+			AudioClip clip = Applet.newAudioClip(url);
+			clip.play();
+
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -113,6 +121,11 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoComprar.setOnMouseClicked(e -> {
 			// TODO mover a Control.
 			((Agrupable) casillero).vender();
+
+			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
+			AudioClip clip = Applet.newAudioClip(url);
+			clip.play();
+
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -129,7 +142,11 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoFianza.setOnMouseClicked(e -> {
 			// TODO mover a Control.
 			((Carcel) casillero).cobrarFianza(algoPoly.getJugadorActual());
-			;
+
+			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
+			AudioClip clip = Applet.newAudioClip(url);
+			clip.play();
+			
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -146,6 +163,11 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control.
 			((Terreno) casillero).construirCasa();
+
+			URL url = getClass().getResource("/vista/sonidos/CONSTRUIR.WAV");
+			AudioClip clip = Applet.newAudioClip(url);
+			clip.play();
+
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -162,6 +184,11 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setOnMouseClicked(e -> {
 			// TODO mover a Control
 			((Terreno) casillero).construirHotel();
+
+			URL url = getClass().getResource("/vista/sonidos/CONSTRUIR2.WAV");
+			AudioClip clip = Applet.newAudioClip(url);
+			clip.play();
+
 			contenedorPrincipal.refrescar();
 		});
 	}
