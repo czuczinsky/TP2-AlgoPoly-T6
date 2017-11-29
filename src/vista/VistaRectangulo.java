@@ -4,9 +4,6 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
 import javax.swing.JOptionPane;
-
-import eventos.BotonComprarHandler;
-import eventos.BotonPasarTurnoHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
