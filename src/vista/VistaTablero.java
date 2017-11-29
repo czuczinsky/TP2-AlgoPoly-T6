@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import modelo.AlgoPoly;
@@ -12,44 +12,46 @@ import modelo.Casillero;
 
 public class VistaTablero {
 
-	ArrayList<VistaCasillero> vistaCasilleros;
-	double ancho;
-	double alto;
-	StackPane pane;
+	private ArrayList<VistaCasillero> vistaCasilleros;
+	private double ancho;
+	private double alto;
+	private GridPane pane;
+	private double separacion;
+	private int porLinea;
 
-	public VistaTablero(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, StackPane pane) {
+	public VistaTablero(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, GridPane pane) {
 		this.ancho = 850;
 		this.alto = 600;
-		double separacion = 10;
+		this.separacion = 10;
 
 		this.pane = pane;
 
 		vistaCasilleros = new ArrayList<VistaCasillero>();
 		ArrayList<Casillero> casilleros = algoPoly.getTablero().getCasilleros();
 		int cantidad = casilleros.size();
-		int porLinea = cantidad / 4;
+		this.porLinea = cantidad / 4;
 		double anchoCasillero = this.ancho / (porLinea + 1);
 		double altoCasillero = this.alto / (porLinea + 1);
-		double x;
-		double y;
+		int x;
+		int y;
+
 		int i = 0;
 		for (Casillero casillero : casilleros) {
 			if (i < porLinea) {
-				x = this.ancho - anchoCasillero * (i + 1);
-				y = this.alto - altoCasillero;
+				x = porLinea - i;
+				y = porLinea;
 			} else if (i < porLinea * 2) {
 				x = 0;
-				y = this.alto - altoCasillero * (i + 1 - porLinea);
+				y = porLinea - (i - porLinea);
 			} else if (i < porLinea * 3) {
-				x = anchoCasillero * (i - 2 * porLinea);
+				x = i - 2 * porLinea;
 				y = 0;
 			} else {
-				x = this.ancho - anchoCasillero;
-				y = altoCasillero * (i - 3 * porLinea);
+				x = porLinea;
+				y = i - 3 * porLinea;
 			}
-
-			vistaCasilleros.add(new VistaCasillero(algoPoly, contenedorPrincipal, casillero, pane, x + separacion / 2,
-					y + separacion / 2, anchoCasillero - separacion, altoCasillero - separacion));
+			vistaCasilleros.add(new VistaCasillero(algoPoly, contenedorPrincipal, casillero, pane, x, y,
+					anchoCasillero - separacion, altoCasillero - separacion));
 			i++;
 		}
 
@@ -62,16 +64,18 @@ public class VistaTablero {
 	}
 
 	public void clean() {
+		pane.setHgap(this.separacion);
+		pane.setVgap(this.separacion);
+
 		Rectangle fondo = new Rectangle(0, 0, ancho, alto);
 		fondo.setFill(Color.CHARTREUSE.desaturate());
-		this.pane.getChildren().add(fondo);
+		this.pane.add(fondo, 0, 0, porLinea + 1, porLinea + 1);
 
-		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
-		ImageView imageView = new ImageView();
-		imageView.setImage(image);
-		this.pane.getChildren().add(imageView);
-		imageView.setTranslateX((ancho - image.getWidth()) / 2);
-		imageView.setTranslateY((alto - image.getHeight()) / 2);
+		 Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
+		 ImageView imageView = new ImageView();
+		 imageView.setImage(image);
+		 this.pane.add(imageView, 0, 0, porLinea + 1, porLinea + 1);
+		 imageView.setTranslateX((ancho - image.getWidth()) / 2);
 	}
 
 	public void update() {

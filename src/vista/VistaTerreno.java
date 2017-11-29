@@ -1,6 +1,6 @@
 package vista;
 
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
@@ -9,13 +9,13 @@ import modelo.Terreno;
 
 public class VistaTerreno extends VistaRectangulo implements Dibujable {
 
-	public VistaTerreno(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, StackPane pane,
-			double x, double y, double ancho, double alto) {
+	public VistaTerreno(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
+			int x, int y, double ancho, double alto) {
 		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
 	public static VistaTerreno Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal,
-			Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+			Casillero casillero, GridPane pane, int x, int y, double ancho, double alto) {
 		return new VistaTerreno(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
@@ -92,6 +92,6 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 		txtInfo += "\nCasa: $" + String.valueOf(terreno.getCostoEdificarCasa());
 		if (terreno.getCostoEdificarHotel() > 0)
 			txtInfo += "\nHotel: $" + String.valueOf(terreno.getCostoEdificarHotel());
-		this.ponerBotonInfo(txtInfo,"Precios");
+		this.ponerBotonInfo(txtInfo, "Precios");
 	}
 }

@@ -1,6 +1,6 @@
 package vista;
 
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
@@ -9,13 +9,13 @@ import modelo.Jugador;
 
 public class VistaCompania extends VistaRectangulo implements Dibujable {
 
-	public VistaCompania(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
-			StackPane pane, double x, double y, double ancho, double alto) {
+	public VistaCompania(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
+			int x, int y, double ancho, double alto) {
 		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
 	public static VistaCompania Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal,
-			Casillero casillero, StackPane pane, double x, double y, double ancho, double alto) {
+			Casillero casillero, GridPane pane, int x, int y, double ancho, double alto) {
 		return new VistaCompania(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 

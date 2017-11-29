@@ -16,8 +16,8 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -33,7 +33,7 @@ public class ContenedorPrincipal extends BorderPane {
 	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
 	Canvas canvas;
-	StackPane paneIzquierdo;
+	GridPane paneIzquierdo;
 	Label dineroDisponible;
 	VBox datosYBotones;
 	Stage stage;
@@ -49,11 +49,11 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void setIzquierda() {
-		paneIzquierdo = new StackPane();
+		paneIzquierdo = new GridPane();
 		vistaTablero = new VistaTablero(algoPoly, this, paneIzquierdo);
 		vistaTablero.dibujar();
 
-		paneIzquierdo.setAlignment(Pos.TOP_LEFT);
+		paneIzquierdo.setAlignment(Pos.CENTER);
 		this.setBorder(algoPoly, paneIzquierdo);
 		this.setLeft(paneIzquierdo);
 	}
