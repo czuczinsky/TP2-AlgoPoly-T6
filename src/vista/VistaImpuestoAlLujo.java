@@ -7,8 +7,8 @@ import modelo.Casillero;
 
 public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 
-	public VistaImpuestoAlLujo(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
-			int x, int y, double ancho, double alto) {
+	public VistaImpuestoAlLujo(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
+			GridPane pane, int x, int y, double ancho, double alto) {
 		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
@@ -22,6 +22,6 @@ public class VistaImpuestoAlLujo extends VistaRectangulo implements Dibujable {
 		this.ponerImagen("file:src/vista/imagenes/impuesto.png");
 		this.etiquetar("IMPUESTO AL LUJO", Color.BLACK);
 		super.dibujar();
+		this.ponerBotonInfo("Descuenta 10% de todo el efectivo", "Impuesto al lujo");
 	}
-
 }

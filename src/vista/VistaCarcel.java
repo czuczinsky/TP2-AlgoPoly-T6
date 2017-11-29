@@ -24,11 +24,13 @@ public class VistaCarcel extends VistaRectangulo implements Dibujable {
 		this.etiquetar("CARCEL", Color.BLACK);
 		super.dibujar();
 		this.ponerBotones();
-
 	}
 
 	private void ponerBotones() {
 		if (((Carcel) this.getCasillero()).puedePagarFianza(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonPagarFianza();
+		this.ponerBotonInfo(
+				"Debe esperar 3 turnors\nFianza: $45.000",
+				"Carcel");
 	}
 }
