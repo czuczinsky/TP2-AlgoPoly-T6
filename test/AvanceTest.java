@@ -245,24 +245,4 @@ public class AvanceTest {
 		assertEquals(saltaNorte, jugadora.getPosicion());
 	}
 	
-	@Test
-	public void test14JugadorPropietarioDeDosTerrenosY2CasasYUnHotelCaeEnAvanceDinamicoSaca12EnLosDadosDeberiaCaerEnPoliciaEIrALaCarcel() {
-		Grupo bsAs = new Grupo();
-		Terreno bsAsSur = new Terreno("BsAsSur", bsAs,
-				20000 , 2000 , 3000 , 3500 , 5000 , 5000 , 8000);
-		Terreno bsAsNorte = new Terreno("BsAsNorte", bsAs,
-			25000 , 2500 , 3500 , 4000 , 6000 , 5500 , 9000);
-				
-		Jugador jugadora = new Jugador("Maria",100000);
-		bsAsSur.venderA(jugadora);
-		bsAsNorte.venderA(jugadora);
-		
-		bsAsSur.construirCasa();
-		bsAsSur.construirCasa();
-		Dados dados=new Dados();
-		dados.setNumeros(6,6);
-		jugadora.moverA(avance,dados);
-	
-		assertEquals(carcel, jugadora.getPosicion());
-	}
 }

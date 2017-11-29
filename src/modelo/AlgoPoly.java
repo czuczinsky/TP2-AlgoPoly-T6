@@ -64,8 +64,8 @@ public class AlgoPoly {
 		tablero.agregarCasillero(tucuman);
 
 		jugadores.add(new Jugador("Rojo", 100000));
-		jugadores.add(new Jugador("Verde", 100000));
-		jugadores.add(new Jugador("Azul", 100000));
+		jugadores.add(new Jugador("Verde", 00000));
+		jugadores.add(new Jugador("Azul", 00000));
 
 		for (Jugador jugador : this.jugadores)
 			jugador.moverA(salida, dados);
@@ -108,7 +108,7 @@ public class AlgoPoly {
 	}
 
 	public boolean puedeMover() {
-		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse());
+		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse() && this.tablero.puedeMover(this.getJugadorActual(), dados));
 	}
 
 	public boolean puedeTirarDados() {
