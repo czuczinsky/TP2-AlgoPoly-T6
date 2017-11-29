@@ -62,7 +62,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		Text text = new Text(etiqueta);
 		text.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
 		text.setFill(color);
-		// text.setStroke(Color.web("#7080A0"));
 		this.pane.add(text, x, y);
 		text.setTranslateX(10);
 		text.setTranslateY(alto / 2 - 5);

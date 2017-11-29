@@ -7,7 +7,7 @@ import modelo.Casillero;
 import modelo.Compania;
 import modelo.Jugador;
 
-public class VistaCompania extends VistaRectangulo implements Dibujable {
+public class VistaCompania extends VistaRectangulo {
 
 	public VistaCompania(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
 			int x, int y, double ancho, double alto) {

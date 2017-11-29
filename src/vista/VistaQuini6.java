@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 
-public class VistaQuini6 extends VistaRectangulo implements Dibujable {
+public class VistaQuini6 extends VistaRectangulo {
 
 	public VistaQuini6(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
 			int x, int y, double ancho, double alto) {

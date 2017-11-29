@@ -5,14 +5,15 @@ import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 
-public class VistaSalida extends VistaRectangulo implements Dibujable {
+public class VistaSalida extends VistaRectangulo {
 
-	public VistaSalida(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane, int x, int y, double ancho, double alto) {
+	public VistaSalida(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
+			int x, int y, double ancho, double alto) {
 		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaSalida Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane, int x, int y, double ancho,
-			double alto) {
+	public static VistaSalida Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
+			GridPane pane, int x, int y, double ancho, double alto) {
 		return new VistaSalida(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 

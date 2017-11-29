@@ -5,10 +5,10 @@ import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 
-public class VistaRetroceso extends VistaRectangulo implements Dibujable {
+public class VistaRetroceso extends VistaRectangulo {
 
-	public VistaRetroceso(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
-			int x, int y, double ancho, double alto) {
+	public VistaRetroceso(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
+			GridPane pane, int x, int y, double ancho, double alto) {
 		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 

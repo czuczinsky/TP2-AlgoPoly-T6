@@ -7,7 +7,7 @@ import modelo.Casillero;
 import modelo.Jugador;
 import modelo.Terreno;
 
-public class VistaTerreno extends VistaRectangulo implements Dibujable {
+public class VistaTerreno extends VistaRectangulo {
 
 	public VistaTerreno(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
 			int x, int y, double ancho, double alto) {
@@ -28,44 +28,46 @@ public class VistaTerreno extends VistaRectangulo implements Dibujable {
 		} else
 			this.pintar(Color.GAINSBORO);
 
-		if (terreno.getNombre() == "Bs.As. SUR") {
+		switch (terreno.getNombre()) {
+		case "Bs.As. SUR":
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. SUR", Color.BLACK);
-		}
-		if (terreno.getNombre() == "Bs.As. NORTE") {
+			break;
+		case "Bs.As. NORTE":
 			this.ponerImagen("file:src/vista/imagenes/bsas.png");
 			this.etiquetar("Bs.As. NORTE", Color.BLACK);
-		}
-		if (terreno.getNombre() == "CORDOBA SUR") {
+			break;
+		case "CORDOBA SUR":
 			this.ponerImagen("file:src/vista/imagenes/cordoba.png");
 			this.etiquetar("CORDOBA SUR", Color.BLACK);
-		}
-		if (terreno.getNombre() == "CORDOBA NORTE") {
+			break;
+		case "CORDOBA NORTE":
 			this.ponerImagen("file:src/vista/imagenes/cordoba.png");
 			this.etiquetar("CORDOBA NORTE", Color.BLACK);
-		}
-
-		if (terreno.getNombre() == "SALTA SUR") {
+			break;
+		case "SALTA SUR":
 			this.ponerImagen("file:src/vista/imagenes/salta.png");
 			this.etiquetar("SALTA SUR", Color.BLACK);
-		}
-		if (terreno.getNombre() == "SALTA NORTE") {
+			break;
+		case "SALTA NORTE":
 			this.ponerImagen("file:src/vista/imagenes/salta.png");
 			this.etiquetar("SALTA NORTE", Color.BLACK);
-		}
-		if (terreno.getNombre() == "NEUQUEN") {
+			break;
+		case "NEUQUEN":
 			this.ponerImagen("file:src/vista/imagenes/neuquen.png");
 			this.etiquetar("NEUQUEN", Color.BLACK);
-		}
-		if (terreno.getNombre() == "TUCUMAN") {
+			break;
+		case "TUCUMAN":
 			this.ponerImagen("file:src/vista/imagenes/tucuman.png");
 			this.etiquetar("TUCUMAN", Color.BLACK);
-		}
-		if (terreno.getNombre() == "SANTA FE") {
+			break;
+		case "SANTA FE":
 			this.ponerImagen("file:src/vista/imagenes/santafe.png");
 			this.etiquetar("SANTA FE", Color.BLACK);
-			this.ponerBotones();
+			break;
 		}
+
+		this.ponerBotones();
 		this.ponerConstrucciones();
 		super.dibujar();
 		this.ponerBotones();

@@ -6,7 +6,7 @@ import modelo.AlgoPoly;
 import modelo.Carcel;
 import modelo.Casillero;
 
-public class VistaCarcel extends VistaRectangulo implements Dibujable {
+public class VistaCarcel extends VistaRectangulo {
 
 	public VistaCarcel(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
 			int x, int y, double ancho, double alto) {

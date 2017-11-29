@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 
-public class VistaAvance extends VistaRectangulo implements Dibujable {
+public class VistaAvance extends VistaRectangulo {
 
 	public VistaAvance(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero, GridPane pane,
 			int x, int y, double ancho, double alto) {
