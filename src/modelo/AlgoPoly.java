@@ -132,10 +132,11 @@ public class AlgoPoly {
 		this.getJugadorActual().quiebra();
 		turno.borrar();
 		this.turno.siguienteJugador(dados);
+		this.dadosTirados = false;
 	}
 
 	public boolean puedeTirarDados() {
-		return (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados);
+		return (this.turno.getJugadorActual().puedoMoverse() && !this.dadosTirados && !(this.jugadores.size() == 1));
 	}
 
 	public boolean debePasarTurno() {
