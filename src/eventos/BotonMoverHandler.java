@@ -1,18 +1,12 @@
 package eventos;
 
 import modelo.AlgoPoly;
-import modelo.Quini6;
 import vista.ContenedorPrincipal;
-
 import java.applet.Applet;
 import java.applet.AudioClip;
-import java.io.File;
 import java.net.URL;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 public class BotonMoverHandler implements EventHandler<ActionEvent> {
 	private AlgoPoly algoPoly;
@@ -30,26 +24,7 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
 		URL url = getClass().getResource("/vista/sonidos/SUCTION.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
-		
-		// el algoPoly.mover te cambia el jugador actual.
-		// por eso el sonido se escucha en el siguiente turno del jugador que cayo en
-		// quni6
 
-		if ((algoPoly.getJugadorActual().getPosicion()) instanceof Quini6) {
-
-			// sobraba el file: en "file:src/vista/sonidos/Quini6.mp3"
-			String path = "src/vista/sonidos/Quini6.mp3";
-			// String path = "file:src/vista/sonidos/Quini6.mp3";
-
-			Media media = new Media(new File(path).toURI().toString());
-			MediaPlayer mediaPlayer = new MediaPlayer(media);
-			mediaPlayer.play();
-			// mediaPlayer.setAutoPlay(true);
-			// MediaView mediaView = new MediaView(mediaPlayer);
-			// mediaPlayer.setAutoPlay(true);
-			// MediaView mediaView = new MediaView(mediaPlayer);
-		}
 		contenedorPrincipal.refrescar();
 	}
-
 }
