@@ -63,7 +63,7 @@ public class VistaTablero {
 
 	public void clean() {
 		Rectangle fondo = new Rectangle(0, 0, ancho, alto);
-		fondo.setFill(Color.CHARTREUSE);
+		fondo.setFill(Color.CHARTREUSE.desaturate());
 		this.pane.getChildren().add(fondo);
 
 		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
