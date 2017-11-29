@@ -29,4 +29,9 @@ public class Avance extends DesplazamientoDinamico{
 		
 	}
 	
+	@Override
+	public int getAlquiler(Jugador jugador, Dados dados) {
+		return 0;
+	}
+	
 }

@@ -62,10 +62,20 @@ public class AlgoPoly {
 		tablero.agregarCasillero(neuquen);
 		tablero.agregarCasillero(new Retroceso(tablero));
 		tablero.agregarCasillero(tucuman);
-
-		jugadores.add(new Jugador("Rojo", 100000));
-		jugadores.add(new Jugador("Verde", 100000));
-		jugadores.add(new Jugador("Azul", 100000));
+		
+		Jugador jRojo = new Jugador("Rojo", 100000);
+		Jugador jVerde = new Jugador("Verde", 100000);
+		Jugador jAzul = new Jugador("Azul", 100000);
+//		bsAsNorte.venderA(jRojo);
+//		bsAsSur.venderA(jRojo);
+//		edesur.venderA(jRojo);
+//		cordobaNorte.venderA(jRojo);
+//		cordobaSur.venderA(jRojo);
+//		tucuman.venderA(jVerde);
+		
+		jugadores.add(jRojo);
+		jugadores.add(jVerde);
+		jugadores.add(jAzul);
 
 		for (Jugador jugador : this.jugadores)
 			jugador.moverA(salida, dados);
@@ -74,11 +84,7 @@ public class AlgoPoly {
 
 	public void mover() {
 		if (turno.getJugadorActual().getPosicion().puedeMoverse(turno.getJugadorActual())) {
-			try {
-				tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
-			} catch (SinDineroException e) {
-				turno.borrar();
-			}
+			tablero.avanzar(turno.getJugadorActual(), dados.getSuma(), dados);
 		}
 		turno.getJugadorActual().getPosicion().avanzarTurnoDe(turno.getJugadorActual());
 		turno.siguienteJugador(dados);
@@ -88,6 +94,7 @@ public class AlgoPoly {
 
 	public void tirarDados() {
 		dados.tirar();
+//		dados.setNumeros(1, 3);
 		dadosTirados = true;
 	}
 
@@ -108,7 +115,23 @@ public class AlgoPoly {
 	}
 
 	public boolean puedeMover() {
-		return (this.dadosTirados && this.turno.getJugadorActual().puedoMoverse() && this.tablero.puedeMover(this.getJugadorActual(), dados));
+		boolean jugadorEnCarcel = this.turno.getJugadorActual().puedoMoverse();
+		boolean puedeMover = this.tablero.puedeMover(this.getJugadorActual(), dados);
+		return (this.dadosTirados && jugadorEnCarcel && puedeMover);
+	}
+	
+	public boolean perder() {
+		boolean puedeMover = this.tablero.puedeMover(this.getJugadorActual(), dados);
+		if (!puedeMover && this.getJugadorActual().cantPropiedades() <= 0 && this.dadosTirados) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void quebrarJugador() {
+		this.getJugadorActual().quiebra();
+		turno.borrar();
+		this.turno.siguienteJugador(dados);
 	}
 
 	public boolean puedeTirarDados() {
@@ -124,9 +147,9 @@ public class AlgoPoly {
 	// return true;
 	// }
 	//
-	// public boolean puedeTirarDados() {
-	// return true;
-	// }
+//	 public boolean puedeTirarDados() {
+//	 return true;
+//	 }
 	//
 	// public boolean debePasarTurno() {
 	// return false;

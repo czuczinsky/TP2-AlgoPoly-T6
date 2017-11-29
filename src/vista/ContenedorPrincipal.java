@@ -2,6 +2,7 @@ package vista;
 
 import eventos.BotonMoverHandler;
 import eventos.BotonPasarTurnoHandler;
+import eventos.BotonPerderHandler;
 import eventos.BotonTirarDadosHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -114,6 +115,15 @@ public class ContenedorPrincipal extends BorderPane {
 			btnPasar.setOnAction(pasarHandler);
 			VBox.setMargin(btnPasar, new Insets(15));
 			this.datosYBotones.getChildren().add(btnPasar);
+		}
+		
+		if (algoPoly.perder()) {
+			Button btnPerder = new Button();
+			btnPerder.setText("Perder");
+			BotonPerderHandler perderHandler = new BotonPerderHandler(this.algoPoly, this);
+			btnPerder.setOnAction(perderHandler);
+			VBox.setMargin(btnPerder, new Insets(15));
+			this.datosYBotones.getChildren().add(btnPerder);
 		}
 
 		

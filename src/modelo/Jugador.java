@@ -70,4 +70,8 @@ public class Jugador {
 		}
 		this.terrenos.clear();
 	}
+
+	public void eliminarTerreno(Agrupable agrupable) {
+		this.terrenos.remove(agrupable);
+	}
 }

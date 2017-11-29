@@ -29,6 +29,7 @@ public abstract class Agrupable extends Casillero {
 
 	public void vender() {
 		Jugador propietario = this.getPropietario();
+		propietario.eliminarTerreno(this);
 		int montoACobrar = this.precioTotalDeVenta();
 		montoACobrar = (int) (montoACobrar * (double) (100 - 15) / 100);
 		propietario.incrementarDinero(montoACobrar);
