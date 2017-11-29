@@ -197,7 +197,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(96);
 		iconoConstruir.setTranslateY(28);
 		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control
 			JOptionPane.showMessageDialog(null, texto, titulo, JOptionPane.INFORMATION_MESSAGE);
 		});
 	}
@@ -216,16 +215,14 @@ public abstract class VistaRectangulo implements Dibujable {
 
 	public void ponerFichasJugador() {
 		double offset = 15;
-		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
+		Image image;
 		ImageView imageView;
 		for (Jugador jugador : algoPoly.getJugadores()) {
 			imageView = new ImageView();
 			if (casillero.equals(jugador.getPosicion())) {
 				imageView = new ImageView();
-				if (jugador.getNombre().equals("Rojo")) {
 					image = new Image("file:src/vista/imagenes/ficharoja.png");
 					imageView.setTranslateX(50 + offset);
-				}
 				if (jugador.getNombre().equals("Verde")) {
 					image = new Image("file:src/vista/imagenes/fichaverde.png");
 					imageView.setTranslateX(50);
