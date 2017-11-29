@@ -33,7 +33,7 @@ public class ContenedorPrincipal extends BorderPane {
 	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
 	Canvas canvas;
-	StackPane paneCentral;
+	StackPane paneIzquierdo;
 	Label dineroDisponible;
 	VBox datosYBotones;
 	Stage stage;
@@ -49,13 +49,13 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 
 	private void setIzquierda() {
-		paneCentral = new StackPane();
-		vistaTablero = new VistaTablero(algoPoly, this, paneCentral);
+		paneIzquierdo = new StackPane();
+		vistaTablero = new VistaTablero(algoPoly, this, paneIzquierdo);
 		vistaTablero.dibujar();
 
-		paneCentral.setAlignment(Pos.TOP_LEFT);
-		this.setBorder(algoPoly, paneCentral);
-		this.setLeft(paneCentral);
+		paneIzquierdo.setAlignment(Pos.TOP_LEFT);
+		this.setBorder(algoPoly, paneIzquierdo);
+		this.setLeft(paneIzquierdo);
 	}
 
 	private void setPanelInformativo() {
