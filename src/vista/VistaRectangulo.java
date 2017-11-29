@@ -4,6 +4,9 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
 import javax.swing.JOptionPane;
+
+import eventos.BotonComprarHandler;
+import eventos.BotonPasarTurnoHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -90,6 +93,8 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.pane.add(iconoComprar, x, y);
 		iconoComprar.setTranslateX(2);
 		iconoComprar.setTranslateY(-22);
+		// iconoComprar.setOnMouseClicked(new BotonComprarHandler(this.algoPoly,
+		// this.contenedorPrincipal));
 		iconoComprar.setOnMouseClicked(e -> {
 			// TODO mover a Control.
 			this.algoPoly.comprarAgrupagle();
@@ -220,8 +225,8 @@ public abstract class VistaRectangulo implements Dibujable {
 			imageView = new ImageView();
 			if (casillero.equals(jugador.getPosicion())) {
 				imageView = new ImageView();
-					image = new Image("file:src/vista/imagenes/ficharoja.png");
-					imageView.setTranslateX(50 + offset);
+				image = new Image("file:src/vista/imagenes/ficharoja.png");
+				imageView.setTranslateX(50 + offset);
 				if (jugador.getNombre().equals("Verde")) {
 					image = new Image("file:src/vista/imagenes/fichaverde.png");
 					imageView.setTranslateX(50);
