@@ -31,9 +31,14 @@ public class Retroceso extends DesplazamientoDinamico {
 	@Override
 	public int getAlquiler(Jugador jugador, Dados dados) {
 		this.cargarEstrategias(jugador, dados);
-		EstrategiaDesplazamiento unaEstrategia = this.desplazamientosPosibles.get(dados.getSuma());
-		int cantidadDeCasilleros = unaEstrategia.getCantidadADesplazar(jugador, dados);
-		Casillero casillero = this.tablero.getAnteriorCasillero(jugador, dados.getSuma() + cantidadDeCasilleros);
+		EstrategiaDesplazamiento unaEstrategia=this.desplazamientosPosibles.get(dados.getSuma());
+		int cantidadDeCasilleros=unaEstrategia.getCantidadADesplazar(jugador,dados);
+		Casillero casillero = null;
+		if (dados.getSuma() <= cantidadDeCasilleros) {
+			casillero = this.tablero.getAnteriorCasillero(jugador, cantidadDeCasilleros - dados.getSuma());
+		} else {
+			casillero = this.tablero.getSiguienteCasillero(jugador, dados.getSuma() - cantidadDeCasilleros);
+		}
 		if (this == casillero) {
 			return 0;
 		}
