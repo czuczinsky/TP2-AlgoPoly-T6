@@ -93,6 +93,13 @@ public class ContenedorPrincipal extends BorderPane {
 		this.mostrarDados(algoPoly.getDados().getDado1());
 		this.mostrarDados(algoPoly.getDados().getDado2());
 
+		this.ponerBotones();
+
+		this.datosYBotones.setAlignment(Pos.CENTER);
+		this.setCenter(datosYBotones);
+	}
+
+	private void ponerBotones() {
 		if (algoPoly.puedeTirarDados()) {
 			Button btnTirarDados = new Button();
 			btnTirarDados.setText("Tirar Dados");
@@ -128,22 +135,15 @@ public class ContenedorPrincipal extends BorderPane {
 		}
 		
 		if (algoPoly.perder()) {
-			
-		
 			Button btnPerder = new Button();
 			btnPerder.setText("Perder");
-
 			BotonPerderHandler perderHandler = new BotonPerderHandler(this.algoPoly, this);
 			btnPerder.setOnAction(perderHandler);
 			VBox.setMargin(btnPerder, new Insets(15));
 			this.datosYBotones.getChildren().add(btnPerder);
 		}
-
-		
-		this.datosYBotones.setAlignment(Pos.CENTER);
-		this.setCenter(datosYBotones);
 	}
-
+	
 	private void mostrarJugadorActual(String nombre) {
 		Image image = new Image("file:src/vista/imagenes/ficharoja.png");
 		if (nombre == "Verde")
