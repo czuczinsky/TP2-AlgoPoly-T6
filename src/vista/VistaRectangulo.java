@@ -103,6 +103,13 @@ public abstract class VistaRectangulo implements Dibujable {
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
+			
+			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+			dialogoAlerta.setTitle("");
+			dialogoAlerta.setHeaderText(null);
+			dialogoAlerta.setContentText("Ha comprado este lugar, ahora es el propietario");
+			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.showAndWait();
 
 			contenedorPrincipal.refrescar();
 		});
