@@ -2,8 +2,11 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
+import modelo.Agrupable;
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Dados;
@@ -46,20 +49,24 @@ public class AlgoPolyTest {
 		assertEquals(carcel, jugador.getPosicion());
 	}
 	
-//	@Test
-//	public void test04JugadorPierdeDeberiaSerEliminadoDelJuegoDejandoLasPropiedades() {
-//		AlgoPoly algoPoly = new AlgoPoly();
-//		Dados dados = algoPoly.getDados();
-//		ArrayList<Jugador> jugadores = algoPoly.getJugadores();
-//		ArrayList<Casillero> casilleros = algoPoly.getTablero().getCasilleros();
-//		Jugador jRojo = jugadores.get(0);
-//		jRojo.decrementarDinero(100000);
-//		Jugador jVerde = jugadores.get(1);
-//		Terreno bsasNorte = (Terreno) casilleros.get(4);
-//		bsasNorte.venderA(jVerde);
-//		dados.setNumeros(1, 3);
-//		algoPoly.mover();
-//		
-//		assertEquals(2, jugadores.size());
-//	}
+	@Test
+	public void test04JugadorSinPropiedadesPierdeDeberiaSerEliminadoDelJuego() {
+		AlgoPoly algoPoly = new AlgoPoly();
+		Dados dados = algoPoly.getDados();
+		ArrayList<Casillero> casilleros = algoPoly.getTablero().getCasilleros();
+		ArrayList<Jugador> jugadores = algoPoly.getJugadores();
+		Jugador jRojo = jugadores.get(0);
+		jRojo.decrementarDinero(100000);
+		Jugador jVerde = jugadores.get(1);
+		Agrupable bsasNorte = (Agrupable) casilleros.get(4);
+		bsasNorte.venderA(jVerde);
+		algoPoly.tirarDados();
+		dados.setNumeros(1, 3);
+		
+		assertTrue(algoPoly.vaAPerder());
+		algoPoly.quebrarJugador();
+		assertEquals(2, algoPoly.getJugadores().size());
+	}
+	
+	
 }
