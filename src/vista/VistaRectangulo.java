@@ -4,6 +4,9 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
 import javax.swing.JOptionPane;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -12,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.StageStyle;
 import modelo.AlgoPoly;
 import modelo.Carcel;
 import modelo.Casillero;
@@ -120,7 +124,16 @@ public abstract class VistaRectangulo implements Dibujable {
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
-
+			
+			
+			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+			dialogoAlerta.setTitle("");
+			dialogoAlerta.setHeaderText(null);
+			dialogoAlerta.setContentText("Para afrontar los gastos debe verder sus propiedades");
+			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.showAndWait();
+	
+			
 			contenedorPrincipal.refrescar();
 		});
 	}
