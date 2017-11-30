@@ -264,7 +264,6 @@ public class CompaniaTest {
 	
 	@Test (expected = PropietarioYaExistenteException.class)
 	public void test63SiUnJugadorQuiereComprarUnTerrenoQueYaTienePropietarioDeberiaDarPropietarioYaExistenteException() {
-		Dados dados = new Dados();
 		Jugador jugador1 = new Jugador("Azul", 100000);
 		Jugador jugador2 = new Jugador("Rojo", 100000);
 		Grupo edesurAysa = new Grupo();
