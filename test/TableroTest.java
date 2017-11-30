@@ -158,4 +158,40 @@ public class TableroTest {
 		
 		assertTrue(tablero.puedeMover(jugador1,dados));
 	}
+	
+	@Test
+	public void test09ObtenerSiguienteCasillero() {
+		Dados dados = new Dados();
+		dados.setNumeros(1, 1);
+		Salida salida = new Salida();
+		Quini6 quini6 = new Quini6();
+		ImpuestoAlLujo impAlLujo = new ImpuestoAlLujo();
+		Tablero tablero = new Tablero();
+		Jugador jugador = new Jugador("Azul", 100000);
+		jugador.moverA(salida, dados);
+		
+		tablero.agregarCasillero(salida);
+		tablero.agregarCasillero(quini6);
+		tablero.agregarCasillero(impAlLujo);
+		
+		assertEquals(impAlLujo, tablero.getSiguienteCasillero(jugador,dados.getSuma()));
+	}
+	
+	@Test
+	public void test10ObtenerAnteriorCasillero() {
+		Dados dados = new Dados();
+		dados.setNumeros(1, 1);
+		Salida salida = new Salida();
+		Quini6 quini6 = new Quini6();
+		ImpuestoAlLujo impAlLujo = new ImpuestoAlLujo();
+		Tablero tablero = new Tablero();
+		Jugador jugador = new Jugador("Azul", 100000);
+		jugador.moverA(impAlLujo, dados);
+		
+		tablero.agregarCasillero(salida);
+		tablero.agregarCasillero(quini6);
+		tablero.agregarCasillero(impAlLujo);
+		
+		assertEquals(salida, tablero.getAnteriorCasillero(jugador,2));
+	}
 }

@@ -25,6 +25,17 @@ public abstract class DesplazamientoDinamico extends  Casillero{
 	}
 	abstract public void mover(Jugador jugador, int cantidadDeCasilleros, Dados dados);
 	abstract public void cargarEstrategias(Jugador jugador, Dados dados);
-
 	
+	@Override
+	public int getAlquiler(Jugador jugador, Dados dados) {
+		this.cargarEstrategias(jugador, dados);
+		EstrategiaDesplazamiento unaEstrategia=this.desplazamientosPosibles.get(dados.getSuma());
+		int cantidadDeCasilleros=unaEstrategia.getCantidadADesplazar(jugador,dados);
+		Casillero casillero = this.tablero.getSiguienteCasillero(jugador, dados.getSuma() + cantidadDeCasilleros);
+		if (this == casillero) {
+			return 0;
+		}
+		return casillero.getAlquiler(jugador, dados);
+	}
+
 }

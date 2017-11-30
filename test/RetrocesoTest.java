@@ -282,6 +282,15 @@ public class RetrocesoTest {
 		
 		assertEquals(neuquen, jugadora.getPosicion());
 	}
-
+	
+	@Test
+	public void test15JugadorQueCaeEnRetrocesoSiSaca8EnLosDadosNoDeberiaRetrocederNingunCasillero() {
+		Jugador jugador = new Jugador("Jugador", 100000);
+		Dados dados=new Dados();
+		dados.setNumeros(5,3);
+		jugador.moverA(impuesto,dados);
+		
+		assertEquals(0, retroceso.getAlquiler(jugador, dados));	
+	}
 
 }

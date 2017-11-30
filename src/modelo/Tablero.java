@@ -12,17 +12,7 @@ public class Tablero {
 	}
 
 	public void avanzar(Jugador jugador, int cantidad,Dados dados) {
-		Casillero casilleroAMover=jugador.getPosicion();
-		
-		for (int i=0 ; i < cantidad ; i++) {
-			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(casilleroAMover)+1);
-			if (iterador.hasNext()) {
-				casilleroAMover=iterador.next();
-			} 
-			else {
-				casilleroAMover=this.casilleros.get(0);
-			}
-		}
+		Casillero casilleroAMover = this.getSiguienteCasillero(jugador, cantidad);
 		jugador.moverA(casilleroAMover,dados);
 	}
 	
@@ -32,17 +22,7 @@ public class Tablero {
 	
 
 	public void retroceder(Jugador jugador, int cantidad,Dados dados) {
-		Casillero casilleroAMover=jugador.getPosicion();
-		
-		for (int i=0 ; i < cantidad ; i++) {
-			ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(casilleroAMover));
-			if (iterador.hasPrevious()) {
-				casilleroAMover=iterador.previous();
-			} 
-			else {
-				casilleroAMover=this.casilleros.get(this.casilleros.size()-1);
-			}
-		}
+		Casillero casilleroAMover = this.getAnteriorCasillero(jugador, cantidad);
 		jugador.moverA(casilleroAMover,dados);
 	}
 
@@ -51,9 +31,14 @@ public class Tablero {
 	}
 
 	public boolean puedeMover(Jugador jugador, Dados dados) {
+		Casillero nuevaPosicion = this.getSiguienteCasillero(jugador, dados.getSuma());
+		return (nuevaPosicion.getAlquiler(jugador, dados) <= jugador.getDinero());
+	}
+
+	public Casillero getSiguienteCasillero(Jugador jugador, int cantidad) {
 		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(jugador.getPosicion()));
 		Casillero nuevaPosicion = null;
-		for (int i=0 ; i <= dados.getSuma() ; i++) {
+		for (int i=0 ; i <= cantidad ; i++) {
 			if (iterador.hasNext()) {
 				nuevaPosicion = iterador.next();
 			} 
@@ -62,6 +47,20 @@ public class Tablero {
 				nuevaPosicion = iterador.next();
 			}
 		}
-		return (nuevaPosicion.getAlquiler(jugador, dados) <= jugador.getDinero());
+		return nuevaPosicion;
+	}
+
+	public Casillero getAnteriorCasillero(Jugador jugador, int cantidad) {
+		ListIterator<Casillero> iterador = this.casilleros.listIterator(this.casilleros.indexOf(jugador.getPosicion())+1);
+		Casillero nuevaPosicion = null;
+		for (int i=0 ; i <= cantidad ; i++) {
+			if (iterador.hasPrevious()) {
+				nuevaPosicion = iterador.previous();
+			} 
+			else {
+				nuevaPosicion = this.casilleros.get(this.casilleros.size()-1);
+			}
+		}
+		return nuevaPosicion;
 	}
 }
