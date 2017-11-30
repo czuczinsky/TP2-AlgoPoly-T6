@@ -2,8 +2,6 @@ package modelo;
 
 import java.util.ArrayList;
 
-// TODO limpiar codigo comentado
-
 public class AlgoPoly {
 	private Tablero tablero;
 	private Dados dados;
@@ -68,12 +66,6 @@ public class AlgoPoly {
 		Jugador jRojo = new Jugador("Rojo", 100000);
 		Jugador jVerde = new Jugador("Verde", 100000);
 		Jugador jAzul = new Jugador("Azul", 100000);
-		// bsAsNorte.venderA(jRojo);
-		// bsAsSur.venderA(jRojo);
-		// edesur.venderA(jRojo);
-		// cordobaNorte.venderA(jRojo);
-		// cordobaSur.venderA(jRojo);
-		// tucuman.venderA(jVerde);
 
 		jugadores.add(jRojo);
 		jugadores.add(jVerde);
@@ -96,7 +88,6 @@ public class AlgoPoly {
 
 	public void tirarDados() {
 		dados.tirar();
-		// dados.setNumeros(1, 3);
 		dadosTirados = true;
 	}
 
@@ -143,32 +134,12 @@ public class AlgoPoly {
 	}
 
 	public boolean debeVenderPropiedades() {
-		// sacar. daria problema con movimiento dinamico?
-		// Jugador jugadorActual = this.getJugadorActual();
-		// return (jugadorActual.getDinero() <
-		// jugadorActual.getPosicion().getAlquiler(jugadorActual, dados));
-
-		// TODO probar
-		// para mostrar cartel antes de no poner ningun boton
 		return (!this.puedeTirarDados() && !this.puedeMover() && !this.debePasarTurno() && !this.vaAPerder());
 	}
 
 	public boolean hayGanador() {
 		return (this.jugadores.size() == 1);
 	}
-
-	// para prueba /////////////////////////////////
-	// public boolean puedeMover() {
-	// return true;
-	// }
-	//
-	// public boolean puedeTirarDados() {
-	// return true;
-	// }
-	//
-	// public boolean debePasarTurno() {
-	// return false;
-	// }
 
 	public boolean puedoEdificarCasa(Terreno terreno) {
 		if (terreno == agrupableCompradoEnTurnoActual)

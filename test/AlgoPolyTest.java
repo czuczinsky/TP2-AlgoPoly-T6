@@ -2,15 +2,12 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 import modelo.AlgoPoly;
 import modelo.Casillero;
 import modelo.Dados;
 import modelo.Jugador;
-import modelo.Terreno;
 
 public class AlgoPolyTest {
 
