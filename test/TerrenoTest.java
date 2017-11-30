@@ -89,7 +89,7 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 10000 - 15000 - 5000 - 5000 - 5500 - 5500 - 8000, jugador1.getDinero());
 	}
 
-	@Test (expected = NoPuedeEdificarException.class)
+	@Test
 	public void test07SiUnJugadorQuiereEdificarUnHotelPeroNoLeAlcanzaElDineroNoSeLeDeberiaDescontarElPrecioDelHotel() {
 		Grupo provincia1 = new Grupo();
 		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 15000, 2000, 3000, 3500, 5000, 5000, 8000);
@@ -102,11 +102,17 @@ public class TerrenoTest {
 		terrenoNorte.construirCasa(); // segunda casa
 		terrenoSur.construirCasa(); // primera casa
 		terrenoSur.construirCasa(); // segunda casa
-		terrenoNorte.construirHotel(); // hotel
+		try {
+			terrenoNorte.construirHotel(); // hotel
+		} 
+		catch (NoPuedeEdificarException npe) {
+		}
+		
 		Assert.assertEquals(51000 - 15000 - 15000 - 5000 - 5000 - 5500 - 5500, jugador1.getDinero());
 	}
 
-	@Test (expected = NoPuedeEdificarException.class)
+
+	@Test
 	public void test08SiUnJugadorIntentaConstruirUnHotelEnUnaProvinciaQueNoTieneZonaNorteYSurNoSeLeDeberiaDescontarElPrecioDelHotel() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
@@ -114,7 +120,12 @@ public class TerrenoTest {
 		Jugador jugador1 = new Jugador("Jugador 1", 100000);
 		terreno1.venderA(jugador1);
 		terreno1.construirCasa(); // primera casa
-		terreno1.construirHotel(); // hotel?
+		try {
+			terreno1.construirHotel(); // hotel
+		} 
+		catch (NoPuedeEdificarException npe) {
+		}
+
 		Assert.assertEquals(100000 - 20000 - 5000, jugador1.getDinero());
 	}
 
@@ -366,7 +377,7 @@ public class TerrenoTest {
 		Assert.assertEquals(13000 - 3500, laura.getDinero());
 	}
 
-	@Test(expected = NoPuedeEdificarException.class)
+	@Test
 	public void test27JugadorQueEsPropietarioDeBsAsSurYNorteYTiene3CasasCuandoConstruyeUnHotelSuDineroNoDeberiaDecrementarse() {
 		Grupo buenosAires = new Grupo();
 		Terreno bsAsSur = new Terreno("Buenos Aires Sur", buenosAires, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
@@ -380,7 +391,11 @@ public class TerrenoTest {
 		bsAsSur.construirCasa();
 		bsAsNorte.construirCasa();
 		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500, lucas.getDinero());
-		bsAsNorte.construirHotel();
+		try {
+			bsAsNorte.construirHotel(); // hotel
+		} 
+		catch (NoPuedeEdificarException npe) {
+		}
 		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500, lucas.getDinero());
 
 	}
