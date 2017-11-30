@@ -134,7 +134,7 @@ public class ContenedorPrincipal extends BorderPane {
 			this.datosYBotones.getChildren().add(btnPasar);
 		}
 		
-		if (algoPoly.perder()) {
+		if (algoPoly.vaAperder()) {
 			Button btnPerder = new Button();
 			btnPerder.setText("Perder");
 			BotonPerderHandler perderHandler = new BotonPerderHandler(this.algoPoly, this);

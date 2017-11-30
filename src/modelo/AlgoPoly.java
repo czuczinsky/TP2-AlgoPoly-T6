@@ -62,17 +62,17 @@ public class AlgoPoly {
 		tablero.agregarCasillero(neuquen);
 		tablero.agregarCasillero(new Retroceso(tablero));
 		tablero.agregarCasillero(tucuman);
-		
+
 		Jugador jRojo = new Jugador("Rojo", 100000);
 		Jugador jVerde = new Jugador("Verde", 100000);
 		Jugador jAzul = new Jugador("Azul", 100000);
-//		bsAsNorte.venderA(jRojo);
-//		bsAsSur.venderA(jRojo);
-//		edesur.venderA(jRojo);
-//		cordobaNorte.venderA(jRojo);
-//		cordobaSur.venderA(jRojo);
-//		tucuman.venderA(jVerde);
-		
+		// bsAsNorte.venderA(jRojo);
+		// bsAsSur.venderA(jRojo);
+		// edesur.venderA(jRojo);
+		// cordobaNorte.venderA(jRojo);
+		// cordobaSur.venderA(jRojo);
+		// tucuman.venderA(jVerde);
+
 		jugadores.add(jRojo);
 		jugadores.add(jVerde);
 		jugadores.add(jAzul);
@@ -94,7 +94,7 @@ public class AlgoPoly {
 
 	public void tirarDados() {
 		dados.tirar();
-//		dados.setNumeros(1, 3);
+		// dados.setNumeros(1, 3);
 		dadosTirados = true;
 	}
 
@@ -119,15 +119,12 @@ public class AlgoPoly {
 		boolean puedeMover = this.tablero.puedeMover(this.getJugadorActual(), dados);
 		return (this.dadosTirados && jugadorEnCarcel && puedeMover);
 	}
-	
-	public boolean perder() {
+
+	public boolean vaAperder() {
 		boolean puedeMover = this.tablero.puedeMover(this.getJugadorActual(), dados);
-		if (!puedeMover && this.getJugadorActual().cantPropiedades() <= 0 && this.dadosTirados) {
-			return true;
-		}
-		return false;
+		return (!puedeMover && this.getJugadorActual().cantPropiedades() <= 0 && this.dadosTirados);
 	}
-	
+
 	public void quebrarJugador() {
 		this.getJugadorActual().quiebra();
 		turno.borrar();
@@ -142,13 +139,10 @@ public class AlgoPoly {
 	public boolean debePasarTurno() {
 		return !this.turno.getJugadorActual().puedoMoverse();
 	}
-	
+
 	public boolean debeVenderPropiedades() {
-		
-		Jugador jugadorActual=this.getJugadorActual();
-		return (this.getJugadorActual().getDinero()< this.getJugadorActual().getPosicion().getAlquiler(jugadorActual, dados));
-		
-	
+		Jugador jugadorActual = this.getJugadorActual();
+		return (jugadorActual.getDinero() < jugadorActual.getPosicion().getAlquiler(jugadorActual, dados));
 	}
 
 	// para prueba /////////////////////////////////
@@ -156,9 +150,9 @@ public class AlgoPoly {
 	// return true;
 	// }
 	//
-//	 public boolean puedeTirarDados() {
-//	 return true;
-//	 }
+	// public boolean puedeTirarDados() {
+	// return true;
+	// }
 	//
 	// public boolean debePasarTurno() {
 	// return false;
@@ -179,7 +173,7 @@ public class AlgoPoly {
 		agrupableCompradoEnTurnoActual = (Agrupable) this.getJugadorActual().getPosicion();
 	}
 
-	public String getMensaje() {
-		return "Nada";
-	}
+//	public String getMensaje() {
+//		return "Nada";
+//	}
 }
