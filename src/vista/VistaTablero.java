@@ -70,15 +70,14 @@ public class VistaTablero {
 		fondo.setFill(Color.CHARTREUSE.desaturate());
 		this.pane.add(fondo, 0, 0, porLinea + 1, porLinea + 1);
 
-		 Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
-		 ImageView imageView = new ImageView();
-		 imageView.setImage(image);
-		 this.pane.add(imageView, 0, 0, porLinea + 1, porLinea + 1);
-		 imageView.setTranslateX((ancho - image.getWidth()) / 2);
+		Image image = new Image("file:src/vista/imagenes/AlgoPolyLogo.png");
+		ImageView imageView = new ImageView();
+		imageView.setImage(image);
+		this.pane.add(imageView, 0, 0, porLinea + 1, porLinea + 1);
+		imageView.setTranslateX((ancho - image.getWidth()) / 2);
 	}
 
 	public void update() {
 		this.dibujar();
 	}
-
 }

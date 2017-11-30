@@ -34,7 +34,6 @@ import modelo.Jugador;
 public class ContenedorPrincipal extends BorderPane {
 
 	private AlgoPoly algoPoly;
-	BarraDeMenu menuBar;
 	VistaTablero vistaTablero;
 	Canvas canvas;
 	GridPane paneIzquierdo;
