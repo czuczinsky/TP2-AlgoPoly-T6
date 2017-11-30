@@ -128,16 +128,11 @@ public class ContenedorPrincipal extends BorderPane {
 		}
 		
 		if (algoPoly.perder()) {
+			
+		
 			Button btnPerder = new Button();
 			btnPerder.setText("Perder");
-			
-			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
-			dialogoAlerta.setTitle("");
-			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Su dinero es insuficiente para afrontar los gastos");
-			dialogoAlerta.initStyle(StageStyle.UTILITY);
-			dialogoAlerta.showAndWait();
-	
+
 			BotonPerderHandler perderHandler = new BotonPerderHandler(this.algoPoly, this);
 			btnPerder.setOnAction(perderHandler);
 			VBox.setMargin(btnPerder, new Insets(15));
