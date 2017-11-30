@@ -27,7 +27,7 @@ public class BotonComprarHandler implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent event) {
 		this.algoPoly.comprarAgrupable();
 
-		URL url = getClass().getResource("../sonidos/CASHREG.WAV");
+		URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 

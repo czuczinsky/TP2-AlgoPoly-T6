@@ -12,6 +12,7 @@
 	<property name="coverage.xml.dir" location="${reports.dir}/cobertura-xml" />
 	<property name="coverage.summaryxml.dir" location="${reports.dir}/cobertura-summary-xml" />
 	<property name="coverage.html.dir" location="${reports.dir}/cobertura-html" />
+	<property name="srcSonidos" value="src/vista/sonidos" />
 
 	<!-- Ivy customization -->
 	<property name="ivy.install.version" value="2.2.0" />
@@ -43,15 +44,32 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<target name="setup">
 		<delete dir="${build}" />
 		<mkdir dir="${build}" />
 		<mkdir dir="${build}/classes" />
 		<mkdir dir="${build}/tests" />
-        <mkdir dir="${reports.dir}" />
+		<mkdir dir="${build}/vista/sonidos" />
+		<mkdir dir="${reports.dir}" />
+		<copy todir="${build}/vista/sonidos">
+			<fileset dir="${srcSonidos}"
+		           includes="*"
+		  />
+		</copy>
 	</target>
 
+	
+	<target name="Sonidos" description="Copia los sonidos">
+		<echo message="Copia los sonidos" />
+		<copy todir="${build}/vista/sonidos">
+			<fileset dir="${srcSonidos}"
+		           includes="*"
+		  />
+		</copy>
+	</target>
+
+	
 	<target name="compilar.aplicacion" depends="setup, resolve">
 		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.8">
 			<classpath refid="classpath" />
@@ -64,11 +82,11 @@
 		</javac>
 	</target>
 
-    <target name="compilar.tests.sin.instrumentar" depends="compilar.aplicacion">
-        <javac srcdir="test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
-            <classpath refid="classpath" />
-        </javac>
-    </target>
+	<target name="compilar.tests.sin.instrumentar" depends="compilar.aplicacion">
+		<javac srcdir="test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
 
 	<target name="instrumentar.aplicacion" depends="compilar.aplicacion, init">
 		<delete file="${build}/cobertura.ser" />
@@ -84,28 +102,28 @@
 	</target>
 
 
-    <target name="ejecutar.tests" depends="compilar.tests">
-        <junit fork="yes" failureProperty="test.failure" forkmode="once" showoutput="true">
-            <sysproperty key="net.sourceforge.cobertura.datafile" file="${build}/cobertura.ser" />
-            <classpath location="${instrumented.dir}" />
-            <classpath location="${build}" />
-            <classpath refid="cobertura.classpath" />
-            <classpath refid="classpath" />
-            <formatter type="xml" />
-            <test name="${testcase}" todir="${reports.xml.dir}" if="testcase" />
-            <batchtest todir="${reports.xml.dir}" unless="testcase">
-                <fileset dir="${build}/tests" includes="**/*Test.class" />
-                <fileset dir="${build}/tests" includes="**/Prueba*.class" />
-            </batchtest>
-        </junit>
-        <fail message="Pruebas fallidas" if="test.failure" />
-        <junitreport todir="${reports.xml.dir}">
-            <fileset dir="${reports.xml.dir}">
-                <include name="TEST-*.xml" />
-            </fileset>
-            <report format="frames" todir="${reports.html.dir}" />
-        </junitreport>
-    </target>
+	<target name="ejecutar.tests" depends="compilar.tests">
+		<junit fork="yes" failureProperty="test.failure" forkmode="once" showoutput="true">
+			<sysproperty key="net.sourceforge.cobertura.datafile" file="${build}/cobertura.ser" />
+			<classpath location="${instrumented.dir}" />
+			<classpath location="${build}" />
+			<classpath refid="cobertura.classpath" />
+			<classpath refid="classpath" />
+			<formatter type="xml" />
+			<test name="${testcase}" todir="${reports.xml.dir}" if="testcase" />
+			<batchtest todir="${reports.xml.dir}" unless="testcase">
+				<fileset dir="${build}/tests" includes="**/*Test.class" />
+				<fileset dir="${build}/tests" includes="**/Prueba*.class" />
+			</batchtest>
+		</junit>
+		<fail message="Pruebas fallidas" if="test.failure" />
+		<junitreport todir="${reports.xml.dir}">
+			<fileset dir="${reports.xml.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${reports.html.dir}" />
+		</junitreport>
+	</target>
 
 	<target name="init">
 		<mkdir dir="${instrumented.dir}" />
@@ -133,20 +151,20 @@
 		</cobertura-report>
 	</target>
 
-    <target name="test" depends="compilar.tests.sin.instrumentar">
-        <junit fork="no" failureProperty="test.failure" showoutput="true">
-            <classpath location="${build}" />
-            <classpath refid="classpath" />
-            <batchtest todir="${reports.xml.dir}" unless="testcase">
-                <fileset dir="${build}/tests" includes="**/*Test.class" />
-                <formatter type="plain" usefile="false"/>
-            </batchtest>
-        </junit>
-        <fail message="Pruebas fallidas" if="test.failure" />
-    </target>
+	<target name="test" depends="compilar.tests.sin.instrumentar">
+		<junit fork="no" failureProperty="test.failure" showoutput="true">
+			<classpath location="${build}" />
+			<classpath refid="classpath" />
+			<batchtest todir="${reports.xml.dir}" unless="testcase">
+				<fileset dir="${build}/tests" includes="**/*Test.class" />
+				<formatter type="plain" usefile="false"/>
+			</batchtest>
+		</junit>
+		<fail message="Pruebas fallidas" if="test.failure" />
+	</target>
 
 
-    <target name="compilar.paquete" depends="test">
+	<target name="compilar.paquete" depends="test">
 		<javac srcdir="src" destdir="${build}/classes" debug="no">
 		</javac>
 	</target>
@@ -177,8 +195,8 @@
 	<!-- Resolve dependencies -->
 	<target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
 		<ivy:retrieve conf="build" pattern="${libs}/[artifact]-[type]-[revision].[ext]" />
-		<ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>	
-		
+		<ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>
+
 	</target>
 	<!-- End of 'Resolve dependencies -->
 
@@ -191,7 +209,7 @@
 			<ruleset>basic</ruleset>
 			<ruleset>imports</ruleset>
 			<formatter type="html" toFile="${reports.dir}/pmd.html" linkPrefix="http://pmd.sourceforge.net/xref/" toConsole="true"/>
-            <formatter type="xml" toFile="${reports.dir}/pmd.xml" linkPrefix="http://pmd.sourceforge.net/xref/" toConsole="false"/>
+			<formatter type="xml" toFile="${reports.dir}/pmd.xml" linkPrefix="http://pmd.sourceforge.net/xref/" toConsole="false"/>
 			<fileset dir="src">
 				<include name="**/*.java" />
 			</fileset>
@@ -199,12 +217,17 @@
 	</target>
 
 
-		<target name="empaquetar.con.imagenes" depends="compilar.paquete">
-			<copydir src="src/vista/imagenes"
+	<target name="empaquetar.con.imagenes" depends="compilar.paquete">
+		<copydir src="src/vista/imagenes"
 				dest="${build}/classes/vista/imagenes"
 				includes="**/*.png"/>
 		<jar destfile="${build}/dist/algo3.jar" basedir="${build}/classes"/>
 	</target>
+
+
+
+
+
 
 	<target name="ejecutar.aplicacion" depends="empaquetar">
 		<java classname="fiuba.algo3.ejemplo1.Foo" fork="true">

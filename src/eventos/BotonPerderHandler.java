@@ -33,7 +33,8 @@ public class BotonPerderHandler implements EventHandler<ActionEvent>  {
 		dialogoAlerta.setContentText("Ha perdido el juego");
 		dialogoAlerta.initStyle(StageStyle.UTILITY);
 		dialogoAlerta.showAndWait();
-		
+
+		// TODO poner un sonido
 //		URL url = getClass().getResource("/vista/sonidos/SUCTION.WAV");
 //		AudioClip clip = Applet.newAudioClip(url);
 //		clip.play();
