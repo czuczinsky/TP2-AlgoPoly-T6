@@ -37,7 +37,6 @@ public class CompaniaTest {
 
 		compania.venderA(propietario);
 		compania.ocupar(jugador1, dados);
-		// Assert.assertEquals(200000 - 35000 + (3 + 4) * 500, propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 500, jugador1.getDinero());
 	}
 
@@ -55,8 +54,6 @@ public class CompaniaTest {
 		compania1.venderA(propietario);
 		compania2.venderA(propietario);
 		compania1.ocupar(jugador1, dados);
-		// Assert.assertEquals(200000 - 35000 - 30000 + (3 + 4) * 1000,
-		// propietario.getDinero());
 		Assert.assertEquals(100000 - (3 + 4) * 1000, jugador1.getDinero());
 	}
 
@@ -141,7 +138,6 @@ public class CompaniaTest {
 		Jugador ocupante = new Jugador("Jugador 1", 100000);
 		Grupo edesurAysa = new Grupo();
 		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
-//		Compania aysa = new Compania("AYSA", 30000, edesurAysa, 300, 500);
 
 		Dados dados = new Dados();
 		dados.setNumeros(3, 4);
