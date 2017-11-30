@@ -122,7 +122,7 @@ public class AlgoPoly {
 		return (this.dadosTirados && jugadorEnCarcel && puedeMover);
 	}
 
-	public boolean vaAperder() {
+	public boolean vaAPerder() {
 		boolean puedeMover = this.tablero.puedeMover(this.getJugadorActual(), dados);
 		return (!puedeMover && this.getJugadorActual().cantPropiedades() <= 0 && this.dadosTirados);
 	}
@@ -145,6 +145,10 @@ public class AlgoPoly {
 	public boolean debeVenderPropiedades() {
 		Jugador jugadorActual = this.getJugadorActual();
 		return (jugadorActual.getDinero() < jugadorActual.getPosicion().getAlquiler(jugadorActual, dados));
+	}
+	
+	public boolean hayGanador() {
+		return (this.jugadores.size() == 1);
 	}
 
 	// para prueba /////////////////////////////////

@@ -91,9 +91,9 @@ public class ContenedorPrincipal extends BorderPane {
 		this.mostrarDados(algoPoly.getDados().getDado1());
 		this.mostrarDados(algoPoly.getDados().getDado2());
 
-		if (this.algoPoly.getJugadores().size() == 1) {
+		if (this.algoPoly.hayGanador()) {
 			mostrarAlert("Gano jugador: " + algoPoly.getJugadores().get(0).getNombre());
-			// TODO aca deberia terminar.
+	        System.exit(0);  // Sale de la aplicacion
 		}
 		
 		this.ponerBotones();
@@ -146,7 +146,7 @@ public class ContenedorPrincipal extends BorderPane {
 			this.datosYBotones.getChildren().add(btnPasar);
 		}
 		
-		if (algoPoly.vaAperder()) {
+		if (algoPoly.vaAPerder()) {
 			Button btnPerder = new Button();
 			btnPerder.setText("Perder");
 			BotonPerderHandler perderHandler = new BotonPerderHandler(this.algoPoly, this);

@@ -112,7 +112,6 @@ public abstract class VistaRectangulo implements Dibujable {
 	public void ponerBotonPagarFianza() {
 		ImageView iconoFianza = new ImageView("file:src/vista/imagenes/fianza.png");
 		setIcono(iconoFianza);
-		iconoFianza.setTranslateX(-6);
 		iconoFianza.setTranslateY(-22);
 		iconoFianza.setOnMouseClicked(
 				new BotonFianzaHandler(this.algoPoly, (Carcel) this.casillero, this.contenedorPrincipal));

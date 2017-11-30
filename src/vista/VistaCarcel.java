@@ -13,8 +13,8 @@ public class VistaCarcel extends VistaRectangulo {
 		super(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
-	public static VistaCarcel Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal,
-			Casillero casillero, GridPane pane, int x, int y, double ancho, double alto) {
+	public static VistaCarcel Instancia(AlgoPoly algoPoly, ContenedorPrincipal contenedorPrincipal, Casillero casillero,
+			GridPane pane, int x, int y, double ancho, double alto) {
 		return new VistaCarcel(algoPoly, contenedorPrincipal, casillero, pane, x, y, ancho, alto);
 	}
 
@@ -29,8 +29,6 @@ public class VistaCarcel extends VistaRectangulo {
 	private void ponerBotones() {
 		if (((Carcel) this.getCasillero()).puedePagarFianza(this.getAlgoPoly().getJugadorActual()))
 			this.ponerBotonPagarFianza();
-		this.ponerBotonInfo(
-				"Debe esperar 3 turnors\nFianza: $45.000",
-				"Carcel");
+		this.ponerBotonInfo("Debe esperar 3 turnors\nFianza: $45.000", "Carcel");
 	}
 }
