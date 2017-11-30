@@ -143,10 +143,16 @@ public class AlgoPoly {
 	}
 
 	public boolean debeVenderPropiedades() {
-		Jugador jugadorActual = this.getJugadorActual();
-		return (jugadorActual.getDinero() < jugadorActual.getPosicion().getAlquiler(jugadorActual, dados));
+		// sacar. daria problema con movimiento dinamico?
+		// Jugador jugadorActual = this.getJugadorActual();
+		// return (jugadorActual.getDinero() <
+		// jugadorActual.getPosicion().getAlquiler(jugadorActual, dados));
+
+		// TODO probar
+		// para mostrar cartel antes de no poner ningun boton
+		return (!this.puedeTirarDados() && !this.puedeMover() && !this.debePasarTurno() && !this.vaAPerder());
 	}
-	
+
 	public boolean hayGanador() {
 		return (this.jugadores.size() == 1);
 	}

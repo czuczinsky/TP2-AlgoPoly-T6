@@ -112,6 +112,11 @@ public class ContenedorPrincipal extends BorderPane {
 	}
 	
 	private void ponerBotones() {
+		
+		if (algoPoly.debeVenderPropiedades()) {
+			this.mostrarAlert("Debe vender Propiedades.");
+		}
+		
 		if (algoPoly.puedeTirarDados()) {
 			Button btnTirarDados = new Button();
 			btnTirarDados.setText("Tirar Dados");
@@ -133,13 +138,7 @@ public class ContenedorPrincipal extends BorderPane {
 		if (algoPoly.debePasarTurno()) {
 			Button btnPasar = new Button();
 			btnPasar.setText("Pasar Turno");
-			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
-			dialogoAlerta.setTitle("");
-			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Pierde turno por estar preso");
-			dialogoAlerta.initStyle(StageStyle.UTILITY);
-			dialogoAlerta.showAndWait();
-	
+			this.mostrarAlert("Pierde turno por estar preso");
 			BotonPasarTurnoHandler pasarHandler = new BotonPasarTurnoHandler(this.algoPoly, this);
 			btnPasar.setOnAction(pasarHandler);
 			VBox.setMargin(btnPasar, new Insets(15));
