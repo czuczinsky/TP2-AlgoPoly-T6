@@ -134,7 +134,7 @@ public class ContenedorPrincipal extends BorderPane {
 			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Debe vender");
+			dialogoAlerta.setContentText("Su dinero es insuficiente para afrontar los gastos");
 			dialogoAlerta.initStyle(StageStyle.UTILITY);
 			dialogoAlerta.showAndWait();
 	

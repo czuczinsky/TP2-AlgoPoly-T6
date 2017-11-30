@@ -23,7 +23,16 @@ public class BotonPerderHandler implements EventHandler<ActionEvent>  {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
+		
+
 		algoPoly.quebrarJugador();
+		
+		Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+		dialogoAlerta.setTitle("");
+		dialogoAlerta.setHeaderText(null);
+		dialogoAlerta.setContentText("Ha perdido el juego");
+		dialogoAlerta.initStyle(StageStyle.UTILITY);
+		dialogoAlerta.showAndWait();
 		
 //		URL url = getClass().getResource("/vista/sonidos/SUCTION.WAV");
 //		AudioClip clip = Applet.newAudioClip(url);

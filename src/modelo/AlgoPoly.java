@@ -63,7 +63,7 @@ public class AlgoPoly {
 		tablero.agregarCasillero(new Retroceso(tablero));
 		tablero.agregarCasillero(tucuman);
 		
-		Jugador jRojo = new Jugador("Rojo", 100000);
+		Jugador jRojo = new Jugador("Rojo", 10000);
 		Jugador jVerde = new Jugador("Verde", 100000);
 		Jugador jAzul = new Jugador("Azul", 100000);
 //		bsAsNorte.venderA(jRojo);
