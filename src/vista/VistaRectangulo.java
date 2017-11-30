@@ -103,11 +103,11 @@ public abstract class VistaRectangulo implements Dibujable {
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
-			
-			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+
+			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Compr\u00f3 " + ((Agrupable)this.casillero).getNombre());
+			dialogoAlerta.setContentText("Compr\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
 			dialogoAlerta.showAndWait();
 
 			contenedorPrincipal.refrescar();
@@ -130,17 +130,15 @@ public abstract class VistaRectangulo implements Dibujable {
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
-			
-			
-			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+
+			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Vendi\u00f3 sus propiedades.");
-//			dialogoAlerta.setContentText("Acaba de verder sus propiedades");
+			dialogoAlerta.setContentText("Vendi\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
+			// dialogoAlerta.setContentText("Acaba de verder sus propiedades");
 			dialogoAlerta.initStyle(StageStyle.UTILITY);
 			dialogoAlerta.showAndWait();
-	
-			
+
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -161,15 +159,15 @@ public abstract class VistaRectangulo implements Dibujable {
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
-			
-			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+
+			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-//			dialogoAlerta.setContentText("Acaba de pagar la fianza para quedar en libertad");
+			// dialogoAlerta.setContentText("Acaba de pagar la fianza para quedar en
+			// libertad");
 			dialogoAlerta.setContentText("Pag\u00f3 fianza.");
 			dialogoAlerta.initStyle(StageStyle.UTILITY);
 			dialogoAlerta.showAndWait();
-	
 
 			contenedorPrincipal.refrescar();
 		});
