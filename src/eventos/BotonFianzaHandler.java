@@ -27,7 +27,7 @@ public class BotonFianzaHandler implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent event) {
 		this.carcel.cobrarFianza(algoPoly.getJugadorActual());
 
-		URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
+		URL url = getClass().getResource("../sonidos/CASHREG.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 

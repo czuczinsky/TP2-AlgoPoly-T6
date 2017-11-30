@@ -21,7 +21,7 @@ public class BotonConstruirCasaHandler implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent event) {
 		terreno.construirCasa();
 
-		URL url = getClass().getResource("/vista/sonidos/CONSTRUIR.WAV");
+		URL url = getClass().getResource("../sonidos/CONSTRUIR.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 

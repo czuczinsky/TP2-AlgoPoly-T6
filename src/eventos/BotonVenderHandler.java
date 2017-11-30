@@ -24,7 +24,7 @@ public class BotonVenderHandler implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent event) {
 		agrupable.vender();
 
-		URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
+		URL url = getClass().getResource("../sonidos/CASHREG.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 

@@ -21,7 +21,7 @@ public class BotonConstruirHotelHandler implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent event) {
 		terreno.construirHotel();
 
-		URL url = getClass().getResource("/vista/sonidos/CONSTRUIR2.WAV");
+		URL url = getClass().getResource("../sonidos/CONSTRUIR2.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 

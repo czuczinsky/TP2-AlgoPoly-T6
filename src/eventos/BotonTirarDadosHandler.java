@@ -22,7 +22,7 @@ public class BotonTirarDadosHandler implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent actionEvent) {
 		algoPoly.tirarDados();
-		URL url = getClass().getResource("/vista/sonidos/COIN.WAV");
+		URL url = getClass().getResource("../sonidos/COIN.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 		contenedorPrincipal.refrescar();

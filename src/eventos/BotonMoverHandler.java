@@ -21,7 +21,7 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent actionEvent) {
 		algoPoly.mover();
 		
-		URL url = getClass().getResource("/vista/sonidos/SUCTION.WAV");
+		URL url = getClass().getResource("../sonidos/SUCTION.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 
