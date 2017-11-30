@@ -168,7 +168,7 @@ public class AlgoPoly {
 		return terreno.puedeEdificarHotel(getJugadorActual());
 	}
 
-	public void comprarAgrupagle() {
+	public void comprarAgrupable() {
 		((Agrupable) this.getJugadorActual().getPosicion()).venderA(this.getJugadorActual());
 		agrupableCompradoEnTurnoActual = (Agrupable) this.getJugadorActual().getPosicion();
 	}

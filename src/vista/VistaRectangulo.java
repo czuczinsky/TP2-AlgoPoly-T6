@@ -98,7 +98,7 @@ public abstract class VistaRectangulo implements Dibujable {
 		// this.contenedorPrincipal));
 		iconoComprar.setOnMouseClicked(e -> {
 			// TODO mover a Control.
-			this.algoPoly.comprarAgrupagle();
+			this.algoPoly.comprarAgrupable();
 
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);

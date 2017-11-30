@@ -19,7 +19,7 @@ public class BotonComprarHandler implements EventHandler<ActionEvent> {
 
 	@Override
 	public void handle(ActionEvent actionEvent) {
-		this.algoPoly.comprarAgrupagle();
+		this.algoPoly.comprarAgrupable();
 
 		URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
