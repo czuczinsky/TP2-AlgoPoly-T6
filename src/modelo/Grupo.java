@@ -28,5 +28,4 @@ public class Grupo {
 			resultado = resultado && agrupable.estaCompleto();
 		return resultado;
 	}
-
 }

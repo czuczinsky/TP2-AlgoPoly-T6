@@ -13,5 +13,4 @@ public class Policia extends Casillero {
 	
 		jugador.moverA(carcel,dados);
 	}
-
 }

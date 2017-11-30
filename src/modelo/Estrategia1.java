@@ -1,6 +1,6 @@
 package modelo;
 
-public class Estrategia1 extends EstrategiaDesplazamiento{
+public class Estrategia1 extends EstrategiaDesplazamiento {
 
 	public Estrategia1(Jugador jugador, Dados dados) {
 		super(jugador, dados);
@@ -8,8 +8,7 @@ public class Estrategia1 extends EstrategiaDesplazamiento{
 
 	@Override
 	public int getCantidadADesplazar(Jugador jugador, Dados dados) {
-		
-		return (dados.getSuma()-2);
-	}
 
+		return (dados.getSuma() - 2);
+	}
 }

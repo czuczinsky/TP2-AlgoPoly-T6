@@ -9,7 +9,6 @@ public class Dados {
 		tirar();
 	}
 
-
 	public void tirar() {
 		dado1 = 1 + (int)(Math.random() * 6);
 		dado2 = 1 + (int)(Math.random() * 6);
