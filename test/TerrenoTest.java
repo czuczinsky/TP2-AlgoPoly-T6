@@ -1038,28 +1038,21 @@ public class TerrenoTest {
 	
 	@Test (expected = PropietarioYaExistenteException.class)
 	public void test63SiUnJugadorQuiereComprarUnTerrenoQueYaTienePropietarioDeberiaDarPropietarioYaExistenteException() {
-		Dados dados = new Dados();
 		Grupo salta = new Grupo();
 		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
-		Jugador jugador2 = new Jugador("Jugador2", 100000);
 		saltaSur.venderA(jugador1);
 		saltaSur.venderA(jugador1);
 	}
 	
 	@Test (expected = NoPuedeEdificarException.class)
 	public void test64SiUnJugadorQuiereConstruirUnaCasaPeroNoEstaHabilitadoDeberiaDarNoPuedeEdificarException() {
-		Dados dados = new Dados();
-		Grupo salta = new Grupo();
 		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
-		Jugador jugador1 = new Jugador("Jugador1", 10000);
 		tucuman.construirCasa();
 	}
 	
 	@Test (expected = NoPuedeEdificarException.class)
 	public void test65SiUnJugadorQuiereConstruirUnHotelPeroNoEstaHabilitadoDeberiaDarNoPuedeEdificarException() {
-		Dados dados = new Dados();
-		Grupo salta = new Grupo();
 		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
 		tucuman.venderA(jugador1);
