@@ -1,8 +1,8 @@
 package eventos;
 
-//import java.applet.Applet;
-//import java.applet.AudioClip;
-//import java.net.URL;
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,10 +34,9 @@ public class BotonPerderHandler implements EventHandler<ActionEvent>  {
 		dialogoAlerta.initStyle(StageStyle.UTILITY);
 		dialogoAlerta.showAndWait();
 
-		// TODO poner un sonido
-//		URL url = getClass().getResource("/vista/sonidos/SUCTION.WAV");
-//		AudioClip clip = Applet.newAudioClip(url);
-//		clip.play();
+		URL url = getClass().getResource("/vista/sonidos/EXPLODE.WAV");
+		AudioClip clip = Applet.newAudioClip(url);
+		clip.play();
 	
 		contenedorPrincipal.refrescar();
 	}
