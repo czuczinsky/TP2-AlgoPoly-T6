@@ -11,6 +11,7 @@ public class Carcel extends Casillero {
 	public void ocupar(Jugador jugador, Dados dados) {
 		Prisionero nuevoPrisionero= new Prisionero(jugador);
 		this.prisioneros.add(nuevoPrisionero);
+		dados.tirar();
 	}
 	
 	public void avanzarTurnoDe(Jugador jugador) {
