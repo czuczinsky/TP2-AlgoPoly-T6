@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+// TODO limpiar codigo comentado
+
 public class AlgoPoly {
 	private Tablero tablero;
 	private Dados dados;
@@ -172,8 +174,4 @@ public class AlgoPoly {
 		((Agrupable) this.getJugadorActual().getPosicion()).venderA(this.getJugadorActual());
 		agrupableCompradoEnTurnoActual = (Agrupable) this.getJugadorActual().getPosicion();
 	}
-
-//	public String getMensaje() {
-//		return "Nada";
-//	}
 }

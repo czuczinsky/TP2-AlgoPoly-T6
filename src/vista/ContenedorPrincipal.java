@@ -48,7 +48,6 @@ public class ContenedorPrincipal extends BorderPane {
 		this.algoPoly = algoPoly;
 
 		this.setIzquierda();
-//		this.setConsola();
 		this.setPanelInformativo();
 	}
 
@@ -65,7 +64,6 @@ public class ContenedorPrincipal extends BorderPane {
 	private void setPanelInformativo() {
 
 		this.datosYBotones = new VBox();
-		// datosYBotones.setPadding(new Insets(60));
 		datosYBotones.setSpacing(20);
 
 		Image fondo = new Image("file:src/vista/imagenes/fondo.png");
@@ -202,24 +200,8 @@ public class ContenedorPrincipal extends BorderPane {
 				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}
 
-//	private void setConsola() {
-//
-//		Label etiqueta = new Label();
-//		etiqueta.setText(algoPoly.getMensaje());
-//		etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-//		etiqueta.setTextFill(Color.WHITE);
-//
-//		VBox contenedorConsola = new VBox(etiqueta);
-//		contenedorConsola.setSpacing(10);
-//		contenedorConsola.setPadding(new Insets(15));
-//		contenedorConsola.setStyle("-fx-background-color: black;");
-//
-//		this.setBottom(contenedorConsola);
-//	}
-
 	public void refrescar() {
 		this.setIzquierda();
-//		this.setConsola();
 		this.setPanelInformativo();
 	}
 }

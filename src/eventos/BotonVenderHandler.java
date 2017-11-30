@@ -9,29 +9,26 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.StageStyle;
 import modelo.Agrupable;
-import modelo.AlgoPoly;
 import vista.ContenedorPrincipal;
 
-public class BotonComprarHandler implements EventHandler<MouseEvent> {
-	private AlgoPoly algoPoly;
+public class BotonVenderHandler implements EventHandler<MouseEvent> {
 	private Agrupable agrupable;
 	private ContenedorPrincipal contenedorPrincipal;
 
-	public BotonComprarHandler(AlgoPoly algoPoly, Agrupable agrupable, ContenedorPrincipal contenedorPrincipal) {
-		this.algoPoly = algoPoly;
+	public BotonVenderHandler(Agrupable agrupable, ContenedorPrincipal contenedorPrincipal) {
 		this.agrupable = agrupable;
 		this.contenedorPrincipal = contenedorPrincipal;
 	}
 
 	@Override
 	public void handle(MouseEvent event) {
-		this.algoPoly.comprarAgrupable();
+		agrupable.vender();
 
 		URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 
-		this.mostrarAlert("Compr\u00f3 " + ((Agrupable) this.agrupable).getNombre() + ".");
+		this.mostrarAlert("Vendi\u00f3 " + agrupable.getNombre() + ".");
 
 		contenedorPrincipal.refrescar();
 	}

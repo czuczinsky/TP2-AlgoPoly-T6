@@ -25,31 +25,6 @@ public class VistaCasillero {
 
 		String nombreClase = "vista.Vista" + casillero.getClass().getSimpleName();
 
-		// TODO Bloque por si cambia modelo. Eliminar al fijar modelo
-		boolean esta = false;
-		if (nombreClase.equals("vista.VistaCarcel"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaAvance"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaCompania"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaTerreno"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaSalida"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaRetroceso"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaPolicia"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaQuini6"))
-			esta = true;
-		if (nombreClase.equals("vista.VistaImpuestoAlLujo"))
-			esta = true;
-
-		if (!esta)
-			nombreClase = "vista.VistaSalida";
-		// -----------------------------------------------------------------
-
 		try {
 			Class<?> clase = Class.forName(nombreClase);
 			Method metodo = clase.getDeclaredMethod("Instancia", param);

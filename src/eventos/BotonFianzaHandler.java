@@ -8,32 +8,32 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.StageStyle;
-import modelo.Agrupable;
 import modelo.AlgoPoly;
+import modelo.Carcel;
 import vista.ContenedorPrincipal;
 
-public class BotonComprarHandler implements EventHandler<MouseEvent> {
+public class BotonFianzaHandler implements EventHandler<MouseEvent> {
 	private AlgoPoly algoPoly;
-	private Agrupable agrupable;
+	private Carcel carcel;
 	private ContenedorPrincipal contenedorPrincipal;
 
-	public BotonComprarHandler(AlgoPoly algoPoly, Agrupable agrupable, ContenedorPrincipal contenedorPrincipal) {
+	public BotonFianzaHandler(AlgoPoly algoPoly, Carcel carcel, ContenedorPrincipal contenedorPrincipal) {
 		this.algoPoly = algoPoly;
-		this.agrupable = agrupable;
+		this.carcel = carcel;
 		this.contenedorPrincipal = contenedorPrincipal;
 	}
 
 	@Override
 	public void handle(MouseEvent event) {
-		this.algoPoly.comprarAgrupable();
+		this.carcel.cobrarFianza(algoPoly.getJugadorActual());
 
 		URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 		AudioClip clip = Applet.newAudioClip(url);
 		clip.play();
 
-		this.mostrarAlert("Compr\u00f3 " + ((Agrupable) this.agrupable).getNombre() + ".");
-
-		contenedorPrincipal.refrescar();
+		this.mostrarAlert("Pag\u00f3 fianza.");
+		
+		this.contenedorPrincipal.refrescar();
 	}
 	
 	private void mostrarAlert(String mensaje) {
@@ -44,5 +44,4 @@ public class BotonComprarHandler implements EventHandler<MouseEvent> {
 		dialogoAlerta.initStyle(StageStyle.UTILITY);
 		dialogoAlerta.showAndWait();
 	}
-
 }

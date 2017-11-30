@@ -1,8 +1,10 @@
 package vista;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-import java.net.URL;
+import eventos.BotonComprarHandler;
+import eventos.BotonConstruirCasaHandler;
+import eventos.BotonConstruirHotelHandler;
+import eventos.BotonFianzaHandler;
+import eventos.BotonVenderHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -74,7 +76,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		ImageView imageView = new ImageView();
 		imageView.setImage(image);
 		this.pane.add(imageView, x, y);
-		// TODO mejorar
 		imageView.setTranslateX(10);
 		imageView.setTranslateY(0);
 	}
@@ -83,128 +84,62 @@ public abstract class VistaRectangulo implements Dibujable {
 		return casillero;
 	}
 
+	private void setIcono(ImageView icono) {
+		icono.setFitWidth(40);
+		icono.setFitHeight(40);
+		icono.setPreserveRatio(true);
+		icono.setSmooth(true);
+		this.pane.add(icono, this.x, this.y);
+	}
+	
 	public void ponerBotonComprar() {
 		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/changuito.png");
-		iconoComprar.setFitWidth(40);
-		iconoComprar.setFitHeight(40);
-		iconoComprar.setPreserveRatio(true);
-		iconoComprar.setSmooth(true);
-		this.pane.add(iconoComprar, x, y);
+		setIcono(iconoComprar);
 		iconoComprar.setTranslateX(2);
 		iconoComprar.setTranslateY(-22);
-		// iconoComprar.setOnMouseClicked(new BotonComprarHandler(this.algoPoly,
-		// this.contenedorPrincipal));
-		iconoComprar.setOnMouseClicked(e -> {
-			// TODO mover a Control.
-			this.algoPoly.comprarAgrupable();
-
-			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
-			AudioClip clip = Applet.newAudioClip(url);
-			clip.play();
-
-			this.mostrarAlert("Compr\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
-			
-			contenedorPrincipal.refrescar();
-		});
+		iconoComprar.setOnMouseClicked(
+				new BotonComprarHandler(this.algoPoly, (Agrupable) this.casillero, this.contenedorPrincipal));
 	}
 
 	public void ponerBotonVender() {
-		ImageView iconoComprar = new ImageView("file:src/vista/imagenes/vender.png");
-		iconoComprar.setFitWidth(40);
-		iconoComprar.setFitHeight(40);
-		iconoComprar.setPreserveRatio(true);
-		iconoComprar.setSmooth(true);
-		this.pane.add(iconoComprar, x, y);
-		iconoComprar.setTranslateX(88);
-		iconoComprar.setTranslateY(-30);
-		iconoComprar.setOnMouseClicked(e -> {
-			// TODO mover a Control.
-			((Agrupable) casillero).vender();
-
-			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
-			AudioClip clip = Applet.newAudioClip(url);
-			clip.play();
-
-			this.mostrarAlert("Vendi\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
-
-			contenedorPrincipal.refrescar();
-		});
+		ImageView iconoVender = new ImageView("file:src/vista/imagenes/vender.png");
+		setIcono(iconoVender);
+		iconoVender.setTranslateX(88);
+		iconoVender.setTranslateY(-30);
+		iconoVender.setOnMouseClicked(new BotonVenderHandler((Agrupable) this.casillero, this.contenedorPrincipal));
 	}
 
 	public void ponerBotonPagarFianza() {
 		ImageView iconoFianza = new ImageView("file:src/vista/imagenes/fianza.png");
-		iconoFianza.setFitWidth(60);
-		iconoFianza.setFitHeight(60);
-		iconoFianza.setPreserveRatio(true);
-		iconoFianza.setSmooth(true);
-		this.pane.add(iconoFianza, x, y);
+		setIcono(iconoFianza);
 		iconoFianza.setTranslateX(-6);
 		iconoFianza.setTranslateY(-22);
-		iconoFianza.setOnMouseClicked(e -> {
-			// TODO mover a Control.
-			((Carcel) casillero).cobrarFianza(algoPoly.getJugadorActual());
-
-			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
-			AudioClip clip = Applet.newAudioClip(url);
-			clip.play();
-
-			this.mostrarAlert("Pag\u00f3 fianza.");
-			this.contenedorPrincipal.refrescar();
-		});
+		iconoFianza.setOnMouseClicked(
+				new BotonFianzaHandler(this.algoPoly, (Carcel) this.casillero, this.contenedorPrincipal));
 	}
 
 	public void ponerBotonConstruirCasa() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirCasa.png");
-		iconoConstruir.setFitWidth(40);
-		iconoConstruir.setFitHeight(40);
-		iconoConstruir.setPreserveRatio(true);
-		iconoConstruir.setSmooth(true);
-		this.pane.add(iconoConstruir, x, y);
+		setIcono(iconoConstruir);
 		iconoConstruir.setTranslateX(2);
 		iconoConstruir.setTranslateY(-22);
-		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control.
-			((Terreno) casillero).construirCasa();
-
-			URL url = getClass().getResource("/vista/sonidos/CONSTRUIR.WAV");
-			AudioClip clip = Applet.newAudioClip(url);
-			clip.play();
-
-			contenedorPrincipal.refrescar();
-		});
+		iconoConstruir.setOnMouseClicked(new BotonConstruirCasaHandler((Terreno) this.casillero, this.contenedorPrincipal));
 	}
 
 	public void ponerBotonConstruirHotel() {
 		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/construirHotel.png");
-		iconoConstruir.setFitWidth(40);
-		iconoConstruir.setFitHeight(40);
-		iconoConstruir.setPreserveRatio(true);
-		iconoConstruir.setSmooth(true);
-		this.pane.add(iconoConstruir, x, y);
+		setIcono(iconoConstruir);
 		iconoConstruir.setTranslateX(2);
 		iconoConstruir.setTranslateY(-22);
-		iconoConstruir.setOnMouseClicked(e -> {
-			// TODO mover a Control
-			((Terreno) casillero).construirHotel();
-
-			URL url = getClass().getResource("/vista/sonidos/CONSTRUIR2.WAV");
-			AudioClip clip = Applet.newAudioClip(url);
-			clip.play();
-
-			contenedorPrincipal.refrescar();
-		});
+		iconoConstruir.setOnMouseClicked(new BotonConstruirHotelHandler((Terreno) this.casillero, this.contenedorPrincipal));
 	}
 
 	public void ponerBotonInfo(String texto, String titulo) {
-		ImageView iconoConstruir = new ImageView("file:src/vista/imagenes/info.png");
-		iconoConstruir.setFitWidth(40);
-		iconoConstruir.setFitHeight(40);
-		iconoConstruir.setPreserveRatio(true);
-		iconoConstruir.setSmooth(true);
-		this.pane.add(iconoConstruir, x, y);
-		iconoConstruir.setTranslateX(96);
-		iconoConstruir.setTranslateY(28);
-		iconoConstruir.setOnMouseClicked(e -> {
+		ImageView iconoInfo = new ImageView("file:src/vista/imagenes/info.png");
+		setIcono(iconoInfo);
+		iconoInfo.setTranslateX(96);
+		iconoInfo.setTranslateY(28);
+		iconoInfo.setOnMouseClicked(e -> {
 			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle(titulo);
 			dialogoAlerta.setHeaderText(null);
@@ -226,15 +161,6 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.pane.add(iconoCasa, x, y);
 		iconoCasa.setTranslateX(40);
 
-	}
-	
-	public void mostrarAlert(String mensaje) {
-		Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
-		dialogoAlerta.setTitle("");
-		dialogoAlerta.setHeaderText(null);
-		dialogoAlerta.setContentText(mensaje);
-		dialogoAlerta.initStyle(StageStyle.UTILITY);
-		dialogoAlerta.showAndWait();
 	}
 
 	public void ponerFichasJugador() {
