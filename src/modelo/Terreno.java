@@ -59,7 +59,6 @@ public class Terreno extends Agrupable {
 	}
 
 	public void construirCasa() {
-		// lanzar exception si no se puede construir
 		if (this.puedeEdificarCasa()) {
 			Construccion casaNueva;
 			if (casas.size() == 0) {
@@ -70,16 +69,17 @@ public class Terreno extends Agrupable {
 			this.casas.add(casaNueva);
 			this.getPropietario().decrementarDinero(costoEdificarCasa);
 		}
+		else throw new NoPuedeEdificarException();
 	}
 
 	public void construirHotel() {
-		// lanzar exception si no se puede construir
 		if (this.puedeEdificarHotel()) {
 			Construccion hotelNuevo = new Construccion(this.getPropietario(), costoEdificarHotel, valorAlquilerHotel);
 			this.hoteles.add(hotelNuevo);
 			this.casas.clear();
 			this.getPropietario().decrementarDinero(costoEdificarHotel);
 		}
+		else throw new NoPuedeEdificarException();
 	}
 
 	public boolean puedeEdificarCasa() {

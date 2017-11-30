@@ -89,7 +89,7 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 10000 - 15000 - 5000 - 5000 - 5500 - 5500 - 8000, jugador1.getDinero());
 	}
 
-	@Test
+	@Test (expected = NoPuedeEdificarException.class)
 	public void test07SiUnJugadorQuiereEdificarUnHotelPeroNoLeAlcanzaElDineroNoSeLeDeberiaDescontarElPrecioDelHotel() {
 		Grupo provincia1 = new Grupo();
 		Terreno terrenoNorte = new Terreno("Terreno Norte", provincia1, 15000, 2000, 3000, 3500, 5000, 5000, 8000);
@@ -106,7 +106,7 @@ public class TerrenoTest {
 		Assert.assertEquals(51000 - 15000 - 15000 - 5000 - 5000 - 5500 - 5500, jugador1.getDinero());
 	}
 
-	@Test
+	@Test (expected = NoPuedeEdificarException.class)
 	public void test08SiUnJugadorIntentaConstruirUnHotelEnUnaProvinciaQueNoTieneZonaNorteYSurNoSeLeDeberiaDescontarElPrecioDelHotel() {
 		Grupo provincia1 = new Grupo();
 		Terreno terreno1 = new Terreno("Terreno 1", provincia1, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
@@ -366,7 +366,7 @@ public class TerrenoTest {
 		Assert.assertEquals(13000 - 3500, laura.getDinero());
 	}
 
-	@Test
+	@Test(expected = NoPuedeEdificarException.class)
 	public void test27JugadorQueEsPropietarioDeBsAsSurYNorteYTiene3CasasCuandoConstruyeUnHotelSuDineroNoDeberiaDecrementarse() {
 		Grupo buenosAires = new Grupo();
 		Terreno bsAsSur = new Terreno("Buenos Aires Sur", buenosAires, 20000, 2000, 3000, 3500, 5000, 5000, 8000);
@@ -1019,5 +1019,35 @@ public class TerrenoTest {
 		saltaSur.venderA(jugador1);
 
 		assertEquals(0, saltaSur.getAlquiler(jugador1, dados));
+	}
+	
+	@Test (expected = PropietarioYaExistenteException.class)
+	public void test63SiUnJugadorQuiereComprarUnTerrenoQueYaTienePropietarioDeberiaDarPropietarioYaExistenteException() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		Jugador jugador2 = new Jugador("Jugador2", 100000);
+		saltaSur.venderA(jugador1);
+		saltaSur.venderA(jugador1);
+	}
+	
+	@Test (expected = NoPuedeEdificarException.class)
+	public void test64SiUnJugadorQuiereConstruirUnaCasaPeroNoEstaHabilitadoDeberiaDarNoPuedeEdificarException() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
+		Jugador jugador1 = new Jugador("Jugador1", 10000);
+		tucuman.construirCasa();
+	}
+	
+	@Test (expected = NoPuedeEdificarException.class)
+	public void test65SiUnJugadorQuiereConstruirUnHotelPeroNoEstaHabilitadoDeberiaDarNoPuedeEdificarException() {
+		Dados dados = new Dados();
+		Grupo salta = new Grupo();
+		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
+		Jugador jugador1 = new Jugador("Jugador1", 100000);
+		tucuman.venderA(jugador1);
+		tucuman.construirHotel();
 	}
 }

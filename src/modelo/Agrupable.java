@@ -20,11 +20,12 @@ public abstract class Agrupable extends Casillero {
 	}
 
 	public void venderA(Jugador jugador) {
-		if (!this.tienePropietario()) {// si ya tiene duenio lanzar exception
+		if (!this.tienePropietario()) {
 			this.setPropietario(jugador);
 			jugador.decrementarDinero(this.getPrecio());
 			this.agregarA(jugador);
 		}
+		else throw new PropietarioYaExistenteException();
 	}
 
 	public void vender() {

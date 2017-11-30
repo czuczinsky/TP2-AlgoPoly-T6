@@ -8,6 +8,8 @@ import modelo.Compania;
 import modelo.Dados;
 import modelo.Grupo;
 import modelo.Jugador;
+import modelo.PropietarioYaExistenteException;
+import modelo.Terreno;
 
 public class CompaniaTest {
 
@@ -259,5 +261,17 @@ public class CompaniaTest {
 		aysa.venderA(propietario);
 		
 		assertEquals(1000 * 4, edesur.getAlquiler(jugador, dados));
+	}
+	
+	@Test (expected = PropietarioYaExistenteException.class)
+	public void test63SiUnJugadorQuiereComprarUnTerrenoQueYaTienePropietarioDeberiaDarPropietarioYaExistenteException() {
+		Dados dados = new Dados();
+		Jugador jugador1 = new Jugador("Azul", 100000);
+		Jugador jugador2 = new Jugador("Rojo", 100000);
+		Grupo edesurAysa = new Grupo();
+		Compania edesur = new Compania("EDESUR", 35000, edesurAysa, 500, 1000);
+		
+		edesur.venderA(jugador1);
+		edesur.venderA(jugador2);
 	}
 }
