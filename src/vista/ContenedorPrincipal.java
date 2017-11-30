@@ -202,20 +202,20 @@ public class ContenedorPrincipal extends BorderPane {
 				+ "-fx-border-insets: 2;" + "-fx-border-radius: 10;" + "-fx-border-color: " + color + ";");
 	}
 
-	private void setConsola() {
-
-		Label etiqueta = new Label();
-		etiqueta.setText(algoPoly.getMensaje());
-		etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-		etiqueta.setTextFill(Color.WHITE);
-
-		VBox contenedorConsola = new VBox(etiqueta);
-		contenedorConsola.setSpacing(10);
-		contenedorConsola.setPadding(new Insets(15));
-		contenedorConsola.setStyle("-fx-background-color: black;");
-
-		this.setBottom(contenedorConsola);
-	}
+//	private void setConsola() {
+//
+//		Label etiqueta = new Label();
+//		etiqueta.setText(algoPoly.getMensaje());
+//		etiqueta.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+//		etiqueta.setTextFill(Color.WHITE);
+//
+//		VBox contenedorConsola = new VBox(etiqueta);
+//		contenedorConsola.setSpacing(10);
+//		contenedorConsola.setPadding(new Insets(15));
+//		contenedorConsola.setStyle("-fx-background-color: black;");
+//
+//		this.setBottom(contenedorConsola);
+//	}
 
 	public void refrescar() {
 		this.setIzquierda();
