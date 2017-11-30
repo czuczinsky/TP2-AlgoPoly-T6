@@ -48,7 +48,7 @@ public class ContenedorPrincipal extends BorderPane {
 		this.algoPoly = algoPoly;
 
 		this.setIzquierda();
-		this.setConsola();
+//		this.setConsola();
 		this.setPanelInformativo();
 	}
 
@@ -219,7 +219,7 @@ public class ContenedorPrincipal extends BorderPane {
 
 	public void refrescar() {
 		this.setIzquierda();
-		this.setConsola();
+//		this.setConsola();
 		this.setPanelInformativo();
 	}
 }
