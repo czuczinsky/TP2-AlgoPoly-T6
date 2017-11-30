@@ -9,7 +9,6 @@ import modelo.Dados;
 import modelo.Grupo;
 import modelo.Jugador;
 import modelo.PropietarioYaExistenteException;
-import modelo.Terreno;
 
 public class CompaniaTest {
 
