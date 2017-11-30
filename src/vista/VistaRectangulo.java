@@ -3,8 +3,6 @@ package vista;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
-import javax.swing.JOptionPane;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -207,7 +205,12 @@ public abstract class VistaRectangulo implements Dibujable {
 		iconoConstruir.setTranslateX(96);
 		iconoConstruir.setTranslateY(28);
 		iconoConstruir.setOnMouseClicked(e -> {
-			JOptionPane.showMessageDialog(null, texto, titulo, JOptionPane.INFORMATION_MESSAGE);
+			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
+			dialogoAlerta.setTitle(titulo);
+			dialogoAlerta.setHeaderText(null);
+			dialogoAlerta.setContentText(texto);
+			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.showAndWait();
 		});
 	}
 
