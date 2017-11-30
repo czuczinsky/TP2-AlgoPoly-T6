@@ -107,8 +107,7 @@ public abstract class VistaRectangulo implements Dibujable {
 			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Ha comprado este lugar, ahora es el propietario");
-			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.setContentText("Compr\u00f3 " + ((Agrupable)this.casillero).getNombre());
 			dialogoAlerta.showAndWait();
 
 			contenedorPrincipal.refrescar();
@@ -136,7 +135,8 @@ public abstract class VistaRectangulo implements Dibujable {
 			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Acaba de verder sus propiedades");
+			dialogoAlerta.setContentText("Vendi\u00f3 sus propiedades.");
+//			dialogoAlerta.setContentText("Acaba de verder sus propiedades");
 			dialogoAlerta.initStyle(StageStyle.UTILITY);
 			dialogoAlerta.showAndWait();
 	
@@ -165,7 +165,8 @@ public abstract class VistaRectangulo implements Dibujable {
 			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Acaba de pagar la fianza para quedar en libertad");
+//			dialogoAlerta.setContentText("Acaba de pagar la fianza para quedar en libertad");
+			dialogoAlerta.setContentText("Pag\u00f3 fianza.");
 			dialogoAlerta.initStyle(StageStyle.UTILITY);
 			dialogoAlerta.showAndWait();
 	
