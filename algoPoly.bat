@@ -1,1 +1,1 @@
-java -cp ./bin vista.Aplicacion
+java -cp ./build vista.Aplicacion
