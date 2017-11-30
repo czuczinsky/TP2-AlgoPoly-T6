@@ -91,12 +91,26 @@ public class ContenedorPrincipal extends BorderPane {
 		this.mostrarDados(algoPoly.getDados().getDado1());
 		this.mostrarDados(algoPoly.getDados().getDado2());
 
+		if (this.algoPoly.getJugadores().size() == 1) {
+			mostrarAlert("Gano jugador: " + algoPoly.getJugadores().get(0).getNombre());
+			// TODO aca deberia terminar.
+		}
+		
 		this.ponerBotones();
 
 		this.datosYBotones.setAlignment(Pos.CENTER);
 		this.setCenter(datosYBotones);
 	}
 
+	private void mostrarAlert(String mensaje) {
+		Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
+		dialogoAlerta.setTitle("");
+		dialogoAlerta.setHeaderText(null);
+		dialogoAlerta.setContentText(mensaje);
+		dialogoAlerta.initStyle(StageStyle.UTILITY);
+		dialogoAlerta.showAndWait();
+	}
+	
 	private void ponerBotones() {
 		if (algoPoly.puedeTirarDados()) {
 			Button btnTirarDados = new Button();
