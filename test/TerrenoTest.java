@@ -104,13 +104,11 @@ public class TerrenoTest {
 		terrenoSur.construirCasa(); // segunda casa
 		try {
 			terrenoNorte.construirHotel(); // hotel
-		} 
-		catch (NoPuedeEdificarException npe) {
+		} catch (NoPuedeEdificarException npe) {
 		}
-		
+
 		Assert.assertEquals(51000 - 15000 - 15000 - 5000 - 5000 - 5500 - 5500, jugador1.getDinero());
 	}
-
 
 	@Test
 	public void test08SiUnJugadorIntentaConstruirUnHotelEnUnaProvinciaQueNoTieneZonaNorteYSurNoSeLeDeberiaDescontarElPrecioDelHotel() {
@@ -122,8 +120,7 @@ public class TerrenoTest {
 		terreno1.construirCasa(); // primera casa
 		try {
 			terreno1.construirHotel(); // hotel
-		} 
-		catch (NoPuedeEdificarException npe) {
+		} catch (NoPuedeEdificarException npe) {
 		}
 
 		Assert.assertEquals(100000 - 20000 - 5000, jugador1.getDinero());
@@ -393,8 +390,7 @@ public class TerrenoTest {
 		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500, lucas.getDinero());
 		try {
 			bsAsNorte.construirHotel(); // hotel
-		} 
-		catch (NoPuedeEdificarException npe) {
+		} catch (NoPuedeEdificarException npe) {
 		}
 		Assert.assertEquals(100000 - 20000 - 25000 - 5000 - 5000 - 5500, lucas.getDinero());
 
@@ -948,7 +944,7 @@ public class TerrenoTest {
 				jugador1.getDinero());
 		Assert.assertEquals(100000 - 23000 + 2000, jugador2.getDinero());
 	}
-	
+
 	@Test
 	public void test57ObtenerAlquilerDeTerrenoSinDuenioDeberiaDevolverCero() {
 		Dados dados = new Dados();
@@ -958,7 +954,7 @@ public class TerrenoTest {
 
 		assertEquals(0, saltaSur.getAlquiler(jugador1, dados));
 	}
-	
+
 	@Test
 	public void test58ObtenerAlquilerDeTerrenoSaltaSinCasaConDuenioDeberiaDevolver2000() {
 		Dados dados = new Dados();
@@ -966,9 +962,9 @@ public class TerrenoTest {
 		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
 		Jugador jugador2 = new Jugador("Jugador2", 100000);
-		
+
 		saltaSur.venderA(jugador2);
-		
+
 		assertEquals(2000, saltaSur.getAlquiler(jugador1, dados));
 	}
 
@@ -980,14 +976,14 @@ public class TerrenoTest {
 		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
 		Jugador jugador2 = new Jugador("Jugador2", 100000);
-		
+
 		saltaSur.venderA(jugador2);
 		saltaNorte.venderA(jugador2);
 		saltaSur.construirCasa();
-		
+
 		assertEquals(3250, saltaSur.getAlquiler(jugador1, dados));
 	}
-	
+
 	@Test
 	public void test60ObtenerAlquilerDeTerrenoSaltaConDosCasasConDuenioDeberiaDevolver3850() {
 		Dados dados = new Dados();
@@ -996,15 +992,15 @@ public class TerrenoTest {
 		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
 		Jugador jugador2 = new Jugador("Jugador2", 100000);
-		
+
 		saltaSur.venderA(jugador2);
 		saltaNorte.venderA(jugador2);
 		saltaSur.construirCasa();
 		saltaSur.construirCasa();
-		
+
 		assertEquals(3850, saltaSur.getAlquiler(jugador1, dados));
 	}
-	
+
 	@Test
 	public void test61ObtenerAlquilerDeTerrenoSaltaConHotelConDuenioDeberiaDevolver5500() {
 		Dados dados = new Dados();
@@ -1013,7 +1009,7 @@ public class TerrenoTest {
 		Terreno saltaNorte = new Terreno("SALTA NORTE", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);
 		Jugador jugador2 = new Jugador("Jugador2", 200000);
-		
+
 		saltaSur.venderA(jugador2);
 		saltaNorte.venderA(jugador2);
 		saltaSur.construirCasa();
@@ -1021,10 +1017,10 @@ public class TerrenoTest {
 		saltaNorte.construirCasa();
 		saltaNorte.construirCasa();
 		saltaSur.construirHotel();
-		
+
 		assertEquals(5500, saltaSur.getAlquiler(jugador1, dados));
 	}
-	
+
 	@Test
 	public void test62DuenioObtieneAlquilerDeSuTerrenoDeberiaDevolverCero() {
 		Dados dados = new Dados();
@@ -1035,8 +1031,8 @@ public class TerrenoTest {
 
 		assertEquals(0, saltaSur.getAlquiler(jugador1, dados));
 	}
-	
-	@Test (expected = PropietarioYaExistenteException.class)
+
+	@Test(expected = PropietarioYaExistenteException.class)
 	public void test63SiUnJugadorQuiereComprarUnTerrenoQueYaTienePropietarioDeberiaDarPropietarioYaExistenteException() {
 		Grupo salta = new Grupo();
 		Terreno saltaSur = new Terreno("SALTA SUR", salta, 23000, 2000, 3250, 3850, 5500, 4500, 7500);
@@ -1044,14 +1040,14 @@ public class TerrenoTest {
 		saltaSur.venderA(jugador1);
 		saltaSur.venderA(jugador1);
 	}
-	
-	@Test (expected = NoPuedeEdificarException.class)
+
+	@Test(expected = NoPuedeEdificarException.class)
 	public void test64SiUnJugadorQuiereConstruirUnaCasaPeroNoEstaHabilitadoDeberiaDarNoPuedeEdificarException() {
 		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
 		tucuman.construirCasa();
 	}
-	
-	@Test (expected = NoPuedeEdificarException.class)
+
+	@Test(expected = NoPuedeEdificarException.class)
 	public void test65SiUnJugadorQuiereConstruirUnHotelPeroNoEstaHabilitadoDeberiaDarNoPuedeEdificarException() {
 		Terreno tucuman = new Terreno("TUCUMAN", new Grupo(), 25000, 2500, 4500, 0, 0, 7000, 0);
 		Jugador jugador1 = new Jugador("Jugador1", 100000);

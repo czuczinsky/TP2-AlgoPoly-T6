@@ -47,10 +47,7 @@ public class AvanceTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		//dados = Dados.getDados();
-		
 		tablero = new Tablero();
-		
 		salida=new Salida();
 		tablero.agregarCasillero(salida);
 		quini=new Quini6();

@@ -8,7 +8,6 @@ public class DadosTest {
 
 	@Test
 	public void test01Tirar() {
-		//Dados dados = Dados.getDados();
 		Dados dados=new Dados();
 		for (int i = 0; i < 1000; i++) {
 			dados.tirar();

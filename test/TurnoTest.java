@@ -62,14 +62,14 @@ public class TurnoTest {
 		dados.setNumeros(2, 3);
 		turno.siguienteJugador(this.dados);
 		dados.setNumeros(2, 3);
-		assertEquals(jugadorRojo,turno.siguienteJugador(this.dados));
+		assertEquals(jugadorRojo, turno.siguienteJugador(this.dados));
 	}
-	
+
 	@Test
 	public void test05JugadorVuelveAJugarPorSacarDobles() {
 		turno.siguienteJugador(dados);
 		dados.setNumeros(2, 2);
-		assertEquals(jugadorRojo,turno.siguienteJugador(this.dados));
+		assertEquals(jugadorRojo, turno.siguienteJugador(this.dados));
 	}
 
 	@Test
@@ -78,9 +78,9 @@ public class TurnoTest {
 		dados.setNumeros(2, 2);
 		turno.siguienteJugador(dados);
 		dados.setNumeros(6, 6);
-		assertEquals(jugadorVerde,turno.siguienteJugador(this.dados));
+		assertEquals(jugadorVerde, turno.siguienteJugador(this.dados));
 	}
-	
+
 	@Test
 	public void test07DosJugadoresConsecutivosSacanDobles() {
 		turno.siguienteJugador(dados);
@@ -97,7 +97,7 @@ public class TurnoTest {
 		assertEquals(jugadorRojo, turno.siguienteJugador(this.dados));
 		assertEquals(jugadorRojo, turno.getJugadorActual());
 	}
-	
+
 	@Test
 	public void test09BorrarJugadorRojo() {
 		dados.setNumeros(1, 2);
@@ -114,7 +114,7 @@ public class TurnoTest {
 		turno.borrar();
 		assertEquals(2, jugadores.size());
 	}
-	
+
 	@Test
 	public void test11BorrarJugadorAzul() {
 		dados.setNumeros(1, 3);
@@ -124,7 +124,7 @@ public class TurnoTest {
 		turno.borrar();
 		assertEquals(2, jugadores.size());
 	}
-	
+
 	@Test
 	public void test12BorrarJugadorQueSacoDobles() {
 		dados.setNumeros(2, 2);
