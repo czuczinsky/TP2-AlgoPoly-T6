@@ -7,8 +7,10 @@ import eventos.BotonTirarDadosHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -25,6 +27,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import modelo.AlgoPoly;
 import modelo.Jugador;
 
@@ -111,6 +114,13 @@ public class ContenedorPrincipal extends BorderPane {
 		if (algoPoly.debePasarTurno()) {
 			Button btnPasar = new Button();
 			btnPasar.setText("Pasar Turno");
+			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+			dialogoAlerta.setTitle("");
+			dialogoAlerta.setHeaderText(null);
+			dialogoAlerta.setContentText("Pierde turno por estar preso");
+			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.showAndWait();
+	
 			BotonPasarTurnoHandler pasarHandler = new BotonPasarTurnoHandler(this.algoPoly, this);
 			btnPasar.setOnAction(pasarHandler);
 			VBox.setMargin(btnPasar, new Insets(15));
@@ -120,6 +130,14 @@ public class ContenedorPrincipal extends BorderPane {
 		if (algoPoly.perder()) {
 			Button btnPerder = new Button();
 			btnPerder.setText("Perder");
+			
+			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+			dialogoAlerta.setTitle("");
+			dialogoAlerta.setHeaderText(null);
+			dialogoAlerta.setContentText("Debe vender");
+			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.showAndWait();
+	
 			BotonPerderHandler perderHandler = new BotonPerderHandler(this.algoPoly, this);
 			btnPerder.setOnAction(perderHandler);
 			VBox.setMargin(btnPerder, new Insets(15));

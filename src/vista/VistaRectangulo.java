@@ -136,7 +136,7 @@ public abstract class VistaRectangulo implements Dibujable {
 			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
 			dialogoAlerta.setTitle("");
 			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Para afrontar los gastos debe verder sus propiedades");
+			dialogoAlerta.setContentText("Acaba de verder sus propiedades");
 			dialogoAlerta.initStyle(StageStyle.UTILITY);
 			dialogoAlerta.showAndWait();
 	
@@ -161,6 +161,14 @@ public abstract class VistaRectangulo implements Dibujable {
 			URL url = getClass().getResource("/vista/sonidos/CASHREG.WAV");
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
+			
+			Alert dialogoAlerta=new Alert(AlertType.INFORMATION);
+			dialogoAlerta.setTitle("");
+			dialogoAlerta.setHeaderText(null);
+			dialogoAlerta.setContentText("Acaba de pagar la fianza para quedar en libertad");
+			dialogoAlerta.initStyle(StageStyle.UTILITY);
+			dialogoAlerta.showAndWait();
+	
 
 			contenedorPrincipal.refrescar();
 		});
@@ -226,12 +234,14 @@ public abstract class VistaRectangulo implements Dibujable {
 		ImageView iconoCasa = new ImageView("file:src/vista/imagenes/casa.png");
 		this.pane.add(iconoCasa, x, y);
 		iconoCasa.setTranslateX(28 + i * 40);
+
 	}
 
 	public void ponerHotel() {
 		ImageView iconoCasa = new ImageView("file:src/vista/imagenes/hotel.png");
 		this.pane.add(iconoCasa, x, y);
 		iconoCasa.setTranslateX(40);
+
 	}
 
 	public void ponerFichasJugador() {
