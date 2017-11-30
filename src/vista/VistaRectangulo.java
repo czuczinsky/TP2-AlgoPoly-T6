@@ -104,12 +104,8 @@ public abstract class VistaRectangulo implements Dibujable {
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
 
-			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
-			dialogoAlerta.setTitle("");
-			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Compr\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
-			dialogoAlerta.showAndWait();
-
+			this.mostrarAlert("Compr\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
+			
 			contenedorPrincipal.refrescar();
 		});
 	}
@@ -131,13 +127,7 @@ public abstract class VistaRectangulo implements Dibujable {
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
 
-			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
-			dialogoAlerta.setTitle("");
-			dialogoAlerta.setHeaderText(null);
-			dialogoAlerta.setContentText("Vendi\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
-			// dialogoAlerta.setContentText("Acaba de verder sus propiedades");
-			dialogoAlerta.initStyle(StageStyle.UTILITY);
-			dialogoAlerta.showAndWait();
+			this.mostrarAlert("Vendi\u00f3 " + ((Agrupable) this.casillero).getNombre() + ".");
 
 			contenedorPrincipal.refrescar();
 		});
@@ -160,16 +150,8 @@ public abstract class VistaRectangulo implements Dibujable {
 			AudioClip clip = Applet.newAudioClip(url);
 			clip.play();
 
-			Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
-			dialogoAlerta.setTitle("");
-			dialogoAlerta.setHeaderText(null);
-			// dialogoAlerta.setContentText("Acaba de pagar la fianza para quedar en
-			// libertad");
-			dialogoAlerta.setContentText("Pag\u00f3 fianza.");
-			dialogoAlerta.initStyle(StageStyle.UTILITY);
-			dialogoAlerta.showAndWait();
-
-			contenedorPrincipal.refrescar();
+			this.mostrarAlert("Pag\u00f3 fianza.");
+			this.contenedorPrincipal.refrescar();
 		});
 	}
 
@@ -241,6 +223,15 @@ public abstract class VistaRectangulo implements Dibujable {
 		this.pane.add(iconoCasa, x, y);
 		iconoCasa.setTranslateX(40);
 
+	}
+	
+	public void mostrarAlert(String mensaje) {
+		Alert dialogoAlerta = new Alert(AlertType.INFORMATION);
+		dialogoAlerta.setTitle("");
+		dialogoAlerta.setHeaderText(null);
+		dialogoAlerta.setContentText(mensaje);
+		dialogoAlerta.initStyle(StageStyle.UTILITY);
+		dialogoAlerta.showAndWait();
 	}
 
 	public void ponerFichasJugador() {
